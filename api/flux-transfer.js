@@ -25,9 +25,9 @@
 //      여성 상반신 → 다 빈치 80% (모나리자 스푸마토)
 //      남성 전신 → 미켈란젤로 (다비드 영웅성)
 //
-// v45: 중세 미술에 이슬람 미술 2가지 스타일 추가
-//      인물 사진: 비잔틴 30% / 고딕 25% / 로마네스크 20% / 이슬람 세밀화 25%
-//      풍경 사진: 비잔틴 / 고딕 / 로마네스크 / 이슬람 기하학 (AI 선택, 세밀화 금지)
+// v45: 중세 미술에 이슬람 미술 추가 (로마네스크 제거)
+//      인물 사진: 비잔틴 55% / 고딕 25% / 이슬람 세밀화 20%
+//      풍경 사진: 비잔틴 / 고딕 / 이슬람 기하학 (AI 선택, 세밀화 금지)
 //
 // 미술사조 10개 (시간순):
 //   1. 고대 그리스-로마 (BC 800~AD 500) - 유지
@@ -39,7 +39,7 @@
 //   5. 로코코 (1720~1780) - 2명 화가 선택
 //   6. 신고전주의 vs 낭만주의 vs 사실주의 (1770~1870) - 7명 화가 선택 (AI가 3개 중 선택)
 //      → David, Ingres (신고전주의)
-//      → Turner, Friedrich, Delacroix (낭만주의)
+//      → Turner, Goya, Delacroix (낭만주의)
 //      → Millet, Manet (사실주의)
 //   7. 인상주의 (1860~1890) - 4명 화가 선택
 //   8. 후기인상주의 (1880~1910) - 4명 화가 선택
@@ -65,47 +65,53 @@ function getAncientGreekRomanGuidelines() {
 Available Ancient Greek-Roman Styles (2가지):
 
 ⭐ STYLE 1: CLASSICAL SCULPTURE (고대 그리스-로마 조각)
-   - For: PEOPLE-FOCUSED PHOTOS - people占 40% or more of composition
-   - PRIORITY: Dynamic movement/action/sports (regardless of composition)
-   - Examples: Sports action shots (any composition)
-              Portrait close-ups (people dominant)
-              Upper body shots (people 70%+)
-              Group photos where people fill significant portion
-              Any photo where human figures are main visual focus
+   - For: INDOOR PORTRAITS or SPORTS/ACTION PHOTOS ONLY
+   - PRIORITY: Sports/athletic action OR indoor portrait settings
+   - Examples: Sports action shots (running, jumping, throwing)
+              Indoor portraits (studio, home, office settings)
+              Athletic poses, gym photos
+              Indoor group photos
+   - NOT for: Outdoor portraits, casual outdoor photos, landscapes with people
    - Material: Pure white marble only (classical aesthetic)
-   - Technique: Dynamic poses, visible pupils in eyes, sculptural curls
+   - Technique: Dynamic poses for sports, classical poses for indoor portraits
    - Polychromy: Marble includes subtle painted details (eyes, lips, clothing)
-   - Background: Simple plain neutral background
+   - Background: Simple plain neutral background (museum-like)
    - Aesthetic: Classical Greek/Roman white marble sculpture
 
 ⭐ STYLE 2: ROMAN MOSAIC (로마 모자이크)
-   - For: LANDSCAPE-FOCUSED PHOTOS - people占 less than 40% OR no people
-   - Examples: Wide landscape shots with small distant people
-              Nature scenes where scenery dominates
-              Mountains, rivers, sky, trees as main subject
-              People as small elements in large environment
-              Flowers, plants, objects without people
-   - Technique: Clearly visible tesserae tiles with distinct grout lines
-   - Aesthetic: Roman floor/wall mosaic, jewel-tone colors
+   - For: ALL OTHER PHOTOS (outdoor portraits, landscapes, nature, etc.)
+   - Examples: Outdoor portraits (any setting)
+              All landscape shots (with or without people)
+              Nature scenes, flowers, plants
+              City scenes, buildings
+              Beach photos, mountain photos
+              ANY outdoor photos with people
+   - Technique: LARGE VISIBLE tesserae tiles (15-25mm each), THICK DARK GROUT LINES between tiles
+   - CRITICAL: Each tile must be CLEARLY DISTINGUISHABLE as individual square/rectangular pieces
+   - Aesthetic: Roman floor/wall mosaic with chunky stone tiles, jewel-tone colors
 
-🎯 KEY DECISION RULE - COMPOSITION BASED:
-1. Is there DYNAMIC ACTION/SPORTS? → SCULPTURE (priority!)
-2. Do people占 40% or MORE of the photo? → SCULPTURE
-3. Do people占 LESS than 40% (landscape dominant)? → MOSAIC
-4. No people (flowers, nature, objects)? → MOSAIC
+🎯 KEY DECISION RULE - SIMPLIFIED:
+1. SPORTS/ATHLETIC ACTION? → SCULPTURE (highest priority!)
+2. INDOOR PORTRAIT/GROUP? → SCULPTURE
+3. OUTDOOR PORTRAIT? → MOSAIC
+4. LANDSCAPE/NATURE? → MOSAIC
+5. ANY OTHER OUTDOOR SCENE? → MOSAIC
 
 Examples:
-- Volleyball game = SCULPTURE (dynamic action)
-- Scuba diving portrait = SCULPTURE (people 45%)
-- Couple close-up = SCULPTURE (people 80%)
-- Dad and child in wide river = MOSAIC (people 25%)
-- Mountain with tiny hikers = MOSAIC (people 10%)
-- Sunflower = MOSAIC (no people)
+- Volleyball game = SCULPTURE (sports action)
+- Indoor portrait at home = SCULPTURE (indoor setting)
+- Gym workout = SCULPTURE (athletic/indoor)
+- Office team photo = SCULPTURE (indoor group)
+- Couple at beach = MOSAIC (outdoor portrait)
+- Person in garden = MOSAIC (outdoor setting)
+- Mountain hiking = MOSAIC (outdoor landscape)
+- Street portrait = MOSAIC (outdoor)
+- Sunflower = MOSAIC (nature)
 `;
 }
 
 function getAncientGreekRomanHints(photoAnalysis) {
-  const { count, subject, shot_type } = photoAnalysis;
+  const { count, subject, shot_type, background, activity } = photoAnalysis;
   
   // 동물 → 모자이크 (역사적으로 로마가 동물 모자이크 전성기)
   if (subject === 'animal' || subject === 'pet' || subject === 'dog' || subject === 'cat' || 
@@ -116,67 +122,64 @@ function getAncientGreekRomanHints(photoAnalysis) {
 🎯 HIGHEST PRIORITY: ROMAN MOSAIC (로마 모자이크)
 This photo has ANIMALS - perfect for Roman mosaic!
 Historical accuracy: Romans excelled at animal mosaics (Pompeii Cave Canem, Orpheus mosaics).
-Roman mosaic with tesserae tiles showing animals, birds, or sea creatures.
+Roman mosaic with LARGE CHUNKY tesserae tiles (20-30mm), THICK BLACK GROUT between every tile.
 `;
   }
   
-  // 스포츠/액션 → 조각 (최우선!)
-  if (subject.includes('sport') || subject.includes('action') || subject.includes('athletic') ||
-      subject.includes('jump') || subject.includes('run') || subject.includes('dance') ||
-      subject.includes('movement') || subject.includes('dynamic')) {
+  // 스포츠/운동 → 조각 (최우선)
+  if (subject.includes('sport') || subject.includes('athletic') || 
+      activity === 'sports' || activity === 'exercise' || activity === 'athletic' ||
+      subject.includes('running') || subject.includes('jumping') || subject.includes('throwing') ||
+      subject.includes('soccer') || subject.includes('football') || subject.includes('ball') ||
+      subject.includes('kick') || subject.includes('catch') || subject.includes('play')) {
     return `
 🎯 HIGHEST PRIORITY: CLASSICAL SCULPTURE (고대 조각)
-This photo has DYNAMIC MOVEMENT/ACTION - perfect for sculpture!
-Sports, action, athletic poses = SCULPTURE (even if landscape/stadium visible!)
-AI should choose bronze for dynamic sports action.
-Marble should include polychromy (painted eyes, lips, clothing).
+SPORTS/ATHLETIC ACTION detected - MUST be Greek sculpture!
+⚠️ CRITICAL: Ball games, soccer, football = ALWAYS SCULPTURE
+Think: Discobolus, Olympic athletes in marble
+Dynamic athletic pose frozen in white marble.
+NEVER mosaic for sports, even if outdoor!
+`;
+  }
+  
+  // 실내 인물 → 조각
+  if (background === 'indoor' || background === 'studio' || background === 'home' || 
+      background === 'office' || background.includes('indoor')) {
+    return `
+🎯 RECOMMENDATION: CLASSICAL SCULPTURE (고대 조각)
+INDOOR PORTRAIT setting - suitable for classical sculpture.
+White marble portrait with museum-like presentation.
+`;
+  }
+  
+  // 야외 인물 → 모자이크
+  if (background === 'outdoor' || background === 'nature' || background === 'street' ||
+      background === 'beach' || background === 'park' || background.includes('outdoor')) {
+    return `
+🎯 RECOMMENDATION: ROMAN MOSAIC (로마 모자이크)
+OUTDOOR setting detected - Roman mosaic style.
+LARGE VISIBLE tesserae tiles (20-30mm each) with THICK BLACK GROUT LINES.
 `;
   }
   
   // 풍경/정물 → 모자이크
   if (subject === 'landscape' || subject === 'flowers' || subject === 'plants' || 
-      subject === 'cityscape' || subject === 'objects' || subject === 'still_life' ||
-      subject.includes('flower') || subject.includes('plant') || subject.includes('tree') ||
-      subject.includes('mountain') || subject.includes('river') || subject.includes('scenery') ||
-      subject.includes('sky') || subject.includes('outdoor')) {
+      subject === 'cityscape' || subject === 'objects' || subject === 'still_life') {
     return `
 🎯 RECOMMENDATION: ROMAN MOSAIC (로마 모자이크)
-This photo has LANDSCAPE elements - likely Roman mosaic!
-BUT check first: Is there dynamic movement/sports? If YES → use SCULPTURE instead!
-If people are standing CALMLY in landscape → use MOSAIC.
-Roman mosaic with natural tesserae tiles and jewel-tone colors.
+Landscape/still life detected - Roman mosaic style.
+BIG CHUNKY tesserae (20-30mm) creating mosaic with VISIBLE GROUT LINES.
 `;
   }
   
-  // 1명 초상 → 조각
-  if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body')) {
-    return `
-🎯 RECOMMENDATION: CLASSICAL SCULPTURE (고대 조각)
-Individual portrait - likely Greek-Roman sculpture!
-Check: Is there landscape background? If static person in landscape → MOSAIC.
-If portrait without landscape → SCULPTURE.
-AI will choose: white marble or bronze.
-Marble should include polychromy (painted eyes, lips, clothing).
-`;
-  }
-  
-  // 단체 → 배경과 역동성 확인
-  if (count > 1 || subject.includes('team') || subject.includes('group')) {
-    return `
-🎯 CHECK PRIORITY:
-1. Is there DYNAMIC ACTION/SPORTS? → CLASSICAL SCULPTURE (priority!)
-2. Are people standing CALMLY with landscape? → ROMAN MOSAIC
-3. Group portrait without landscape? → CLASSICAL SCULPTURE
-Bronze for action, marble for static portraits with polychromy.
-`;
-  }
-  
-  // 기본값
+  // 기본값: 실내면 조각, 야외면 모자이크
   return `
-🎯 Analyze in PRIORITY ORDER:
-1. DYNAMIC MOVEMENT/ACTION/SPORTS? → CLASSICAL SCULPTURE (even with landscape!)
-2. STATIC photo WITH landscape? → ROMAN MOSAIC
-3. Portrait WITHOUT landscape? → CLASSICAL SCULPTURE
+🎯 DECISION GUIDE:
+1. SPORTS/ATHLETIC? → SCULPTURE (highest priority)
+2. INDOOR SETTING? → SCULPTURE  
+3. OUTDOOR SETTING? → MOSAIC
+4. LANDSCAPE/NATURE? → MOSAIC
+Default: Check if indoor (sculpture) or outdoor (mosaic)
 `;
 }
 
@@ -205,11 +208,12 @@ Available Renaissance Artists (5명):
    - Signature: Madonna-like grace, perfect harmony
    - When to prioritize: Clear mother+baby or peaceful multi-person scene
 
-4. MICHELANGELO (미켈란젤로) - Best for male full body, heroic
+4. MICHELANGELO (미켈란젤로) - Best for ADULT male full body, heroic
    - Specialty: Sculptural powerful anatomy, heroic masculine figures
-   - Best for: Male full body, athletic/heroic poses
+   - Best for: ADULT male full body (age 18+), athletic/heroic poses
    - Signature: David-like muscular strength, monumental dignity
-   - When to prioritize: Male full body or heroic masculine subject
+   - When to prioritize: Adult male full body or heroic masculine subject
+   - CRITICAL: NEVER for children, teenagers, women, or elderly - ONLY adult men
 
 5. BOTTICELLI (보티첼리) - Best for young female full body, graceful
    - Specialty: Flowing elegant lines, ethereal beauty, graceful movement
@@ -220,7 +224,24 @@ Available Renaissance Artists (5명):
 }
 
 function getRenaissanceHints(photoAnalysis) {
-  const { count, gender, shot_type, subject } = photoAnalysis;
+  const { count, gender, shot_type, subject, age_range } = photoAnalysis;
+  
+  // 아동/청소년 → 라파엘로 또는 보티첼리 (미켈란젤로 절대 금지)
+  if (age_range === 'child' || age_range === 'teen' || subject.includes('child') || subject.includes('boy') || subject.includes('girl')) {
+    if (gender === 'female' || subject.includes('girl')) {
+      return `
+🎯 RECOMMENDATION: BOTTICELLI
+Young person detected - Botticelli's graceful style suitable.
+NEVER Michelangelo for children!
+`;
+    } else {
+      return `
+🎯 RECOMMENDATION: RAPHAEL or TITIAN
+Young person detected - Raphael's gentle style or Titian's warmth.
+CRITICAL: NEVER Michelangelo for children or teens!
+`;
+    }
+  }
   
   // 여성 상반신 → 다 빈치 (80%)
   if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
@@ -263,11 +284,13 @@ This scene with baby is perfect for Raphael's Madonna-like grace!
 `;
   }
   
-  // 남성 전신 → 미켈란젤로
-  if (count === 1 && gender === 'male' && shot_type === 'full_body') {
+  // 성인 남성 전신 → 미켈란젤로 (아동/청소년/노인 제외)
+  if (count === 1 && gender === 'male' && shot_type === 'full_body' && 
+      age_range !== 'child' && age_range !== 'teen' && age_range !== 'elderly') {
     return `
 🎯 STRONG RECOMMENDATION: MICHELANGELO
-Male full body is perfect for Michelangelo's David-like heroic strength!
+ADULT male full body - perfect for Michelangelo's David-like heroic strength!
+CRITICAL: Only for adult men (18-60), never for children/teens/elderly.
 `;
   }
   
@@ -430,28 +453,22 @@ Available Medieval Art Styles:
 
 📍 FOR PORTRAITS/PEOPLE (인물화) - 4 styles available:
 
-1. BYZANTINE (비잔틴) ⭐⭐⭐ (30%)
+1. BYZANTINE (비잔틴) ⭐⭐⭐⭐⭐ (55%)
    - Specialty: SACRED GOLDEN MOSAIC backgrounds, flat iconic forms, divine transcendence
    - Best for: Formal dignified portraits - Byzantine spirituality and eternal presence
    - Signature: Gold leaf backgrounds, hieratic frontal poses, sacred eternal atmosphere
 
-2. GOTHIC (고딕) ⭐⭐ (25%)
-   - Specialty: CATHEDRAL STAINED GLASS jewel colors, vertical elongation, DIVINE LIGHT
-   - Best for: Religious atmosphere, sacred expressions, heavenly mood
-   - Signature: Illuminated manuscript style, Gothic arch composition, HOLY SCRIPTURE aesthetic
-   - CRITICAL: FLAT TWO-DIMENSIONAL medieval style like stained glass panels, angular linear forms
-   - NOT realistic smooth oil painting, hard edges and decorative gold leaf like manuscripts
-   - Religious elements: Cathedral setting, prayer gesture, biblical solemnity
+2. GOTHIC (고딕) ⭐⭐⭐ (25%)
+   - Specialty: CATHEDRAL STAINED GLASS with thick BLACK LEAD LINES dividing colored glass sections
+   - Reference: Chartres Cathedral stained glass windows style
+   - Best for: Religious atmosphere with jewel-tone translucent colors
+   - Signature: ENTIRE IMAGE composed of colored glass pieces separated by BLACK LEAD CAMES
+   - CRITICAL: Must show THICK BLACK LINES between EVERY color section like real stained glass
+   - Glass colors: Deep ruby red, sapphire blue, emerald green, amber yellow, purple
+   - Key features: Flat 2D figures, no perspective, translucent glass effect, light passing through
+   - NOT a painting - must look like actual STAINED GLASS WINDOW with lead dividers
 
-3. ROMANESQUE (로마네스크) (20%)
-   - Specialty: CHURCH FRESCO flat solid forms, BIBLICAL NARRATIVE simplicity, monumental dignity
-   - Best for: Simple compositions, solemn religious scenes, medieval church atmosphere
-   - Signature: Stone relief flatness, ROMANESQUE CHURCH interior feeling, sacred geometric order
-   - CRITICAL: FLAT MURAL FRESCO style like church walls, solid block-like forms with heavy outlines
-   - NOT smooth realistic painting, simple colors and bold shapes like stone carvings
-   - Religious elements: Monastery setting, devotional mood, scriptural gravity
-
-4. ISLAMIC MINIATURE (이슬람 세밀화) ⭐⭐ (25%)
+3. ISLAMIC MINIATURE (이슬람 세밀화) ⭐⭐ (20%)
    - Specialty: Persian/Ottoman COURT MINIATURE painting, intricate delicate details, vibrant jewel colors
    - Best for: PEOPLE ONLY - courtly elegant portraits, delicate graceful figures, ornamental backgrounds
    - Signature: Persian manuscript illumination style, flat decorative composition, rich jewel tones, intricate patterns
@@ -459,7 +476,7 @@ Available Medieval Art Styles:
 
 📍 FOR LANDSCAPES/NON-PORTRAITS (풍경/사물):
 
-Choose best style among: Byzantine, Gothic, Romanesque, Islamic GEOMETRIC
+Choose best style among: Byzantine, Gothic, Islamic GEOMETRIC
 ⚠️ NEVER use Islamic MINIATURE for landscapes (boring!)
 ✅ Islamic GEOMETRIC patterns excellent for landscape/nature scenes
 
@@ -475,7 +492,7 @@ Choose best style among: Byzantine, Gothic, Romanesque, Islamic GEOMETRIC
 
 🎯 CRITICAL DECISION LOGIC:
 IF photo has PEOPLE:
-  → Choose from: Byzantine (30%), Gothic (25%), Romanesque (20%), Islamic MINIATURE (25%)
+  → Choose from: Byzantine (55%), Gothic (25%), Islamic MINIATURE (20%)
   → NEVER Islamic GEOMETRIC (it prohibits human figures)
   
 IF photo has NO people (landscape/objects):
@@ -563,11 +580,11 @@ Available Artists (7명) - AI will choose BEST style (Neoclassicism vs Romantici
    - Signature: Golden luminous atmosphere, dissolving forms in light
    - When to prioritize: Landscape photos (STRONG 75%)
 
-4. FRIEDRICH (프리드리히) - BEST for mountains, contemplative scenes
-   - Specialty: Sublime mountain landscapes, lone figure contemplating nature
-   - Best for: Mountain/nature scenes, back view, solitary contemplation
-   - Signature: Wanderer above the Sea of Fog - sublime loneliness
-   - When to prioritize: Mountains or contemplative solitary figure (70%)
+4. GOYA (고야) - BEST for portraits, dark mood, war/conflict scenes
+   - Specialty: Dark psychological depth, dramatic contrasts, human truth
+   - Best for: Elegant portraits, dark/moody atmosphere, conflict/tension scenes
+   - Signature: "La Maja Vestida" elegance, "May 3, 1808" dramatic lighting
+   - When to prioritize: Portraits (especially female), war/conflict themes, night scenes (70%)
 
 5. DELACROIX (들라크루아) - BEST for dramatic action, intense emotions
    - Specialty: Vivid passionate colors, dynamic movement, revolutionary energy
@@ -599,7 +616,27 @@ Available Artists (7명) - AI will choose BEST style (Neoclassicism vs Romantici
 }
 
 function getNeoclassicismVsRomanticismVsRealismHints(photoAnalysis) {
-  const { subject, count, mood, composition, shot_type } = photoAnalysis;
+  const { subject, count, mood, composition, shot_type, gender } = photoAnalysis;
+  
+  // 초상화 → 고야 최우선 (낭만주의)
+  if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
+    // 여성 초상화 → 고야 강력 추천
+    if (gender === 'female') {
+      return `
+🎯 STRONG RECOMMENDATION: ROMANTICISM - GOYA (75%)
+Female portrait - Goya's "La Maja Vestida" elegant style!
+Spanish romantic elegance with psychological depth.
+Alternative: Ingres (Neoclassicism) for pure beauty, but Goya preferred.
+`;
+    }
+    // 남성 초상화도 고야 우선
+    return `
+🎯 STRONG RECOMMENDATION: ROMANTICISM - GOYA (70%)
+Portrait detected - Goya's psychological portrait mastery!
+Deep character study with dramatic Spanish lighting.
+Alternative: David (Neoclassicism) for formal/heroic, but Goya preferred.
+`;
+  }
   
   // 시골/농촌 → 사실주의 (밀레)
   if (subject.includes('rural') || subject.includes('countryside') || subject.includes('farm')) {
@@ -620,24 +657,23 @@ Manet's modern Paris sophistication perfect.
 `;
   }
   
-  // 풍경 → 항상 낭만주의 (터너/프리드리히)
+  // 풍경 → 낭만주의 (터너)
   if (subject === 'landscape') {
     return `
 🎯 STRONG: ROMANTICISM - TURNER (75%)
 Landscape = Romanticism territory!
 Turner's atmospheric sublime light is supreme.
-Mountains? → Friedrich (70%) also excellent.
 NEVER use Neoclassicism for landscapes.
 `;
   }
   
-  // 산/자연 → 낭만주의 (프리드리히)
-  if (subject.includes('mountain') || subject.includes('nature')) {
+  // 어둡고 심리적인 장면 → 낭만주의 (고야)
+  if (mood === 'dark' || mood === 'psychological' || subject.includes('night')) {
     return `
-🎯 STRONG: ROMANTICISM - FRIEDRICH (70%)
-Mountains/nature = Romanticism!
-Friedrich's sublime contemplation perfect.
-Turner also great for atmospheric effects.
+🎯 STRONG: ROMANTICISM - GOYA (70%)
+Dark/psychological mood = Goya territory!
+Spanish romantic darkness and human truth.
+Perfect for portraits with psychological depth.
 `;
   }
   
@@ -661,12 +697,13 @@ Unless dynamic/emotional → then Romanticism.
 `;
   }
   
-  // 우아한 여성 초상화 → 신고전주의 (앵그르)
+  // 우아한 여성 초상화 → 고야 우선, 앵그르 대안
   if (subject === 'female' && (mood === 'elegant' || mood === 'graceful')) {
     return `
-🎯 NEOCLASSICISM - INGRES (65%)
-Elegant female portrait suits Ingres' smooth perfection.
-But if dramatic mood → Delacroix Romanticism.
+🎯 PRIMARY: ROMANTICISM - GOYA (La Maja style) OR
+ALTERNATIVE: NEOCLASSICISM - INGRES (smooth perfection)
+Goya offers Spanish romantic elegance with depth.
+Ingres offers idealized classical beauty.
 `;
   }
   
@@ -685,19 +722,19 @@ function getImpressionismGuidelines() {
   return `
 Available Impressionism Artists (4명):
 
-1. MONET (모네) ⭐⭐⭐ STRONGEST for landscapes AND portraits
-   - Specialty: Light effects on water, gardens, outdoor atmosphere, AND luminous portraits
-   - Best for: Landscapes, water, gardens, outdoor scenes, AND people portraits
-   - Signature: Water Lilies for landscapes, Woman with a Parasol for portraits
-   - Masterpiece: Impression, Sunrise
-   - When to prioritize: Landscapes (80%), People portraits (50%)
+1. MONET (모네) ⭐⭐⭐⭐ STRONGEST for both landscapes AND portraits
+   - Specialty: Light effects, outdoor atmosphere, luminous portraits in natural light
+   - Best for: ALL outdoor scenes - landscapes, gardens, AND people in sunlight
+   - Signature portrait: "Woman with a Parasol" (for ALL portraits - male or female)
+   - Signature landscapes: "Water Lilies", "Impression, Sunrise"
+   - When to prioritize: People portraits (70%), Landscapes (80%)
 
-2. RENOIR (르누아르) - Best for warm happy people (50%)
-   - Specialty: SOFT WARM human figures, joyful atmosphere, gentle brushstrokes
-   - Best for: People portraits, happy mood, social gatherings, warm feelings
-   - Signature: Dance at Le Moulin de la Galette - joyful warmth
-   - When to prioritize: People-focused with positive/happy mood (50%)
-   - CRITICAL: Use SOFTER less saturated colors, VISIBLE LOOSE BRUSHSTROKES with feathery edges
+2. RENOIR (르누아르) ⭐⭐ - Best for warm sunny portraits (30%)
+   - Specialty: SOFT WARM figures in dappled sunlight, joyful atmosphere
+   - Best for: Happy people in outdoor settings, sunlit gatherings, festive scenes
+   - Signature: "Luncheon of the Boating Party", "Dance at Le Moulin de la Galette"
+   - When to prioritize: People with warm/happy mood in sunlight (30%)
+   - CRITICAL: Soft feathery brushstrokes, warm peachy skin tones
 
 3. DEGAS (드가) - Best for movement, dance, unusual angles
    - Specialty: Movement capture, ballet dancers, dynamic compositions
@@ -711,15 +748,27 @@ Available Impressionism Artists (4명):
    - When to prioritize: Minimize
 
 🎯 CRITICAL DECISION LOGIC:
-- Landscapes → MONET (80%) ⭐⭐⭐
-- People portraits → MONET (50%) or RENOIR (50%) equal
+- People portraits → MONET (70%) ⭐⭐⭐ PRIMARY
+- Happy/warm people → RENOIR (30%) ⭐ ALTERNATIVE
+- Landscapes → MONET (80%) ⭐⭐⭐⭐
 - Movement/dance → DEGAS (special)
 - Minimize PISSARRO
 `;
 }
 
 function getImpressionismHints(photoAnalysis) {
-  const { subject, count, mood } = photoAnalysis;
+  const { subject, count, mood, shot_type } = photoAnalysis;
+  
+  // 인물 사진 → 모네 (70%) 우선!
+  if (count >= 1 && (shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body')) {
+    return `
+🎯 STRONG RECOMMENDATION: MONET (70%)
+People portrait - MONET'S "Woman with a Parasol" style!
+Apply to ALL portraits (male or female).
+Outdoor light, windswept atmosphere, impressionist brushstrokes.
+Alternative: Renoir (30%) for warmer, softer treatment.
+`;
+  }
   
   // 풍경 → 모네 (80%)
   if (subject === 'landscape' || subject.includes('water') || subject.includes('garden')) {
@@ -733,12 +782,13 @@ Pissarro only if you want gentler, softer touch.
 `;
   }
   
-  // 사람 + 행복한 분위기 → 르누아르 (70%)
-  if (count >= 1 && (mood === 'happy' || mood === 'joyful' || mood === 'warm')) {
+  // 실내 사교 장면 + 행복한 분위기 → 르누아르 (20%)
+  if (subject.includes('indoor') && count >= 2 && (mood === 'happy' || mood === 'joyful')) {
     return `
-🎯 STRONG RECOMMENDATION: RENOIR (70%)
-People with happy mood - Renoir's specialty!
-His warm luminous figures create joyful Impressionist portraits.
+🎯 CONSIDERATION: RENOIR (20%)
+Indoor social gathering with happy mood - Renoir's territory.
+But Monet still preferred (80%) for most portraits.
+Only choose Renoir for clear indoor party/dance scenes.
 `;
   }
   
@@ -765,43 +815,63 @@ function getPostImpressionismGuidelines() {
   return `
 Available Post-Impressionism Artists (4명):
 
-1. VAN GOGH (반 고흐) ⭐⭐⭐ STRONG for emotional/swirling (25%)
+1. VAN GOGH (반 고흐) ⭐⭐⭐⭐⭐ STRONGEST - DEFAULT CHOICE (50%)
    - Specialty: Swirling expressive brushstrokes, intense emotional colors, turbulent energy
-   - Best for: Emotional subjects, portraits, landscapes with dynamic energy
-   - Signature: Starry Night - turbulent passionate swirls
-   - When to prioritize: Emotional/expressive photos (25%)
+   - Best for: ALL portraits (indoor/outdoor), emotional subjects, dynamic landscapes
+   - Signature: "Starry Night", "Self-Portraits", "Bedroom in Arles"
+   - When to prioritize: Most cases, especially portraits and emotional scenes (50%)
    - Note: Also available in Masters collection
 
-2. GAUGUIN (고갱) ⭐⭐⭐ STRONG for flat decorative (25%)
+2. GAUGUIN (고갱) ⭐⭐ (20%)
    - Specialty: Flat bold colors, decorative patterns, primitive simplicity
-   - Best for: Portraits, people, decorative aesthetic, simplified forms
+   - Best for: Outdoor portraits, tropical/exotic themes, decorative aesthetic
    - Signature: Tahitian paintings - flat bold primitivism
-   - When to prioritize: Portraits and decorative aesthetic (25%)
+   - When to prioritize: Outdoor people scenes, exotic mood (20%)
 
-3. CÉZANNE (세잔) ⭐⭐⭐ STRONG for structured (25%)
+3. CÉZANNE (세잔) ⭐⭐ (15%)
    - Specialty: Geometric structured forms, solid volumes, analytical approach
-   - Best for: Still life, landscapes, portraits with structured composition
+   - Best for: Still life, structured landscapes, geometric compositions
    - Signature: Still Life with Apples, Mont Sainte-Victoire - geometric analysis
-   - When to prioritize: Structured compositions, still life, landscapes (25%)
+   - When to prioritize: Still life, structured scenes (15%)
 
-4. SIGNAC (시냐크) ⭐⭐⭐ STRONG Pointillism with bright colors (25%)
-   - Specialty: POINTILLISM with larger, brighter colored dots, luminous Mediterranean palette
-   - Best for: Landscapes, seascapes, bright outdoor scenes
-   - Signature: Port of Saint-Tropez - vibrant pointillist harbor scenes
-   - When to prioritize: Bright colorful scenes, landscapes (25%)
-   - Note: Brighter and more accessible than Seurat's pointillism
+4. SIGNAC (시냐크) ⭐⭐ (15%)
+   - Specialty: LARGE BOLD POINTILLISM - biggest dots of all pointillists!
+   - Best for: BEACHES, harbors, seascapes, bright portraits, Mediterranean scenes
+   - Signature: "Antibes, Pink Clouds", "The Beach at Saint-Briac" - HUGE VISIBLE COLOR DOTS (5-10mm)
+   - When to prioritize: Beach photos, seaside, bright colorful scenes (15%)
+   - CRITICAL: Use LARGEST dots for everything - Like colorful mosaic tiles!
 
 🎯 CRITICAL DECISION LOGIC:
-- All 4 artists EQUAL priority (25% each) ⭐⭐⭐
-- Emotional/expressive → VAN GOGH
-- Portraits/people/decorative → GAUGUIN
-- Structured/still life → CÉZANNE
-- Bright landscapes → SIGNAC
+- DEFAULT: VAN GOGH (50%) ⭐⭐⭐⭐⭐ PRIMARY CHOICE
+- All portraits (indoor/outdoor) → VAN GOGH (50%) or SIGNAC (15% for beach/bright)
+- Beach/seaside scenes → SIGNAC (15%) RECOMMENDED
+- Outdoor people/exotic → GAUGUIN (20%)
+- Still life/structured → CÉZANNE (15%)
+- Bright scenes/beaches → SIGNAC (15%) with LARGE DOTS
 `;
 }
 
 function getPostImpressionismHints(photoAnalysis) {
-  const { subject, mood, composition } = photoAnalysis;
+  const { subject, mood, composition, shot_type, location } = photoAnalysis;
+  
+  // 인물 사진 → 반 고흐 우선 (50%)
+  if (shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body') {
+    // 실외 인물 + 이국적 → 고갱 고려
+    if (location === 'outdoor' && (mood === 'exotic' || mood === 'tropical')) {
+      return `
+🎯 CONSIDERATION: GAUGUIN (20%) for outdoor exotic mood
+But VAN GOGH (50%) still primary for most portraits.
+Gauguin only for clear tropical/primitive aesthetic.
+`;
+    }
+    // 기본 인물 → 반 고흐
+    return `
+🎯 STRONG RECOMMENDATION: VAN GOGH (50%)
+Portrait detected - Van Gogh's expressive style!
+Emotional depth with swirling brushstrokes.
+Indoor or outdoor, Van Gogh excels at portraits.
+`;
+  }
   
   // 정물 → 세잔 (25%)
   if (subject === 'still_life' || subject.includes('object') || subject.includes('fruit')) {
@@ -829,23 +899,29 @@ Portraits and flat/decorative aesthetic match Gauguin's bold primitivism.
 `;
   }
   
-  // 밝은 풍경 → 시냐크 (25%)
-  if (subject.includes('landscape') || subject.includes('outdoor') || subject.includes('bright') || subject.includes('seascape')) {
+  // 해변/바다/밝은 색감 → 시냐크 (15%)
+  if (subject.includes('beach') || subject.includes('sea') || subject.includes('ocean') ||
+      subject.includes('coast') || subject.includes('water') || subject.includes('harbor') ||
+      mood === 'bright' || mood === 'colorful' || subject.includes('sunset')) {
     return `
-🎯 RECOMMENDATION: SIGNAC (25%)
-Bright outdoor scenes suit Signac's luminous pointillism.
-Larger, brighter dots - Mediterranean light and color.
+🎯 RECOMMENDATION: SIGNAC (15%)
+Beach/seaside/bright scene - PERFECT for Signac's LARGE POINTILLISM!
+"Antibes, Pink Clouds", "The Beach at Saint-Briac" style.
+BIG COLORFUL DOTS (5-10mm) - like beach pebbles or mosaic tiles!
+Ideal for: beaches, harbors, seaside portraits, Mediterranean scenes.
+Works for both landscapes AND people at the beach!
 `;
   }
   
-  // 기본값 → 균등 분배
+  // 기본값 → 반 고흐 우선 (50%)
   return `
-🎯 ALL EQUAL (25% each):
-- Emotional/expressive → Van Gogh (25%)
-- Portraits/people → Gauguin (25%)
-- Structured/still life → Cézanne (25%)
-- Bright landscapes → Signac (25%)
-AI will choose based on photo characteristics.
+🎯 DEFAULT: VAN GOGH (50%) PRIMARY
+Van Gogh is the default choice for Post-Impressionism.
+Alternatives:
+- Bright/colorful portraits → Signac (15%) with LARGE DOTS
+- Outdoor exotic people → Gauguin (20%)
+- Still life → Cézanne (15%)
+- Bright landscapes → Signac (15%) with LARGE DOTS
 `;
 }
 
@@ -920,73 +996,69 @@ function getExpressionismGuidelines() {
   return `
 Available Expressionism Artists (5명):
 
-1. MODIGLIANI (모딜리아니) ⭐⭐⭐ STRONGEST for elegant portraits (30%)
-   - Specialty: EXTREME ELONGATED NECKS (swan-like 1.8x length!), almond eyes with no pupils, melancholic elegant beauty
-   - Best for: Elegant graceful portraits, upper body shots, serene to melancholic mood
-   - Signature: Long neck portraits with blank almond eyes - most distinctive feature
-   - When to prioritize: Elegant/graceful portrait mood (30%)
-   - CRITICAL: FLUX must STRETCH neck to 1.8x and face to 1.5x vertically
-
-2. MUNCH (뭉크) ⭐⭐⭐ STRONG for anxiety/psychological (25%)
+1. MUNCH (뭉크) ⭐⭐⭐⭐⭐ STRONGEST - DEFAULT CHOICE (40%)
    - Specialty: Existential anxiety, psychological tension, swirling distorted forms
-   - Best for: Anxious expressions, dramatic emotions, psychological intensity
-   - Signature: The Scream - iconic anxiety and modern alienation
-   - When to prioritize: Emotional/anxious/dramatic expressions (25%)
+   - Best for: ALL portraits with emotional depth, anxious expressions, dramatic scenes
+   - Signature: "The Scream" - iconic anxiety and modern alienation
+   - When to prioritize: Most Expressionism cases, especially portraits (40%)
    - Note: Also available in Masters collection
 
-3. EGON SCHIELE (에곤 실레) ⭐⭐⭐ STRONG for angular/distorted (20%)
-   - Specialty: SHARP ANGULAR DISTORTED BODIES, twisted limbs, raw erotic tension
-   - Best for: Full body, unusual poses, angular compositions, body emphasis
+2. KOKOSCHKA (코코슈카) ⭐⭐⭐ STRONG for psychological portraits (25%)
+   - Specialty: Intense psychological portraits, violent brushstrokes, inner turmoil
+   - Best for: Deep character portraits, emotional intensity, raw expression
+   - Signature: "The Bride of the Wind" - turbulent emotional portraits
+   - When to prioritize: Portraits needing psychological depth (25%)
+   - CRITICAL: Rough expressive brushwork reveals inner psyche
+
+3. EGON SCHIELE (에곤 실레) ⭐⭐ (20%)
+   - Specialty: SHARP ANGULAR DISTORTED BODIES, twisted limbs, raw tension
+   - Best for: Full body, unusual poses, angular compositions
    - Signature: Contorted self-portraits - angular psychological tension
-   - When to prioritize: Full body or angular aesthetic desired (20%)
-   - Strong individuality - distinctive distortion style!
+   - When to prioritize: Full body or angular aesthetic (20%)
 
-4. KIRCHNER (키르히너) ⭐⭐ STRONG for urban/bold colors (20%)
-   - Specialty: JAGGED ANGULAR FORMS, intense bold colors, urban anxiety, street energy
-   - Best for: Urban settings, bold color contrasts, geometric sharp compositions
-   - Signature: Street Scenes - angular urban life with vivid colors
-   - When to prioritize: Urban backgrounds or bold angular style (20%)
-   - Distinctive German Expressionism!
+4. KIRCHNER (키르히너) ⭐⭐ (10%)
+   - Specialty: JAGGED ANGULAR FORMS, urban anxiety, street energy
+   - Best for: Urban settings, bold color contrasts, city scenes
+   - Signature: "Street Scenes" - angular urban life
+   - When to prioritize: Clear urban/city backgrounds (10%)
 
-5. KANDINSKY (칸딘스키) ⭐ MINIMAL for abstract/spiritual (5%)
-   - Specialty: Abstract expressionism, spiritual compositions, musical forms
-   - Best for: Artistic abstract interpretation, spiritual atmosphere
-   - Signature: Compositions - non-representational color symphonies
-   - When to prioritize: Abstract artistic interpretation desired (5%)
-   - Warning: Reduces portrait recognition
+5. KANDINSKY (칸딘스키) ⭐ (5%)
+   - Specialty: Abstract expressionism, spiritual compositions
+   - Best for: Abstract interpretation, spiritual atmosphere
+   - Signature: "Compositions" - non-representational color
+   - When to prioritize: Abstract desired (5%)
 
 🎯 CRITICAL DECISION LOGIC:
-- Elegant/graceful mood → MODIGLIANI (30%)
-- Emotional/anxious/dramatic → MUNCH (25%, also in Masters)
-- Full body/angular forms → EGON SCHIELE (20%)
-- Urban/bold colors/geometric → KIRCHNER (20%)
-- Abstract/spiritual mood → KANDINSKY (5%)
+- DEFAULT: MUNCH (40%) ⭐⭐⭐⭐⭐ PRIMARY CHOICE
+- Most portraits → MUNCH (40%, also in Masters)
+- Psychological depth → KOKOSCHKA (25%)
+- Full body/angular → EGON SCHIELE (20%)
+- Urban/city scenes → KIRCHNER (10%)
+- Abstract/spiritual → KANDINSKY (5%)
 `;
 }
 
 function getExpressionismHints(photoAnalysis) {
-  const { count, shot_type, expression, background, subject } = photoAnalysis;
+  const { count, shot_type, expression, background, subject, mood } = photoAnalysis;
   
-  // 1명 초상 → 모딜리아니 또는 뭉크
+  // 초상화 → 뭉크 기본 (40%) 또는 코코슈카
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
-    // 불안/절규 표정 → 뭉크
-    if (expression === 'anxious' || expression === 'fearful' || expression === 'scream' || expression === 'distressed') {
+    // 심리적 깊이 필요 → 코코슈카 고려
+    if (mood === 'intense' || mood === 'psychological' || mood === 'turbulent') {
       return `
-🎯 RECOMMENDATION: MUNCH (25%)
-Anxious/fearful/dramatic expression = Munch specialty!
-The Scream-like psychological intensity.
-Munch also available in Masters collection.
+🎯 CONSIDERATION: KOKOSCHKA (25%)
+Deep psychological portrait - Kokoschka's violent brushwork!
+But MUNCH (40%) still primary for most Expressionist portraits.
 `;
     }
     
-    // 우아한 표정 → 모딜리아니
+    // 기본 초상화 → 뭉크
     return `
-🎯 RECOMMENDATION: MODIGLIANI (30%)
-Elegant portrait suits Modigliani's elongated neck style.
-Long swan-like neck creates distinctive look.
-But consider mood:
-- Dramatic/anxious → Munch (25%)
-- Angular pose → Egon Schiele (20%)
+🎯 STRONG RECOMMENDATION: MUNCH (40%)
+Portrait detected - Munch is PRIMARY Expressionist choice!
+Psychological tension and emotional depth.
+The Scream-like intensity even in calm subjects.
+Alternative: Kokoschka (25%) for raw psychological portraits.
 `;
   }
   
@@ -1017,10 +1089,13 @@ Abstract/unclear subject suits Kandinsky's non-representational approach.
   }
   
   return `
-🎯 Default: MODIGLIANI (30%) for most Expressionist portraits
-Long neck = THE most distinctive feature.
-Consider: anxious (Munch 25%, also in Masters), 
-body (Schiele 20%), urban (Kirchner 3%), abstract (Kandinsky 2%)
+🎯 DEFAULT: MUNCH (40%) - PRIMARY EXPRESSIONIST
+Munch dominates Expressionism with psychological depth.
+Alternatives:
+- Deep psychology → Kokoschka (25%)
+- Full body → Schiele (20%)
+- Urban → Kirchner (10%)
+- Abstract → Kandinsky (5%)
 `;
 }
 
@@ -1030,7 +1105,7 @@ body (Schiele 20%), urban (Kirchner 3%), abstract (Kandinsky 2%)
 const fallbackPrompts = {
   ancient: {
     name: '그리스·로마',
-    prompt: 'Transform this image into ancient Greek-Roman art. STRICT RULE: If ANY animal creature is visible (dog, cat, bird, horse, fish, pet), create Roman mosaic with clearly visible tesserae tiles, distinct grout lines, rich jewel-tone colors, Pompeii-style mosaic aesthetic. If ONLY people without animals, create Greek marble sculpture. ANIMALS ALWAYS GET MOSAIC. Ancient masterpiece quality preserving subject'
+    prompt: 'Transform this image into ancient Greek-Roman art. STRICT RULES: 1) ANY SPORTS/ATHLETIC ACTION (soccer, football, running, jumping, throwing, catching ball, ANY physical activity) → ALWAYS Greek/Roman MARBLE SCULPTURE in style of Discobolus or ancient Olympic athletes, pure white Carrara marble with visible carved muscles and dynamic frozen movement, classical athletic proportions, museum display style. CRITICAL: Ball games = SCULPTURE, NOT mosaic. 2) INDOOR PORTRAITS (no sports) → Greek/Roman marble sculpture with classical poses. 3) OUTDOOR SCENES WITHOUT SPORTS → Roman mosaic with LARGE CHUNKY TESSERAE TILES (20-30mm each), THICK BLACK GROUT LINES clearly visible between EVERY tile, LIMITED COLORS (terracotta, ochre, umber, ivory, slate blue), Pompeii villa floor style. PRIORITY: Sports/athletic = ALWAYS SCULPTURE regardless of indoor/outdoor. Ancient masterpiece quality'
   },
   
   medieval: {

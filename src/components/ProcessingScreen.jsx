@@ -39,14 +39,11 @@ const ProcessingScreen = ({ photo, selectedStyle, onComplete }) => {
       setStatusText('AI가 최적의 화가를 선택하고 있습니다...');
       await sleep(500);
 
-      // Get API key
-      const apiKey = import.meta.env.VITE_REPLICATE_API_KEY;
-
-      // Process with progress callback
+      // Process with progress callback (API key handled server-side)
       const result = await processStyleTransfer(
         photo,
         selectedStyle,
-        apiKey,
+        null, // API key is now handled server-side
         (progressText) => setStatusText(progressText)
       );
 
@@ -76,7 +73,28 @@ const ProcessingScreen = ({ photo, selectedStyle, onComplete }) => {
 
     } catch (error) {
       console.error('Processing error:', error);
-      setStatusText(`오류: ${error.message || '다시 시도해주세요.'}`);
+      
+      // 모바일 친화적인 에러 메시지
+      const errorMessage = error.message || '알 수 없는 오류가 발생했습니다';
+      const isNetworkError = errorMessage.includes('fetch') || errorMessage.includes('network');
+      const isAPIError = errorMessage.includes('API') || errorMessage.includes('401') || errorMessage.includes('403');
+      
+      if (isNetworkError) {
+        setStatusText('네트워크 오류: 인터넷 연결을 확인해주세요');
+      } else if (isAPIError) {
+        setStatusText('API 연결 오류: 잠시 후 다시 시도해주세요');
+      } else {
+        setStatusText(`오류: ${errorMessage}`);
+      }
+      
+      // 개발 환경에서만 상세 로그
+      if (window.location.hostname === 'localhost') {
+        console.error('Error details:', {
+          message: error.message,
+          stack: error.stack,
+          type: error.name
+        });
+      }
     }
   };
 
@@ -153,82 +171,67 @@ const ProcessingScreen = ({ photo, selectedStyle, onComplete }) => {
           </div>
           <div className={`stage ${stage >= 4 ? 'active' : ''}`}>
             <span className="stage-number">4</span>
-            <span className="stage-label">완성</span>
+            <span className="stage-label">완료</span>
           </div>
         </div>
 
         {/* Status text */}
-        <p className="status-text">{statusText}</p>
-
-        {/* Loading animation */}
-        <div className="loading-animation">
+        <div className="status-container">
           <div className="spinner"></div>
+          <p className="status-text">{statusText}</p>
         </div>
 
-        {/* 교육 컨텐츠 - 변환 중 */}
-        {showEducation && (
-          <div className="education-content">
-            <div className="education-header">
-              <div className="education-icon">{selectedStyle.icon || '🎨'}</div>
-              <h3>{getEducationContent()?.title}</h3>
-            </div>
-            <div className="education-body">
-              <p className="education-desc">{getEducationContent()?.desc}</p>
-              
-              {/* AI 선택 화가 정보 */}
-              {aiArtistInfo && (
-                <div className="ai-artist-info">
-                  <div className="ai-badge">✨ AI 추천</div>
-                  <p className="ai-artist-name">
-                    <strong>{aiArtistInfo.artist}</strong>
-                  </p>
-                  {aiArtistInfo.details?.reason && (
-                    <p className="ai-reason">
-                      {aiArtistInfo.details.reason}
-                    </p>
-                  )}
-                </div>
-              )}
+        {/* Educational content */}
+        {showEducation && getEducationContent() && (
+          <div className="education-container">
+            <div className="education-card">
+              <h3>{getEducationContent().title}</h3>
+              <p>{getEducationContent().desc}</p>
             </div>
           </div>
         )}
 
-        <p className="processing-note">
-          고품질 변환을 위해 {selectedStyle?.model === 'FLUX' ? '50-60초' : '30-40초'} 정도 소요됩니다.
-          {selectedStyle?.model === 'FLUX' && ' (FLUX 최고 품질 모드)'}
-        </p>
+        {/* AI selection info (show at stage 3) */}
+        {stage >= 3 && aiArtistInfo && (
+          <div className="ai-selection-info">
+            <p className="ai-info">
+              🤖 AI 선택: {aiArtistInfo.artist}
+              {aiArtistInfo.method && ` (${aiArtistInfo.method})`}
+            </p>
+          </div>
+        )}
       </div>
 
       <style>{`
         .processing-screen {
-          min-height: 100vh;
           display: flex;
-          align-items: center;
           justify-content: center;
-          padding: 2rem;
+          align-items: center;
+          min-height: 100vh;
+          padding: 20px;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .processing-content {
           background: white;
+          padding: 40px;
           border-radius: 20px;
-          padding: 3rem;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
           max-width: 600px;
           width: 100%;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .processing-content h2 {
           text-align: center;
           color: #333;
-          margin-bottom: 2rem;
-          font-size: 2rem;
+          margin-bottom: 30px;
+          font-size: 24px;
         }
 
         .progress-stages {
           display: flex;
           justify-content: space-between;
-          margin-bottom: 2rem;
+          margin-bottom: 40px;
           position: relative;
         }
 
@@ -247,66 +250,68 @@ const ProcessingScreen = ({ photo, selectedStyle, onComplete }) => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.5rem;
-          z-index: 1;
           position: relative;
+          z-index: 1;
+          flex: 1;
         }
 
         .stage-number {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background: #e0e0e0;
-          color: #999;
+          background: #f5f5f5;
+          border: 2px solid #e0e0e0;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: bold;
-          transition: all 0.3s;
+          color: #999;
+          margin-bottom: 8px;
+          transition: all 0.3s ease;
         }
 
         .stage.active .stage-number {
           background: #667eea;
+          border-color: #667eea;
           color: white;
-          animation: pulse 2s infinite;
         }
 
         .stage.complete .stage-number {
-          background: #10b981;
+          background: #4CAF50;
+          border-color: #4CAF50;
           color: white;
         }
 
+        .stage.complete .stage-number::after {
+          content: '✓';
+          position: absolute;
+        }
+
+        .stage.complete .stage-number {
+          font-size: 0;
+        }
+
         .stage-label {
-          font-size: 0.85rem;
+          font-size: 12px;
           color: #666;
+          white-space: nowrap;
         }
 
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-        }
-
-        .status-text {
-          text-align: center;
-          color: #667eea;
-          font-size: 1.1rem;
-          margin: 1.5rem 0;
-          min-height: 1.5rem;
-        }
-
-        .loading-animation {
+        .status-container {
           display: flex;
+          align-items: center;
           justify-content: center;
-          margin: 2rem 0;
+          margin: 40px 0;
         }
 
         .spinner {
-          width: 50px;
-          height: 50px;
-          border: 4px solid #f3f3f3;
-          border-top: 4px solid #667eea;
+          width: 30px;
+          height: 30px;
+          border: 3px solid #f3f3f3;
+          border-top: 3px solid #667eea;
           border-radius: 50%;
           animation: spin 1s linear infinite;
+          margin-right: 15px;
         }
 
         @keyframes spin {
@@ -314,153 +319,82 @@ const ProcessingScreen = ({ photo, selectedStyle, onComplete }) => {
           100% { transform: rotate(360deg); }
         }
 
-        /* 교육 컨텐츠 - 변환 중 */
-        .education-content {
-          background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
-          border-radius: 15px;
-          padding: 2rem;
-          margin: 1.5rem 0;
-          animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .education-header {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 1.5rem;
-          padding-bottom: 1rem;
-          border-bottom: 2px solid #dee2e6;
-        }
-
-        .education-icon {
-          font-size: 3rem;
-          filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .education-header h3 {
-          margin: 0;
-          color: #333;
-          font-size: 1.5rem;
-        }
-
-        .education-body {
-          color: #555;
-        }
-
-        .education-desc {
-          line-height: 1.8;
-          font-size: 1rem;
-          margin: 0;
-          white-space: pre-line; /* \n을 줄바꿈으로 표시 */
-          max-height: 400px;
-          overflow-y: auto;
-          padding-right: 0.5rem;
-        }
-
-        .education-desc::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        .education-desc::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 10px;
-        }
-
-        .education-desc::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 10px;
-        }
-
-        .education-desc::-webkit-scrollbar-thumb:hover {
-          background: #555;
-        }
-
-        /* AI 선택 화가 정보 */
-        .ai-artist-info {
-          margin-top: 1.5rem;
-          padding-top: 1.5rem;
-          border-top: 2px dashed #dee2e6;
-          animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-          from { 
-            opacity: 0; 
-            transform: translateX(-20px);
-          }
-          to { 
-            opacity: 1; 
-            transform: translateX(0);
-          }
-        }
-
-        .ai-badge {
-          display: inline-block;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
-          padding: 0.3rem 0.8rem;
-          border-radius: 20px;
-          font-size: 0.85rem;
-          font-weight: bold;
-          margin-bottom: 0.8rem;
-        }
-
-        .ai-artist-name {
-          font-size: 1.2rem;
-          color: #333;
-          margin: 0.5rem 0;
-        }
-
-        .ai-artist-name strong {
-          color: #667eea;
-        }
-
-        .ai-reason {
-          font-size: 0.95rem;
+        .status-text {
           color: #666;
-          font-style: italic;
-          line-height: 1.6;
-          margin: 0.5rem 0 0 0;
+          font-size: 16px;
         }
 
-        .processing-note {
+        /* 교육 컨텐츠 카드 */
+        .education-container {
+          margin-top: 30px;
+          animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .education-card {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 25px;
+          border-radius: 15px;
+          color: white;
+        }
+
+        .education-card h3 {
+          margin: 0 0 15px 0;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .education-card p {
+          margin: 0;
+          line-height: 1.6;
+          font-size: 14px;
+          opacity: 0.95;
+        }
+
+        /* AI 선택 정보 */
+        .ai-selection-info {
+          margin-top: 20px;
+          padding: 15px;
+          background: #f8f9fa;
+          border-radius: 10px;
           text-align: center;
-          color: #999;
-          font-size: 0.9rem;
-          margin-top: 2rem;
+        }
+
+        .ai-info {
+          color: #666;
+          font-size: 14px;
+          margin: 0;
         }
 
         @media (max-width: 640px) {
           .processing-content {
-            padding: 2rem 1.5rem;
-          }
-
-          .progress-stages {
-            flex-wrap: wrap;
-            gap: 1rem;
-          }
-
-          .stage-number {
-            width: 35px;
-            height: 35px;
-            font-size: 0.9rem;
+            padding: 30px 20px;
           }
 
           .stage-label {
-            font-size: 0.75rem;
+            font-size: 11px;
           }
 
-          .education-icon {
-            font-size: 2.5rem;
+          .education-card {
+            padding: 20px;
           }
 
-          .education-content {
-            padding: 1.5rem;
+          .education-card h3 {
+            font-size: 18px;
+          }
+
+          .education-card p {
+            font-size: 13px;
           }
         }
       `}</style>

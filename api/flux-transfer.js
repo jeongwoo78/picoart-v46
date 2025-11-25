@@ -1,4 +1,11 @@
-// PicoArt v57 - Medieval Painting Prevention (Gothic + Romanesque)
+// PicoArt v51 - 20th Century Modernism Added (11 Art Movements)
+// v51: 20세기 모더니즘 추가 (11번째 사조)
+//      - 입체주의: 피카소, 브라크
+//      - 다다이즘: 뒤샹, 만 레이
+//      - 초현실주의: 달리, 마그리트, 미로, 샤갈, 프리다 칼로
+//      - 추상표현주의: 폴록, 로스코
+//      - 팝아트: 워홀, 리히텐슈타인
+//
 // v57: 중세 미술 회화 느낌 방지 강화
 //      
 //      고딕 (Gothic):
@@ -29,7 +36,7 @@
 //      인물 사진: 비잔틴 55% / 고딕 25% / 이슬람 세밀화 20%
 //      풍경 사진: 비잔틴 / 고딕 / 이슬람 기하학 (AI 선택, 세밀화 금지)
 //
-// 미술사조 10개 (시간순):
+// 미술사조 11개 (시간순):
 //   1. 고대 그리스-로마 (BC 800~AD 500) - 유지
 //   2. 중세 미술 (4~15세기) - 비잔틴·고딕·로마네스크·이슬람
 //      → Islamic Miniature: 인물 전용 (페르시아 세밀화, 궁정 우아함)
@@ -44,7 +51,13 @@
 //   7. 인상주의 (1860~1890) - 4명 화가 선택
 //   8. 후기인상주의 (1880~1910) - 4명 화가 선택
 //   9. 야수파 (1905~1908) - 3명 화가 선택
-//  10. 표현주의 (1905~1920) - 5명 화가 선택
+//  10. 표현주의 (1905~1920) - 4명 화가 선택
+//  11. 20세기 모더니즘 (1907~1970) - 13명 화가 선택 ⭐ NEW
+//      → 입체주의: 피카소, 브라크
+//      → 다다이즘: 뒤샹, 만 레이
+//      → 초현실주의: 달리, 마그리트, 미로, 샤갈, 프리다 칼로
+//      → 추상표현주의: 폴록, 로스코
+//      → 팝아트: 워홀, 리히텐슈타인
 //
 // 거장 6명 (시간순 + 생사연도):
 //   1. 반 고흐 (1853-1890, 후기인상주의)
@@ -1069,6 +1082,200 @@ Strong core of 4 Expressionist masters!
 `;
 }
 
+// 20세기 모더니즘 (13명 - 5개 세부 사조)
+function getModernismGuidelines() {
+  return `
+Available 20th Century Modernism Artists (13명 across 5 movements):
+
+=== CUBISM 입체주의 (2명) ===
+1. PICASSO (피카소) ⭐⭐⭐ STRONGEST (15%)
+   - Specialty: Geometric fragmented forms, multiple simultaneous perspectives
+   - Best for: Portraits, figures, analytical fragmentation
+   - Signature: "Les Demoiselles d'Avignon" - revolutionary angular forms
+   - When: Photos needing geometric fragmentation, angular aesthetic
+   - Note: Also available in Masters collection
+
+2. BRAQUE (브라크) ⭐⭐ (10%)
+   - Specialty: Subtle tonal Cubism, collage technique, muted earth colors
+   - Best for: Still life, musical instruments, subtle geometric treatment
+   - Signature: "Violin and Candlestick" - harmonious geometric forms
+   - When: Subtle/muted geometric treatment desired
+
+=== DADAISM 다다이즘 (2명) ===
+3. DUCHAMP (뒤샹) ⭐⭐ (8%)
+   - Specialty: Anti-art, readymade concept, conceptual provocation
+   - Best for: Conceptual transformation, unexpected juxtaposition
+   - Signature: "Fountain" - challenging art conventions
+   - When: Avant-garde, conceptual approach needed
+
+4. MAN RAY (만 레이) ⭐⭐ (8%)
+   - Specialty: Rayograph, experimental photography, solarization
+   - Best for: Photographic subjects, experimental effects, surreal photography
+   - Signature: "Le Violon d'Ingres" - innovative visual experimentation
+   - When: Photo-based experimental aesthetics
+
+=== SURREALISM 초현실주의 (5명) ===
+5. DALÍ (달리) ⭐⭐⭐ STRONGEST (12%)
+   - Specialty: Paranoid-critical method, melting forms, hyperrealistic dreams
+   - Best for: Dreamlike transformation, bizarre juxtapositions
+   - Signature: "The Persistence of Memory" - melting clocks
+   - When: Surreal dreamscape, melting distortions desired
+   - Note: Also available in Masters collection
+
+6. MAGRITTE (마그리트) ⭐⭐⭐ (10%)
+   - Specialty: Philosophical paradox, everyday objects in unexpected contexts
+   - Best for: Conceptual paradox, mysterious ordinary subjects
+   - Signature: "The Treachery of Images" - questioning reality
+   - When: Philosophical, mysterious transformation
+
+7. MIRÓ (미로) ⭐⭐ (8%)
+   - Specialty: Playful organic forms, automatic drawing, childlike symbols
+   - Best for: Playful, organic, symbolic treatment
+   - Signature: "The Starry Night" - biomorphic playfulness
+   - When: Playful, colorful, symbolic desired
+
+8. CHAGALL (샤갈) ⭐⭐ (8%)
+   - Specialty: Floating dreamlike figures, lyrical colors, Jewish mysticism
+   - Best for: Romantic scenes, couples, poetic atmosphere
+   - Signature: "I and the Village" - floating lovers, village memories
+   - When: Romantic, floating, nostalgic mood
+
+9. FRIDA KAHLO (프리다 칼로) ⭐⭐ (8%)
+   - Specialty: Self-portraits with pain, Mexican symbolism, personal narrative
+   - Best for: Female portraits, emotional depth, symbolic elements
+   - Signature: "The Two Fridas" - raw personal expression
+   - When: Female subjects, emotional/personal transformation
+
+=== ABSTRACT EXPRESSIONISM 추상표현주의 (2명) ===
+10. POLLOCK (폴록) ⭐⭐ (7%)
+    - Specialty: Drip painting, action painting, all-over composition
+    - Best for: Dynamic energy, rhythmic patterns, movement
+    - Signature: "No. 5" - energetic drip patterns
+    - When: Dynamic action, rhythmic energy desired
+
+11. ROTHKO (로스코) ⭐⭐ (6%)
+    - Specialty: Color field, floating rectangles, meditative depth
+    - Best for: Contemplative mood, color emotion, spiritual depth
+    - Signature: "Orange, Red, Yellow" - transcendent color fields
+    - When: Contemplative, meditative transformation
+
+=== POP ART 팝아트 (2명) ===
+12. WARHOL (워홀) ⭐⭐⭐ STRONG (10%)
+    - Specialty: Silkscreen, repetition, celebrity culture, mass production
+    - Best for: Portraits, celebrities, bold commercial aesthetic
+    - Signature: "Marilyn Monroe" - iconic pop repetition
+    - When: Pop culture, bold graphic treatment
+
+13. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (8%)
+    - Specialty: Ben-Day dots, comic book style, bold outlines
+    - Best for: Dramatic scenes, comic/cartoon aesthetic
+    - Signature: "Whaam!" - comic strip explosion
+    - When: Comic book, graphic novel aesthetic
+
+🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
+- Geometric/analytical look → CUBISM (Picasso 15%, Braque 10%)
+- Dreamlike/surreal → SURREALISM (Dalí 12%, Magritte 10%, Miró/Chagall/Frida 8% each)
+- Romantic/floating → CHAGALL (8%)
+- Female emotional portrait → FRIDA (8%)
+- Experimental photography → MAN RAY (8%)
+- Dynamic energy → POLLOCK (7%)
+- Contemplative mood → ROTHKO (6%)
+- Pop culture/bold graphic → POP ART (Warhol 10%, Lichtenstein 8%)
+`;
+}
+
+function getModernismHints(photoAnalysis) {
+  const { count, gender, shot_type, subject, mood, background, expression } = photoAnalysis;
+  
+  // 여성 초상화 → 프리다 칼로 고려
+  if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
+    return `
+🎯 STRONG OPTIONS FOR FEMALE PORTRAIT:
+1. FRIDA KAHLO (8%) - Emotional depth, personal symbolism, Mexican aesthetic
+2. DALÍ (12%) - Hyperrealistic surreal transformation
+3. WARHOL (10%) - Bold pop art treatment
+4. MAGRITTE (10%) - Philosophical mysterious approach
+Consider the mood: emotional → Frida, dreamlike → Dalí, bold → Warhol
+`;
+  }
+  
+  // 커플/연인 → 샤갈
+  if (count === 2 && (subject.includes('couple') || subject.includes('romantic') || mood === 'romantic')) {
+    return `
+🎯 STRONG RECOMMENDATION: CHAGALL (8%)
+Romantic couple - Chagall's floating lovers!
+"I and the Village", "Birthday" - poetic romance
+Alternative: Magritte for mysterious couple aesthetic
+`;
+  }
+  
+  // 역동적/스포츠/움직임 → 폴록 또는 피카소
+  if (subject.includes('sport') || subject.includes('action') || subject.includes('dynamic') ||
+      mood === 'energetic' || mood === 'dynamic') {
+    return `
+🎯 STRONG OPTIONS FOR DYNAMIC SUBJECTS:
+1. POLLOCK (7%) - Energetic drip action, rhythmic movement
+2. PICASSO (15%) - Angular dynamic Cubist fragmentation
+Choose Pollock for pure energy, Picasso for geometric dynamism
+`;
+  }
+  
+  // 명상적/차분 → 로스코
+  if (mood === 'calm' || mood === 'contemplative' || mood === 'meditative' || mood === 'peaceful') {
+    return `
+🎯 RECOMMENDATION: ROTHKO (6%)
+Contemplative/calm mood - Rothko's meditative color fields
+Transcendent floating rectangles for spiritual depth
+Alternative: Chagall for peaceful dreaminess
+`;
+  }
+  
+  // 도시/현대적 배경 → 팝아트 또는 입체주의
+  if (background === 'urban' || background === 'modern' || subject.includes('city')) {
+    return `
+🎯 STRONG OPTIONS FOR URBAN/MODERN:
+1. WARHOL (10%) - Pop culture, commercial aesthetic
+2. LICHTENSTEIN (8%) - Comic book urban drama
+3. PICASSO (15%) - Cubist fragmentation of city
+Pop Art captures modern urban energy best!
+`;
+  }
+  
+  // 초상화 일반 → 다양한 옵션
+  if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
+    return `
+🎯 PORTRAIT OPTIONS ACROSS MOVEMENTS:
+- Surreal dreamlike → DALÍ (12%) or MAGRITTE (10%)
+- Geometric fragmentation → PICASSO (15%)
+- Pop art bold → WARHOL (10%)
+- Comic book style → LICHTENSTEIN (8%)
+- Emotional depth → FRIDA (8%)
+Consider which aesthetic transformation fits this portrait best
+`;
+  }
+  
+  // 풍경 → 달리 또는 마그리트
+  if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky')) {
+    return `
+🎯 LANDSCAPE OPTIONS:
+1. DALÍ (12%) - Surreal barren dreamscape with melting forms
+2. MAGRITTE (10%) - Philosophical sky/nature paradox
+3. MIRÓ (8%) - Playful symbolic organic forms
+Dalí for dramatic surreal, Magritte for mysterious
+`;
+  }
+  
+  // 기본값 - 균형 분배
+  return `
+🎯 BALANCED DISTRIBUTION BY MOVEMENT:
+- CUBISM: Picasso (15%), Braque (10%) - geometric fragmentation
+- SURREALISM: Dalí (12%), Magritte (10%), others (8% each) - dreamlike
+- ABSTRACT EXPRESSIONISM: Pollock (7%), Rothko (6%) - emotional abstraction
+- POP ART: Warhol (10%), Lichtenstein (8%) - bold graphic
+Choose based on desired aesthetic transformation
+`;
+}
+
 // ========================================
 // Fallback 프롬프트 (AI 실패시 사용)
 // ========================================
@@ -1121,6 +1328,11 @@ const fallbackPrompts = {
   expressionism: {
     name: '표현주의',
     prompt: 'Expressionist painting by Amedeo Modigliani: STRETCH neck vertically to 1.8-2.0x DOUBLE the normal length, STRETCH face vertically to 1.5x elongated oval, ALMOND-SHAPED eyes ABSOLUTELY NO PUPILS NO iris (completely blank dark outlined), TILT head slightly, simplified smooth contours, DESATURATED muted earth tones (ochre sienna grey-blue), dark shadowy background, NOT photographic preserve facial identity'
+  },
+  
+  modernism: {
+    name: '20세기 모더니즘',
+    prompt: 'Choose best 20th Century Modernism style based on photo: Cubist fragmented geometric forms by Picasso or Braque with multiple simultaneous perspectives, or Surrealist dreamlike hyperrealistic distortions by Dalí or Magritte with subconscious symbolism, or Abstract Expressionist emotional color fields by Rothko with floating rectangles or action dripping by Pollock with dynamic energy, or Pop Art bold commercial aesthetics by Warhol with silkscreen repetition or Lichtenstein with Ben-Day dots, painted in 20th century masterpiece quality with revolutionary modern vision'
   },
   
   // ========================================
@@ -1441,6 +1653,9 @@ Keep it concise and accurate.`;
       } else if (categoryType === 'expressionism') {
         guidelines = getExpressionismGuidelines();
         hints = getExpressionismHints(photoAnalysis);
+      } else if (categoryType === 'modernism') {
+        guidelines = getModernismGuidelines();
+        hints = getModernismHints(photoAnalysis);
       } else {
         // 고대 그리스-로마, 중세 미술 등 - 기본 로직
         promptText = `Analyze this photo and select the BEST artist from ${categoryName} period/style to transform it.

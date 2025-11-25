@@ -1,4 +1,4 @@
-// PicoArt v32 - StyleSelection (미술사조 10개, 작은 카드 디자인)
+// PicoArt v51 - StyleSelection (미술사조 11개, 작은 카드 디자인)
 import React, { useState } from 'react';
 import { educationContent } from '../data/educationContent';
 
@@ -6,9 +6,9 @@ const StyleSelection = ({ onSelect }) => {
   const [mainCategory, setMainCategory] = useState('movements'); // movements, masters, oriental
   const [subCategory, setSubCategory] = useState(null);
 
-  // 스타일 카테고리 정의 (v42: 10개 사조)
+  // 스타일 카테고리 정의 (v51: 11개 사조)
   const styleCategories = {
-    // 미술사조 10개
+    // 미술사조 11개
     ancient: { name: '그리스·로마', period: 'BC 800 - AD 500' },
     medieval: { name: '중세 미술', period: '4-14세기' },
     renaissance: { name: '르네상스', period: '14-16세기' },
@@ -18,7 +18,8 @@ const StyleSelection = ({ onSelect }) => {
     impressionism: { name: '인상주의', period: '1860-1890' },
     postImpressionism: { name: '후기인상주의', period: '1880-1910' },
     fauvism: { name: '야수파', period: '1905-1908' },
-    expressionism: { name: '표현주의', period: '20세기 초' },
+    expressionism: { name: '표현주의', period: '1905-1920' },
+    modernism: { name: '20세기 모더니즘', period: '1907-1970' },
     
     // 거장 (대 카테고리와 소 카테고리 이름 통일)
     masters: { name: '거장', period: '시대를 초월한 거장들' },
@@ -27,9 +28,9 @@ const StyleSelection = ({ onSelect }) => {
     oriental: { name: '동양화', period: '한·중·일 전통' }
   };
 
-  // 스타일 데이터 (AI가 자동 선택하므로 최소 정보만) - v42: 10개 사조
+  // 스타일 데이터 (AI가 자동 선택하므로 최소 정보만) - v51: 11개 사조
   const artStyles = [
-    // 미술사조 10개 (시간순)
+    // 미술사조 11개 (시간순)
     { id: 'ancient', name: '그리스·로마', category: 'ancient', icon: '🏛️', description: '완벽한 비례와 균형미' },
     { id: 'medieval', name: '중세 미술', category: 'medieval', icon: '⛪', description: '비잔틴·고딕·이슬람의 신성함' },
     { id: 'renaissance', name: '르네상스', category: 'renaissance', icon: '🎭', description: '인간 중심의 이상적 아름다움' },
@@ -40,6 +41,7 @@ const StyleSelection = ({ onSelect }) => {
     { id: 'postImpressionism', name: '후기인상주의', category: 'postImpressionism', icon: '🌻', description: '감정과 구조의 탐구' },
     { id: 'fauvism', name: '야수파', category: 'fauvism', icon: '🎨', description: '순수 색채의 해방' },
     { id: 'expressionism', name: '표현주의', category: 'expressionism', icon: '😱', description: '내면의 불안과 고독' },
+    { id: 'modernism', name: '20세기 모더니즘', category: 'modernism', icon: '🔮', description: '입체·다다·초현실·팝아트' },
     
     // 거장 6명 (시간순: 출생연도)
     { id: 'vangogh-master', name: '빈센트 반 고흐', nameEn: 'Vincent van Gogh', category: 'masters', icon: '🌻', description: '1853-1890 | 후기인상주의' },
@@ -55,13 +57,13 @@ const StyleSelection = ({ onSelect }) => {
     { id: 'japanese', name: '일본 전통 회화', nameEn: 'Japanese Art', category: 'oriental', icon: '🗾', description: '섬세한 관찰과 대담한 생략' }
   ];
 
-  // 대 카테고리 정의 (v42: 10개 사조)
+  // 대 카테고리 정의 (v51: 11개 사조)
   const mainCategories = {
     movements: {
       name: '미술사조',
       icon: '🎨',
       description: '서양 미술의 흐름',
-      subcategories: ['ancient', 'medieval', 'renaissance', 'baroque', 'rococo', 'neoclassicism_vs_romanticism_vs_realism', 'impressionism', 'postImpressionism', 'fauvism', 'expressionism']
+      subcategories: ['ancient', 'medieval', 'renaissance', 'baroque', 'rococo', 'neoclassicism_vs_romanticism_vs_realism', 'impressionism', 'postImpressionism', 'fauvism', 'expressionism', 'modernism']
     },
     masters: {
       name: '거장 컬렉션',

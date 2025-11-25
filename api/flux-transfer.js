@@ -1197,7 +1197,7 @@ function getModernismHints(photoAnalysis) {
 🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
 
 ARTIST SELECTION:
-1. PICASSO (40%) ⭐ BEST FOR GROUPS
+1. PICASSO (45%) ⭐ BEST FOR GROUPS
    Reference: "Guernica" (1937)
    → Dramatic fragmentation of multiple figures
    → Black, white, gray monochromatic palette
@@ -1205,18 +1205,25 @@ ARTIST SELECTION:
    → Powerful emotional impact
 
 2. WARHOL (30%)
-   Reference: "Marilyn Diptych" grid style
+   Reference: Pop art silkscreen grid style
    → Repeat the group in pop art grid
    → Each repetition different bold color scheme
    → High contrast silkscreen effect
 
-3. MAGRITTE (30%)
-   Reference: "Golconda" (1953)
-   → MULTIPLY figures falling from sky like rain
-   → Identical figures repeated across composition
-   (Note: Golconda effect is difficult - may not work perfectly)
+3. MAGRITTE (15%) ⭐ "Son of Man" ONLY - IF FRONTAL + FORMAL
+   Reference: "The Son of Man" (1964)
+   → CRITICAL CONDITION: Select ONLY if ALL subjects looking DIRECTLY at camera AND wearing FORMAL attire
+   → Place GREEN APPLES floating in front of each person's face
+   → Each person gets their own apple
+   → If NOT frontal or NOT formal, skip Magritte
+   ⚠️ NOTE: "Golconda" NOT available for groups (only for 1-2 people)
 
-SELECT based on mood: dramatic → PICASSO (Guernica!), bold pop → WARHOL, mysterious → MAGRITTE
+4. LICHTENSTEIN (10%)
+   Reference: Comic book style
+   → Ben-Day dots covering entire image
+   → Bold black outlines, primary colors
+
+SELECT: dramatic → PICASSO (Guernica!), bold pop → WARHOL, frontal formal → MAGRITTE (apples only, no Golconda), comic → LICHTENSTEIN
 `;
   }
   
@@ -1227,25 +1234,37 @@ SELECT based on mood: dramatic → PICASSO (Guernica!), bold pop → WARHOL, mys
 🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
 
 ARTIST SELECTION:
-1. CHAGALL (50%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+1. CHAGALL (40%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
    Reference: "Birthday" (1915), "Over the Town" (1918)
-   → Make couple FLOAT and FLY through dreamy sky!
-   → Defying gravity in romantic embrace
-   → Jewel-tone colors (deep blue, violet, red, green)
-   → Village/town below them
+   → Dreamy jewel-tone colors (deep blue, violet, red, green)
+   → Village/town with tilted houses in background
+   → Symbolic animals and flowers floating
    ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
 
-2. PICASSO (25%)
+2. MAGRITTE (25%) ⭐ TWO STYLES AVAILABLE
+   
+   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
+      → CONDITION: BOTH subjects looking DIRECTLY at camera + formal attire
+      → Place GREEN APPLE in front of each person's face
+      → Bowler hats, dark suits, cloudy sky
+   
+   B) "Golconda" (1953) - FOR ANY POSE
+      → Transform BOTH subjects into FORMAL STIFF poses with suits and bowler hats
+      → CONVERT background into PAINTED Belgian townscape
+      → FILL background with DOZENS of identical floating copies of the couple
+      → Main figures stay in original position
+
+3. PICASSO (20%)
    Reference: "The Kiss" (1969)
    → Two faces merged/overlapping into one
    → Geometric fragmentation of intertwined figures
 
-3. MAGRITTE (25%)
-   Reference: "The Lovers" (1928)
-   → Couple kissing with cloth covering faces
-   → Mysterious hidden identity
+4. WARHOL (15%)
+   Reference: Pop art silkscreen style
+   → Couple repeated in 4-grid with different colors
+   → Bold pop art aesthetic
 
-SELECT: Romantic mood → CHAGALL (FLOAT!), Passionate → PICASSO, Mysterious → MAGRITTE
+SELECT: Romantic → CHAGALL, Frontal formal → MAGRITTE "Son of Man" (apples), Any pose → MAGRITTE "Golconda" (MULTIPLY), Passionate → PICASSO, Bold pop → WARHOL
 `;
   }
   
@@ -1255,21 +1274,26 @@ SELECT: Romantic mood → CHAGALL (FLOAT!), Passionate → PICASSO, Mysterious �
 🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물
 
 ARTIST SELECTION:
-1. FRIDA KAHLO (30%) ⭐ STRONGEST FOR WOMEN
-   Reference: "Self-Portrait with Thorn Necklace" (1940), "The Two Fridas" (1939)
-   → Surround with Mexican symbols: flowers, vines, monkeys, parrots, hummingbirds
-   → Add thorn necklace or exposed heart elements
-   → Tehuana dress with elaborate headdress
-   → Lush tropical foliage background
-   → Unibrow and intense direct gaze
+1. MAGRITTE (30%) ⭐ TWO STYLES AVAILABLE
+   
+   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
+      → CONDITION: Subject looking DIRECTLY at camera + formal attire
+      → Place GREEN APPLE floating in front of face
+      → Formal suit/dress, bowler hat, cloudy sky
+   
+   B) "Golconda" (1953) - FOR ANY POSE
+      → Transform subject into FORMAL STIFF pose with suit and bowler hat
+      → CONVERT background into PAINTED Belgian townscape
+      → FILL background with DOZENS of identical floating copies
+      → Main figure stays in original position
 
-2. WARHOL (25%)
-   Reference: "Marilyn Monroe" (1962)
+2. WARHOL (30%)
+   Reference: Pop art silkscreen portrait
    → Face in 2x2 or 3x3 GRID
    → Each quadrant DIFFERENT bold color (hot pink, electric blue, yellow, green)
    → Silkscreen flat graphic style
 
-3. LICHTENSTEIN (20%)
+3. LICHTENSTEIN (25%)
    Reference: "Drowning Girl" (1963), "Hopeful" (1963)
    → BEN-DAY DOTS covering entire face
    → Thick BLACK OUTLINES
@@ -1282,12 +1306,7 @@ ARTIST SELECTION:
    → Multiple viewpoints - profile AND front simultaneously
    → Jagged tear-like shapes
 
-5. MAGRITTE (10%)
-   Reference: "The Rape" (1934)
-   → Face replaced with body features
-   → Mysterious transformation
-
-SELECT based on mood: emotional → FRIDA, glamorous → WARHOL, dramatic → LICHTENSTEIN
+SELECT: frontal formal → MAGRITTE "Son of Man" (apple), any pose → MAGRITTE "Golconda" (MULTIPLY), glamorous → WARHOL, dramatic → LICHTENSTEIN, geometric → PICASSO
 `;
   }
   
@@ -1297,22 +1316,28 @@ SELECT based on mood: emotional → FRIDA, glamorous → WARHOL, dramatic → LI
 🎯 PORTRAIT - CATEGORY: 인물
 
 ARTIST SELECTION:
-1. MAGRITTE (25%) ⭐ BEST FOR SINGLE PORTRAIT
-   Reference: "The Son of Man" (1964)
-   → Place GREEN APPLE floating directly in front of face
-   → Apple should obscure 70-80% of face
-   → Bowler hat, formal suit, cloudy sky background
-   → Mysterious hidden identity paradox
+1. MAGRITTE (30%) ⭐ TWO STYLES AVAILABLE
+   
+   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
+      → CONDITION: Subject looking DIRECTLY at camera + formal attire
+      → Place GREEN APPLE floating in front of face
+      → Bowler hat, dark suit, cloudy sky
+   
+   B) "Golconda" (1953) - FOR ANY POSE
+      → Transform subject into FORMAL STIFF pose with suit and bowler hat
+      → CONVERT background into PAINTED Belgian townscape
+      → FILL background with DOZENS of identical floating copies
+      → Main figure stays in original position
 
-2. PICASSO (20%)
+2. PICASSO (25%)
    Reference: "Les Demoiselles d'Avignon" (1907)
    → FRAGMENT face into angular geometric planes
    → African mask-like sharp angles and distortion
    → Show PROFILE and FRONT view SIMULTANEOUSLY
    → Monochromatic browns, grays, ochres
 
-3. WARHOL (20%)
-   Reference: "Marilyn Monroe" (1962), "Mao" (1972)
+3. WARHOL (25%)
+   Reference: Pop art silkscreen portrait
    → Face repeated in 2x2 GRID
    → Each quadrant completely DIFFERENT bold color
    → High contrast silkscreen effect
@@ -1324,12 +1349,7 @@ ARTIST SELECTION:
    → Primary colors only (red, yellow, blue, black, white)
    → Comic book dramatic style
 
-5. FRIDA KAHLO (15%)
-   Reference: "Self-Portrait" series
-   → Mexican folk symbols surrounding
-   → Flowers, animals, vines framing face
-
-SELECT: mysterious → MAGRITTE (apple!), geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN
+SELECT: frontal formal → MAGRITTE "Son of Man" (apple), any pose → MAGRITTE "Golconda" (MULTIPLY), geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN
 `;
   }
   
@@ -2646,17 +2666,23 @@ export default async function handler(req, res) {
           }
         }
         
-        // 마그리트 선택시 사람의 아들 스타일 강화
+        // 마그리트 선택시 - 작품별 분기 (사람의 아들 vs 골콩드)
         if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
             selectedArtist.toUpperCase().trim().includes('RENÉ') ||
             selectedArtist.toUpperCase().trim().includes('RENE')) {
           console.log('🎯 Magritte detected');
-          if (!finalPrompt.includes('Golconda')) {
-            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) - CRITICAL: place ONE LARGE GREEN APPLE floating in mid-air DIRECTLY IN FRONT OF FACE, apple must COVER and OBSCURE 70-80% of the face leaving only edges visible, subject wearing formal dark suit with white shirt and bowler hat, background is cloudy overcast sky with low wall, hyperrealistic precise Belgian surrealist painting style, philosophical mystery of hidden identity, the visible partially conceals the hidden, NOT realistic photo';
-            controlStrength = 0.50;
-            console.log('✅ Enhanced Magritte with Son of Man apple focus (control_strength 0.50)');
+          
+          // AI가 골콩드를 선택했는지 확인
+          if (finalPrompt.toUpperCase().includes('GOLCONDA') || finalPrompt.toUpperCase().includes('MULTIPLY') || finalPrompt.toUpperCase().includes('REPEAT')) {
+            // 골콩드 스타일 - 메인 인물 포멀 변환 + 배경 그림화 + 무한 반복
+            finalPrompt = finalPrompt + ', Transform like René Magritte "Golconda" (1953) - CRITICAL: Transform main subject into FORMAL STIFF RIGID pose wearing dark suit with bowler hat, CONVERT original photo background into PAINTED Belgian townscape with buildings and cloudy sky, then FILL this painted background with DOZENS of small identical copies of the same formally-dressed figure floating/falling in RIGID STIFF upright posture like mannequins, all facing same direction with arms at sides, hyperrealistic precise Belgian surrealist oil painting style, mysterious multiplication of identity, NOT realistic photo';
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Magritte GOLCONDA style - formal figure + painted background + infinite repetition (control_strength 0.60)');
           } else {
-            console.log('ℹ️ Magritte paradox already in prompt (AI included it)');
+            // 사람의 아들 스타일 - 정면 응시 + 정장 + 사과
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) - CRITICAL: place GREEN APPLE floating in mid-air IN FRONT OF FACE, apple PARTIALLY covers face (can show eyes or mouth), subject wearing FORMAL dark suit with white shirt and bowler hat, background is cloudy overcast sky with low wall, hyperrealistic precise Belgian surrealist painting style, philosophical mystery of hidden identity, the visible partially conceals the hidden, NOT realistic photo';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte SON OF MAN style - apple in front of face (control_strength 0.50)');
           }
         }
         
@@ -2674,14 +2700,14 @@ export default async function handler(req, res) {
           }
         }
         
-        // 샤갈 선택시 부유하는 연인 강화
+        // 샤갈 선택시 몽환적 색채 강화 (부유 효과는 AI 한계로 제외)
         if (selectedArtist.toUpperCase().trim().includes('CHAGALL') || 
             selectedArtist.toUpperCase().trim().includes('MARC')) {
           console.log('🎯 Chagall detected');
           if (!finalPrompt.includes('floating')) {
-            finalPrompt = finalPrompt + ', Transform like Marc Chagall "Birthday" and "Over the Town" - CRITICAL FLOATING EFFECT: figures MUST FLOAT and FLY in the AIR completely OFF THE GROUND, bodies tilted at impossible angles defying gravity, lovers soaring HIGH ABOVE village rooftops in romantic weightless embrace, feet NOT touching ground, dreamy jewel-tone colors (deep cobalt blue, rich violet, passionate red, emerald green), tiny Vitebsk village with tilted houses FAR BELOW, goats roosters moons floating as motifs, poetic dreamlike Jewish mystical atmosphere, ABSOLUTELY NOT standing on ground';
-            controlStrength = 0.30;
-            console.log('✅ Enhanced Chagall FLOATING (control_strength 0.30 for gravity-defying effect)');
+            finalPrompt = finalPrompt + ', Transform like Marc Chagall painting - CRITICAL: dreamy JEWEL-TONE COLORS (deep cobalt blue, rich violet, passionate ruby red, emerald green), figures with elongated dreamlike proportions, Vitebsk village with TILTED whimsical houses in background, symbolic animals floating around (goats, roosters, fish), STAINED GLASS luminous glowing quality, poetic Jewish mystical atmosphere, moon and stars scattered in sky, bouquet of flowers, everything bathed in romantic dreamlike color harmony';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Chagall with jewel-tone colors and dreamlike atmosphere (control_strength 0.50)');
           } else {
             console.log('ℹ️ Chagall floating already in prompt (AI included it)');
           }
@@ -2705,7 +2731,7 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('ANDY')) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('silkscreen')) {
-            finalPrompt = finalPrompt + ', Transform like Andy Warhol "Marilyn Monroe" series - CRITICAL GRID LAYOUT: SPLIT canvas into EXACTLY 4 EQUAL squares (2 rows x 2 columns) with CLEAR VISIBLE DIVIDING LINES between quadrants, place IDENTICAL face in EXACT SAME position in each quadrant, ONLY change BACKGROUND COLOR per quadrant: TOP-LEFT hot pink, TOP-RIGHT electric blue, BOTTOM-LEFT lime green, BOTTOM-RIGHT orange yellow, face should have HIGH CONTRAST flat silkscreen look with bold outlines, pop art screen print aesthetic, NOT realistic';
+            finalPrompt = finalPrompt + ', Transform in Andy Warhol POP ART silkscreen style - CRITICAL GRID LAYOUT: SPLIT canvas into EXACTLY 4 EQUAL squares (2 rows x 2 columns) with CLEAR VISIBLE DIVIDING LINES between quadrants, place IDENTICAL face in EXACT SAME position in each quadrant, ONLY change BACKGROUND COLOR per quadrant: TOP-LEFT hot pink, TOP-RIGHT electric blue, BOTTOM-LEFT lime green, BOTTOM-RIGHT orange yellow, face should have HIGH CONTRAST flat silkscreen look with bold outlines, pop art screen print aesthetic, PRESERVE ORIGINAL FACE IDENTITY, NOT realistic';
             controlStrength = 0.50;
             console.log('✅ Enhanced Warhol with clear grid (control_strength 0.50 for stable structure)');
           } else {

@@ -1197,7 +1197,7 @@ function getModernismHints(photoAnalysis) {
 🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
 
 ARTIST SELECTION:
-1. PICASSO (45%) ⭐⭐ BEST FOR GROUPS - STRONGLY RECOMMENDED
+1. PICASSO (50%) ⭐⭐ BEST FOR GROUPS - STRONGLY RECOMMENDED
    Reference: "Guernica" (1937)
    → Dramatic fragmentation of multiple figures
    → Black, white, gray monochromatic palette
@@ -1211,26 +1211,30 @@ ARTIST SELECTION:
    → Figures in DYNAMIC DANCING POSES with movement lines
    → RADIANT LINES emanating from bodies
    → Flat graphic subway art style
-   → Best for: groups with movement/action poses
 
 3. WARHOL (15%)
    Reference: Pop art silkscreen grid style
    → Repeat the group in 4-grid with different colors
    → CRITICAL: 4-grid layout is essential for Warhol identity
-   → High contrast silkscreen effect
 
-4. MAGRITTE (10%) ⭐ "Son of Man" ONLY - IF FRONTAL + FORMAL
-   Reference: "The Son of Man" (1964)
-   → CONDITION: ALL subjects looking DIRECTLY at camera + formal attire
-   → Place GREEN APPLES floating in front of each person's face
-   ⚠️ "Golconda" NOT available for groups (1 person ONLY)
-
-5. LICHTENSTEIN (10%)
+4. LICHTENSTEIN (10%)
    Reference: Comic book style
    → Ben-Day dots covering entire image
    → Bold black outlines, primary colors
 
-SELECT: dramatic → PICASSO, dynamic/dancing → KEITH HARING, pop grid → WARHOL, frontal formal → MAGRITTE, comic → LICHTENSTEIN
+5. MAGRITTE (5%) ⚠️ VERY STRICT CONDITIONS - SKIP IF NOT MET!
+   Reference: "The Son of Man" (1964), "The Man in the Bowler Hat"
+   → ⛔ CRITICAL REQUIREMENTS (ALL must be true):
+      1. CLOSE-UP or PORTRAIT shot (NOT wide/full body)
+      2. ALL subjects looking DIRECTLY AT CAMERA (frontal gaze)
+      3. Formal or semi-formal setting
+   → ❌ DO NOT SELECT MAGRITTE IF:
+      - People looking different directions
+      - Candid/casual event photo
+      - Wide shot or full body
+   → If conditions met: Place GREEN APPLE at NOSE LEVEL (eyes and mouth visible)
+
+SELECT: ALWAYS prefer PICASSO for groups! → dramatic → PICASSO, dynamic → KEITH HARING, pop → WARHOL, comic → LICHTENSTEIN, ONLY frontal close-up formal → MAGRITTE (rare!)
 `;
   }
   
@@ -1242,43 +1246,41 @@ SELECT: dramatic → PICASSO, dynamic/dancing → KEITH HARING, pop grid → WAR
 🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
 
 ARTIST SELECTION:
-1. CHAGALL (35%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+1. CHAGALL (40%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
    Reference: "Birthday" (1915), "Over the Town" (1918)
    → Dreamy jewel-tone colors (deep blue, violet, red, green)
    → Village/town with tilted houses in background
    → Symbolic animals and flowers floating
    ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
 
-2. MAGRITTE (25%) ⭐ TWO STYLES AVAILABLE
+2. MAGRITTE (20%) ⭐ STRICT CONDITIONS!
    
-   A) "Golconda" (1953) - ${isFullBody ? '⭐ RECOMMENDED FOR THIS FULL BODY SHOT!' : 'IF FULL BODY / WIDE SHOT'}
+   A) "Golconda" (1953) - ${isFullBody ? '⭐ RECOMMENDED!' : 'ONLY IF FULL BODY/WIDE'}
       → CONDITION: Full body or wide shot with visible background
-      → Transform BOTH subjects into FORMAL STIFF poses with suits and bowler hats
-      → CONVERT background into PAINTED Belgian townscape
-      → FILL background with DOZENS of identical floating copies
-      ${isFullBody ? '→ THIS IS A FULL BODY SHOT - GOLCONDA WORKS WELL!' : '→ Skip if close-up portrait'}
+      → Transform into FORMAL poses with suits and bowler hats
+      → Background becomes Belgian townscape with floating copies
+      ${isFullBody ? '' : '→ ❌ Skip if close-up'}
    
-   B) "The Son of Man" (1964) - IF FRONTAL + CLOSE-UP
-      → CONDITION: BOTH subjects looking DIRECTLY at camera + formal attire
-      → Place GREEN APPLE in front of each person's face
+   B) "The Son of Man" (1964) - ONLY IF FRONTAL GAZE + CLOSE-UP
+      → ⛔ REQUIREMENTS: BOTH looking DIRECTLY AT CAMERA
+      → ❌ SKIP IF: looking at each other, candid, side profile
+      → GREEN APPLE at NOSE LEVEL (eyes & mouth visible)
 
 3. PICASSO (20%)
    Reference: "The Kiss" (1969)
    → Two faces merged/overlapping into one
    → Geometric fragmentation of intertwined figures
 
-4. WARHOL (10%)
-   Reference: Pop art silkscreen style
-   → Couple repeated in 4-grid with different colors
-   → Bold pop art aesthetic
-
-5. LICHTENSTEIN (10%) ⭐ COMIC ROMANCE STYLE
-   Reference: "Drowning Girl" (1963), "In the Car" (1963)
-   → BEN-DAY DOTS covering entire image
-   → Thick BLACK OUTLINES
+4. LICHTENSTEIN (10%) ⭐ COMIC ROMANCE
+   Reference: "In the Car" (1963)
+   → BEN-DAY DOTS, thick BLACK OUTLINES
    → Romantic comic book aesthetic
 
-SELECT: Full body/wide shot → MAGRITTE "Golconda" (MULTIPLY), Romantic → CHAGALL, Frontal close-up → MAGRITTE "Son of Man", Passionate → PICASSO
+5. WARHOL (10%)
+   Reference: Pop art silkscreen style
+   → Couple repeated in 4-grid with different colors
+
+SELECT: Romantic → CHAGALL, Full body → MAGRITTE Golconda, ONLY frontal gaze close-up → MAGRITTE apple, Passionate → PICASSO
 `;
   }
   
@@ -1294,29 +1296,29 @@ ARTIST SELECTION:
    → Thick BLACK OUTLINES around all forms
    → Dramatic emotional expression
    → PRIMARY COLORS (red, yellow, blue, black, white)
-   → Optional thought bubble or speech bubble
    → Classic comic book romantic heroine style
 
-2. MAGRITTE (25%) ⭐ "The Son of Man" BEST FOR CLOSE-UP
+2. MAGRITTE (25%) ⭐ "The Son of Man" / "Man in Bowler Hat"
    Reference: "The Son of Man" (1964)
-   → CONDITION: Subject looking DIRECTLY at camera + formal attire
-   → Place GREEN APPLE floating in front of face
-   → Formal suit/dress, bowler hat, cloudy sky
-   ⚠️ "Golconda" NOT suitable for close-up (need full body shot with background)
+   → ⛔ CRITICAL REQUIREMENTS:
+      1. Subject looking DIRECTLY AT CAMERA (frontal gaze)
+      2. Close-up or portrait shot
+   → ❌ SKIP MAGRITTE IF: side profile, looking away, candid shot
+   → If conditions met: GREEN APPLE at NOSE LEVEL (eyes & mouth VISIBLE)
+   → Formal attire, bowler hat, cloudy sky
 
 3. WARHOL (25%)
    Reference: Pop art silkscreen portrait
    → Face in 2x2 or 3x3 GRID
-   → Each quadrant DIFFERENT bold color (hot pink, electric blue, yellow, green)
+   → Each quadrant DIFFERENT bold color
    → Silkscreen flat graphic style
 
 4. PICASSO (15%)
    Reference: "Weeping Woman" (1937)
-   → Sharp angular fragmentation of crying/emotional face
-   → Multiple viewpoints - profile AND front simultaneously
-   → Jagged tear-like shapes
+   → Sharp angular fragmentation of face
+   → Multiple viewpoints simultaneously
 
-SELECT: dramatic/emotional → LICHTENSTEIN (comic!), frontal formal close-up → MAGRITTE "Son of Man", glamorous → WARHOL, geometric → PICASSO
+SELECT: dramatic/emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamorous → WARHOL, geometric → PICASSO
 `;
   }
   
@@ -1326,34 +1328,32 @@ SELECT: dramatic/emotional → LICHTENSTEIN (comic!), frontal formal close-up �
 🎯 PORTRAIT - CATEGORY: 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. MAGRITTE (25%) ⭐ "The Son of Man" BEST FOR CLOSE-UP
-   Reference: "The Son of Man" (1964)
-   → CONDITION: Subject looking DIRECTLY at camera + formal attire
-   → Place GREEN APPLE floating in front of face
-   → Bowler hat, dark suit, cloudy sky
-   ⚠️ "Golconda" NOT suitable for close-up (need full body shot with background)
+1. MAGRITTE (25%) ⭐ "The Son of Man" / "Man in Bowler Hat"
+   Reference: "The Son of Man" (1964), "The Man in the Bowler Hat" (1964)
+   → ⛔ CRITICAL REQUIREMENTS:
+      1. Subject looking DIRECTLY AT CAMERA (frontal gaze)
+      2. Close-up or portrait shot
+   → ❌ SKIP MAGRITTE IF: side profile, looking away, candid shot
+   → If conditions met: GREEN APPLE at NOSE LEVEL (eyes & mouth VISIBLE, only nose covered)
+   → Bowler hat, dark suit, cloudy sky background
 
 2. LICHTENSTEIN (25%) ⭐ COMIC BOOK STYLE
    Reference: "Whaam!" (1963), "Crying Girl"
    → Cover ENTIRE image with visible BEN-DAY DOTS
    → THICK black outlines around all forms
    → Primary colors only (red, yellow, blue, black, white)
-   → Comic book dramatic hero/heroine style
 
 3. PICASSO (25%)
    Reference: "Les Demoiselles d'Avignon" (1907)
    → FRAGMENT face into angular geometric planes
-   → African mask-like sharp angles and distortion
    → Show PROFILE and FRONT view SIMULTANEOUSLY
-   → Monochromatic browns, grays, ochres
 
 4. WARHOL (25%)
    Reference: Pop art silkscreen portrait
    → Face repeated in 2x2 GRID
-   → Each quadrant completely DIFFERENT bold color
-   → High contrast silkscreen effect
+   → Each quadrant DIFFERENT bold color
 
-SELECT: frontal formal close-up → MAGRITTE "Son of Man", comic → LICHTENSTEIN, geometric → PICASSO, pop grid → WARHOL
+SELECT: ONLY frontal gaze close-up → MAGRITTE, comic → LICHTENSTEIN, geometric → PICASSO, pop grid → WARHOL
 `;
   }
   
@@ -2716,14 +2716,14 @@ export default async function handler(req, res) {
           // AI가 골콩드를 선택했는지 확인
           if (finalPrompt.toUpperCase().includes('GOLCONDA') || finalPrompt.toUpperCase().includes('MULTIPLY') || finalPrompt.toUpperCase().includes('REPEAT')) {
             // 골콩드 스타일 - 메인 인물 포멀 변환 + 배경 그림화 + 무한 반복
-            finalPrompt = finalPrompt + ', Transform like René Magritte "Golconda" (1953) - CRITICAL: Transform main subject into FORMAL STIFF RIGID pose wearing dark suit with bowler hat, CONVERT original photo background into PAINTED Belgian townscape with buildings and cloudy sky, then FILL this painted background with DOZENS of small identical copies of the same formally-dressed figure floating/falling in RIGID STIFF upright posture like mannequins, all facing same direction with arms at sides, hyperrealistic precise Belgian surrealist oil painting style, mysterious multiplication of identity, NOT realistic photo';
+            finalPrompt = finalPrompt + ', Transform like René Magritte "Golconda" (1953) - CRITICAL: Transform main subject into FORMAL STIFF RIGID pose wearing dark suit with bowler hat, CONVERT original photo background into PAINTED Belgian townscape with buildings and cloudy sky, then FILL this painted background with DOZENS of small identical copies of the same formally-dressed figure floating/falling in RIGID STIFF upright posture like mannequins, hyperrealistic Belgian surrealist oil painting, DO NOT add floating people if close-up portrait, NOT realistic photo';
             controlStrength = 0.60;
-            console.log('✅ Enhanced Magritte GOLCONDA style - formal figure + painted background + infinite repetition (control_strength 0.60)');
+            console.log('✅ Enhanced Magritte GOLCONDA style (control_strength 0.60)');
           } else {
-            // 사람의 아들 스타일 - 정면 응시 + 정장 + 사과
-            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) - CRITICAL: place GREEN APPLE floating in mid-air IN FRONT OF FACE, apple PARTIALLY covers face (can show eyes or mouth), subject wearing FORMAL dark suit with white shirt and bowler hat, background is cloudy overcast sky with low wall, hyperrealistic precise Belgian surrealist painting style, philosophical mystery of hidden identity, the visible partially conceals the hidden, NOT realistic photo';
+            // 사람의 아들 스타일 - 정면 응시 + 정장 + 사과 (코만 가림)
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) and "Man in the Bowler Hat" - CRITICAL APPLE PLACEMENT: place ONE small GREEN APPLE floating at NOSE LEVEL, apple size must be SMALL (covers ONLY the nose area about 25-30% of face height), EYES must be CLEARLY VISIBLE above apple, MOUTH and CHIN must be CLEARLY VISIBLE below apple, subject wearing dark formal suit with white collar and BLACK BOWLER HAT, background is overcast cloudy grey sky with stone wall, hyperrealistic precise Belgian surrealist oil painting style, IMPORTANT: apple must NOT cover eyes or mouth - only nose area, NOT realistic photo';
             controlStrength = 0.50;
-            console.log('✅ Enhanced Magritte SON OF MAN style - apple in front of face (control_strength 0.50)');
+            console.log('✅ Enhanced Magritte SON OF MAN style - small apple at nose only, eyes and mouth visible (control_strength 0.50)');
           }
         }
         

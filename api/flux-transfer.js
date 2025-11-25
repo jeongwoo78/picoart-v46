@@ -1086,6 +1086,10 @@ Strong core of 4 Expressionist masters!
 // 제외: 뒤샹(개념미술), 폴록/로스코(완전추상 - 형태 없음)
 function getModernismGuidelines() {
   return `
+⚠️ CRITICAL: You MUST select ONLY from the 10 artists listed below!
+DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, etc.)
+If no artist fits perfectly, choose the CLOSEST match from this list.
+
 Available 20th Century Modernism Artists (10명 across 4 movements):
 
 === CUBISM 입체주의 (2명) ===
@@ -1172,6 +1176,11 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 - Experimental photo → MAN RAY (10%)
 - Pop repetition → WARHOL (15%)
 - Comic book style → LICHTENSTEIN (10%)
+- Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
+
+⚠️ FINAL REMINDER: ONLY these 10 artists are valid choices:
+PICASSO, BRAQUE, MAN RAY, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN
+Any other artist name will cause an error!
 `;
 }
 

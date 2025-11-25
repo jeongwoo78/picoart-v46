@@ -2377,8 +2377,8 @@ export default async function handler(req, res) {
           }
           // 20세기 모더니즘에서 피카소 선택시 control_strength 낮춤
           if (categoryType === 'modernism') {
-            controlStrength = 0.55;
-            console.log('✅ Modernism Picasso: control_strength 0.55 (allow fragmentation)');
+            controlStrength = 0.30;
+            console.log('✅ Modernism Picasso: control_strength 0.30 (allow full fragmentation)');
           }
         }
         
@@ -2392,8 +2392,8 @@ export default async function handler(req, res) {
           console.log('🎯 Braque detected');
           if (!finalPrompt.includes('analytical Cubism')) {
             finalPrompt = finalPrompt + ', painting by Georges Braque, ANALYTICAL CUBISM with subtle geometric fragmentation, muted earth tones of browns tans and grays, papier collé texture with collage-like layered planes, musical instruments and still life motifs, more harmonious and subtle than Picasso, overlapping translucent planes creating shallow space, stenciled letters and numbers integrated into composition';
-            controlStrength = 0.55;
-            console.log('✅ Enhanced Braque analytical Cubism added (control_strength 0.55)');
+            controlStrength = 0.30;
+            console.log('✅ Enhanced Braque analytical Cubism added (control_strength 0.30)');
           } else {
             console.log('ℹ️ Braque Cubism already in prompt (AI included it)');
           }
@@ -2433,8 +2433,8 @@ export default async function handler(req, res) {
           console.log('🎯 Magritte detected');
           if (!finalPrompt.includes('Golconda')) {
             finalPrompt = finalPrompt + ', Surrealist painting by René Magritte, GOLCONDA-STYLE MULTIPLICATION with identical figures repeated across sky like rain, OR Son of Man-style with green apple floating in front of face obscuring identity, philosophical paradox questioning reality, bowler hat men in suits, pristine hyperrealistic rendering of impossible scenes, deadpan mysterious atmosphere, everyday objects in extraordinary contexts, Belgian surrealist precision';
-            controlStrength = 0.50;
-            console.log('✅ Enhanced Magritte multiplication/paradox added (control_strength 0.50)');
+            controlStrength = 0.30;
+            console.log('✅ Enhanced Magritte multiplication/paradox added (control_strength 0.30)');
           } else {
             console.log('ℹ️ Magritte paradox already in prompt (AI included it)');
           }
@@ -2486,8 +2486,8 @@ export default async function handler(req, res) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('silkscreen')) {
             finalPrompt = finalPrompt + ', Pop Art by Andy Warhol, MARILYN-STYLE SILKSCREEN with face repeated in 2x2 or 3x3 GRID, each repetition in DIFFERENT BOLD COLOR SCHEME (hot pink, electric blue, lime green, orange, yellow), flat graphic treatment with high contrast, celebrity portrait aesthetic, mass production repetition, Factory-style commercial art technique, iconic pop culture transformation';
-            controlStrength = 0.50;
-            console.log('✅ Enhanced Warhol silkscreen grid added (control_strength 0.50)');
+            controlStrength = 0.30;
+            console.log('✅ Enhanced Warhol silkscreen grid added (control_strength 0.30)');
           } else {
             console.log('ℹ️ Warhol silkscreen already in prompt (AI included it)');
           }

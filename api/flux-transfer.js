@@ -191,8 +191,8 @@ Available Renaissance Artists (5명):
 1. LEONARDO DA VINCI (레오나르도 다 빈치) ⭐ STRONGEST for female portraits
    - Specialty: Sfumato technique, mysterious smile, soft transitions, psychological depth
    - Best for: Female upper body portraits, mysterious/serene expressions
-   - Signature: Mona Lisa-like soft atmosphere, gentle beauty, enigmatic quality
-   - Masterpiece: Mona Lisa
+   - Signature: Sfumato soft atmosphere, gentle beauty, enigmatic quality
+   - Masterpiece: Various portraits with sfumato technique
    - When to prioritize: Female face/upper body portrait (STRONG RECOMMENDATION 80%)
 
 2. TITIAN (티치아노) ⭐⭐ STRONG for male portraits & landscapes (70%)
@@ -248,7 +248,7 @@ CRITICAL: NEVER Michelangelo for children or teens!
     return `
 🎯 STRONG RECOMMENDATION: LEONARDO DA VINCI (80% priority)
 This is a female portrait - perfect for Da Vinci's sfumato technique!
-His Mona Lisa-like mysterious atmosphere and gentle beauty 
+His sfumato technique creates mysterious atmosphere and gentle beauty 
 will create the most iconic Renaissance portrait.
 Unless this is clearly:
 - Landscape/sunset (→ Titian)
@@ -1115,7 +1115,7 @@ const fallbackPrompts = {
   
   renaissance: {
     name: '르네상스',
-    prompt: 'Renaissance painting by Leonardo da Vinci EXTREME Mona Lisa-style sfumato: PRESERVE original person\'s face and features, DO NOT paint actual Mona Lisa, only apply Leonardo\'s painting technique, apply very strong soft atmospheric haze throughout, all edges must be completely blurred, no sharp outlines anywhere in entire painting, mysterious smoky depth like authentic Mona Lisa, every boundary softly dissolved into atmosphere, warm golden Renaissance colors, harmonious balanced composition, unified composition all figures together NOT separated, NOT photographic preserve facial identity, Renaissance masterpiece quality'
+    prompt: 'Renaissance painting by Leonardo da Vinci EXTREME sfumato technique: PRESERVE original person\'s face and features, DO NOT paint actual Mona Lisa, only apply Leonardo\'s painting technique, apply very strong soft atmospheric haze throughout, all edges must be completely blurred, no sharp outlines anywhere in entire painting, mysterious smoky depth with sfumato technique, every boundary softly dissolved into atmosphere, warm golden Renaissance colors, harmonious balanced composition, unified composition all figures together NOT separated, NOT photographic preserve facial identity, Renaissance masterpiece quality'
   },
   
   baroque: {
@@ -1755,7 +1755,7 @@ export default async function handler(req, res) {
         if (selectedArtist.toUpperCase().trim().includes('LEONARDO') || selectedArtist.toUpperCase().trim().includes('DA VINCI')) {
           console.log('🎯 Leonardo da Vinci detected');
           if (!finalPrompt.includes('Mona Lisa-style')) {
-            finalPrompt = finalPrompt + ', painting by Leonardo da Vinci, Mona Lisa-style EXTREME sfumato technique, PRESERVE original person\'s identity and features, DO NOT replace with Mona Lisa painting, only apply Leonardo\'s artistic technique, with all edges completely soft and blurred throughout, NO sharp outlines anywhere in the entire painting, mysterious smoky atmospheric haze dissolving every boundary, gentle soft transitions between all forms, warm golden Renaissance colors, enigmatic subtle smile, tender atmospheric depth like authentic Mona Lisa, everything slightly out of focus and dreamy';
+            finalPrompt = finalPrompt + ', painting by Leonardo da Vinci, EXTREME sfumato technique, PRESERVE original person\'s identity and features, DO NOT replace with famous paintings, only apply Leonardo\'s artistic technique, with all edges completely soft and blurred throughout, NO sharp outlines anywhere in the entire painting, mysterious smoky atmospheric haze dissolving every boundary, gentle soft transitions between all forms, warm golden Renaissance colors, subtle expression, tender atmospheric depth with authentic sfumato, everything slightly out of focus and dreamy';
             controlStrength = 0.65;
             console.log('✅ Enhanced Leonardo sfumato added (control_strength 0.65)');
           } else {

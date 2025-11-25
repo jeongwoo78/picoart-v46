@@ -1179,7 +1179,7 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 - Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
 
 ⚠️ FINAL REMINDER: ONLY these 10 artists are valid choices:
-PICASSO, BRAQUE, MAN RAY, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN
+PICASSO, BRAQUE, MAN RAY, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN, KEITH HARING
 Any other artist name will cause an error!
 `;
 }
@@ -1197,44 +1197,52 @@ function getModernismHints(photoAnalysis) {
 🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
 
 ARTIST SELECTION:
-1. PICASSO (45%) ⭐ BEST FOR GROUPS
+1. PICASSO (45%) ⭐⭐ BEST FOR GROUPS - STRONGLY RECOMMENDED
    Reference: "Guernica" (1937)
    → Dramatic fragmentation of multiple figures
    → Black, white, gray monochromatic palette
    → Angular distorted anguished forms
    → Powerful emotional impact
 
-2. WARHOL (30%)
+2. KEITH HARING (20%) ⭐ GREAT FOR DYNAMIC GROUPS
+   Reference: "Untitled (Dancing Figures)" (1987)
+   → BOLD BLACK OUTLINES around simplified figures
+   → Bright PRIMARY COLORS (red, yellow, blue, green, orange)
+   → Figures in DYNAMIC DANCING POSES with movement lines
+   → RADIANT LINES emanating from bodies
+   → Flat graphic subway art style
+   → Best for: groups with movement/action poses
+
+3. WARHOL (15%)
    Reference: Pop art silkscreen grid style
-   → Repeat the group in pop art grid
-   → Each repetition different bold color scheme
+   → Repeat the group in 4-grid with different colors
+   → CRITICAL: 4-grid layout is essential for Warhol identity
    → High contrast silkscreen effect
 
-3. MAGRITTE (15%) ⭐ "Son of Man" ONLY - IF FRONTAL + FORMAL
+4. MAGRITTE (10%) ⭐ "Son of Man" ONLY - IF FRONTAL + FORMAL
    Reference: "The Son of Man" (1964)
-   → CRITICAL CONDITION: Select ONLY if ALL subjects looking DIRECTLY at camera AND wearing FORMAL attire
+   → CONDITION: ALL subjects looking DIRECTLY at camera + formal attire
    → Place GREEN APPLES floating in front of each person's face
-   → Each person gets their own apple
-   → If NOT frontal or NOT formal, skip Magritte
-   ⚠️ NOTE: "Golconda" NOT available for groups (only for 1-2 people)
+   ⚠️ "Golconda" NOT available for groups (1 person ONLY)
 
-4. LICHTENSTEIN (10%)
+5. LICHTENSTEIN (10%)
    Reference: Comic book style
    → Ben-Day dots covering entire image
    → Bold black outlines, primary colors
 
-SELECT: dramatic → PICASSO (Guernica!), bold pop → WARHOL, frontal formal → MAGRITTE (apples only, no Golconda), comic → LICHTENSTEIN
+SELECT: dramatic → PICASSO, dynamic/dancing → KEITH HARING, pop grid → WARHOL, frontal formal → MAGRITTE, comic → LICHTENSTEIN
 `;
   }
   
   // 💑 커플/2인
   if (count === 2) {
     const isRomantic = subject.includes('couple') || subject.includes('romantic') || mood === 'romantic';
+    const isFullBody = shot_type === 'full_body' || shot_type === 'wide';
     return `
 🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
 
 ARTIST SELECTION:
-1. CHAGALL (40%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+1. CHAGALL (35%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
    Reference: "Birthday" (1915), "Over the Town" (1918)
    → Dreamy jewel-tone colors (deep blue, violet, red, green)
    → Village/town with tilted houses in background
@@ -1243,62 +1251,64 @@ ARTIST SELECTION:
 
 2. MAGRITTE (25%) ⭐ TWO STYLES AVAILABLE
    
-   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
-      → CONDITION: BOTH subjects looking DIRECTLY at camera + formal attire
-      → Place GREEN APPLE in front of each person's face
-      → Bowler hats, dark suits, cloudy sky
-   
-   B) "Golconda" (1953) - FOR ANY POSE
+   A) "Golconda" (1953) - ${isFullBody ? '⭐ RECOMMENDED FOR THIS FULL BODY SHOT!' : 'IF FULL BODY / WIDE SHOT'}
+      → CONDITION: Full body or wide shot with visible background
       → Transform BOTH subjects into FORMAL STIFF poses with suits and bowler hats
       → CONVERT background into PAINTED Belgian townscape
-      → FILL background with DOZENS of identical floating copies of the couple
-      → Main figures stay in original position
+      → FILL background with DOZENS of identical floating copies
+      ${isFullBody ? '→ THIS IS A FULL BODY SHOT - GOLCONDA WORKS WELL!' : '→ Skip if close-up portrait'}
+   
+   B) "The Son of Man" (1964) - IF FRONTAL + CLOSE-UP
+      → CONDITION: BOTH subjects looking DIRECTLY at camera + formal attire
+      → Place GREEN APPLE in front of each person's face
 
 3. PICASSO (20%)
    Reference: "The Kiss" (1969)
    → Two faces merged/overlapping into one
    → Geometric fragmentation of intertwined figures
 
-4. WARHOL (15%)
+4. WARHOL (10%)
    Reference: Pop art silkscreen style
    → Couple repeated in 4-grid with different colors
    → Bold pop art aesthetic
 
-SELECT: Romantic → CHAGALL, Frontal formal → MAGRITTE "Son of Man" (apples), Any pose → MAGRITTE "Golconda" (MULTIPLY), Passionate → PICASSO, Bold pop → WARHOL
+5. LICHTENSTEIN (10%) ⭐ COMIC ROMANCE STYLE
+   Reference: "Drowning Girl" (1963), "In the Car" (1963)
+   → BEN-DAY DOTS covering entire image
+   → Thick BLACK OUTLINES
+   → Romantic comic book aesthetic
+
+SELECT: Full body/wide shot → MAGRITTE "Golconda" (MULTIPLY), Romantic → CHAGALL, Frontal close-up → MAGRITTE "Son of Man", Passionate → PICASSO
 `;
   }
   
   // 👩 여성 인물
   if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
-🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물
+🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. MAGRITTE (30%) ⭐ TWO STYLES AVAILABLE
-   
-   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
-      → CONDITION: Subject looking DIRECTLY at camera + formal attire
-      → Place GREEN APPLE floating in front of face
-      → Formal suit/dress, bowler hat, cloudy sky
-   
-   B) "Golconda" (1953) - FOR ANY POSE
-      → Transform subject into FORMAL STIFF pose with suit and bowler hat
-      → CONVERT background into PAINTED Belgian townscape
-      → FILL background with DOZENS of identical floating copies
-      → Main figure stays in original position
+1. LICHTENSTEIN (35%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
+   Reference: "Drowning Girl" (1963), "Hopeful" (1963), "Crying Girl"
+   → BEN-DAY DOTS covering ENTIRE face and background
+   → Thick BLACK OUTLINES around all forms
+   → Dramatic emotional expression
+   → PRIMARY COLORS (red, yellow, blue, black, white)
+   → Optional thought bubble or speech bubble
+   → Classic comic book romantic heroine style
 
-2. WARHOL (30%)
+2. MAGRITTE (25%) ⭐ "The Son of Man" BEST FOR CLOSE-UP
+   Reference: "The Son of Man" (1964)
+   → CONDITION: Subject looking DIRECTLY at camera + formal attire
+   → Place GREEN APPLE floating in front of face
+   → Formal suit/dress, bowler hat, cloudy sky
+   ⚠️ "Golconda" NOT suitable for close-up (need full body shot with background)
+
+3. WARHOL (25%)
    Reference: Pop art silkscreen portrait
    → Face in 2x2 or 3x3 GRID
    → Each quadrant DIFFERENT bold color (hot pink, electric blue, yellow, green)
    → Silkscreen flat graphic style
-
-3. LICHTENSTEIN (25%)
-   Reference: "Drowning Girl" (1963), "Hopeful" (1963)
-   → BEN-DAY DOTS covering entire face
-   → Thick BLACK OUTLINES
-   → Dramatic emotional expression
-   → Optional thought bubble
 
 4. PICASSO (15%)
    Reference: "Weeping Woman" (1937)
@@ -1306,50 +1316,81 @@ ARTIST SELECTION:
    → Multiple viewpoints - profile AND front simultaneously
    → Jagged tear-like shapes
 
-SELECT: frontal formal → MAGRITTE "Son of Man" (apple), any pose → MAGRITTE "Golconda" (MULTIPLY), glamorous → WARHOL, dramatic → LICHTENSTEIN, geometric → PICASSO
+SELECT: dramatic/emotional → LICHTENSTEIN (comic!), frontal formal close-up → MAGRITTE "Son of Man", glamorous → WARHOL, geometric → PICASSO
 `;
   }
   
   // 📸 남성/일반 인물
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
-🎯 PORTRAIT - CATEGORY: 인물
+🎯 PORTRAIT - CATEGORY: 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. MAGRITTE (30%) ⭐ TWO STYLES AVAILABLE
-   
-   A) "The Son of Man" (1964) - IF FRONTAL + FORMAL
-      → CONDITION: Subject looking DIRECTLY at camera + formal attire
-      → Place GREEN APPLE floating in front of face
-      → Bowler hat, dark suit, cloudy sky
-   
-   B) "Golconda" (1953) - FOR ANY POSE
-      → Transform subject into FORMAL STIFF pose with suit and bowler hat
-      → CONVERT background into PAINTED Belgian townscape
-      → FILL background with DOZENS of identical floating copies
-      → Main figure stays in original position
+1. MAGRITTE (25%) ⭐ "The Son of Man" BEST FOR CLOSE-UP
+   Reference: "The Son of Man" (1964)
+   → CONDITION: Subject looking DIRECTLY at camera + formal attire
+   → Place GREEN APPLE floating in front of face
+   → Bowler hat, dark suit, cloudy sky
+   ⚠️ "Golconda" NOT suitable for close-up (need full body shot with background)
 
-2. PICASSO (25%)
+2. LICHTENSTEIN (25%) ⭐ COMIC BOOK STYLE
+   Reference: "Whaam!" (1963), "Crying Girl"
+   → Cover ENTIRE image with visible BEN-DAY DOTS
+   → THICK black outlines around all forms
+   → Primary colors only (red, yellow, blue, black, white)
+   → Comic book dramatic hero/heroine style
+
+3. PICASSO (25%)
    Reference: "Les Demoiselles d'Avignon" (1907)
    → FRAGMENT face into angular geometric planes
    → African mask-like sharp angles and distortion
    → Show PROFILE and FRONT view SIMULTANEOUSLY
    → Monochromatic browns, grays, ochres
 
-3. WARHOL (25%)
+4. WARHOL (25%)
    Reference: Pop art silkscreen portrait
    → Face repeated in 2x2 GRID
    → Each quadrant completely DIFFERENT bold color
    → High contrast silkscreen effect
 
-4. LICHTENSTEIN (20%)
-   Reference: "Whaam!" (1963), "Crying Girl"
-   → Cover ENTIRE image with visible BEN-DAY DOTS
-   → THICK black outlines around all forms
-   → Primary colors only (red, yellow, blue, black, white)
-   → Comic book dramatic style
+SELECT: frontal formal close-up → MAGRITTE "Son of Man", comic → LICHTENSTEIN, geometric → PICASSO, pop grid → WARHOL
+`;
+  }
+  
+  // 🚶 전신/원경 인물 (1-2인)
+  if ((count === 1 || count === 2) && (shot_type === 'full_body' || shot_type === 'wide')) {
+    return `
+🎯 FULL BODY / WIDE SHOT - CATEGORY: 전신 인물
 
-SELECT: frontal formal → MAGRITTE "Son of Man" (apple), any pose → MAGRITTE "Golconda" (MULTIPLY), geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN
+ARTIST SELECTION:
+1. MAGRITTE (35%) ⭐⭐ "Golconda" BEST FOR FULL BODY!
+   Reference: "Golconda" (1953)
+   → CRITICAL: This is the PERFECT shot type for Golconda!
+   → Transform subject(s) into FORMAL STIFF pose with dark suit and bowler hat
+   → CONVERT background into PAINTED Belgian townscape with buildings
+   → FILL background with DOZENS of identical copies floating/falling
+   → Main figure(s) stay in original position
+   → Hyperrealistic surrealist oil painting style
+
+2. PICASSO (25%)
+   Reference: "Les Demoiselles d'Avignon" (1907)
+   → FRAGMENT figure into angular geometric planes
+   → African mask-like sharp angles and distortion
+   → Show multiple viewpoints SIMULTANEOUSLY
+
+3. KEITH HARING (20%) ⭐ GREAT FOR DYNAMIC POSES
+   Reference: "Dancing Figures" (1987)
+   → BOLD BLACK OUTLINES around simplified figures
+   → Bright PRIMARY COLORS (red, yellow, blue, green)
+   → RADIANT LINES emanating from body
+   → Flat graphic subway art style
+
+4. WARHOL (20%)
+   Reference: Pop art silkscreen style
+   → Repeat figure in 4-grid with different colors
+   → High contrast silkscreen effect
+
+SELECT: Full body with background → MAGRITTE "Golconda" (MULTIPLY!), dynamic pose → KEITH HARING, geometric → PICASSO, pop grid → WARHOL
 `;
   }
   
@@ -2710,6 +2751,19 @@ export default async function handler(req, res) {
             console.log('✅ Enhanced Chagall with jewel-tone colors and dreamlike atmosphere (control_strength 0.50)');
           } else {
             console.log('ℹ️ Chagall floating already in prompt (AI included it)');
+          }
+        }
+        
+        // 키스 해링 선택시 그래피티 아트 스타일 강화
+        if (selectedArtist.toUpperCase().trim().includes('KEITH') || 
+            selectedArtist.toUpperCase().trim().includes('HARING')) {
+          console.log('🎯 Keith Haring detected');
+          if (!finalPrompt.includes('radiant')) {
+            finalPrompt = finalPrompt + ', Transform like Keith Haring street art - CRITICAL: BOLD THICK BLACK OUTLINES around all figures, figures SIMPLIFIED into iconic dancing silhouettes, bright PRIMARY COLORS filling shapes (red, yellow, blue, green, orange, pink), RADIANT LINES emanating from bodies showing energy and movement, flat graphic subway graffiti style, figures in DYNAMIC DANCING POSES with movement lines, barking dogs and crawling babies as motifs, NO shading NO gradients just flat bold colors, joyful energetic street art aesthetic';
+            controlStrength = 0.40;
+            console.log('✅ Enhanced Keith Haring with bold outlines and radiant lines (control_strength 0.40)');
+          } else {
+            console.log('ℹ️ Keith Haring style already in prompt (AI included it)');
           }
         }
         

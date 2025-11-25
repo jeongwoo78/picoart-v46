@@ -1083,9 +1083,6 @@ Pure emotional color without representational forms.
 - Abstract/spiritual → KANDINSKY (10%)
 All five artists equally represent Expressionism!
 `;
-- Urban → Kirchner (10%)
-- Abstract → Kandinsky (5%)
-`;
 }
 
 // ========================================

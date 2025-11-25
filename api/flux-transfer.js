@@ -1187,94 +1187,267 @@ Any other artist name will cause an error!
 function getModernismHints(photoAnalysis) {
   const { count, gender, shot_type, subject, mood, background, expression } = photoAnalysis;
   
-  // 여성 초상화 → 프리다 칼로 우선 고려
-  if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
-    return `
-🎯 STRONG OPTIONS FOR FEMALE PORTRAIT:
-1. FRIDA KAHLO (8%) - Mexican symbolism, flowers, emotional depth
-2. MAGRITTE (15%) - Mysterious paradox, object over face
-3. WARHOL (15%) - Bold pop art color grid
-4. DALÍ (15%) - Melting surreal transformation
-Consider mood: emotional → Frida, mysterious → Magritte, bold → Warhol
-`;
-  }
+  // ========================================
+  // 카테고리별 대표작 기반 AI 선택 가이드
+  // ========================================
   
-  // 커플/연인 → 샤갈
-  if (count === 2 && (subject.includes('couple') || subject.includes('romantic') || mood === 'romantic')) {
-    return `
-🎯 STRONG RECOMMENDATION: CHAGALL (8%)
-Romantic couple - Chagall's FLOATING LOVERS!
-"Birthday" style - couple defying gravity, flying in embrace
-Make them FLOAT in dreamy colorful space
-`;
-  }
-  
-  // 단체 사진 → 마그리트 골콩드
+  // 👥 단체/군중 (3명 이상)
   if (count >= 3) {
     return `
-🎯 STRONG RECOMMENDATION: MAGRITTE (15%)
-Group photo - perfect for Golconda-style MULTIPLICATION!
-Duplicate figures raining from sky like Golconda
-Or WARHOL (15%) - repeat faces in pop art grid
+🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
+
+ARTIST SELECTION:
+1. MAGRITTE (50%) ⭐ STRONGEST
+   Reference: "Golconda" (1953)
+   → MULTIPLY figures falling from sky like rain
+   → Identical men in bowler hats repeated across composition
+   → Pristine hyperrealistic rendering of impossible scene
+
+2. PICASSO (30%)
+   Reference: "Guernica" (1937)
+   → Tragic chaotic fragmentation of multiple figures
+   → Black, white, gray palette
+   → Anguished faces and twisted bodies
+
+3. WARHOL (20%)
+   Reference: "Marilyn Diptych" grid style
+   → Repeat faces in pop art grid
+   → Each repetition different bold color
+
+SELECT based on mood: mysterious → MAGRITTE, dramatic → PICASSO, bold → WARHOL
 `;
   }
   
-  // 정물/오브젝트 → 입체주의
-  if (subject.includes('object') || subject.includes('still') || subject.includes('food')) {
+  // 💑 커플/2인
+  if (count === 2) {
+    const isRomantic = subject.includes('couple') || subject.includes('romantic') || mood === 'romantic';
     return `
-🎯 STRONG RECOMMENDATION: BRAQUE (12%)
-Still life/objects - Braque's analytical Cubism!
-Subtle geometric fragmentation, earth tones, collage texture
-Alternative: PICASSO (18%) for bolder fragmentation
+🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
+
+ARTIST SELECTION:
+1. CHAGALL (50%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+   Reference: "Birthday" (1915), "Over the Town" (1918)
+   → Make couple FLOAT and FLY through dreamy sky!
+   → Defying gravity in romantic embrace
+   → Jewel-tone colors (deep blue, violet, red, green)
+   → Village/town below them
+   ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
+
+2. PICASSO (25%)
+   Reference: "The Kiss" (1969)
+   → Two faces merged/overlapping into one
+   → Geometric fragmentation of intertwined figures
+
+3. MAGRITTE (25%)
+   Reference: "The Lovers" (1928)
+   → Couple kissing with cloth covering faces
+   → Mysterious hidden identity
+
+SELECT: Romantic mood → CHAGALL (FLOAT!), Passionate → PICASSO, Mysterious → MAGRITTE
 `;
   }
   
-  // 풍경 → 달리 or 미로
-  if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky')) {
+  // 👩 여성 인물
+  if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
-🎯 LANDSCAPE OPTIONS:
-1. DALÍ (15%) - Surreal barren dreamscape with melting forms
-2. MIRÓ (8%) - Add floating symbols, stars, crescents
-3. MAGRITTE (15%) - Sky paradox, day/night contradiction
-Dalí for dramatic surreal, Miró for playful
+🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물
+
+ARTIST SELECTION:
+1. FRIDA KAHLO (30%) ⭐ STRONGEST FOR WOMEN
+   Reference: "Self-Portrait with Thorn Necklace" (1940), "The Two Fridas" (1939)
+   → Surround with Mexican symbols: flowers, vines, monkeys, parrots, hummingbirds
+   → Add thorn necklace or exposed heart elements
+   → Tehuana dress with elaborate headdress
+   → Lush tropical foliage background
+   → Unibrow and intense direct gaze
+
+2. WARHOL (25%)
+   Reference: "Marilyn Monroe" (1962)
+   → Face in 2x2 or 3x3 GRID
+   → Each quadrant DIFFERENT bold color (hot pink, electric blue, yellow, green)
+   → Silkscreen flat graphic style
+
+3. LICHTENSTEIN (20%)
+   Reference: "Drowning Girl" (1963), "Hopeful" (1963)
+   → BEN-DAY DOTS covering entire face
+   → Thick BLACK OUTLINES
+   → Dramatic emotional expression
+   → Optional thought bubble
+
+4. PICASSO (15%)
+   Reference: "Weeping Woman" (1937)
+   → Sharp angular fragmentation of crying/emotional face
+   → Multiple viewpoints - profile AND front simultaneously
+   → Jagged tear-like shapes
+
+5. MAGRITTE (10%)
+   Reference: "The Rape" (1934)
+   → Face replaced with body features
+   → Mysterious transformation
+
+SELECT based on mood: emotional → FRIDA, glamorous → WARHOL, dramatic → LICHTENSTEIN
 `;
   }
   
-  // 극적 표정 → 리히텐슈타인
-  if (expression === 'dramatic' || expression === 'crying' || expression === 'surprised') {
-    return `
-🎯 STRONG RECOMMENDATION: LICHTENSTEIN (10%)
-Dramatic expression - comic book style!
-Ben-Day dots, bold black outlines, speech bubble
-"Crying Girl" style emotional impact
-`;
-  }
-  
-  // 초상화 일반 → 다양한 옵션
+  // 📸 남성/일반 인물
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
-🎯 PORTRAIT OPTIONS - CHOOSE BY DESIRED EFFECT:
-- Face FRAGMENTED → PICASSO (18%)
-- Face MULTIPLIED in grid → WARHOL (15%)
-- Object OVER face → MAGRITTE (15%)
-- Face MELTING → DALÍ (15%)
-- FLOATING in space → CHAGALL (8%)
-- Comic book DOTS → LICHTENSTEIN (10%)
-- Experimental photo → MAN RAY (10%)
+🎯 PORTRAIT - CATEGORY: 인물
+
+ARTIST SELECTION:
+1. PICASSO (25%)
+   Reference: "Les Demoiselles d'Avignon" (1907)
+   → FRAGMENT face into angular geometric planes
+   → African mask-like sharp angles and distortion
+   → Show PROFILE and FRONT view SIMULTANEOUSLY
+   → Monochromatic browns, grays, ochres
+
+2. WARHOL (25%)
+   Reference: "Marilyn Monroe" (1962), "Mao" (1972)
+   → Face repeated in 2x2 or 3x3 GRID
+   → Each quadrant completely DIFFERENT bold color
+   → High contrast silkscreen effect
+
+3. LICHTENSTEIN (20%)
+   Reference: "Whaam!" (1963), "Crying Girl"
+   → Cover ENTIRE image with visible BEN-DAY DOTS
+   → THICK black outlines around all forms
+   → Primary colors only (red, yellow, blue, black, white)
+   → Comic book dramatic style
+
+4. MAGRITTE (15%)
+   Reference: "The Son of Man" (1964)
+   → Place GREEN APPLE floating in front of face
+   → Bowler hat, suit, cloudy sky background
+   → Face 80% obscured by hovering object
+
+5. FRIDA KAHLO (15%)
+   Reference: "Self-Portrait" series
+   → Mexican folk symbols surrounding
+   → Flowers, animals, vines framing face
+
+SELECT: geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN, mysterious → MAGRITTE
+`;
+  }
+  
+  // 🏞️ 풍경
+  if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky') || 
+      subject.includes('beach') || subject.includes('mountain')) {
+    return `
+🎯 LANDSCAPE - CATEGORY: 풍경
+
+ARTIST SELECTION:
+1. DALÍ (40%) ⭐ STRONGEST FOR LANDSCAPE
+   Reference: "The Persistence of Memory" (1931)
+   → Forms MELTING and DRIPPING like soft watches
+   → Barren surreal desert stretching to horizon
+   → Hyperrealistic precise technique
+   → Long dramatic shadows
+   → Bizarre objects in impossible landscape
+
+2. MAGRITTE (30%)
+   Reference: "The Empire of Light" (1954)
+   → PARADOX: daytime sky ABOVE nighttime street
+   → Or sky filled with giant floating objects
+   → Clouds that are also birds/leaves
+   → Impossible contradictions in nature
+
+3. MIRÓ (30%)
+   Reference: "The Catalan Landscape" (1923-24)
+   → Biomorphic organic shapes floating
+   → Bright PRIMARY colors (red, yellow, blue, black)
+   → Stars, moons, eyes, amoeba-like forms
+   → Playful constellation of symbols
+
+SELECT: surreal → DALÍ, paradox → MAGRITTE, playful → MIRÓ
+`;
+  }
+  
+  // 🍎 정물/오브젝트
+  if (subject.includes('object') || subject.includes('still') || subject.includes('food') ||
+      subject.includes('product') || subject.includes('item')) {
+    return `
+🎯 STILL LIFE / OBJECTS - CATEGORY: 정물
+
+ARTIST SELECTION:
+1. BRAQUE (40%) ⭐ STRONGEST FOR STILL LIFE
+   Reference: "Violin and Candlestick" (1910)
+   → Analytical Cubism: subtle geometric fragmentation
+   → Muted earth tones (brown, tan, gray, olive)
+   → Papier collé texture, collage-like layers
+   → Objects shown from multiple angles
+   → More harmonious than Picasso
+
+2. PICASSO (35%)
+   Reference: "Guitar" (1913), "Still Life with Chair Caning"
+   → Bold geometric fragmentation
+   → Objects broken into sharp angular planes
+   → Flattened overlapping forms
+   → Limited palette
+
+3. WARHOL (25%)
+   Reference: "Campbell's Soup Cans" (1962)
+   → Commercial product aesthetic
+   → Repeated in grid pattern
+   → Bold flat colors
+   → Mass production style
+
+SELECT: subtle → BRAQUE, bold → PICASSO, commercial → WARHOL
+`;
+  }
+  
+  // 📷 실험적/특수 (흑백, 고대비 등)
+  if (mood === 'experimental' || mood === 'artistic' || background === 'studio') {
+    return `
+🎯 EXPERIMENTAL - CATEGORY: 실험적
+
+ARTIST SELECTION:
+1. MAN RAY (50%) ⭐ FOR EXPERIMENTAL
+   Reference: "Le Violon d'Ingres" (1924), Rayographs
+   → SOLARIZATION: inverted tones, glowing haloed edges
+   → High contrast black and white
+   → Rayograph shadow silhouettes
+   → Body transformed into objects/instruments
+   → Surreal darkroom manipulation
+
+2. DALÍ (30%)
+   Reference: Various surreal photographs
+   → Hyperrealistic rendering of impossible scene
+   → Unexpected object combinations
+
+3. MAGRITTE (20%)
+   Reference: Conceptual paradox images
+   → Philosophical visual puzzle
+
+SELECT: photographic → MAN RAY, surreal → DALÍ, conceptual → MAGRITTE
 `;
   }
   
   // 기본값 - 균형 분배
   return `
-🎯 BALANCED DISTRIBUTION BY EFFECT:
-- FRAGMENTATION: Picasso (18%), Braque (12%)
-- MULTIPLICATION: Magritte (15%), Warhol (15%)
-- MELTING/SURREAL: Dalí (15%)
-- FLOATING: Chagall (8%)
-- SYMBOLIC: Frida (8%), Miró (8%)
-- EXPERIMENTAL: Man Ray (10%)
-- COMIC: Lichtenstein (10%)
-Choose based on desired visual transformation!
+🎯 GENERAL - SELECT BEST MATCH
+
+AVAILABLE ARTISTS AND THEIR SIGNATURES:
+
+CUBISM (geometric fragmentation):
+- PICASSO: "Les Demoiselles d'Avignon" - angular African mask faces
+- BRAQUE: "Violin and Candlestick" - subtle earth-tone analysis
+
+SURREALISM (dreams/impossible):
+- DALÍ: "Persistence of Memory" - melting forms, hyperreal dreams
+- MAGRITTE: "Golconda" (multiplication), "Son of Man" (apple over face)
+- MIRÓ: floating symbols, stars, organic shapes
+- CHAGALL: floating lovers, dreamy villages
+
+POP ART (bold/commercial):
+- WARHOL: "Marilyn" - 4-grid color repetition
+- LICHTENSTEIN: "Crying Girl" - Ben-Day dots, comic style
+
+PERSONAL/SYMBOLIC:
+- FRIDA: Mexican symbols, flowers, self-portrait intensity
+- MAN RAY: solarization, experimental photography
+
+Analyze photo content and select BEST matching artist + reference work!
 `;
 }
 
@@ -2370,8 +2543,8 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('PABLO')) {
           console.log('🎯 Picasso detected');
           if (!finalPrompt.includes('Cubist')) {
-            finalPrompt = finalPrompt + ', painting by Pablo Picasso, CUBIST GEOMETRIC DECONSTRUCTION with multiple simultaneous viewpoints, fragmented forms broken into angular geometric planes, monochromatic or limited palette of grays browns and ochres, flattened picture space with overlapping transparent planes, analytical dissection of three-dimensional forms into two-dimensional facets, subject shown from front profile and back simultaneously, revolutionary dismantling and restructuring of reality';
-            console.log('✅ Enhanced Picasso Cubist deconstruction added');
+            finalPrompt = finalPrompt + ', Transform like Pablo Picasso "Les Demoiselles d\'Avignon" - FRAGMENT face into angular geometric planes like African masks, show NOSE from SIDE while EYES from FRONT simultaneously, multiple viewpoints in single image, sharp angular distortion, monochromatic browns grays ochres, flattened overlapping transparent planes, revolutionary Cubist deconstruction, NOT realistic NOT photographic';
+            console.log('✅ Enhanced Picasso with Les Demoiselles reference');
           } else {
             console.log('ℹ️ Picasso Cubism already in prompt (AI included it)');
           }
@@ -2418,9 +2591,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('SALVADOR')) {
           console.log('🎯 Dalí detected');
           if (!finalPrompt.includes('melting')) {
-            finalPrompt = finalPrompt + ', Surrealist painting by Salvador Dalí, MELTING DRIPPING forms like Persistence of Memory clocks, hyperrealistic precise technique rendering impossible dreamscapes, paranoid-critical method distortions, barren desert landscape stretching to infinite horizon, long dramatic shadows, bizarre unexpected juxtapositions, subconscious Freudian symbolism, soft watches and fluid forms defying physics';
+            finalPrompt = finalPrompt + ', Transform like Salvador Dalí "The Persistence of Memory" - forms MELTING and DRIPPING like soft watches, hyperrealistic precise painting technique rendering impossible dreamscape, barren desert landscape stretching to infinite horizon with long dramatic shadows, paranoid-critical method distortions, Freudian subconscious symbolism, ants and crutches as recurring elements, Mediterranean golden light, NOT realistic scene but hyperreal technique';
             controlStrength = 0.60;
-            console.log('✅ Enhanced Dalí melting surrealism added (control_strength 0.60)');
+            console.log('✅ Enhanced Dalí with Persistence of Memory reference (control_strength 0.60)');
           } else {
             console.log('ℹ️ Dalí surrealism already in prompt (AI included it)');
           }
@@ -2432,9 +2605,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('RENE')) {
           console.log('🎯 Magritte detected');
           if (!finalPrompt.includes('Golconda')) {
-            finalPrompt = finalPrompt + ', Surrealist painting by René Magritte, GOLCONDA-STYLE MULTIPLICATION with identical figures repeated across sky like rain, OR Son of Man-style with green apple floating in front of face obscuring identity, philosophical paradox questioning reality, bowler hat men in suits, pristine hyperrealistic rendering of impossible scenes, deadpan mysterious atmosphere, everyday objects in extraordinary contexts, Belgian surrealist precision';
+            finalPrompt = finalPrompt + ', Transform like René Magritte - CHOOSE ONE: (A) "Golconda" style - MULTIPLY identical figures falling from sky like rain, men in bowler hats repeated dozens of times across blue sky with white clouds, OR (B) "The Son of Man" style - place large GREEN APPLE floating directly in front of face obscuring 80% of features, bowler hat on head, gray suit, cloudy sky background. Pristine hyperrealistic Belgian surrealist precision, philosophical paradox, NOT realistic photo';
             controlStrength = 0.30;
-            console.log('✅ Enhanced Magritte multiplication/paradox added (control_strength 0.30)');
+            console.log('✅ Enhanced Magritte with Golconda/Son of Man reference (control_strength 0.30)');
           } else {
             console.log('ℹ️ Magritte paradox already in prompt (AI included it)');
           }
@@ -2459,9 +2632,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('MARC')) {
           console.log('🎯 Chagall detected');
           if (!finalPrompt.includes('floating')) {
-            finalPrompt = finalPrompt + ', painting by Marc Chagall, FLOATING DREAMLIKE FIGURES defying gravity, lovers flying through air in romantic embrace, rich jewel-tone colors (deep blues violets reds greens), Vitebsk village memories with tilted houses and fiddlers, poetic lyrical atmosphere, multiple scenes layered in dreamscape, goats roosters and moons as recurring motifs, Jewish mystical symbolism, Birthday-style weightless joy';
+            finalPrompt = finalPrompt + ', Transform like Marc Chagall "Birthday" and "Over the Town" - CRITICAL: make figures FLOAT and FLY through air defying gravity, lovers in romantic weightless embrace soaring above village rooftops, dreamy jewel-tone colors (deep cobalt blue, rich violet, passionate red, emerald green), Vitebsk village with tilted houses below, goats roosters moons as floating motifs, poetic lyrical Jewish mystical atmosphere, NOT realistic NOT grounded';
             controlStrength = 0.65;
-            console.log('✅ Enhanced Chagall floating romance added (control_strength 0.65)');
+            console.log('✅ Enhanced Chagall with Birthday/Over the Town reference (control_strength 0.65)');
           } else {
             console.log('ℹ️ Chagall floating already in prompt (AI included it)');
           }
@@ -2472,9 +2645,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('KAHLO')) {
           console.log('🎯 Frida Kahlo detected');
           if (!finalPrompt.includes('Mexican symbolism')) {
-            finalPrompt = finalPrompt + ', self-portrait painting by Frida Kahlo, MEXICAN FOLK ART SYMBOLISM with flowers vines monkeys parrots surrounding subject, unibrow and intense direct gaze, Tehuana traditional dress with elaborate headdress and jewelry, exposed heart or visible pain elements, lush tropical foliage background, vibrant saturated colors, raw emotional honesty, pre-Columbian and Catholic imagery merged, The Two Fridas-style personal mythology';
+            finalPrompt = finalPrompt + ', Transform like Frida Kahlo "Self-Portrait with Thorn Necklace" and "The Two Fridas" - CRITICAL: surround subject with Mexican folk art symbols (tropical flowers, vines, monkeys, parrots, hummingbirds, butterflies), add thorn necklace or exposed heart elements, Tehuana traditional dress with elaborate floral headdress and indigenous jewelry, lush tropical foliage background, unibrow emphasized, intense direct emotional gaze, vibrant saturated Mexican colors, raw personal mythology, NOT realistic photo';
             controlStrength = 0.65;
-            console.log('✅ Enhanced Frida Mexican symbolism added (control_strength 0.65)');
+            console.log('✅ Enhanced Frida with Thorn Necklace reference (control_strength 0.65)');
           } else {
             console.log('ℹ️ Frida symbolism already in prompt (AI included it)');
           }
@@ -2485,9 +2658,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('ANDY')) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('silkscreen')) {
-            finalPrompt = finalPrompt + ', Pop Art by Andy Warhol, MARILYN-STYLE SILKSCREEN with face repeated in 2x2 or 3x3 GRID, each repetition in DIFFERENT BOLD COLOR SCHEME (hot pink, electric blue, lime green, orange, yellow), flat graphic treatment with high contrast, celebrity portrait aesthetic, mass production repetition, Factory-style commercial art technique, iconic pop culture transformation';
+            finalPrompt = finalPrompt + ', Transform like Andy Warhol "Marilyn Monroe" series - CRITICAL: DIVIDE canvas into 2x2 GRID (4 equal quadrants), REPEAT same face in ALL 4 quadrants, each quadrant MUST have COMPLETELY DIFFERENT bold color scheme: top-left HOT PINK background, top-right ELECTRIC BLUE, bottom-left LIME GREEN, bottom-right ORANGE or YELLOW, high contrast silkscreen flat graphic style, NOT realistic NOT photographic, pop art mass production aesthetic';
             controlStrength = 0.30;
-            console.log('✅ Enhanced Warhol silkscreen grid added (control_strength 0.30)');
+            console.log('✅ Enhanced Warhol with Marilyn grid reference (control_strength 0.30)');
           } else {
             console.log('ℹ️ Warhol silkscreen already in prompt (AI included it)');
           }
@@ -2498,9 +2671,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('ROY')) {
           console.log('🎯 Lichtenstein detected');
           if (!finalPrompt.includes('Ben-Day dots')) {
-            finalPrompt = finalPrompt + ', Pop Art by Roy Lichtenstein, COMIC BOOK STYLE with visible BEN-DAY DOTS covering entire image surface, THICK BOLD BLACK OUTLINES around all forms, limited flat color palette (primary red yellow blue plus black white), speech bubble or thought balloon optional, dramatic comic strip emotion, Whaam! and Crying Girl-style graphic impact, halftone printing aesthetic blown up to fine art scale';
+            finalPrompt = finalPrompt + ', Transform like Roy Lichtenstein "Drowning Girl" and "Whaam!" - CRITICAL: cover ENTIRE image with visible BEN-DAY DOTS pattern (small colored circles), THICK BOLD BLACK OUTLINES around ALL forms, LIMITED flat colors ONLY (primary red yellow blue plus black white), comic book dramatic emotional style, optional speech bubble or thought balloon with text, halftone printing aesthetic blown up to fine art scale, NOT realistic NOT photographic';
             controlStrength = 0.60;
-            console.log('✅ Enhanced Lichtenstein Ben-Day dots added (control_strength 0.60)');
+            console.log('✅ Enhanced Lichtenstein with Drowning Girl reference (control_strength 0.60)');
           } else {
             console.log('ℹ️ Lichtenstein dots already in prompt (AI included it)');
           }
@@ -2621,8 +2794,16 @@ export default async function handler(req, res) {
       paintingEnforcement = ', CRITICAL: NOT photographic NOT photo-realistic, fully oil painting with thick visible brushstrokes and canvas texture, PRESERVE facial features expressions and identity of people in photo, PRESERVE GENDER accurately (male stays male with masculine features, female stays female with feminine features), TRANSFORM modern clothing and accessories to period-appropriate historical costume and style, unified composition all figures together';
     }
     
+    // ========================================
+    // 20세기 모더니즘: 대전제 적용 제외!
+    // (얼굴 분해, 복제, 녹아내림 등 허용 위해)
+    // ========================================
+    if (categoryType === 'modernism') {
+      console.log('🎨 Modernism: Skipping paintingEnforcement (allows face distortion/fragmentation/multiplication)');
+      // 대전제 적용 안 함 - 모더니즘은 프롬프트에서 직접 제어
+    }
     // 이미 회화 강조가 없는 경우에만 추가 (소문자도 체크)
-    if (!finalPrompt.toLowerCase().includes('preserve facial') && 
+    else if (!finalPrompt.toLowerCase().includes('preserve facial') && 
         !finalPrompt.includes('brushstrokes') &&
         !finalPrompt.toLowerCase().includes('not photographic')) {
       finalPrompt = finalPrompt + paintingEnforcement;

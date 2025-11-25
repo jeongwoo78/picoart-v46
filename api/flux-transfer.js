@@ -1197,24 +1197,26 @@ function getModernismHints(photoAnalysis) {
 🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
 
 ARTIST SELECTION:
-1. MAGRITTE (50%) ⭐ STRONGEST
+1. PICASSO (40%) ⭐ BEST FOR GROUPS
+   Reference: "Guernica" (1937)
+   → Dramatic fragmentation of multiple figures
+   → Black, white, gray monochromatic palette
+   → Angular distorted anguished forms
+   → Powerful emotional impact
+
+2. WARHOL (30%)
+   Reference: "Marilyn Diptych" grid style
+   → Repeat the group in pop art grid
+   → Each repetition different bold color scheme
+   → High contrast silkscreen effect
+
+3. MAGRITTE (30%)
    Reference: "Golconda" (1953)
    → MULTIPLY figures falling from sky like rain
-   → Identical men in bowler hats repeated across composition
-   → Pristine hyperrealistic rendering of impossible scene
+   → Identical figures repeated across composition
+   (Note: Golconda effect is difficult - may not work perfectly)
 
-2. PICASSO (30%)
-   Reference: "Guernica" (1937)
-   → Tragic chaotic fragmentation of multiple figures
-   → Black, white, gray palette
-   → Anguished faces and twisted bodies
-
-3. WARHOL (20%)
-   Reference: "Marilyn Diptych" grid style
-   → Repeat faces in pop art grid
-   → Each repetition different bold color
-
-SELECT based on mood: mysterious → MAGRITTE, dramatic → PICASSO, bold → WARHOL
+SELECT based on mood: dramatic → PICASSO (Guernica!), bold pop → WARHOL, mysterious → MAGRITTE
 `;
   }
   
@@ -1295,38 +1297,39 @@ SELECT based on mood: emotional → FRIDA, glamorous → WARHOL, dramatic → LI
 🎯 PORTRAIT - CATEGORY: 인물
 
 ARTIST SELECTION:
-1. PICASSO (25%)
+1. MAGRITTE (25%) ⭐ BEST FOR SINGLE PORTRAIT
+   Reference: "The Son of Man" (1964)
+   → Place GREEN APPLE floating directly in front of face
+   → Apple should obscure 70-80% of face
+   → Bowler hat, formal suit, cloudy sky background
+   → Mysterious hidden identity paradox
+
+2. PICASSO (20%)
    Reference: "Les Demoiselles d'Avignon" (1907)
    → FRAGMENT face into angular geometric planes
    → African mask-like sharp angles and distortion
    → Show PROFILE and FRONT view SIMULTANEOUSLY
    → Monochromatic browns, grays, ochres
 
-2. WARHOL (25%)
+3. WARHOL (20%)
    Reference: "Marilyn Monroe" (1962), "Mao" (1972)
-   → Face repeated in 2x2 or 3x3 GRID
+   → Face repeated in 2x2 GRID
    → Each quadrant completely DIFFERENT bold color
    → High contrast silkscreen effect
 
-3. LICHTENSTEIN (20%)
+4. LICHTENSTEIN (20%)
    Reference: "Whaam!" (1963), "Crying Girl"
    → Cover ENTIRE image with visible BEN-DAY DOTS
    → THICK black outlines around all forms
    → Primary colors only (red, yellow, blue, black, white)
    → Comic book dramatic style
 
-4. MAGRITTE (15%)
-   Reference: "The Son of Man" (1964)
-   → Place GREEN APPLE floating in front of face
-   → Bowler hat, suit, cloudy sky background
-   → Face 80% obscured by hovering object
-
 5. FRIDA KAHLO (15%)
    Reference: "Self-Portrait" series
    → Mexican folk symbols surrounding
    → Flowers, animals, vines framing face
 
-SELECT: geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN, mysterious → MAGRITTE
+SELECT: mysterious → MAGRITTE (apple!), geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN
 `;
   }
   
@@ -1337,7 +1340,7 @@ SELECT: geometric → PICASSO, pop bold → WARHOL, comic → LICHTENSTEIN, myst
 🎯 LANDSCAPE - CATEGORY: 풍경
 
 ARTIST SELECTION:
-1. DALÍ (40%) ⭐ STRONGEST FOR LANDSCAPE
+1. DALÍ (50%) ⭐ STRONGEST FOR LANDSCAPE
    Reference: "The Persistence of Memory" (1931)
    → Forms MELTING and DRIPPING like soft watches
    → Barren surreal desert stretching to horizon
@@ -1345,21 +1348,16 @@ ARTIST SELECTION:
    → Long dramatic shadows
    → Bizarre objects in impossible landscape
 
-2. MAGRITTE (30%)
-   Reference: "The Empire of Light" (1954)
-   → PARADOX: daytime sky ABOVE nighttime street
-   → Or sky filled with giant floating objects
-   → Clouds that are also birds/leaves
-   → Impossible contradictions in nature
-
-3. MIRÓ (30%)
+2. MIRÓ (50%)
    Reference: "The Catalan Landscape" (1923-24)
    → Biomorphic organic shapes floating
    → Bright PRIMARY colors (red, yellow, blue, black)
    → Stars, moons, eyes, amoeba-like forms
    → Playful constellation of symbols
 
-SELECT: surreal → DALÍ, paradox → MAGRITTE, playful → MIRÓ
+NOTE: Magritte NOT recommended for landscapes (better for portraits)
+
+SELECT: surreal dreamscape → DALÍ, playful abstract → MIRÓ
 `;
   }
   
@@ -2066,8 +2064,56 @@ export default async function handler(req, res) {
     let selectedArtist;
     let selectionMethod;
     let selectionDetails = {};
-    let controlStrength = 0.80; // 기본 0.80, 레오나르도만 0.65
+    let controlStrength = 0.80; // 기본값
     const categoryType = selectedStyle.category; // categoryType 변수 추가
+    
+    // ========================================
+    // 사조별 기본 control_strength 설정
+    // 미술사 흐름: 형태 유지 → 변형 → 해체
+    // ========================================
+    const movementStrengthMap = {
+      // 형태 충실 유지 (0.80)
+      'ancient-greek-sculpture': 0.80,
+      'roman-mosaic': 0.80,
+      'byzantine': 0.80,
+      'islamic-miniature': 0.80,
+      'gothic': 0.80,
+      'renaissance': 0.80,
+      'baroque': 0.80,
+      'neoclassicism': 0.80,
+      'romanticism': 0.80,
+      
+      // 빛으로 형태 흐릿 (0.70)
+      'impressionism': 0.70,
+      
+      // 붓터치/기하학 변형 시작 (0.65)
+      'post-impressionism': 0.65,
+      'pointillism': 0.65,
+      
+      // 색채/감정 폭발 (0.55~0.60)
+      'fauvism': 0.60,
+      'expressionism': 0.55,
+      
+      // 동양화 (0.75 - 형태 유지하되 화풍 적용)
+      'korean': 0.75,
+      'chinese': 0.75,
+      'japanese': 0.75,
+      
+      // 20세기 모더니즘 (화가별 개별 설정 - 여기선 기본값만)
+      'modernism': 0.50
+    };
+    
+    // 사조별 기본값 적용
+    if (selectedStyle.id && movementStrengthMap[selectedStyle.id]) {
+      controlStrength = movementStrengthMap[selectedStyle.id];
+      console.log(`📊 Movement-based control_strength: ${selectedStyle.id} → ${controlStrength}`);
+    } else if (categoryType === 'oriental') {
+      controlStrength = 0.75;
+      console.log(`📊 Oriental category control_strength: ${controlStrength}`);
+    } else if (categoryType === 'modernism') {
+      controlStrength = 0.50; // 모더니즘 기본값 (화가별로 개별 재설정됨)
+      console.log(`📊 Modernism category control_strength: ${controlStrength} (will be overridden per artist)`);
+    }
     
     if (selectedStyle.category === 'oriental' && selectedStyle.id === 'japanese') {
       // 일본 우키요에 (고정)
@@ -2543,15 +2589,16 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('PABLO')) {
           console.log('🎯 Picasso detected');
           if (!finalPrompt.includes('Cubist')) {
-            finalPrompt = finalPrompt + ', Transform like Pablo Picasso "Les Demoiselles d\'Avignon" - FRAGMENT face into angular geometric planes like African masks, show NOSE from SIDE while EYES from FRONT simultaneously, multiple viewpoints in single image, sharp angular distortion, monochromatic browns grays ochres, flattened overlapping transparent planes, revolutionary Cubist deconstruction, NOT realistic NOT photographic';
-            console.log('✅ Enhanced Picasso with Les Demoiselles reference');
+            finalPrompt = finalPrompt + ', Transform like Pablo Picasso "Les Demoiselles d\'Avignon" - CRITICAL CUBIST FRAGMENTATION: BREAK and SHATTER face into sharp angular geometric planes like African tribal masks, show NOSE from SIDE PROFILE while showing EYES from FRONT VIEW simultaneously in SAME image, DECONSTRUCT facial features into multiple overlapping viewpoints, sharp jagged edges and fractured forms, monochromatic earthy palette (browns grays ochres olive), flattened overlapping transparent geometric planes, face should look BROKEN into pieces NOT smooth, revolutionary analytical Cubist complete deconstruction of reality';
+            controlStrength = 0.20;
+            console.log('✅ Enhanced Picasso FRAGMENTATION (control_strength 0.20 for maximum deconstruction)');
           } else {
             console.log('ℹ️ Picasso Cubism already in prompt (AI included it)');
           }
           // 20세기 모더니즘에서 피카소 선택시 control_strength 낮춤
           if (categoryType === 'modernism') {
-            controlStrength = 0.30;
-            console.log('✅ Modernism Picasso: control_strength 0.30 (allow full fragmentation)');
+            controlStrength = 0.20;
+            console.log('✅ Modernism Picasso: control_strength 0.20 (allow full fragmentation)');
           }
         }
         
@@ -2565,8 +2612,8 @@ export default async function handler(req, res) {
           console.log('🎯 Braque detected');
           if (!finalPrompt.includes('analytical Cubism')) {
             finalPrompt = finalPrompt + ', painting by Georges Braque, ANALYTICAL CUBISM with subtle geometric fragmentation, muted earth tones of browns tans and grays, papier collé texture with collage-like layered planes, musical instruments and still life motifs, more harmonious and subtle than Picasso, overlapping translucent planes creating shallow space, stenciled letters and numbers integrated into composition';
-            controlStrength = 0.30;
-            console.log('✅ Enhanced Braque analytical Cubism added (control_strength 0.30)');
+            controlStrength = 0.20;
+            console.log('✅ Enhanced Braque analytical Cubism added (control_strength 0.20)');
           } else {
             console.log('ℹ️ Braque Cubism already in prompt (AI included it)');
           }
@@ -2599,15 +2646,15 @@ export default async function handler(req, res) {
           }
         }
         
-        // 마그리트 선택시 골콩드 복제/역설 강화
+        // 마그리트 선택시 사람의 아들 스타일 강화
         if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
             selectedArtist.toUpperCase().trim().includes('RENÉ') ||
             selectedArtist.toUpperCase().trim().includes('RENE')) {
           console.log('🎯 Magritte detected');
           if (!finalPrompt.includes('Golconda')) {
-            finalPrompt = finalPrompt + ', Transform like René Magritte - CHOOSE ONE: (A) "Golconda" style - MULTIPLY identical figures falling from sky like rain, men in bowler hats repeated dozens of times across blue sky with white clouds, OR (B) "The Son of Man" style - place large GREEN APPLE floating directly in front of face obscuring 80% of features, bowler hat on head, gray suit, cloudy sky background. Pristine hyperrealistic Belgian surrealist precision, philosophical paradox, NOT realistic photo';
-            controlStrength = 0.30;
-            console.log('✅ Enhanced Magritte with Golconda/Son of Man reference (control_strength 0.30)');
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) - CRITICAL: place ONE LARGE GREEN APPLE floating in mid-air DIRECTLY IN FRONT OF FACE, apple must COVER and OBSCURE 70-80% of the face leaving only edges visible, subject wearing formal dark suit with white shirt and bowler hat, background is cloudy overcast sky with low wall, hyperrealistic precise Belgian surrealist painting style, philosophical mystery of hidden identity, the visible partially conceals the hidden, NOT realistic photo';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte with Son of Man apple focus (control_strength 0.50)');
           } else {
             console.log('ℹ️ Magritte paradox already in prompt (AI included it)');
           }
@@ -2632,9 +2679,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('MARC')) {
           console.log('🎯 Chagall detected');
           if (!finalPrompt.includes('floating')) {
-            finalPrompt = finalPrompt + ', Transform like Marc Chagall "Birthday" and "Over the Town" - CRITICAL: make figures FLOAT and FLY through air defying gravity, lovers in romantic weightless embrace soaring above village rooftops, dreamy jewel-tone colors (deep cobalt blue, rich violet, passionate red, emerald green), Vitebsk village with tilted houses below, goats roosters moons as floating motifs, poetic lyrical Jewish mystical atmosphere, NOT realistic NOT grounded';
-            controlStrength = 0.65;
-            console.log('✅ Enhanced Chagall with Birthday/Over the Town reference (control_strength 0.65)');
+            finalPrompt = finalPrompt + ', Transform like Marc Chagall "Birthday" and "Over the Town" - CRITICAL FLOATING EFFECT: figures MUST FLOAT and FLY in the AIR completely OFF THE GROUND, bodies tilted at impossible angles defying gravity, lovers soaring HIGH ABOVE village rooftops in romantic weightless embrace, feet NOT touching ground, dreamy jewel-tone colors (deep cobalt blue, rich violet, passionate red, emerald green), tiny Vitebsk village with tilted houses FAR BELOW, goats roosters moons floating as motifs, poetic dreamlike Jewish mystical atmosphere, ABSOLUTELY NOT standing on ground';
+            controlStrength = 0.30;
+            console.log('✅ Enhanced Chagall FLOATING (control_strength 0.30 for gravity-defying effect)');
           } else {
             console.log('ℹ️ Chagall floating already in prompt (AI included it)');
           }
@@ -2658,9 +2705,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('ANDY')) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('silkscreen')) {
-            finalPrompt = finalPrompt + ', Transform like Andy Warhol "Marilyn Monroe" series - CRITICAL: DIVIDE canvas into 2x2 GRID (4 equal quadrants), REPEAT same face in ALL 4 quadrants, each quadrant MUST have COMPLETELY DIFFERENT bold color scheme: top-left HOT PINK background, top-right ELECTRIC BLUE, bottom-left LIME GREEN, bottom-right ORANGE or YELLOW, high contrast silkscreen flat graphic style, NOT realistic NOT photographic, pop art mass production aesthetic';
-            controlStrength = 0.30;
-            console.log('✅ Enhanced Warhol with Marilyn grid reference (control_strength 0.30)');
+            finalPrompt = finalPrompt + ', Transform like Andy Warhol "Marilyn Monroe" series - CRITICAL GRID LAYOUT: SPLIT canvas into EXACTLY 4 EQUAL squares (2 rows x 2 columns) with CLEAR VISIBLE DIVIDING LINES between quadrants, place IDENTICAL face in EXACT SAME position in each quadrant, ONLY change BACKGROUND COLOR per quadrant: TOP-LEFT hot pink, TOP-RIGHT electric blue, BOTTOM-LEFT lime green, BOTTOM-RIGHT orange yellow, face should have HIGH CONTRAST flat silkscreen look with bold outlines, pop art screen print aesthetic, NOT realistic';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Warhol with clear grid (control_strength 0.50 for stable structure)');
           } else {
             console.log('ℹ️ Warhol silkscreen already in prompt (AI included it)');
           }

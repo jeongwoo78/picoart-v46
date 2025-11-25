@@ -722,91 +722,91 @@ function getImpressionismGuidelines() {
   return `
 Available Impressionism Artists (4명):
 
-1. MONET (모네) ⭐⭐⭐⭐ STRONGEST for both landscapes AND portraits
-   - Specialty: Light effects, outdoor atmosphere, luminous portraits in natural light
-   - Best for: ALL outdoor scenes - landscapes, gardens, AND people in sunlight
-   - Signature portrait: "Woman with a Parasol" (for ALL portraits - male or female)
-   - Signature landscapes: "Water Lilies", "Impression, Sunrise"
-   - When to prioritize: People portraits (70%), Landscapes (80%)
-
-2. RENOIR (르누아르) ⭐⭐ - Best for warm sunny portraits (30%)
-   - Specialty: SOFT WARM figures in dappled sunlight, joyful atmosphere
-   - Best for: Happy people in outdoor settings, sunlit gatherings, festive scenes
+1. RENOIR (르누아르) ⭐⭐⭐⭐ STRONGEST - Best for portraits (35%)
+   - Specialty: SOFT WARM figures in dappled sunlight, joyful atmosphere, peachy skin tones
+   - Best for: ALL portraits (indoor/outdoor), happy people, sunlit gatherings, festive scenes
    - Signature: "Luncheon of the Boating Party", "Dance at Le Moulin de la Galette"
-   - When to prioritize: People with warm/happy mood in sunlight (30%)
-   - CRITICAL: Soft feathery brushstrokes, warm peachy skin tones
+   - When to prioritize: Most portrait cases (35%)
+   - CRITICAL: Soft feathery brushstrokes, warm peachy skin tones work BEST in AI
 
-3. DEGAS (드가) - Best for movement, dance, unusual angles
-   - Specialty: Movement capture, ballet dancers, dynamic compositions
-   - Best for: Action shots, dance, sports, movement, diagonal compositions
-   - Signature: Ballet rehearsals - movement frozen in time
-   - When to prioritize: Clear movement/action/dance (special case)
+2. DEGAS (드가) ⭐⭐⭐ Best for movement AND composition (30%)
+   - Specialty: Movement capture, unusual angles, dynamic compositions, ballet dancers
+   - Best for: Action shots, dance, sports, movement, diagonal compositions, interesting angles
+   - Signature: Ballet rehearsals - movement frozen in time, asymmetric cropping
+   - When to prioritize: Movement/action/dance OR unique compositional angles (30%)
+   - CRITICAL: Degas excels at both MOVEMENT and COMPOSITION
 
-4. PISSARRO (피사로) - MINIMIZE
+3. MONET (모네) ⭐⭐ Good for landscapes (25%)
+   - Specialty: Light effects, outdoor atmosphere, water reflections
+   - Best for: Landscapes, gardens, water scenes (NOT portraits)
+   - Signature landscapes: "Water Lilies", "Impression, Sunrise"
+   - When to prioritize: Pure landscapes without people (25%)
+   - Note: Impressionist hazy effects can be challenging for AI
+
+4. PISSARRO (피사로) ⭐ Backup option (10%)
    - Specialty: Rural landscapes, market scenes, gentle brush touches
-   - Best for: Minimize usage (개성 약함)
-   - When to prioritize: Minimize
+   - Best for: Gentle rural scenes, soft pastoral mood
+   - When to prioritize: Soft gentle landscapes (10%)
 
 🎯 CRITICAL DECISION LOGIC:
-- People portraits → MONET (70%) ⭐⭐⭐ PRIMARY
-- Happy/warm people → RENOIR (30%) ⭐ ALTERNATIVE
-- Landscapes → MONET (80%) ⭐⭐⭐⭐
-- Movement/dance → DEGAS (special)
-- Minimize PISSARRO
+- Most portraits → RENOIR (35%) ⭐⭐⭐⭐ PRIMARY
+- Movement/action/interesting angles → DEGAS (30%) ⭐⭐⭐
+- Pure landscapes (no people) → MONET (25%) ⭐⭐
+- Gentle rural scenes → PISSARRO (10%) ⭐
 `;
 }
 
 function getImpressionismHints(photoAnalysis) {
   const { subject, count, mood, shot_type } = photoAnalysis;
   
-  // 인물 사진 → 모네 (70%) 우선!
+  // 인물 사진 → 르누아르 (35%) 우선!
   if (count >= 1 && (shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body')) {
     return `
-🎯 STRONG RECOMMENDATION: MONET (70%)
-People portrait - MONET'S "Woman with a Parasol" style!
-Apply to ALL portraits (male or female).
-Outdoor light, windswept atmosphere, impressionist brushstrokes.
-Alternative: Renoir (30%) for warmer, softer treatment.
+🎯 STRONG RECOMMENDATION: RENOIR (35%)
+Portrait detected - RENOIR's soft warm style works BEST in AI!
+Soft feathery brushstrokes, warm peachy skin tones.
+"Luncheon of the Boating Party" style for all portraits.
+Alternative: Degas (30%) for interesting angles/movement.
 `;
   }
   
-  // 풍경 → 모네 (80%)
-  if (subject === 'landscape' || subject.includes('water') || subject.includes('garden')) {
+  // 움직임/춤/액션 → 드가 (30%)
+  if (subject.includes('movement') || subject.includes('dance') || subject.includes('action') || 
+      subject.includes('sport') || shot_type === 'action') {
     return `
-🎯 STRONG RECOMMENDATION: MONET (80%)
-Landscape is MONET'S SUPREME SPECIALTY!
-His mastery of light and color in landscapes is unmatched.
-Water lilies, garden scenes - Monet creates the most iconic 
-Impressionist landscapes.
-Pissarro only if you want gentler, softer touch.
-`;
-  }
-  
-  // 실내 사교 장면 + 행복한 분위기 → 르누아르 (20%)
-  if (subject.includes('indoor') && count >= 2 && (mood === 'happy' || mood === 'joyful')) {
-    return `
-🎯 CONSIDERATION: RENOIR (20%)
-Indoor social gathering with happy mood - Renoir's territory.
-But Monet still preferred (80%) for most portraits.
-Only choose Renoir for clear indoor party/dance scenes.
-`;
-  }
-  
-  // 움직임/춤 → 드가 (70%)
-  if (subject.includes('movement') || subject.includes('dance') || subject.includes('action')) {
-    return `
-🎯 STRONG RECOMMENDATION: DEGAS (70%)
+🎯 STRONG RECOMMENDATION: DEGAS (30%)
 Movement/dance/action is Degas's unique strength!
 His ballet-like capture of motion is distinctive.
+Also excellent for diagonal compositions and unusual angles.
+`;
+  }
+  
+  // 풍경 (인물 없음) → 모네 (25%)
+  if (count === 0 && (subject === 'landscape' || subject.includes('water') || subject.includes('garden'))) {
+    return `
+🎯 RECOMMENDATION: MONET (25%)
+Pure landscape (no people) - Monet specialty.
+Water lilies, garden scenes, light on water.
+Note: Impressionist hazy effects may vary in AI.
+`;
+  }
+  
+  // 행복한 사교 장면 → 르누아르 (35%)
+  if (count >= 2 && (mood === 'happy' || mood === 'joyful')) {
+    return `
+🎯 STRONG RECOMMENDATION: RENOIR (35%)
+Happy social gathering - Renoir's joyful atmosphere!
+Warm sunlit people, festive scenes.
+"Dance at Le Moulin de la Galette" style.
 `;
   }
   
   return `
-🎯 Default priority:
-- Landscape → MONET (strongest 80%)
-- People/happy → RENOIR (70%)
-- Movement → DEGAS (70%)
-- Gentle landscape → PISSARRO (backup)
+🎯 Priority order:
+- Most portraits → RENOIR (35%) - BEST for AI
+- Movement/angles → DEGAS (30%)
+- Pure landscapes → MONET (25%)
+- Gentle scenes → PISSARRO (10%)
 `;
 }
 
@@ -815,96 +815,50 @@ function getPostImpressionismGuidelines() {
   return `
 Available Post-Impressionism Artists (4명):
 
-1. VAN GOGH (반 고흐) ⭐⭐⭐⭐⭐ STRONGEST - DEFAULT CHOICE (50%)
+1. VAN GOGH (반 고흐) ⭐⭐⭐ BALANCED CHOICE (30%)
    - Specialty: Swirling expressive brushstrokes, intense emotional colors, turbulent energy
-   - Best for: ALL portraits (indoor/outdoor), emotional subjects, dynamic landscapes
+   - Best for: Emotional portraits, dramatic scenes, starry night-like atmospheres
    - Signature: "Starry Night", "Self-Portraits", "Bedroom in Arles"
-   - When to prioritize: Most cases, especially portraits and emotional scenes (50%)
+   - When to prioritize: Emotional/dramatic portraits (30%)
    - Note: Also available in Masters collection
 
-2. GAUGUIN (고갱) ⭐⭐ (20%)
+2. GAUGUIN (고갱) ⭐⭐⭐ (25%)
    - Specialty: Flat bold colors, decorative patterns, primitive simplicity
    - Best for: Outdoor portraits, tropical/exotic themes, decorative aesthetic
    - Signature: Tahitian paintings - flat bold primitivism
-   - When to prioritize: Outdoor people scenes, exotic mood (20%)
+   - When to prioritize: Outdoor people scenes, exotic mood (25%)
 
-3. CÉZANNE (세잔) ⭐⭐ (15%)
+3. CÉZANNE (세잔) ⭐⭐⭐ (20%)
    - Specialty: Geometric structured forms, solid volumes, analytical approach
    - Best for: Still life, structured landscapes, geometric compositions
    - Signature: Still Life with Apples, Mont Sainte-Victoire - geometric analysis
-   - When to prioritize: Still life, structured scenes (15%)
+   - When to prioritize: Still life, structured scenes (20%)
 
-4. SIGNAC (시냐크) ⭐⭐ (15%)
+4. SIGNAC (시냐크) ⭐⭐⭐ (25%)
    - Specialty: LARGE BOLD POINTILLISM - biggest dots of all pointillists!
    - Best for: BEACHES, harbors, seascapes, bright portraits, Mediterranean scenes
    - Signature: "Antibes, Pink Clouds", "The Beach at Saint-Briac" - HUGE VISIBLE COLOR DOTS (5-10mm)
-   - When to prioritize: Beach photos, seaside, bright colorful scenes (15%)
+   - When to prioritize: Beach photos, seaside, bright colorful scenes (25%)
    - CRITICAL: Use LARGEST dots for everything - Like colorful mosaic tiles!
 
-🎯 CRITICAL DECISION LOGIC:
-- DEFAULT: VAN GOGH (50%) ⭐⭐⭐⭐⭐ PRIMARY CHOICE
-- All portraits (indoor/outdoor) → VAN GOGH (50%) or SIGNAC (15% for beach/bright)
-- Beach/seaside scenes → SIGNAC (15%) RECOMMENDED
-- Outdoor people/exotic → GAUGUIN (20%)
-- Still life/structured → CÉZANNE (15%)
-- Bright scenes/beaches → SIGNAC (15%) with LARGE DOTS
+🎯 CRITICAL DECISION LOGIC - BALANCED DISTRIBUTION:
+- Emotional/dramatic portraits → VAN GOGH (30%)
+- Beach/seaside scenes → SIGNAC (25%) with LARGE DOTS
+- Outdoor people/exotic → GAUGUIN (25%)
+- Still life/structured → CÉZANNE (20%)
+- Bright colorful portraits → SIGNAC (25%)
 `;
 }
 
 function getPostImpressionismHints(photoAnalysis) {
   const { subject, mood, composition, shot_type, location } = photoAnalysis;
   
-  // 인물 사진 → 반 고흐 우선 (50%)
-  if (shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body') {
-    // 실외 인물 + 이국적 → 고갱 고려
-    if (location === 'outdoor' && (mood === 'exotic' || mood === 'tropical')) {
-      return `
-🎯 CONSIDERATION: GAUGUIN (20%) for outdoor exotic mood
-But VAN GOGH (50%) still primary for most portraits.
-Gauguin only for clear tropical/primitive aesthetic.
-`;
-    }
-    // 기본 인물 → 반 고흐
-    return `
-🎯 STRONG RECOMMENDATION: VAN GOGH (50%)
-Portrait detected - Van Gogh's expressive style!
-Emotional depth with swirling brushstrokes.
-Indoor or outdoor, Van Gogh excels at portraits.
-`;
-  }
-  
-  // 정물 → 세잔 (25%)
-  if (subject === 'still_life' || subject.includes('object') || subject.includes('fruit')) {
-    return `
-🎯 RECOMMENDATION: CÉZANNE (25%)
-Still life = Cézanne specialty!
-His geometric analysis creates powerful structured beauty.
-`;
-  }
-  
-  // 감정적/소용돌이 → 반 고흐 (25%)
-  if (mood === 'emotional' || mood === 'intense' || subject.includes('swirl') || subject.includes('night') || subject.includes('starry')) {
-    return `
-🎯 RECOMMENDATION: VAN GOGH (25%)
-Emotional/swirling mood suits Van Gogh's turbulent style.
-Van Gogh also available in Masters collection.
-`;
-  }
-  
-  // 평면적/장식적/인물 → 고갱 (25%)
-  if (composition === 'flat' || mood === 'decorative' || mood === 'exotic' || subject.includes('person') || subject.includes('portrait')) {
-    return `
-🎯 RECOMMENDATION: GAUGUIN (25%)
-Portraits and flat/decorative aesthetic match Gauguin's bold primitivism.
-`;
-  }
-  
-  // 해변/바다/밝은 색감 → 시냐크 (15%)
+  // 해변/바다/밝은 색감 → 시냐크 (25%)
   if (subject.includes('beach') || subject.includes('sea') || subject.includes('ocean') ||
       subject.includes('coast') || subject.includes('water') || subject.includes('harbor') ||
       mood === 'bright' || mood === 'colorful' || subject.includes('sunset')) {
     return `
-🎯 RECOMMENDATION: SIGNAC (15%)
+🎯 STRONG RECOMMENDATION: SIGNAC (25%)
 Beach/seaside/bright scene - PERFECT for Signac's LARGE POINTILLISM!
 "Antibes, Pink Clouds", "The Beach at Saint-Briac" style.
 BIG COLORFUL DOTS (5-10mm) - like beach pebbles or mosaic tiles!
@@ -913,15 +867,45 @@ Works for both landscapes AND people at the beach!
 `;
   }
   
-  // 기본값 → 반 고흐 우선 (50%)
+  // 인물 사진 (실외 + 이국적) → 고갱 (25%)
+  if ((shot_type === 'portrait' || shot_type === 'upper_body' || shot_type === 'full_body') &&
+      location === 'outdoor' && (mood === 'exotic' || mood === 'tropical')) {
+    return `
+🎯 STRONG RECOMMENDATION: GAUGUIN (25%)
+Outdoor exotic portrait - Gauguin's specialty!
+Flat bold colors with primitive decorative patterns.
+Tahitian style perfect for tropical/exotic atmosphere.
+`;
+  }
+  
+  // 정물 → 세잔 (20%)
+  if (subject === 'still_life' || subject.includes('object') || subject.includes('fruit')) {
+    return `
+🎯 RECOMMENDATION: CÉZANNE (20%)
+Still life = Cézanne specialty!
+His geometric analysis creates powerful structured beauty.
+`;
+  }
+  
+  // 감정적/극적 인물 → 반 고흐 (30%)
+  if ((mood === 'emotional' || mood === 'intense' || mood === 'dramatic') &&
+      (shot_type === 'portrait' || shot_type === 'upper_body')) {
+    return `
+🎯 RECOMMENDATION: VAN GOGH (30%)
+Emotional/dramatic portrait - Van Gogh's expressive power!
+Swirling brushstrokes convey intense feelings.
+Van Gogh also available in Masters collection.
+`;
+  }
+  
+  // 기본값 → 균등 배분
   return `
-🎯 DEFAULT: VAN GOGH (50%) PRIMARY
-Van Gogh is the default choice for Post-Impressionism.
-Alternatives:
-- Bright/colorful portraits → Signac (15%) with LARGE DOTS
-- Outdoor exotic people → Gauguin (20%)
-- Still life → Cézanne (15%)
-- Bright landscapes → Signac (15%) with LARGE DOTS
+🎯 BALANCED DISTRIBUTION - Choose based on photo type:
+- Emotional/dramatic portraits → VAN GOGH (30%)
+- Beach/bright scenes → SIGNAC (25%) with LARGE DOTS
+- Outdoor exotic people → GAUGUIN (25%)
+- Still life/structured → CÉZANNE (20%)
+All four artists have distinct equal value!
 `;
 }
 
@@ -930,64 +914,66 @@ function getFauvismGuidelines() {
   return `
 Available Fauvism Artists (3명):
 
-1. MATISSE (마티스) ⭐⭐⭐ STRONGEST for Fauvism
+1. MATISSE (마티스) ⭐⭐⭐ STRONG for portraits and interiors (35%)
    - Specialty: Pure bold colors, decorative flat patterns, joyful harmonious compositions
    - Best for: Most photos, especially people, interiors, calm atmosphere
    - Signature: The Dance, La Desserte - flat decorative color harmony
-   - When to prioritize: Most Fauvism cases (STRONGEST 75%)
+   - When to prioritize: Most Fauvism cases (35%)
    - Note: Also available in Masters collection
 
-2. DERAIN (드랭) - Best for landscapes, outdoor scenes
+2. DERAIN (드랭) ⭐⭐⭐ STRONG for landscapes (35%)
    - Specialty: Bold landscape colors, vivid natural scenery, strong contrasts
    - Best for: Landscapes, trees, outdoor nature, bright scenery
    - Signature: Charing Cross Bridge - bold landscape colors
-   - When to prioritize: Clear landscape/outdoor scene (70%)
+   - When to prioritize: Clear landscape/outdoor scene (35%)
 
-3. VLAMINCK (블라맹크) - Best for dramatic expressive colors
+3. VLAMINCK (블라맹크) ⭐⭐⭐ STRONG for dramatic colors (30%)
    - Specialty: Violent expressive colors, turbulent brushwork, emotional intensity
    - Best for: Dramatic mood, intense emotions, stormy atmosphere
    - Signature: Most violent Fauvist colors - emotional explosions
-   - When to prioritize: Dramatic/intense emotional mood (65%)
+   - When to prioritize: Dramatic/intense emotional mood (30%)
 
-🎯 CRITICAL DECISION LOGIC:
-- Most photos → MATISSE (75%) - most versatile, harmonious
-- Landscape/outdoor → DERAIN (70%) - landscape specialist
-- Dramatic/intense mood → VLAMINCK (65%) - most emotional
+🎯 CRITICAL DECISION LOGIC - BALANCED DISTRIBUTION:
+- Most photos/portraits → MATISSE (35%) - versatile, harmonious
+- Landscape/outdoor → DERAIN (35%) - landscape specialist
+- Dramatic/intense mood → VLAMINCK (30%) - most emotional
+All three artists equally represent Fauvism's bold colors!
 `;
 }
 
 function getFauvismHints(photoAnalysis) {
   const { subject, mood, shot_type } = photoAnalysis;
   
-  // 풍경 → 드랭
+  // 풍경 → 드랭 (35%)
   if (subject === 'landscape' || subject.includes('outdoor') || subject.includes('nature')) {
     return `
-🎯 STRONG: DERAIN (70%)
+🎯 STRONG: DERAIN (35%)
 Landscape/outdoor = Derain specialty!
 Bold landscape colors and vivid natural scenery.
-But Matisse also excellent for decorative approach.
+Matisse also excellent (35%) for decorative approach.
 `;
   }
   
-  // 극적/강렬한 분위기 → 블라맹크
+  // 극적/강렬한 분위기 → 블라맹크 (30%)
   if (mood === 'dramatic' || mood === 'intense' || mood === 'stormy') {
     return `
-🎯 RECOMMENDATION: VLAMINCK (65%)
+🎯 RECOMMENDATION: VLAMINCK (30%)
 Dramatic/intense mood = Vlaminck!
 Most violent and emotional Fauvist colors.
 `;
   }
   
-  // 기본값 → 마티스 (75%)
+  // 기본값 → 마티스 (35%)
   return `
-🎯 STRONG: MATISSE (75%)
-Matisse is the most versatile and harmonious Fauvist.
-Perfect for people, interiors, decorative compositions.
+🎯 BALANCED DISTRIBUTION:
+- Most photos/portraits → MATISSE (35%)
+- Landscape/outdoor → DERAIN (35%)
+- Dramatic mood → VLAMINCK (30%)
+
+Matisse is versatile and harmonious for people/interiors.
 The Dance and La Desserte style - pure color harmony.
 Note: Matisse also available in Masters collection.
-Unless:
-- Clear landscape → Derain (70%)
-- Dramatic mood → Vlaminck (65%)
+All three artists equally powerful for Fauvism!
 `;
 }
 
@@ -996,11 +982,11 @@ function getExpressionismGuidelines() {
   return `
 Available Expressionism Artists (5명):
 
-1. MUNCH (뭉크) ⭐⭐⭐⭐⭐ STRONGEST - DEFAULT CHOICE (40%)
+1. MUNCH (뭉크) ⭐⭐⭐ STRONG for emotional portraits (25%)
    - Specialty: Existential anxiety, psychological tension, swirling distorted forms
-   - Best for: ALL portraits with emotional depth, anxious expressions, dramatic scenes
+   - Best for: Emotional portraits with depth, anxious expressions, dramatic scenes
    - Signature: "The Scream" - iconic anxiety and modern alienation
-   - When to prioritize: Most Expressionism cases, especially portraits (40%)
+   - When to prioritize: Emotional/dramatic portraits (25%)
    - Note: Also available in Masters collection
 
 2. KOKOSCHKA (코코슈카) ⭐⭐⭐ STRONG for psychological portraits (25%)
@@ -1010,90 +996,93 @@ Available Expressionism Artists (5명):
    - When to prioritize: Portraits needing psychological depth (25%)
    - CRITICAL: Rough expressive brushwork reveals inner psyche
 
-3. EGON SCHIELE (에곤 실레) ⭐⭐ (20%)
+3. EGON SCHIELE (에곤 실레) ⭐⭐⭐ (25%)
    - Specialty: SHARP ANGULAR DISTORTED BODIES, twisted limbs, raw tension
    - Best for: Full body, unusual poses, angular compositions
    - Signature: Contorted self-portraits - angular psychological tension
-   - When to prioritize: Full body or angular aesthetic (20%)
+   - When to prioritize: Full body or angular aesthetic (25%)
 
-4. KIRCHNER (키르히너) ⭐⭐ (10%)
+4. KIRCHNER (키르히너) ⭐⭐ (15%)
    - Specialty: JAGGED ANGULAR FORMS, urban anxiety, street energy
    - Best for: Urban settings, bold color contrasts, city scenes
    - Signature: "Street Scenes" - angular urban life
-   - When to prioritize: Clear urban/city backgrounds (10%)
+   - When to prioritize: Clear urban/city backgrounds (15%)
 
-5. KANDINSKY (칸딘스키) ⭐ (5%)
-   - Specialty: Abstract expressionism, spiritual compositions
-   - Best for: Abstract interpretation, spiritual atmosphere
-   - Signature: "Compositions" - non-representational color
-   - When to prioritize: Abstract desired (5%)
+5. KANDINSKY (칸딘스키) ⭐⭐ (10%)
+   - Specialty: Abstract expressionism, spiritual compositions, pure color emotion
+   - Best for: Abstract interpretation, spiritual atmosphere, emotional abstraction
+   - Signature: "Compositions" - non-representational emotional color
+   - When to prioritize: Abstract/spiritual desired (10%)
 
-🎯 CRITICAL DECISION LOGIC:
-- DEFAULT: MUNCH (40%) ⭐⭐⭐⭐⭐ PRIMARY CHOICE
-- Most portraits → MUNCH (40%, also in Masters)
+🎯 CRITICAL DECISION LOGIC - BALANCED DISTRIBUTION:
+- Emotional portraits → MUNCH (25%, also in Masters)
 - Psychological depth → KOKOSCHKA (25%)
-- Full body/angular → EGON SCHIELE (20%)
-- Urban/city scenes → KIRCHNER (10%)
-- Abstract/spiritual → KANDINSKY (5%)
+- Full body/angular → EGON SCHIELE (25%)
+- Urban/city scenes → KIRCHNER (15%)
+- Abstract/spiritual → KANDINSKY (10%)
+All five artists represent different facets of Expressionism!
 `;
 }
 
 function getExpressionismHints(photoAnalysis) {
   const { count, shot_type, expression, background, subject, mood } = photoAnalysis;
   
-  // 초상화 → 뭉크 기본 (40%) 또는 코코슈카
+  // 초상화 → 뭉크 (25%) 또는 코코슈카 (25%) 균등
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     // 심리적 깊이 필요 → 코코슈카 고려
     if (mood === 'intense' || mood === 'psychological' || mood === 'turbulent') {
       return `
-🎯 CONSIDERATION: KOKOSCHKA (25%)
+🎯 RECOMMENDATION: KOKOSCHKA (25%)
 Deep psychological portrait - Kokoschka's violent brushwork!
-But MUNCH (40%) still primary for most Expressionist portraits.
+Equally strong as Munch for psychological portraits.
 `;
     }
     
-    // 기본 초상화 → 뭉크
+    // 감정적/불안 → 뭉크
     return `
-🎯 STRONG RECOMMENDATION: MUNCH (40%)
-Portrait detected - Munch is PRIMARY Expressionist choice!
-Psychological tension and emotional depth.
+🎯 RECOMMENDATION: MUNCH (25%)
+Emotional portrait - Munch's existential anxiety!
 The Scream-like intensity even in calm subjects.
-Alternative: Kokoschka (25%) for raw psychological portraits.
+Alternative: Kokoschka (25%) equally strong for portraits.
 `;
   }
   
-  // 전신 + 특이한 포즈 → 에곤 실레 (20%)
+  // 전신 + 특이한 포즈 → 에곤 실레 (25%)
   if (shot_type === 'full_body' || subject.includes('body')) {
     return `
-🎯 RECOMMENDATION: EGON SCHIELE (20%)
+🎯 STRONG RECOMMENDATION: EGON SCHIELE (25%)
 Full body/body emphasis matches Schiele's distorted anatomy.
 His twisted poses create powerful psychological tension.
 `;
   }
   
-  // 도시 배경 → 키르히너 (최소화)
+  // 도시 배경 → 키르히너 (15%)
   if (background === 'urban' || background === 'city' || subject.includes('street')) {
     return `
-🎯 RECOMMENDATION: KIRCHNER (20%)
+🎯 RECOMMENDATION: KIRCHNER (15%)
 Urban/city setting matches Kirchner's angular street scenes.
 Kirchner specialty for urban Expressionism!
 `;
   }
   
-  // 추상적 → 칸딘스키 (최소화)
-  if (subject === 'abstract' || subject === 'unclear') {
+  // 추상적 → 칸딘스키 (10%)
+  if (subject === 'abstract' || subject === 'unclear' || mood === 'spiritual') {
     return `
-🎯 RECOMMENDATION: KANDINSKY (5%)
-Abstract/unclear subject suits Kandinsky's non-representational approach.
+🎯 RECOMMENDATION: KANDINSKY (10%)
+Abstract/spiritual mood suits Kandinsky's non-representational approach.
+Pure emotional color without representational forms.
 `;
   }
   
   return `
-🎯 DEFAULT: MUNCH (40%) - PRIMARY EXPRESSIONIST
-Munch dominates Expressionism with psychological depth.
-Alternatives:
-- Deep psychology → Kokoschka (25%)
-- Full body → Schiele (20%)
+🎯 BALANCED DISTRIBUTION - Choose based on photo type:
+- Emotional/anxious portraits → MUNCH (25%)
+- Deep psychological portraits → KOKOSCHKA (25%)
+- Full body/angular → SCHIELE (25%)
+- Urban scenes → KIRCHNER (15%)
+- Abstract/spiritual → KANDINSKY (10%)
+All five artists equally represent Expressionism!
+`;
 - Urban → Kirchner (10%)
 - Abstract → Kandinsky (5%)
 `;

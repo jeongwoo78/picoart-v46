@@ -1082,120 +1082,111 @@ Strong core of 4 Expressionist masters!
 `;
 }
 
-// 20세기 모더니즘 (13명 - 5개 세부 사조)
+// 20세기 모더니즘 (10명 - 4개 세부 사조)
+// 제외: 뒤샹(개념미술), 폴록/로스코(완전추상 - 형태 없음)
 function getModernismGuidelines() {
   return `
-Available 20th Century Modernism Artists (13명 across 5 movements):
+Available 20th Century Modernism Artists (10명 across 4 movements):
 
 === CUBISM 입체주의 (2명) ===
-1. PICASSO (피카소) ⭐⭐⭐ STRONGEST (15%)
+1. PICASSO (피카소) ⭐⭐⭐ STRONGEST (18%)
    - Specialty: Geometric fragmented forms, multiple simultaneous perspectives
    - Best for: Portraits, figures, analytical fragmentation
    - Signature: "Les Demoiselles d'Avignon" - revolutionary angular forms
+   - CRITICAL: Face should be FRAGMENTED into geometric planes, seen from MULTIPLE ANGLES simultaneously
    - When: Photos needing geometric fragmentation, angular aesthetic
-   - Note: Also available in Masters collection
 
-2. BRAQUE (브라크) ⭐⭐ (10%)
+2. BRAQUE (브라크) ⭐⭐ (12%)
    - Specialty: Subtle tonal Cubism, collage technique, muted earth colors
-   - Best for: Still life, musical instruments, subtle geometric treatment
+   - Best for: Still life, objects, subtle geometric treatment
    - Signature: "Violin and Candlestick" - harmonious geometric forms
+   - CRITICAL: More subtle fragmentation than Picasso, earth tones, papier collé texture
    - When: Subtle/muted geometric treatment desired
 
-=== DADAISM 다다이즘 (2명) ===
-3. DUCHAMP (뒤샹) ⭐⭐ (8%)
-   - Specialty: Anti-art, readymade concept, conceptual provocation
-   - Best for: Conceptual transformation, unexpected juxtaposition
-   - Signature: "Fountain" - challenging art conventions
-   - When: Avant-garde, conceptual approach needed
-
-4. MAN RAY (만 레이) ⭐⭐ (8%)
-   - Specialty: Rayograph, experimental photography, solarization
-   - Best for: Photographic subjects, experimental effects, surreal photography
-   - Signature: "Le Violon d'Ingres" - innovative visual experimentation
+=== DADAISM 다다이즘 (1명) ===
+3. MAN RAY (만 레이) ⭐⭐ (10%)
+   - Specialty: Rayograph, solarization, experimental photography
+   - Best for: Photographic subjects, experimental light effects
+   - Signature: "Le Violon d'Ingres" - body as instrument, surreal photography
+   - CRITICAL: Solarization effect (inverted tones), rayograph shadows, experimental darkroom
    - When: Photo-based experimental aesthetics
 
 === SURREALISM 초현실주의 (5명) ===
-5. DALÍ (달리) ⭐⭐⭐ STRONGEST (12%)
+4. DALÍ (달리) ⭐⭐⭐ STRONGEST (15%)
    - Specialty: Paranoid-critical method, melting forms, hyperrealistic dreams
    - Best for: Dreamlike transformation, bizarre juxtapositions
    - Signature: "The Persistence of Memory" - melting clocks
+   - CRITICAL: Forms should MELT and DRIP, hyperrealistic rendering of impossible scenes
    - When: Surreal dreamscape, melting distortions desired
-   - Note: Also available in Masters collection
 
-6. MAGRITTE (마그리트) ⭐⭐⭐ (10%)
-   - Specialty: Philosophical paradox, everyday objects in unexpected contexts
-   - Best for: Conceptual paradox, mysterious ordinary subjects
-   - Signature: "The Treachery of Images" - questioning reality
-   - When: Philosophical, mysterious transformation
+5. MAGRITTE (마그리트) ⭐⭐⭐ (15%)
+   - Specialty: Philosophical paradox, multiplication, impossible juxtaposition
+   - Best for: Conceptual paradox, mysterious multiplication of figures
+   - Signature: "Golconda" - men in bowler hats raining from sky
+   - CRITICAL: MULTIPLY/DUPLICATE the subject across composition, or place unexpected object over face
+   - When: Philosophical, mysterious, multiplication effect desired
 
-7. MIRÓ (미로) ⭐⭐ (8%)
+6. MIRÓ (미로) ⭐⭐ (8%)
    - Specialty: Playful organic forms, automatic drawing, childlike symbols
    - Best for: Playful, organic, symbolic treatment
-   - Signature: "The Starry Night" - biomorphic playfulness
+   - Signature: "Constellations" - biomorphic playfulness
+   - CRITICAL: Add floating symbols (stars, eyes, crescents) around subject, bright primary colors
    - When: Playful, colorful, symbolic desired
 
-8. CHAGALL (샤갈) ⭐⭐ (8%)
-   - Specialty: Floating dreamlike figures, lyrical colors, Jewish mysticism
+7. CHAGALL (샤갈) ⭐⭐ (8%)
+   - Specialty: Floating dreamlike figures, lyrical colors, village memories
    - Best for: Romantic scenes, couples, poetic atmosphere
-   - Signature: "I and the Village" - floating lovers, village memories
+   - Signature: "I and the Village", "Birthday" - floating lovers
+   - CRITICAL: Subject should FLOAT/FLY in dreamy space, gravity-defying romantic poses
    - When: Romantic, floating, nostalgic mood
 
-9. FRIDA KAHLO (프리다 칼로) ⭐⭐ (8%)
-   - Specialty: Self-portraits with pain, Mexican symbolism, personal narrative
+8. FRIDA KAHLO (프리다 칼로) ⭐⭐ (8%)
+   - Specialty: Self-portraits with symbolism, Mexican folk art, personal pain
    - Best for: Female portraits, emotional depth, symbolic elements
-   - Signature: "The Two Fridas" - raw personal expression
+   - Signature: "The Two Fridas" - dual self with exposed hearts
+   - CRITICAL: Add Mexican folk symbols (flowers, hearts, vines, animals) around subject
    - When: Female subjects, emotional/personal transformation
 
-=== ABSTRACT EXPRESSIONISM 추상표현주의 (2명) ===
-10. POLLOCK (폴록) ⭐⭐ (7%)
-    - Specialty: Drip painting, action painting, all-over composition
-    - Best for: Dynamic energy, rhythmic patterns, movement
-    - Signature: "No. 5" - energetic drip patterns
-    - When: Dynamic action, rhythmic energy desired
-
-11. ROTHKO (로스코) ⭐⭐ (6%)
-    - Specialty: Color field, floating rectangles, meditative depth
-    - Best for: Contemplative mood, color emotion, spiritual depth
-    - Signature: "Orange, Red, Yellow" - transcendent color fields
-    - When: Contemplative, meditative transformation
-
 === POP ART 팝아트 (2명) ===
-12. WARHOL (워홀) ⭐⭐⭐ STRONG (10%)
-    - Specialty: Silkscreen, repetition, celebrity culture, mass production
-    - Best for: Portraits, celebrities, bold commercial aesthetic
-    - Signature: "Marilyn Monroe" - iconic pop repetition
-    - When: Pop culture, bold graphic treatment
+9. WARHOL (워홀) ⭐⭐⭐ STRONG (15%)
+    - Specialty: Silkscreen repetition, bold flat colors, celebrity portraits
+    - Best for: Portraits, bold commercial aesthetic
+    - Signature: "Marilyn Monroe" - repeated in grid with color variations
+    - CRITICAL: REPEAT face in 4-grid or 9-grid, each with DIFFERENT bold color scheme
+    - When: Pop culture, bold graphic, repetition desired
 
-13. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (8%)
-    - Specialty: Ben-Day dots, comic book style, bold outlines
-    - Best for: Dramatic scenes, comic/cartoon aesthetic
-    - Signature: "Whaam!" - comic strip explosion
+10. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (10%)
+    - Specialty: Ben-Day dots, comic book style, bold black outlines
+    - Best for: Dramatic expressions, comic/cartoon aesthetic
+    - Signature: "Whaam!", "Crying Girl" - comic strip style
+    - CRITICAL: Cover entire image with visible BEN-DAY DOTS, thick black outlines, speech bubble optional
     - When: Comic book, graphic novel aesthetic
 
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
-- Geometric/analytical look → CUBISM (Picasso 15%, Braque 10%)
-- Dreamlike/surreal → SURREALISM (Dalí 12%, Magritte 10%, Miró/Chagall/Frida 8% each)
+- Geometric/analytical → PICASSO (18%) or BRAQUE (12%)
+- Dreamlike/melting → DALÍ (15%)
+- Multiplication/paradox → MAGRITTE (15%)
 - Romantic/floating → CHAGALL (8%)
-- Female emotional portrait → FRIDA (8%)
-- Experimental photography → MAN RAY (8%)
-- Dynamic energy → POLLOCK (7%)
-- Contemplative mood → ROTHKO (6%)
-- Pop culture/bold graphic → POP ART (Warhol 10%, Lichtenstein 8%)
+- Female emotional → FRIDA (8%)
+- Playful/symbolic → MIRÓ (8%)
+- Experimental photo → MAN RAY (10%)
+- Pop repetition → WARHOL (15%)
+- Comic book style → LICHTENSTEIN (10%)
 `;
 }
 
 function getModernismHints(photoAnalysis) {
   const { count, gender, shot_type, subject, mood, background, expression } = photoAnalysis;
   
-  // 여성 초상화 → 프리다 칼로 고려
+  // 여성 초상화 → 프리다 칼로 우선 고려
   if (count === 1 && gender === 'female' && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
 🎯 STRONG OPTIONS FOR FEMALE PORTRAIT:
-1. FRIDA KAHLO (8%) - Emotional depth, personal symbolism, Mexican aesthetic
-2. DALÍ (12%) - Hyperrealistic surreal transformation
-3. WARHOL (10%) - Bold pop art treatment
-4. MAGRITTE (10%) - Philosophical mysterious approach
-Consider the mood: emotional → Frida, dreamlike → Dalí, bold → Warhol
+1. FRIDA KAHLO (8%) - Mexican symbolism, flowers, emotional depth
+2. MAGRITTE (15%) - Mysterious paradox, object over face
+3. WARHOL (15%) - Bold pop art color grid
+4. DALÍ (15%) - Melting surreal transformation
+Consider mood: emotional → Frida, mysterious → Magritte, bold → Warhol
 `;
   }
   
@@ -1203,76 +1194,78 @@ Consider the mood: emotional → Frida, dreamlike → Dalí, bold → Warhol
   if (count === 2 && (subject.includes('couple') || subject.includes('romantic') || mood === 'romantic')) {
     return `
 🎯 STRONG RECOMMENDATION: CHAGALL (8%)
-Romantic couple - Chagall's floating lovers!
-"I and the Village", "Birthday" - poetic romance
-Alternative: Magritte for mysterious couple aesthetic
+Romantic couple - Chagall's FLOATING LOVERS!
+"Birthday" style - couple defying gravity, flying in embrace
+Make them FLOAT in dreamy colorful space
 `;
   }
   
-  // 역동적/스포츠/움직임 → 폴록 또는 피카소
-  if (subject.includes('sport') || subject.includes('action') || subject.includes('dynamic') ||
-      mood === 'energetic' || mood === 'dynamic') {
+  // 단체 사진 → 마그리트 골콩드
+  if (count >= 3) {
     return `
-🎯 STRONG OPTIONS FOR DYNAMIC SUBJECTS:
-1. POLLOCK (7%) - Energetic drip action, rhythmic movement
-2. PICASSO (15%) - Angular dynamic Cubist fragmentation
-Choose Pollock for pure energy, Picasso for geometric dynamism
+🎯 STRONG RECOMMENDATION: MAGRITTE (15%)
+Group photo - perfect for Golconda-style MULTIPLICATION!
+Duplicate figures raining from sky like Golconda
+Or WARHOL (15%) - repeat faces in pop art grid
 `;
   }
   
-  // 명상적/차분 → 로스코
-  if (mood === 'calm' || mood === 'contemplative' || mood === 'meditative' || mood === 'peaceful') {
+  // 정물/오브젝트 → 입체주의
+  if (subject.includes('object') || subject.includes('still') || subject.includes('food')) {
     return `
-🎯 RECOMMENDATION: ROTHKO (6%)
-Contemplative/calm mood - Rothko's meditative color fields
-Transcendent floating rectangles for spiritual depth
-Alternative: Chagall for peaceful dreaminess
+🎯 STRONG RECOMMENDATION: BRAQUE (12%)
+Still life/objects - Braque's analytical Cubism!
+Subtle geometric fragmentation, earth tones, collage texture
+Alternative: PICASSO (18%) for bolder fragmentation
 `;
   }
   
-  // 도시/현대적 배경 → 팝아트 또는 입체주의
-  if (background === 'urban' || background === 'modern' || subject.includes('city')) {
+  // 풍경 → 달리 or 미로
+  if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky')) {
     return `
-🎯 STRONG OPTIONS FOR URBAN/MODERN:
-1. WARHOL (10%) - Pop culture, commercial aesthetic
-2. LICHTENSTEIN (8%) - Comic book urban drama
-3. PICASSO (15%) - Cubist fragmentation of city
-Pop Art captures modern urban energy best!
+🎯 LANDSCAPE OPTIONS:
+1. DALÍ (15%) - Surreal barren dreamscape with melting forms
+2. MIRÓ (8%) - Add floating symbols, stars, crescents
+3. MAGRITTE (15%) - Sky paradox, day/night contradiction
+Dalí for dramatic surreal, Miró for playful
+`;
+  }
+  
+  // 극적 표정 → 리히텐슈타인
+  if (expression === 'dramatic' || expression === 'crying' || expression === 'surprised') {
+    return `
+🎯 STRONG RECOMMENDATION: LICHTENSTEIN (10%)
+Dramatic expression - comic book style!
+Ben-Day dots, bold black outlines, speech bubble
+"Crying Girl" style emotional impact
 `;
   }
   
   // 초상화 일반 → 다양한 옵션
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     return `
-🎯 PORTRAIT OPTIONS ACROSS MOVEMENTS:
-- Surreal dreamlike → DALÍ (12%) or MAGRITTE (10%)
-- Geometric fragmentation → PICASSO (15%)
-- Pop art bold → WARHOL (10%)
-- Comic book style → LICHTENSTEIN (8%)
-- Emotional depth → FRIDA (8%)
-Consider which aesthetic transformation fits this portrait best
-`;
-  }
-  
-  // 풍경 → 달리 또는 마그리트
-  if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky')) {
-    return `
-🎯 LANDSCAPE OPTIONS:
-1. DALÍ (12%) - Surreal barren dreamscape with melting forms
-2. MAGRITTE (10%) - Philosophical sky/nature paradox
-3. MIRÓ (8%) - Playful symbolic organic forms
-Dalí for dramatic surreal, Magritte for mysterious
+🎯 PORTRAIT OPTIONS - CHOOSE BY DESIRED EFFECT:
+- Face FRAGMENTED → PICASSO (18%)
+- Face MULTIPLIED in grid → WARHOL (15%)
+- Object OVER face → MAGRITTE (15%)
+- Face MELTING → DALÍ (15%)
+- FLOATING in space → CHAGALL (8%)
+- Comic book DOTS → LICHTENSTEIN (10%)
+- Experimental photo → MAN RAY (10%)
 `;
   }
   
   // 기본값 - 균형 분배
   return `
-🎯 BALANCED DISTRIBUTION BY MOVEMENT:
-- CUBISM: Picasso (15%), Braque (10%) - geometric fragmentation
-- SURREALISM: Dalí (12%), Magritte (10%), others (8% each) - dreamlike
-- ABSTRACT EXPRESSIONISM: Pollock (7%), Rothko (6%) - emotional abstraction
-- POP ART: Warhol (10%), Lichtenstein (8%) - bold graphic
-Choose based on desired aesthetic transformation
+🎯 BALANCED DISTRIBUTION BY EFFECT:
+- FRAGMENTATION: Picasso (18%), Braque (12%)
+- MULTIPLICATION: Magritte (15%), Warhol (15%)
+- MELTING/SURREAL: Dalí (15%)
+- FLOATING: Chagall (8%)
+- SYMBOLIC: Frida (8%), Miró (8%)
+- EXPERIMENTAL: Man Ray (10%)
+- COMIC: Lichtenstein (10%)
+Choose based on desired visual transformation!
 `;
 }
 
@@ -1332,7 +1325,7 @@ const fallbackPrompts = {
   
   modernism: {
     name: '20세기 모더니즘',
-    prompt: 'Choose best 20th Century Modernism style based on photo: Cubist fragmented geometric forms by Picasso or Braque with multiple simultaneous perspectives, or Surrealist dreamlike hyperrealistic distortions by Dalí or Magritte with subconscious symbolism, or Abstract Expressionist emotional color fields by Rothko with floating rectangles or action dripping by Pollock with dynamic energy, or Pop Art bold commercial aesthetics by Warhol with silkscreen repetition or Lichtenstein with Ben-Day dots, painted in 20th century masterpiece quality with revolutionary modern vision'
+    prompt: 'Transform into 20th Century Modernism art. Choose best style: CUBIST fragmented geometric forms by Picasso with face broken into multiple angular planes seen from different angles simultaneously, or SURREALIST dreamlike by Dalí with melting dripping forms in hyperrealistic style, or MAGRITTE philosophical paradox with subject multiplied like Golconda raining men, or POP ART by Warhol with face repeated in 4-grid with different bold color schemes, or LICHTENSTEIN comic book style with visible Ben-Day dots throughout and thick black outlines. Revolutionary 20th century masterpiece quality'
   },
   
   // ========================================
@@ -2372,6 +2365,135 @@ export default async function handler(req, res) {
             console.log('✅ Enhanced Picasso Cubist deconstruction added');
           } else {
             console.log('ℹ️ Picasso Cubism already in prompt (AI included it)');
+          }
+          // 20세기 모더니즘에서 피카소 선택시 control_strength 낮춤
+          if (categoryType === 'modernism') {
+            controlStrength = 0.55;
+            console.log('✅ Modernism Picasso: control_strength 0.55 (allow fragmentation)');
+          }
+        }
+        
+        // ========================================
+        // v52 추가: 20세기 모더니즘 10명 화가 강화
+        // ========================================
+        
+        // 브라크 선택시 분석적 입체주의 강화
+        if (selectedArtist.toUpperCase().trim().includes('BRAQUE') || 
+            selectedArtist.toUpperCase().trim().includes('GEORGES')) {
+          console.log('🎯 Braque detected');
+          if (!finalPrompt.includes('analytical Cubism')) {
+            finalPrompt = finalPrompt + ', painting by Georges Braque, ANALYTICAL CUBISM with subtle geometric fragmentation, muted earth tones of browns tans and grays, papier collé texture with collage-like layered planes, musical instruments and still life motifs, more harmonious and subtle than Picasso, overlapping translucent planes creating shallow space, stenciled letters and numbers integrated into composition';
+            controlStrength = 0.55;
+            console.log('✅ Enhanced Braque analytical Cubism added (control_strength 0.55)');
+          } else {
+            console.log('ℹ️ Braque Cubism already in prompt (AI included it)');
+          }
+        }
+        
+        // 만 레이 선택시 실험적 사진 기법 강화
+        if (selectedArtist.toUpperCase().trim().includes('MAN RAY') || 
+            selectedArtist.toUpperCase().trim().includes('MANRAY')) {
+          console.log('🎯 Man Ray detected');
+          if (!finalPrompt.includes('solarization')) {
+            finalPrompt = finalPrompt + ', experimental photography by Man Ray, SOLARIZATION EFFECT with inverted tones and glowing haloed edges, rayograph shadow silhouettes, dramatic high contrast black and white, surreal darkroom manipulation, Le Violon d\'Ingres style transformation of body, dreamlike photographic distortion with reversed light and shadow, avant-garde Dada experimentation';
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Man Ray solarization added (control_strength 0.60)');
+          } else {
+            console.log('ℹ️ Man Ray effects already in prompt (AI included it)');
+          }
+        }
+        
+        // 달리 선택시 초현실 녹아내림 강화 (거장에도 있지만 모더니즘용 추가)
+        if (selectedArtist.toUpperCase().trim().includes('DALÍ') || 
+            selectedArtist.toUpperCase().trim().includes('DALI') ||
+            selectedArtist.toUpperCase().trim().includes('SALVADOR')) {
+          console.log('🎯 Dalí detected');
+          if (!finalPrompt.includes('melting')) {
+            finalPrompt = finalPrompt + ', Surrealist painting by Salvador Dalí, MELTING DRIPPING forms like Persistence of Memory clocks, hyperrealistic precise technique rendering impossible dreamscapes, paranoid-critical method distortions, barren desert landscape stretching to infinite horizon, long dramatic shadows, bizarre unexpected juxtapositions, subconscious Freudian symbolism, soft watches and fluid forms defying physics';
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Dalí melting surrealism added (control_strength 0.60)');
+          } else {
+            console.log('ℹ️ Dalí surrealism already in prompt (AI included it)');
+          }
+        }
+        
+        // 마그리트 선택시 골콩드 복제/역설 강화
+        if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
+            selectedArtist.toUpperCase().trim().includes('RENÉ') ||
+            selectedArtist.toUpperCase().trim().includes('RENE')) {
+          console.log('🎯 Magritte detected');
+          if (!finalPrompt.includes('Golconda')) {
+            finalPrompt = finalPrompt + ', Surrealist painting by René Magritte, GOLCONDA-STYLE MULTIPLICATION with identical figures repeated across sky like rain, OR Son of Man-style with green apple floating in front of face obscuring identity, philosophical paradox questioning reality, bowler hat men in suits, pristine hyperrealistic rendering of impossible scenes, deadpan mysterious atmosphere, everyday objects in extraordinary contexts, Belgian surrealist precision';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte multiplication/paradox added (control_strength 0.50)');
+          } else {
+            console.log('ℹ️ Magritte paradox already in prompt (AI included it)');
+          }
+        }
+        
+        // 미로 선택시 유기적 상징 강화
+        if (selectedArtist.toUpperCase().trim().includes('MIRÓ') || 
+            selectedArtist.toUpperCase().trim().includes('MIRO') ||
+            selectedArtist.toUpperCase().trim().includes('JOAN')) {
+          console.log('🎯 Miró detected');
+          if (!finalPrompt.includes('biomorphic')) {
+            finalPrompt = finalPrompt + ', painting by Joan Miró, BIOMORPHIC PLAYFUL FORMS floating in space, automatic drawing spontaneous symbols, bright primary colors (red yellow blue black) on light background, constellation of stars eyes crescents and organic shapes surrounding subject, childlike joyful energy, calligraphic black lines, poetic surrealist abstraction with whimsical floating elements';
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Miró biomorphic symbols added (control_strength 0.60)');
+          } else {
+            console.log('ℹ️ Miró symbolism already in prompt (AI included it)');
+          }
+        }
+        
+        // 샤갈 선택시 부유하는 연인 강화
+        if (selectedArtist.toUpperCase().trim().includes('CHAGALL') || 
+            selectedArtist.toUpperCase().trim().includes('MARC')) {
+          console.log('🎯 Chagall detected');
+          if (!finalPrompt.includes('floating')) {
+            finalPrompt = finalPrompt + ', painting by Marc Chagall, FLOATING DREAMLIKE FIGURES defying gravity, lovers flying through air in romantic embrace, rich jewel-tone colors (deep blues violets reds greens), Vitebsk village memories with tilted houses and fiddlers, poetic lyrical atmosphere, multiple scenes layered in dreamscape, goats roosters and moons as recurring motifs, Jewish mystical symbolism, Birthday-style weightless joy';
+            controlStrength = 0.65;
+            console.log('✅ Enhanced Chagall floating romance added (control_strength 0.65)');
+          } else {
+            console.log('ℹ️ Chagall floating already in prompt (AI included it)');
+          }
+        }
+        
+        // 프리다 칼로 선택시 멕시코 상징주의 강화
+        if (selectedArtist.toUpperCase().trim().includes('FRIDA') || 
+            selectedArtist.toUpperCase().trim().includes('KAHLO')) {
+          console.log('🎯 Frida Kahlo detected');
+          if (!finalPrompt.includes('Mexican symbolism')) {
+            finalPrompt = finalPrompt + ', self-portrait painting by Frida Kahlo, MEXICAN FOLK ART SYMBOLISM with flowers vines monkeys parrots surrounding subject, unibrow and intense direct gaze, Tehuana traditional dress with elaborate headdress and jewelry, exposed heart or visible pain elements, lush tropical foliage background, vibrant saturated colors, raw emotional honesty, pre-Columbian and Catholic imagery merged, The Two Fridas-style personal mythology';
+            controlStrength = 0.65;
+            console.log('✅ Enhanced Frida Mexican symbolism added (control_strength 0.65)');
+          } else {
+            console.log('ℹ️ Frida symbolism already in prompt (AI included it)');
+          }
+        }
+        
+        // 워홀 선택시 팝아트 반복/그리드 강화
+        if (selectedArtist.toUpperCase().trim().includes('WARHOL') || 
+            selectedArtist.toUpperCase().trim().includes('ANDY')) {
+          console.log('🎯 Warhol detected');
+          if (!finalPrompt.includes('silkscreen')) {
+            finalPrompt = finalPrompt + ', Pop Art by Andy Warhol, MARILYN-STYLE SILKSCREEN with face repeated in 2x2 or 3x3 GRID, each repetition in DIFFERENT BOLD COLOR SCHEME (hot pink, electric blue, lime green, orange, yellow), flat graphic treatment with high contrast, celebrity portrait aesthetic, mass production repetition, Factory-style commercial art technique, iconic pop culture transformation';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Warhol silkscreen grid added (control_strength 0.50)');
+          } else {
+            console.log('ℹ️ Warhol silkscreen already in prompt (AI included it)');
+          }
+        }
+        
+        // 리히텐슈타인 선택시 벤데이 도트/만화 강화
+        if (selectedArtist.toUpperCase().trim().includes('LICHTENSTEIN') || 
+            selectedArtist.toUpperCase().trim().includes('ROY')) {
+          console.log('🎯 Lichtenstein detected');
+          if (!finalPrompt.includes('Ben-Day dots')) {
+            finalPrompt = finalPrompt + ', Pop Art by Roy Lichtenstein, COMIC BOOK STYLE with visible BEN-DAY DOTS covering entire image surface, THICK BOLD BLACK OUTLINES around all forms, limited flat color palette (primary red yellow blue plus black white), speech bubble or thought balloon optional, dramatic comic strip emotion, Whaam! and Crying Girl-style graphic impact, halftone printing aesthetic blown up to fine art scale';
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Lichtenstein Ben-Day dots added (control_strength 0.60)');
+          } else {
+            console.log('ℹ️ Lichtenstein dots already in prompt (AI included it)');
           }
         }
         

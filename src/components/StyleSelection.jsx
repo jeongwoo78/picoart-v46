@@ -41,7 +41,7 @@ const StyleSelection = ({ onSelect }) => {
     { id: 'postImpressionism', name: '후기인상주의', category: 'postImpressionism', icon: '🌻', description: '감정과 구조의 탐구' },
     { id: 'fauvism', name: '야수파', category: 'fauvism', icon: '🎨', description: '순수 색채의 해방' },
     { id: 'expressionism', name: '표현주의', category: 'expressionism', icon: '😱', description: '내면의 불안과 고독' },
-    { id: 'modernism', name: '20세기 모더니즘', category: 'modernism', icon: '🔮', description: '입체·다다·초현실·팝아트' },
+    { id: 'modernism', name: '20세기 모더니즘', category: 'modernism', icon: '🔮', description: '입체·초현실·팝아트' },
     
     // 거장 6명 (시간순: 출생연도)
     { id: 'vangogh-master', name: '빈센트 반 고흐', nameEn: 'Vincent van Gogh', category: 'masters', icon: '🌻', description: '1853-1890 | 후기인상주의' },

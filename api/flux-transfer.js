@@ -980,59 +980,52 @@ All three artists equally powerful for Fauvism!
 // 표현주의 (5명)
 function getExpressionismGuidelines() {
   return `
-Available Expressionism Artists (5명):
+Available Expressionism Artists (4명):
 
-1. MUNCH (뭉크) ⭐⭐⭐ STRONG for emotional portraits (25%)
+1. MUNCH (뭉크) ⭐⭐⭐ STRONG for emotional portraits (30%)
    - Specialty: Existential anxiety, psychological tension, swirling distorted forms
    - Best for: Emotional portraits with depth, anxious expressions, dramatic scenes
    - Signature: "The Scream" - iconic anxiety and modern alienation
-   - When to prioritize: Emotional/dramatic portraits (25%)
+   - When to prioritize: Emotional/dramatic portraits (30%)
    - Note: Also available in Masters collection
 
-2. KOKOSCHKA (코코슈카) ⭐⭐⭐ STRONG for psychological portraits (25%)
+2. KOKOSCHKA (코코슈카) ⭐⭐⭐ STRONG for psychological portraits (30%)
    - Specialty: Intense psychological portraits, violent brushstrokes, inner turmoil
    - Best for: Deep character portraits, emotional intensity, raw expression
    - Signature: "The Bride of the Wind" - turbulent emotional portraits
-   - When to prioritize: Portraits needing psychological depth (25%)
+   - When to prioritize: Portraits needing psychological depth (30%)
    - CRITICAL: Rough expressive brushwork reveals inner psyche
 
-3. EGON SCHIELE (에곤 실레) ⭐⭐⭐ (25%)
-   - Specialty: SHARP ANGULAR DISTORTED BODIES, twisted limbs, raw tension
-   - Best for: Full body, unusual poses, angular compositions
-   - Signature: Contorted self-portraits - angular psychological tension
-   - When to prioritize: Full body or angular aesthetic (25%)
-
-4. KIRCHNER (키르히너) ⭐⭐ (15%)
+3. KIRCHNER (키르히너) ⭐⭐⭐ STRONG for urban expressionism (25%)
    - Specialty: JAGGED ANGULAR FORMS, urban anxiety, street energy
-   - Best for: Urban settings, bold color contrasts, city scenes
+   - Best for: Urban settings, bold color contrasts, city scenes, angular compositions
    - Signature: "Street Scenes" - angular urban life
-   - When to prioritize: Clear urban/city backgrounds (15%)
+   - When to prioritize: Urban/city backgrounds or angular aesthetic (25%)
 
-5. KANDINSKY (칸딘스키) ⭐⭐ (10%)
+4. KANDINSKY (칸딘스키) ⭐⭐ (15%)
    - Specialty: Abstract expressionism, spiritual compositions, pure color emotion
    - Best for: Abstract interpretation, spiritual atmosphere, emotional abstraction
    - Signature: "Compositions" - non-representational emotional color
-   - When to prioritize: Abstract/spiritual desired (10%)
+   - When to prioritize: Abstract/spiritual desired (15%)
 
-🎯 CRITICAL DECISION LOGIC - BALANCED DISTRIBUTION:
-- Emotional portraits → MUNCH (25%, also in Masters)
-- Psychological depth → KOKOSCHKA (25%)
-- Full body/angular → EGON SCHIELE (25%)
-- Urban/city scenes → KIRCHNER (15%)
-- Abstract/spiritual → KANDINSKY (10%)
-All five artists represent different facets of Expressionism!
+🎯 CRITICAL DECISION LOGIC - 4 ARTISTS:
+- Emotional portraits → MUNCH (30%, also in Masters)
+- Psychological depth → KOKOSCHKA (30%)
+- Urban/city/angular → KIRCHNER (25%)
+- Abstract/spiritual → KANDINSKY (15%)
+Strong core of 4 Expressionist artists!
 `;
 }
 
 function getExpressionismHints(photoAnalysis) {
   const { count, shot_type, expression, background, subject, mood } = photoAnalysis;
   
-  // 초상화 → 뭉크 (25%) 또는 코코슈카 (25%) 균등
+  // 초상화 → 뭉크 (30%) 또는 코코슈카 (30%)
   if (count === 1 && (shot_type === 'portrait' || shot_type === 'upper_body')) {
     // 심리적 깊이 필요 → 코코슈카 고려
     if (mood === 'intense' || mood === 'psychological' || mood === 'turbulent') {
       return `
-🎯 RECOMMENDATION: KOKOSCHKA (25%)
+🎯 STRONG RECOMMENDATION: KOKOSCHKA (30%)
 Deep psychological portrait - Kokoschka's violent brushwork!
 Equally strong as Munch for psychological portraits.
 `;
@@ -1040,35 +1033,27 @@ Equally strong as Munch for psychological portraits.
     
     // 감정적/불안 → 뭉크
     return `
-🎯 RECOMMENDATION: MUNCH (25%)
+🎯 STRONG RECOMMENDATION: MUNCH (30%)
 Emotional portrait - Munch's existential anxiety!
 The Scream-like intensity even in calm subjects.
-Alternative: Kokoschka (25%) equally strong for portraits.
+Alternative: Kokoschka (30%) equally strong for portraits.
 `;
   }
   
-  // 전신 + 특이한 포즈 → 에곤 실레 (25%)
-  if (shot_type === 'full_body' || subject.includes('body')) {
+  // 도시 배경 또는 각진 구도 → 키르히너 (25%)
+  if (background === 'urban' || background === 'city' || subject.includes('street') ||
+      subject.includes('angular') || subject.includes('geometric')) {
     return `
-🎯 STRONG RECOMMENDATION: EGON SCHIELE (25%)
-Full body/body emphasis matches Schiele's distorted anatomy.
-His twisted poses create powerful psychological tension.
+🎯 STRONG RECOMMENDATION: KIRCHNER (25%)
+Urban/city/angular setting matches Kirchner's jagged forms!
+Street scenes and angular expressionism specialty.
 `;
   }
   
-  // 도시 배경 → 키르히너 (15%)
-  if (background === 'urban' || background === 'city' || subject.includes('street')) {
-    return `
-🎯 RECOMMENDATION: KIRCHNER (15%)
-Urban/city setting matches Kirchner's angular street scenes.
-Kirchner specialty for urban Expressionism!
-`;
-  }
-  
-  // 추상적 → 칸딘스키 (10%)
+  // 추상적 → 칸딘스키 (15%)
   if (subject === 'abstract' || subject === 'unclear' || mood === 'spiritual') {
     return `
-🎯 RECOMMENDATION: KANDINSKY (10%)
+🎯 RECOMMENDATION: KANDINSKY (15%)
 Abstract/spiritual mood suits Kandinsky's non-representational approach.
 Pure emotional color without representational forms.
 `;
@@ -1076,12 +1061,11 @@ Pure emotional color without representational forms.
   
   return `
 🎯 BALANCED DISTRIBUTION - Choose based on photo type:
-- Emotional/anxious portraits → MUNCH (25%)
-- Deep psychological portraits → KOKOSCHKA (25%)
-- Full body/angular → SCHIELE (25%)
-- Urban scenes → KIRCHNER (15%)
-- Abstract/spiritual → KANDINSKY (10%)
-All five artists equally represent Expressionism!
+- Emotional/anxious portraits → MUNCH (30%)
+- Deep psychological portraits → KOKOSCHKA (30%)
+- Urban/angular scenes → KIRCHNER (25%)
+- Abstract/spiritual → KANDINSKY (15%)
+Strong core of 4 Expressionist masters!
 `;
 }
 

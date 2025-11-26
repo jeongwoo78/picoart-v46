@@ -1205,6 +1205,48 @@ function getModernismHints(photoAnalysis) {
   // 카테고리별 대표작 기반 AI 선택 가이드
   // ========================================
   
+  // 🐕 동물만 (ANIMALS ONLY, NO PEOPLE!) - 최우선! 리히텐슈타인 70% + 키스해링 30%!
+  if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
+      subject.includes('cat') || subject.includes('bird')) {
+    return `
+🎯 ANIMALS - CATEGORY: 동물 (최우선 체크!)
+
+⛔ FORBIDDEN ARTISTS FOR ANIMALS:
+- PICASSO ❌
+- BRAQUE ❌
+- MAGRITTE ❌
+- MIRÓ ❌
+- CHAGALL ❌
+- WARHOL ❌
+- DALÍ ❌
+
+✅ ONLY CHOOSE FROM THESE 2 ARTISTS:
+
+1. LICHTENSTEIN (70%) ⭐⭐⭐ PRIMARY CHOICE FOR ANIMALS!
+   Reference: Comic strip animal illustrations
+   → BEN-DAY DOTS covering ENTIRE image
+   → THICK BLACK OUTLINES around animal forms
+   → PRIMARY COLORS (red, yellow, blue, black, white)
+   → Cartoon/comic book aesthetic for cute animals
+   → PERFECT for cute pets like dogs, cats, birds!
+
+2. KEITH HARING (30%) ⭐⭐ DYNAMIC/PLAYFUL ANIMALS
+   Reference: "Barking Dog" series, animal icons
+   → BOLD BLACK OUTLINES around simplified forms
+   → Bright PRIMARY COLORS (red, yellow, blue, green)
+   → Animals as iconic simplified silhouettes
+   → RADIANT LINES emanating from figures
+   → Energetic, playful street art style
+
+⚠️ FINAL REMINDER: 
+For ANY photo with animals (dog, cat, bird, pet, etc.),
+ONLY choose: LICHTENSTEIN (70%) or KEITH HARING (30%)
+NO OTHER ARTIST IS ACCEPTABLE!
+
+SELECT: cute/comic → LICHTENSTEIN, dynamic/playful → KEITH HARING
+`;
+  }
+  
   // 👥 단체/군중 (3명 이상)
   if (count >= 3) {
     return `
@@ -1488,44 +1530,6 @@ ARTIST SELECTION:
 NOTE: Magritte NOT recommended for landscapes (better for portraits)
 
 SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy soft nostalgic → CHAGALL
-`;
-  }
-  
-  // 🐕 동물만 (ANIMALS ONLY, NO PEOPLE!) - 리히텐슈타인 100% 단독!
-  if ((subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
-      subject.includes('cat') || subject.includes('bird')) && count === 0) {
-    return `
-🎯 ANIMALS ONLY (NO PEOPLE) - CATEGORY: 동물
-
-⛔⛔⛔ CRITICAL: FOR ANIMAL PHOTOS, YOU MUST CHOOSE LICHTENSTEIN!
-DO NOT CHOOSE ANY OTHER ARTIST! NO EXCEPTIONS!
-
-⛔ FORBIDDEN ARTISTS FOR ANIMALS:
-- PICASSO ❌
-- BRAQUE ❌
-- MAGRITTE ❌
-- KEITH HARING ❌
-- MIRÓ ❌
-- CHAGALL ❌
-- WARHOL ❌
-- DALÍ ❌
-
-✅ THE ONLY VALID CHOICE:
-
-LICHTENSTEIN (100%) ⭐⭐⭐ THE ONLY CHOICE FOR ANIMALS!
-Reference: Comic strip animal illustrations
-→ BEN-DAY DOTS covering ENTIRE image
-→ THICK BLACK OUTLINES around animal forms
-→ PRIMARY COLORS (red, yellow, blue, black, white)
-→ Cartoon/comic book aesthetic for cute animals
-→ PERFECT for cute pets like dogs, cats, birds!
-
-⚠️⚠️⚠️ FINAL WARNING: 
-For ANY photo with ONLY animals (no people),
-YOU MUST SELECT: LICHTENSTEIN
-NO OTHER ARTIST IS ACCEPTABLE!
-
-SELECTED ARTIST: LICHTENSTEIN
 `;
   }
 

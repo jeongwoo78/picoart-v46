@@ -1166,6 +1166,7 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
     - When: Group photos with dynamic movement, joyful energy
 
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
+- ⭐⭐⭐ ANIMALS (dog/cat/bird/pet) → LICHTENSTEIN (70%) or KEITH HARING (30%) ONLY! HIGHEST PRIORITY!
 - Geometric/analytical/action → PICASSO (19%) - STRONGEST for figures!
 - Romantic/couples/emotional → CHAGALL (18%) - BEST for romance!
 - Multiplication/paradox → MAGRITTE (12%) - ONLY for 1-2 people!
@@ -1191,6 +1192,11 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 
 ⚠️ LANDSCAPES/NATURE:
 → MIRÓ (40%), CHAGALL (35%), DALÍ (25%)
+
+⚠️⚠️⚠️ ANIMALS (dogs, cats, birds, pets) - HIGHEST PRIORITY:
+→ LICHTENSTEIN (70%), KEITH HARING (30%) ONLY!
+→ DO NOT choose PICASSO, BRAQUE, MAGRITTE, MIRÓ, CHAGALL, WARHOL, DALÍ for animals!
+→ If photo contains ANY animal, MUST choose LICHTENSTEIN or KEITH HARING!
 
 ⚠️ FINAL REMINDER: ONLY these 8 artists are valid choices:
 PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, WARHOL, LICHTENSTEIN, KEITH HARING

@@ -1,10 +1,14 @@
 // PicoArt v51 - 20th Century Modernism Added (11 Art Movements)
 // v51: 20세기 모더니즘 추가 (11번째 사조)
 //      - 입체주의: 피카소, 브라크
-//      - 다다이즘: 뒤샹, 만 레이
-//      - 초현실주의: 달리, 마그리트, 미로, 샤갈, 프리다 칼로
-//      - 추상표현주의: 폴록, 로스코
-//      - 팝아트: 워홀, 리히텐슈타인
+//      - 초현실주의: 달리, 마그리트, 미로, 샤갈
+//      - 팝아트: 워홀, 리히텐슈타인, 키스해링
+//      ⛔ 제외: 만 레이(사진작가), 프리다(마스터 전용), 뒤샹(개념미술), 폴록/로스코(완전추상)
+//
+// v54: 모더니즘 비중 재분배
+//      피카소 19%, 샤갈 18%, 리히텐슈타인 15%, 마그리트 12%
+//      워홀 10%, 달리 8%, 미로 8%, 브라크 5%, 키스해링 5%
+//      리히텐슈타인 조건 완화: 만화풍/액션 장면만
 //
 // v57: 중세 미술 회화 느낌 방지 강화
 //      
@@ -52,12 +56,11 @@
 //   8. 후기인상주의 (1880~1910) - 4명 화가 선택
 //   9. 야수파 (1905~1908) - 3명 화가 선택
 //  10. 표현주의 (1905~1920) - 4명 화가 선택
-//  11. 20세기 모더니즘 (1907~1970) - 13명 화가 선택 ⭐ NEW
-//      → 입체주의: 피카소, 브라크
-//      → 다다이즘: 뒤샹, 만 레이
-//      → 초현실주의: 달리, 마그리트, 미로, 샤갈, 프리다 칼로
-//      → 추상표현주의: 폴록, 로스코
-//      → 팝아트: 워홀, 리히텐슈타인
+//  11. 20세기 모더니즘 (1907~1970) - 8명 화가 선택 ⭐ v54 업데이트
+//      → 입체주의: 피카소(19%), 브라크(5%)
+//      → 초현실주의: 샤갈(18%), 마그리트(12%), 달리(8%), 미로(8%)
+//      → 팝아트: 리히텐슈타인(15%), 워홀(10%), 키스해링(5%)
+//      ⛔ 제외: 만 레이(사진작가), 프리다(마스터 전용)
 //
 // 거장 6명 (시간순 + 생사연도):
 //   1. 반 고흐 (1853-1890, 후기인상주의)
@@ -1082,77 +1085,64 @@ Strong core of 4 Expressionist masters!
 `;
 }
 
-// 20세기 모더니즘 (10명 - 4개 세부 사조)
-// 제외: 뒤샹(개념미술), 폴록/로스코(완전추상 - 형태 없음)
+// 20세기 모더니즘 (8명 - 3개 세부 사조)
+// 제외: 뒤샹(개념미술), 폴록/로스코(완전추상), 만 레이(사진작가), 프리다 칼로(마스터 전용)
 function getModernismGuidelines() {
   return `
-⚠️ CRITICAL: You MUST select ONLY from the 10 artists listed below!
-DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, etc.)
+⚠️ CRITICAL: You MUST select ONLY from the 8 artists listed below!
+DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, Man Ray, Frida Kahlo, etc.)
 If no artist fits perfectly, choose the CLOSEST match from this list.
 
-Available 20th Century Modernism Artists (10명 across 4 movements):
+Available 20th Century Modernism Artists (8명 across 3 movements):
 
 === CUBISM 입체주의 (2명) ===
-1. PICASSO (피카소) ⭐⭐⭐ STRONGEST (18%)
+1. PICASSO (피카소) ⭐⭐⭐ STRONGEST (19%)
    - Specialty: Geometric fragmented forms, multiple simultaneous perspectives
-   - Best for: Portraits, figures, analytical fragmentation
+   - Best for: Portraits, figures, analytical fragmentation, dynamic scenes
    - Signature: "Les Demoiselles d'Avignon" - revolutionary angular forms
    - CRITICAL: Face should be FRAGMENTED into geometric planes, seen from MULTIPLE ANGLES simultaneously
-   - When: Photos needing geometric fragmentation, angular aesthetic
+   - When: Photos needing geometric fragmentation, angular aesthetic, action/movement
 
-2. BRAQUE (브라크) ⭐⭐ (12%)
+2. BRAQUE (브라크) ⭐ (5%)
    - Specialty: Subtle tonal Cubism, collage technique, muted earth colors
    - Best for: Still life, objects, subtle geometric treatment
    - Signature: "Violin and Candlestick" - harmonious geometric forms
    - CRITICAL: More subtle fragmentation than Picasso, earth tones, papier collé texture
-   - When: Subtle/muted geometric treatment desired
+   - When: Still life, muted/subtle geometric treatment desired
 
-=== DADAISM 다다이즘 (1명) ===
-3. MAN RAY (만 레이) ⭐⭐ (10%)
-   - Specialty: Rayograph, solarization, experimental photography
-   - Best for: Photographic subjects, experimental light effects
-   - Signature: "Le Violon d'Ingres" - body as instrument, surreal photography
-   - CRITICAL: Solarization effect (inverted tones), rayograph shadows, experimental darkroom
-   - When: Photo-based experimental aesthetics
-
-=== SURREALISM 초현실주의 (5명) ===
-4. DALÍ (달리) ⭐⭐⭐ STRONGEST (15%)
+=== SURREALISM 초현실주의 (4명) ===
+3. DALÍ (달리) ⭐⭐ (8%)
    - Specialty: Paranoid-critical method, melting forms, hyperrealistic dreams
-   - Best for: Dreamlike transformation, bizarre juxtapositions
+   - Best for: Dreamlike transformation, bizarre juxtapositions, surreal landscapes
    - Signature: "The Persistence of Memory" - melting clocks
    - CRITICAL: Forms should MELT and DRIP, hyperrealistic rendering of impossible scenes
    - When: Surreal dreamscape, melting distortions desired
 
-5. MAGRITTE (마그리트) ⭐⭐⭐ (15%)
+4. MAGRITTE (마그리트) ⭐⭐ (12%)
    - Specialty: Philosophical paradox, multiplication, impossible juxtaposition
    - Best for: Conceptual paradox, mysterious multiplication of figures
    - Signature: "Golconda" - men in bowler hats raining from sky
    - CRITICAL: MULTIPLY/DUPLICATE the subject across composition, or place unexpected object over face
    - When: Philosophical, mysterious, multiplication effect desired
+   - ⛔ NOT for group photos (3+ people)
 
-6. MIRÓ (미로) ⭐⭐⭐ (15%) - GREAT FOR LANDSCAPES!
+5. MIRÓ (미로) ⭐⭐ (8%) - GREAT FOR LANDSCAPES!
    - Specialty: Playful organic forms, automatic drawing, childlike symbols, biomorphic abstraction
    - Best for: LANDSCAPES, nature scenes, playful/organic treatment, abstract transformation
    - Signature: "The Catalan Landscape", "Dog Barking at the Moon", "Constellations"
    - CRITICAL: Transform into BIOMORPHIC ORGANIC shapes floating in space, bright PRIMARY colors (red, yellow, blue, black), stars/moons/eyes/amoeba-like forms, calligraphic black lines
    - When: Landscape, nature, playful, colorful, abstract, symbolic desired
 
-7. CHAGALL (샤갈) ⭐⭐ (8%)
+6. CHAGALL (샤갈) ⭐⭐⭐ STRONG FOR ROMANCE (18%)
    - Specialty: SOFT DREAMY floating figures, MUTED PASTEL colors, nostalgic memories
-   - Best for: Romantic scenes, couples, animals, flowers, poetic atmosphere
+   - Best for: ROMANTIC portraits, couples, lovers, emotional scenes, poetic atmosphere
    - Signature: "I and the Village", "Birthday" - floating lovers in soft haze
    - CRITICAL: SOFT BLURRED EDGES, NO harsh outlines, MUTED PASTEL colors (soft blue, dusty violet, faded rose), HAZY ATMOSPHERIC quality, watercolor-like transparency
-   - When: Romantic, dreamy soft, nostalgic mood - NOT bold colors
+   - When: Romantic, dreamy soft, nostalgic mood, couples, emotional portraits - NOT bold colors
+   - ⭐ PREFERRED for: Any photo with romantic/emotional mood, couples, warm atmosphere
 
-8. FRIDA KAHLO (프리다 칼로) ⭐⭐ (8%)
-   - Specialty: Self-portraits with symbolism, Mexican folk art, personal pain
-   - Best for: Female portraits, emotional depth, symbolic elements
-   - Signature: "The Two Fridas" - dual self with exposed hearts
-   - CRITICAL: Add Mexican folk symbols (flowers, hearts, vines, animals) around subject
-   - When: Female subjects, emotional/personal transformation
-
-=== POP ART 팝아트 (2명) ===
-9. WARHOL (워홀) ⭐⭐⭐ STRONG (15%)
+=== POP ART 팝아트 (3명) ===
+7. WARHOL (워홀) ⭐⭐ (10%)
     - Specialty: Silkscreen repetition, bold flat colors, celebrity portraits
     - Best for: INDIVIDUAL portraits ONLY (1-2 people max)
     - ⛔ DO NOT USE FOR GROUP PHOTOS (3+ people) - 4-grid doesn't work with groups!
@@ -1160,47 +1150,51 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
     - CRITICAL: MUST create 2x2 FOUR-PANEL GRID layout
     - When: Single person portrait, pop culture aesthetic
 
-10. LICHTENSTEIN (리히텐슈타인) ⭐⭐⭐ (15%)
+8. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (15%)
     - Specialty: Ben-Day dots, comic book style, bold black outlines
-    - Best for: Dramatic expressions, comic/cartoon aesthetic, everyday scenes
+    - Best for: Action scenes, exaggerated emotions, comic/cartoon aesthetic
     - Signature: "Whaam!", "Crying Girl", "Drowning Girl" - comic strip style
     - CRITICAL: Cover entire image with visible BEN-DAY DOTS, thick black outlines, speech bubble optional
-    - When: Comic book, graphic novel aesthetic, dramatic emotional scenes
+    - When: Comic book aesthetic, action scenes, pop culture subjects, exaggerated dramatic expressions
+    - ⛔ NOT for: Regular portraits, romantic scenes, landscapes, subtle moods
 
-11. KEITH HARING (키스 해링) ⭐⭐ (10%)
+9. KEITH HARING (키스 해링) ⭐ (5%)
     - Specialty: Bold black outlines, dancing figures, radiant lines
-    - Best for: Dynamic group photos, energetic poses
+    - Best for: Dynamic group photos, energetic poses, street art vibe
     - Signature: "Radiant Baby", dancing figures
     - CRITICAL: BOLD BLACK OUTLINES, simplified figures, bright primary colors
-    - When: Group photos, dynamic movement, joyful energy
+    - When: Group photos with dynamic movement, joyful energy
 
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
-- Geometric/analytical → PICASSO (18%) or BRAQUE (12%)
-- Dreamlike/melting → DALÍ (15%)
-- Multiplication/paradox → MAGRITTE (15%) - ONLY for 1-2 people!
-- Romantic/floating → CHAGALL (8%)
-- Female emotional → FRIDA (8%)
-- Playful/symbolic/abstract → MIRÓ (15%)
-- Experimental photo → MAN RAY (10%)
-- Pop repetition → WARHOL (15%) - ONLY for 1-2 people portraits!
-- Comic book style → LICHTENSTEIN (15%)
-- Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
-- GROUP PHOTOS (3+ people) → PICASSO (35%), KEITH HARING (35%), LICHTENSTEIN (30%) ONLY!
-- LANDSCAPES/NATURE/SCENERY → MIRÓ (35%), CHAGALL (35%), DALÍ (30%) - playful or surreal!
+- Geometric/analytical/action → PICASSO (19%) - STRONGEST for figures!
+- Romantic/couples/emotional → CHAGALL (18%) - BEST for romance!
+- Multiplication/paradox → MAGRITTE (12%) - ONLY for 1-2 people!
+- Pop portrait → WARHOL (10%) - ONLY for 1-2 people portraits!
+- Comic/action/exaggerated → LICHTENSTEIN (15%) - action & comic only!
+- Dreamlike/melting → DALÍ (8%)
+- Landscape/nature/playful → MIRÓ (8%)
+- Still life/subtle → BRAQUE (5%)
+- Dynamic groups → KEITH HARING (5%) or PICASSO (19%)
 
-⚠️ IMPORTANT LANDSCAPE RULE:
-For landscapes, nature, scenery, architecture WITHOUT people:
-→ Prefer MIRÓ for playful abstract transformation
-→ Prefer CHAGALL for soft dreamy nostalgic  
-→ Prefer DALÍ for surreal melting dreamscape
+⚠️ PORTRAIT PRIORITY (single person):
+1st: PICASSO (19%) - geometric fragmentation
+2nd: CHAGALL (18%) - romantic/emotional mood
+3rd: LICHTENSTEIN (15%) - ONLY if comic style fits
+4th: MAGRITTE (12%) - mysterious/philosophical
 
-⚠️ IMPORTANT GROUP PHOTO RULE:
-For photos with 3 or more people, ONLY choose from: PICASSO, KEITH HARING, or LICHTENSTEIN
-DO NOT choose WARHOL or MAGRITTE for group photos!
+⚠️ ROMANTIC/EMOTIONAL SCENES:
+→ ALWAYS prefer CHAGALL for romantic mood, couples, emotional portraits!
 
-⚠️ FINAL REMINDER: ONLY these 11 artists are valid choices:
-PICASSO, BRAQUE, MAN RAY, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN, KEITH HARING
-Any other artist name will cause an error!
+⚠️ GROUP PHOTOS (3+ people):
+→ PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
+→ DO NOT choose WARHOL or MAGRITTE for group photos!
+
+⚠️ LANDSCAPES/NATURE:
+→ MIRÓ (40%), CHAGALL (35%), DALÍ (25%)
+
+⚠️ FINAL REMINDER: ONLY these 8 artists are valid choices:
+PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, WARHOL, LICHTENSTEIN, KEITH HARING
+Any other artist name (including MAN RAY, FRIDA KAHLO) will cause an error!
 `;
 }
 
@@ -1221,14 +1215,14 @@ function getModernismHints(photoAnalysis) {
 - Magritte "Son of Man" is for individual portraits only
 
 ARTIST SELECTION:
-1. PICASSO (35%) ⭐⭐ CUBIST FRAGMENTATION
+1. PICASSO (50%) ⭐⭐⭐ STRONGEST - CUBIST FRAGMENTATION
    Reference: "Guernica" (1937), "Les Demoiselles d'Avignon" (1907)
    → Dramatic fragmentation of multiple figures
    → Angular distorted forms seen from multiple viewpoints
    → Black, white, gray monochromatic OR bold colors
    → Powerful emotional impact
 
-2. KEITH HARING (35%) ⭐⭐ DYNAMIC ENERGETIC
+2. KEITH HARING (30%) ⭐⭐ DYNAMIC ENERGETIC
    Reference: "Untitled (Dancing Figures)" (1987)
    → BOLD BLACK OUTLINES around simplified figures
    → Bright PRIMARY COLORS (red, yellow, blue, green, orange)
@@ -1237,14 +1231,15 @@ ARTIST SELECTION:
    → Flat graphic subway art style
    → Perfect for energetic group photos!
 
-3. LICHTENSTEIN (30%) ⭐⭐ COMIC BOOK STYLE
+3. LICHTENSTEIN (20%) - ONLY IF COMIC STYLE FITS
    Reference: Comic book panel style
    → Ben-Day dots covering entire image
    → Bold black outlines around all figures
    → Primary colors only (red, yellow, blue, black, white)
    → Dramatic comic book scene
+   → ⛔ NOT default choice - only if action/comic aesthetic fits!
 
-SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic style → LICHTENSTEIN
+SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic action → LICHTENSTEIN
 `;
   }
   
@@ -1256,7 +1251,7 @@ SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic s
 🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
 
 ARTIST SELECTION:
-1. CHAGALL (40%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+1. CHAGALL (45%) ⭐⭐⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
    Reference: "Birthday" (1915), "Over the Town" (1918)
    → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
    → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink, sage green)
@@ -1266,7 +1261,13 @@ ARTIST SELECTION:
    → Watercolor-like transparency and softness
    ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
 
-2. MAGRITTE (20%) ⭐ STRICT CONDITIONS!
+2. PICASSO (20%) ⭐⭐ PASSIONATE/DYNAMIC
+   Reference: "The Kiss" (1969)
+   → Two faces merged/overlapping into one
+   → Geometric fragmentation of intertwined figures
+   → Bold colors with emotional intensity
+
+3. MAGRITTE (15%) ⭐ STRICT CONDITIONS!
    
    A) "Golconda" (1953) - ${isFullBody ? '⭐ RECOMMENDED!' : 'ONLY IF FULL BODY/WIDE'}
       → CONDITION: Full body or wide shot with visible background
@@ -1279,21 +1280,17 @@ ARTIST SELECTION:
       → ❌ SKIP IF: looking at each other, candid, side profile
       → GREEN APPLE at NOSE LEVEL (eyes & mouth visible)
 
-3. PICASSO (20%)
-   Reference: "The Kiss" (1969)
-   → Two faces merged/overlapping into one
-   → Geometric fragmentation of intertwined figures
-
-4. LICHTENSTEIN (10%) ⭐ COMIC ROMANCE
-   Reference: "In the Car" (1963)
-   → BEN-DAY DOTS, thick BLACK OUTLINES
-   → Romantic comic book aesthetic
-
-5. WARHOL (10%)
+4. WARHOL (10%)
    Reference: Pop art silkscreen style
    → Couple repeated in 4-grid with different colors
 
-SELECT: Romantic → CHAGALL, Full body → MAGRITTE Golconda, ONLY frontal gaze close-up → MAGRITTE apple, Passionate → PICASSO
+5. LICHTENSTEIN (10%) - ONLY IF COMIC STYLE FITS
+   Reference: "In the Car" (1963)
+   → BEN-DAY DOTS, thick BLACK OUTLINES
+   → Romantic comic book aesthetic
+   → ⛔ NOT default - only if comic romance style desired!
+
+SELECT: Romantic → CHAGALL (STRONGEST!), Passionate → PICASSO, Full body → MAGRITTE Golconda, pop → WARHOL, comic → LICHTENSTEIN
 `;
   }
   
@@ -1303,15 +1300,23 @@ SELECT: Romantic → CHAGALL, Full body → MAGRITTE Golconda, ONLY frontal gaze
 🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. LICHTENSTEIN (25%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
-   Reference: "Drowning Girl" (1963), "Hopeful" (1963), "Crying Girl"
-   → BEN-DAY DOTS covering ENTIRE face and background
-   → Thick BLACK OUTLINES around all forms
-   → Dramatic emotional expression
-   → PRIMARY COLORS (red, yellow, blue, black, white)
-   → Classic comic book romantic heroine style
+1. PICASSO (25%) ⭐⭐ STRONGEST - CUBIST FRAGMENTATION
+   Reference: "Weeping Woman" (1937), "Les Demoiselles d'Avignon", "Dora Maar"
+   → Sharp angular fragmentation of face
+   → Multiple viewpoints simultaneously
+   → Geometric planes breaking apart features
+   → Bold colors with emotional intensity
 
-2. MAGRITTE (20%) ⭐ "The Son of Man" - FEMALE ONLY!
+2. CHAGALL (25%) ⭐⭐ BEST FOR ROMANTIC/EMOTIONAL
+   Reference: "Birthday" (1915), "The Lovers"
+   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
+   → HAZY ATMOSPHERIC dreamlike quality
+   → Flowers and symbolic elements faintly visible like memories
+   → Watercolor-like transparency and softness
+   → Perfect for emotional, romantic mood!
+
+3. MAGRITTE (15%) ⭐ "The Son of Man" - STRICT CONDITIONS!
    Reference: "The Son of Man" (1964)
    → ⛔ CRITICAL REQUIREMENTS:
       1. Subject looking DIRECTLY AT CAMERA (frontal gaze)
@@ -1320,35 +1325,28 @@ ARTIST SELECTION:
    → If conditions met: GREEN APPLE at NOSE LEVEL (eyes & mouth VISIBLE)
    → Formal attire, bowler hat, cloudy sky
 
-3. WARHOL (20%) ⭐ 4-PANEL GRID REQUIRED!
+4. WARHOL (15%) ⭐ 4-PANEL GRID REQUIRED!
    Reference: "Marilyn Monroe" (1962), "Mao" series
    → MUST create 2x2 FOUR-PANEL GRID layout
    → SAME face repeated 4 times with DIFFERENT bold pop colors
    → EXTREME HIGH CONTRAST silkscreen effect
    → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
 
-4. CHAGALL (15%) 🆕 DREAMY POETIC
-   Reference: "Birthday" (1915), "The Lovers"
-   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
-   → HAZY ATMOSPHERIC dreamlike quality
-   → Flowers and symbolic elements faintly visible like memories
-   → Watercolor-like transparency and softness
+5. LICHTENSTEIN (10%) - ONLY IF COMIC STYLE FITS
+   Reference: "Drowning Girl" (1963), "Hopeful" (1963), "Crying Girl"
+   → BEN-DAY DOTS covering ENTIRE face and background
+   → Thick BLACK OUTLINES around all forms
+   → Dramatic emotional expression
+   → PRIMARY COLORS (red, yellow, blue, black, white)
+   → ⛔ NOT for regular portraits - ONLY if comic/pop style desired!
 
-5. DALÍ (10%) 🆕 SURREAL TRANSFORMATION
+6. DALÍ (10%) - SURREAL TRANSFORMATION
    Reference: "Portrait of Mae West", "Galatea of the Spheres"
    → Surreal distortion of features
    → Melting or morphing elements
    → Hyperrealistic rendering with impossible forms
-   → Dream-like landscape elements
 
-6. PICASSO (10%) ⭐ CUBIST FRAGMENTATION
-   Reference: "Weeping Woman" (1937), "Les Demoiselles d'Avignon"
-   → Sharp angular fragmentation of face
-   → Multiple viewpoints simultaneously
-   → Geometric planes breaking apart features
-
-SELECT: comic emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamorous 4-grid → WARHOL, dreamy romantic → CHAGALL, surreal → DALÍ, geometric → PICASSO
+SELECT: geometric → PICASSO, dreamy romantic → CHAGALL, ONLY frontal gaze → MAGRITTE, glamorous 4-grid → WARHOL, comic style → LICHTENSTEIN, surreal → DALÍ
 `;
   }
   
@@ -1360,25 +1358,14 @@ SELECT: comic emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamor
 ⚠️ NOTE: MAGRITTE "Son of Man" is for FEMALE portraits only!
 
 ARTIST SELECTION:
-1. LICHTENSTEIN (25%) ⭐ COMIC BOOK STYLE
-   Reference: "Whaam!" (1963), "Crying Girl"
-   → Cover ENTIRE image with visible BEN-DAY DOTS
-   → THICK black outlines around all forms
-   → Primary colors only (red, yellow, blue, black, white)
-
-2. PICASSO (25%)
-   Reference: "Les Demoiselles d'Avignon" (1907)
+1. PICASSO (30%) ⭐⭐ STRONGEST - CUBIST FRAGMENTATION
+   Reference: "Les Demoiselles d'Avignon" (1907), "Portrait of Ambroise Vollard"
    → FRAGMENT face into angular geometric planes
    → Show PROFILE and FRONT view SIMULTANEOUSLY
+   → Bold colors with emotional intensity
+   → Multiple viewpoints merged into one
 
-3. WARHOL (20%) ⭐ 4-PANEL GRID REQUIRED!
-   Reference: "Marilyn Monroe" (1962), "Mao" series
-   → MUST create 2x2 FOUR-PANEL GRID layout
-   → SAME face repeated 4 times with DIFFERENT bold pop colors
-   → EXTREME HIGH CONTRAST silkscreen effect
-   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
-
-4. CHAGALL (15%) 🆕 DREAMY POETIC
+2. CHAGALL (25%) ⭐⭐ BEST FOR EMOTIONAL/DREAMY
    Reference: "Self-Portrait with Seven Fingers" (1913)
    → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
    → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
@@ -1386,14 +1373,30 @@ ARTIST SELECTION:
    → Village/memory elements faintly visible like dreams
    → Watercolor-like transparency and softness
 
-5. DALÍ (15%) 🆕 SURREAL MELTING
+3. WARHOL (15%) ⭐ 4-PANEL GRID REQUIRED!
+   Reference: "Marilyn Monroe" (1962), "Mao" series
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME face repeated 4 times with DIFFERENT bold pop colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
+
+4. MAGRITTE (12%)
+   Reference: "The Son of Man" (1964) - for specific conditions only
+   → GREEN APPLE at NOSE LEVEL for frontal gaze portraits
+
+5. LICHTENSTEIN (10%) - ONLY IF COMIC STYLE FITS
+   Reference: "Whaam!" (1963), "Crying Girl"
+   → Cover ENTIRE image with visible BEN-DAY DOTS
+   → THICK black outlines around all forms
+   → Primary colors only (red, yellow, blue, black, white)
+   → ⛔ NOT for regular portraits - ONLY if comic/pop style desired!
+
+6. DALÍ (8%) - SURREAL MELTING
    Reference: "Soft Self-Portrait with Grilled Bacon" (1941)
    → Surreal distortion with MELTING/DRIPPING forms
    → Hyperrealistic rendering with impossible anatomy
-   → Desert landscape or dream elements in background
-   → Supported by crutches or floating elements
 
-SELECT: comic → LICHTENSTEIN, geometric → PICASSO, glamorous 4-grid → WARHOL, dreamy → CHAGALL, surreal melting → DALÍ
+SELECT: geometric → PICASSO, dreamy emotional → CHAGALL, glamorous 4-grid → WARHOL, mysterious → MAGRITTE, comic style → LICHTENSTEIN, surreal → DALÍ
 `;
   }
   
@@ -1593,24 +1596,25 @@ SELECT: subtle cubism → BRAQUE, pop 4-grid → WARHOL, surreal melting → DAL
 🎯 EXPERIMENTAL - CATEGORY: 실험적
 
 ARTIST SELECTION:
-1. MAN RAY (50%) ⭐ FOR EXPERIMENTAL
-   Reference: "Le Violon d'Ingres" (1924), Rayographs
-   → SOLARIZATION: inverted tones, glowing haloed edges
-   → High contrast black and white
-   → Rayograph shadow silhouettes
-   → Body transformed into objects/instruments
-   → Surreal darkroom manipulation
-
-2. DALÍ (30%)
-   Reference: Various surreal photographs
+1. DALÍ (50%) ⭐ SURREAL TRANSFORMATION
+   Reference: "The Persistence of Memory", various surreal works
    → Hyperrealistic rendering of impossible scene
+   → Melting, dripping, morphing forms
    → Unexpected object combinations
+   → Dream-like desert landscapes
 
-3. MAGRITTE (20%)
+2. MAGRITTE (30%)
    Reference: Conceptual paradox images
    → Philosophical visual puzzle
+   → Multiplication effect
+   → Impossible juxtapositions
 
-SELECT: photographic → MAN RAY, surreal → DALÍ, conceptual → MAGRITTE
+3. PICASSO (20%)
+   Reference: Experimental cubist works
+   → Geometric fragmentation
+   → Multiple viewpoints simultaneously
+
+SELECT: surreal → DALÍ, conceptual → MAGRITTE, geometric → PICASSO
 `;
   }
   
@@ -1618,25 +1622,27 @@ SELECT: photographic → MAN RAY, surreal → DALÍ, conceptual → MAGRITTE
   return `
 🎯 GENERAL - SELECT BEST MATCH
 
-AVAILABLE ARTISTS AND THEIR SIGNATURES:
+AVAILABLE ARTISTS AND THEIR SIGNATURES (8명 only!):
 
 CUBISM (geometric fragmentation):
-- PICASSO: "Les Demoiselles d'Avignon" - angular African mask faces
-- BRAQUE: "Violin and Candlestick" - subtle earth-tone analysis
+- PICASSO (19%): "Les Demoiselles d'Avignon" - angular geometric faces, multiple viewpoints
+- BRAQUE (5%): "Violin and Candlestick" - subtle earth-tone analysis
 
 SURREALISM (dreams/impossible):
-- DALÍ: "Persistence of Memory" - melting forms, hyperreal dreams
-- MAGRITTE: "Golconda" (multiplication), "Son of Man" (apple over face)
-- MIRÓ: floating symbols, stars, organic shapes
-- CHAGALL: floating lovers, dreamy villages
+- CHAGALL (18%): "Birthday" - floating lovers, dreamy soft pastels, romantic
+- MAGRITTE (12%): "Golconda" (multiplication), "Son of Man" (apple over face)
+- DALÍ (8%): "Persistence of Memory" - melting forms, hyperreal dreams
+- MIRÓ (8%): floating symbols, stars, organic biomorphic shapes
 
 POP ART (bold/commercial):
-- WARHOL: "Marilyn" - 4-grid color repetition
-- LICHTENSTEIN: "Crying Girl" - Ben-Day dots, comic style
+- LICHTENSTEIN (15%): "Crying Girl" - Ben-Day dots, comic style (action/comic only!)
+- WARHOL (10%): "Marilyn" - 4-grid color repetition
+- KEITH HARING (5%): dancing figures, bold outlines, dynamic energy
 
-PERSONAL/SYMBOLIC:
-- FRIDA: Mexican symbols, flowers, self-portrait intensity
-- MAN RAY: solarization, experimental photography
+⚠️ PRIORITY FOR PORTRAITS:
+1st: PICASSO (geometric) or CHAGALL (romantic/emotional)
+2nd: MAGRITTE (mysterious) or WARHOL (pop)
+3rd: LICHTENSTEIN only if comic style fits!
 
 Analyze photo content and select BEST matching artist + reference work!
 `;

@@ -404,6 +404,37 @@ const ResultScreen = ({
     return null; // 매칭 안 되면 null
   };
 
+  // ========== 20세기 모더니즘: 세부 사조 매핑 ==========
+  const getModernismMovement = (artistName) => {
+    const artist = artistName.toLowerCase();
+    
+    // 입체주의
+    const cubism = ['picasso', 'pablo picasso', 'braque', 'georges braque'];
+    
+    // 초현실주의
+    const surrealism = ['dali', 'dalí', 'salvador dali', 'salvador dalí',
+                        'magritte', 'rené magritte', 'rene magritte',
+                        'miro', 'miró', 'joan miro', 'joan miró',
+                        'chagall', 'marc chagall'];
+    
+    // 팝아트
+    const popart = ['warhol', 'andy warhol',
+                    'lichtenstein', 'roy lichtenstein',
+                    'keith haring', 'keith-haring', 'haring'];
+    
+    if (cubism.some(name => artist.includes(name))) {
+      return { text: '입체주의', color: 'cubism' };
+    }
+    if (surrealism.some(name => artist.includes(name))) {
+      return { text: '초현실주의', color: 'surrealism' };
+    }
+    if (popart.some(name => artist.includes(name))) {
+      return { text: '팝아트', color: 'popart' };
+    }
+    
+    return null; // 매칭 안 되면 null
+  };
+
 
   // ========== 동양화 교육 콘텐츠 (v30) ==========
   const getOrientalEducation = () => {
@@ -626,6 +657,14 @@ const ResultScreen = ({
                       </span>
                     ) : null;
                   })()}
+                  {selectedStyle.category === 'modernism' && aiSelectedArtist && (() => {
+                    const movement = getModernismMovement(aiSelectedArtist);
+                    return movement ? (
+                      <span className={`style-badge ${movement.color}`}>
+                        {movement.text}
+                      </span>
+                    ) : null;
+                  })()}
                 </p>
               </div>
             </div>
@@ -842,6 +881,18 @@ const ResultScreen = ({
 
         .style-badge.realist {
           background: #C77B58;
+        }
+
+        .style-badge.cubism {
+          background: #5D5D5D;
+        }
+
+        .style-badge.surrealism {
+          background: #9B59B6;
+        }
+
+        .style-badge.popart {
+          background: #E74C3C;
         }
 
         .movement-badge {

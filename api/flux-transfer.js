@@ -1187,13 +1187,6 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 - Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
 - GROUP PHOTOS (3+ people) → PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
 - LANDSCAPES/NATURE/SCENERY → MIRÓ (35%), CHAGALL (35%), DALÍ (30%) - playful or surreal!
-- ⭐ EVERYDAY SNAPSHOTS/CASUAL SCENES → LICHTENSTEIN (strongly recommended!)
-- ⭐ DRAMATIC EMOTIONAL MOMENTS → LICHTENSTEIN (perfect for comic drama!)
-
-⚠️ IMPORTANT EVERYDAY/CASUAL PHOTO RULE:
-For casual everyday snapshots, candid moments, street scenes with people:
-→ STRONGLY prefer LICHTENSTEIN - transforms mundane into comic book drama!
-→ Works great for: friends hanging out, daily activities, emotional moments
 
 ⚠️ IMPORTANT LANDSCAPE RULE:
 For landscapes, nature, scenery, architecture WITHOUT people:

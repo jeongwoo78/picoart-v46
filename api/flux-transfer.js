@@ -1185,7 +1185,7 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 - Pop repetition → WARHOL (15%) - ONLY for 1-2 people portraits!
 - Comic book style → LICHTENSTEIN (15%)
 - Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
-- GROUP PHOTOS (3+ people) → PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
+- GROUP PHOTOS (3+ people) → PICASSO (35%), KEITH HARING (35%), LICHTENSTEIN (30%) ONLY!
 - LANDSCAPES/NATURE/SCENERY → MIRÓ (35%), CHAGALL (35%), DALÍ (30%) - playful or surreal!
 
 ⚠️ IMPORTANT LANDSCAPE RULE:
@@ -1221,14 +1221,14 @@ function getModernismHints(photoAnalysis) {
 - Magritte "Son of Man" is for individual portraits only
 
 ARTIST SELECTION:
-1. PICASSO (50%) ⭐⭐ BEST FOR GROUPS - STRONGLY RECOMMENDED
+1. PICASSO (35%) ⭐⭐ CUBIST FRAGMENTATION
    Reference: "Guernica" (1937), "Les Demoiselles d'Avignon" (1907)
    → Dramatic fragmentation of multiple figures
    → Angular distorted forms seen from multiple viewpoints
    → Black, white, gray monochromatic OR bold colors
    → Powerful emotional impact
 
-2. KEITH HARING (30%) ⭐⭐ GREAT FOR DYNAMIC GROUPS
+2. KEITH HARING (35%) ⭐⭐ DYNAMIC ENERGETIC
    Reference: "Untitled (Dancing Figures)" (1987)
    → BOLD BLACK OUTLINES around simplified figures
    → Bright PRIMARY COLORS (red, yellow, blue, green, orange)
@@ -1237,14 +1237,14 @@ ARTIST SELECTION:
    → Flat graphic subway art style
    → Perfect for energetic group photos!
 
-3. LICHTENSTEIN (20%) ⭐ COMIC BOOK STYLE
+3. LICHTENSTEIN (30%) ⭐⭐ COMIC BOOK STYLE
    Reference: Comic book panel style
    → Ben-Day dots covering entire image
    → Bold black outlines around all figures
    → Primary colors only (red, yellow, blue, black, white)
    → Dramatic comic book scene
 
-SELECT: ALWAYS prefer PICASSO for dramatic groups! → dynamic energetic → KEITH HARING, comic style → LICHTENSTEIN
+SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic style → LICHTENSTEIN
 `;
   }
   
@@ -1303,7 +1303,7 @@ SELECT: Romantic → CHAGALL, Full body → MAGRITTE Golconda, ONLY frontal gaze
 🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. LICHTENSTEIN (30%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
+1. LICHTENSTEIN (25%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
    Reference: "Drowning Girl" (1963), "Hopeful" (1963), "Crying Girl"
    → BEN-DAY DOTS covering ENTIRE face and background
    → Thick BLACK OUTLINES around all forms
@@ -1342,10 +1342,11 @@ ARTIST SELECTION:
    → Hyperrealistic rendering with impossible forms
    → Dream-like landscape elements
 
-6. PICASSO (5%)
-   Reference: "Weeping Woman" (1937)
+6. PICASSO (10%) ⭐ CUBIST FRAGMENTATION
+   Reference: "Weeping Woman" (1937), "Les Demoiselles d'Avignon"
    → Sharp angular fragmentation of face
    → Multiple viewpoints simultaneously
+   → Geometric planes breaking apart features
 
 SELECT: comic emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamorous 4-grid → WARHOL, dreamy romantic → CHAGALL, surreal → DALÍ, geometric → PICASSO
 `;
@@ -1396,40 +1397,48 @@ SELECT: comic → LICHTENSTEIN, geometric → PICASSO, glamorous 4-grid → WARH
 `;
   }
   
-  // 🚶 전신/원경 인물 (1-2인)
+  // 🚶 전신/원경 인물 (1-2인) + 풍경 배경
   if ((count === 1 || count === 2) && (shot_type === 'full_body' || shot_type === 'wide')) {
     return `
-🎯 FULL BODY / WIDE SHOT - CATEGORY: 전신 인물
+🎯 FULL BODY / WIDE SHOT - CATEGORY: 전신/원경 인물 + 풍경
+
+⚠️ THIS IS PERFECT FOR MAGRITTE "GOLCONDA" - Wide shot with background!
 
 ARTIST SELECTION:
-1. MAGRITTE (35%) ⭐⭐ "Golconda" BEST FOR FULL BODY!
+1. MAGRITTE (30%) ⭐⭐ "Golconda" - PERFECT FOR WIDE SHOTS!
    Reference: "Golconda" (1953)
-   → CRITICAL: This is the PERFECT shot type for Golconda!
+   → CRITICAL: This is the IDEAL shot type for Golconda!
    → Transform subject(s) into FORMAL STIFF pose with dark suit and bowler hat
-   → CONVERT background into PAINTED Belgian townscape with buildings
+   → CONVERT background into PAINTED Belgian townscape with buildings and cloudy sky
    → FILL background with DOZENS of identical copies floating/falling
-   → Main figure(s) stay in original position
-   → Hyperrealistic surrealist oil painting style
+   → Main figure(s) stay in original position, background becomes surreal
+   → Hyperrealistic Belgian surrealist oil painting style
 
-2. PICASSO (25%)
-   Reference: "Les Demoiselles d'Avignon" (1907)
-   → FRAGMENT figure into angular geometric planes
-   → African mask-like sharp angles and distortion
-   → Show multiple viewpoints SIMULTANEOUSLY
+2. CHAGALL (25%) ⭐ DREAMY FLOATING
+   Reference: "Over the Town" (1918), "I and the Village"
+   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
+   → Figures FLOATING above tilted village/landscape
+   → HAZY ATMOSPHERIC dreamlike quality
+   → Nostalgic memory-like dreamscape
+   → Watercolor-like transparency
 
-3. KEITH HARING (20%) ⭐ GREAT FOR DYNAMIC POSES
-   Reference: "Dancing Figures" (1987)
-   → BOLD BLACK OUTLINES around simplified figures
-   → Bright PRIMARY COLORS (red, yellow, blue, green)
-   → RADIANT LINES emanating from body
-   → Flat graphic subway art style
+3. MIRÓ (25%) ⭐ PLAYFUL ABSTRACTION
+   Reference: "The Catalan Landscape" (1923-24)
+   → Transform figures and landscape into BIOMORPHIC ORGANIC shapes
+   → Bright PRIMARY colors (red, yellow, blue, black) on light background
+   → Stars, moons, eyes scattered throughout
+   → Playful constellation of symbols
+   → Childlike joyful abstraction
 
-4. WARHOL (20%)
-   Reference: Pop art silkscreen style
-   → Repeat figure in 4-grid with different colors
-   → High contrast silkscreen effect
+4. DALÍ (20%) SURREAL DREAMSCAPE
+   Reference: "The Persistence of Memory" (1931)
+   → Forms MELTING and DRIPPING in landscape
+   → Barren surreal desert stretching to infinite horizon
+   → Long dramatic shadows in golden Mediterranean light
+   → Hyperrealistic painting of impossible scene
 
-SELECT: Full body with background → MAGRITTE "Golconda" (MULTIPLY!), dynamic pose → KEITH HARING, geometric → PICASSO, pop grid → WARHOL
+SELECT: wide shot with background → MAGRITTE "Golconda" (MULTIPLY!), dreamy floating → CHAGALL, playful abstract → MIRÓ, surreal melting → DALÍ
 `;
   }
   
@@ -1544,7 +1553,7 @@ SELECT: dreamy soft → CHAGALL, surreal morphing → DALÍ, pop 4-grid → WARH
 🎯 STILL LIFE / OBJECTS - CATEGORY: 정물 (인공물)
 
 ARTIST SELECTION:
-1. BRAQUE (35%) ⭐ STRONGEST FOR STILL LIFE
+1. BRAQUE (30%) ⭐ ANALYTICAL CUBISM
    Reference: "Violin and Candlestick" (1910)
    → Analytical Cubism: subtle geometric fragmentation
    → Muted earth tones (brown, tan, gray, olive)
@@ -1552,14 +1561,7 @@ ARTIST SELECTION:
    → Objects shown from multiple angles
    → More harmonious than Picasso
 
-2. PICASSO (30%)
-   Reference: "Guitar" (1913), "Still Life with Chair Caning"
-   → Bold geometric fragmentation
-   → Objects broken into sharp angular planes
-   → Flattened overlapping forms
-   → Limited palette
-
-3. WARHOL (25%) ⭐ 4-PANEL GRID REQUIRED!
+2. WARHOL (25%) ⭐ 4-PANEL GRID REQUIRED!
    Reference: "Campbell's Soup Cans" (1962), "Brillo Boxes"
    → MUST create 2x2 FOUR-PANEL GRID layout
    → SAME object repeated 4 times with DIFFERENT bold colors
@@ -1567,13 +1569,21 @@ ARTIST SELECTION:
    → FLAT colors NO gradients
    → Commercial mass production aesthetic
 
-4. DALÍ (10%)
+3. DALÍ (25%) ⭐ SURREAL MELTING
    Reference: "The Persistence of Memory" objects
-   → Objects MELTING and DRIPPING
+   → Objects MELTING and DRIPPING like soft wax
    → Hyperrealistic rendering of impossible forms
-   → Surreal transformation
+   → Surreal transformation of everyday objects
+   → Dramatic shadows in desert landscape
 
-SELECT: subtle cubism → BRAQUE, bold cubism → PICASSO, pop 4-grid → WARHOL, surreal melting → DALÍ
+4. PICASSO (20%)
+   Reference: "Guitar" (1913), "Still Life with Chair Caning"
+   → Bold geometric fragmentation
+   → Objects broken into sharp angular planes
+   → Flattened overlapping forms
+   → Limited palette
+
+SELECT: subtle cubism → BRAQUE, pop 4-grid → WARHOL, surreal melting → DALÍ, bold cubism → PICASSO
 `;
   }
   
@@ -2772,16 +2782,16 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('PABLO')) {
           console.log('🎯 Picasso detected');
           if (!finalPrompt.includes('Cubist')) {
-            finalPrompt = finalPrompt + ', Transform like Pablo Picasso "Les Demoiselles d\'Avignon" - CRITICAL CUBIST FRAGMENTATION: BREAK and SHATTER face into sharp angular geometric planes like African tribal masks, show NOSE from SIDE PROFILE while showing EYES from FRONT VIEW simultaneously in SAME image, DECONSTRUCT facial features into multiple overlapping viewpoints, sharp jagged edges and fractured forms, monochromatic earthy palette (browns grays ochres olive), flattened overlapping transparent geometric planes, face should look BROKEN into pieces NOT smooth, revolutionary analytical Cubist complete deconstruction of reality';
-            controlStrength = 0.20;
-            console.log('✅ Enhanced Picasso FRAGMENTATION (control_strength 0.20 for maximum deconstruction)');
+            finalPrompt = finalPrompt + ', Transform like Pablo Picasso "Les Demoiselles d\'Avignon" and "Weeping Woman" - EXTREME CUBIST FRAGMENTATION: COMPLETELY DESTROY and SHATTER face into sharp angular geometric planes like broken mirror or African tribal masks, CRITICAL: show NOSE from SIDE PROFILE while showing BOTH EYES from FRONT VIEW simultaneously in SAME face, DECONSTRUCT and REARRANGE all facial features into multiple overlapping viewpoints, sharp jagged edges and violently fractured forms, DISTORT proportions dramatically, monochromatic earthy palette (browns grays ochres olive black), face should look COMPLETELY BROKEN into angular pieces NOT smooth at all, ABSTRACT the human form beyond recognition while maintaining emotional intensity';
+            controlStrength = 0.15;
+            console.log('✅ Enhanced Picasso EXTREME FRAGMENTATION (control_strength 0.15 for maximum deconstruction)');
           } else {
             console.log('ℹ️ Picasso Cubism already in prompt (AI included it)');
           }
           // 20세기 모더니즘에서 피카소 선택시 control_strength 낮춤
           if (categoryType === 'modernism') {
-            controlStrength = 0.20;
-            console.log('✅ Modernism Picasso: control_strength 0.20 (allow full fragmentation)');
+            controlStrength = 0.15;
+            console.log('✅ Modernism Picasso: control_strength 0.15 (allow EXTREME fragmentation)');
           }
         }
         
@@ -2821,9 +2831,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('SALVADOR')) {
           console.log('🎯 Dalí detected');
           if (!finalPrompt.includes('melting')) {
-            finalPrompt = finalPrompt + ', Transform like Salvador Dalí "The Persistence of Memory" - forms MELTING and DRIPPING like soft watches, hyperrealistic precise painting technique rendering impossible dreamscape, barren desert landscape stretching to infinite horizon with long dramatic shadows, paranoid-critical method distortions, Freudian subconscious symbolism, ants and crutches as recurring elements, Mediterranean golden light, NOT realistic scene but hyperreal technique';
-            controlStrength = 0.60;
-            console.log('✅ Enhanced Dalí with Persistence of Memory reference (control_strength 0.60)');
+            finalPrompt = finalPrompt + ', Transform like Salvador Dalí "The Persistence of Memory" - CRITICAL SURREAL TRANSFORMATION: ALL solid forms must become SOFT MELTING DRIPPING like liquid wax or soft cheese, clocks and objects DROOPING and SAGGING over edges, hyperrealistic precise oil painting technique but rendering IMPOSSIBLE dreamscape, barren desert landscape stretching to infinite horizon with dramatic long shadows, DISTORT reality completely while keeping photorealistic painting quality, Freudian subconscious symbolism, ants crawling on surfaces, crutches supporting melting forms, Mediterranean golden sunset light, EVERYTHING should look like it is MELTING in heat, NOT realistic photo but hyperreal surreal painting';
+            controlStrength = 0.40;
+            console.log('✅ Enhanced Dalí with MELTING effect (control_strength 0.40 for more transformation)');
           } else {
             console.log('ℹ️ Dalí surrealism already in prompt (AI included it)');
           }

@@ -1138,11 +1138,11 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
    - When: Playful, colorful, symbolic desired
 
 7. CHAGALL (샤갈) ⭐⭐ (8%)
-   - Specialty: Floating dreamlike figures, lyrical colors, village memories
-   - Best for: Romantic scenes, couples, poetic atmosphere
-   - Signature: "I and the Village", "Birthday" - floating lovers
-   - CRITICAL: Subject should FLOAT/FLY in dreamy space, gravity-defying romantic poses
-   - When: Romantic, floating, nostalgic mood
+   - Specialty: SOFT DREAMY floating figures, MUTED PASTEL colors, nostalgic memories
+   - Best for: Romantic scenes, couples, animals, flowers, poetic atmosphere
+   - Signature: "I and the Village", "Birthday" - floating lovers in soft haze
+   - CRITICAL: SOFT BLURRED EDGES, NO harsh outlines, MUTED PASTEL colors (soft blue, dusty violet, faded rose), HAZY ATMOSPHERIC quality, watercolor-like transparency
+   - When: Romantic, dreamy soft, nostalgic mood - NOT bold colors
 
 8. FRIDA KAHLO (프리다 칼로) ⭐⭐ (8%)
    - Specialty: Self-portraits with symbolism, Mexican folk art, personal pain
@@ -1154,10 +1154,11 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 === POP ART 팝아트 (2명) ===
 9. WARHOL (워홀) ⭐⭐⭐ STRONG (15%)
     - Specialty: Silkscreen repetition, bold flat colors, celebrity portraits
-    - Best for: Portraits, bold commercial aesthetic
-    - Signature: "Marilyn Monroe" - repeated in grid with color variations
-    - CRITICAL: REPEAT face in 4-grid or 9-grid, each with DIFFERENT bold color scheme
-    - When: Pop culture, bold graphic, repetition desired
+    - Best for: INDIVIDUAL portraits ONLY (1-2 people max)
+    - ⛔ DO NOT USE FOR GROUP PHOTOS (3+ people) - 4-grid doesn't work with groups!
+    - Signature: "Marilyn Monroe" - repeated in 4-grid with color variations
+    - CRITICAL: MUST create 2x2 FOUR-PANEL GRID layout
+    - When: Single person portrait, pop culture aesthetic
 
 10. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (10%)
     - Specialty: Ben-Day dots, comic book style, bold black outlines
@@ -1166,19 +1167,31 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
     - CRITICAL: Cover entire image with visible BEN-DAY DOTS, thick black outlines, speech bubble optional
     - When: Comic book, graphic novel aesthetic
 
+11. KEITH HARING (키스 해링) ⭐⭐ (10%)
+    - Specialty: Bold black outlines, dancing figures, radiant lines
+    - Best for: Dynamic group photos, energetic poses
+    - Signature: "Radiant Baby", dancing figures
+    - CRITICAL: BOLD BLACK OUTLINES, simplified figures, bright primary colors
+    - When: Group photos, dynamic movement, joyful energy
+
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
 - Geometric/analytical → PICASSO (18%) or BRAQUE (12%)
 - Dreamlike/melting → DALÍ (15%)
-- Multiplication/paradox → MAGRITTE (15%)
+- Multiplication/paradox → MAGRITTE (15%) - ONLY for 1-2 people!
 - Romantic/floating → CHAGALL (8%)
 - Female emotional → FRIDA (8%)
 - Playful/symbolic → MIRÓ (8%)
 - Experimental photo → MAN RAY (10%)
-- Pop repetition → WARHOL (15%)
+- Pop repetition → WARHOL (15%) - ONLY for 1-2 people portraits!
 - Comic book style → LICHTENSTEIN (10%)
 - Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
+- GROUP PHOTOS (3+ people) → PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
 
-⚠️ FINAL REMINDER: ONLY these 10 artists are valid choices:
+⚠️ IMPORTANT GROUP PHOTO RULE:
+For photos with 3 or more people, ONLY choose from: PICASSO, KEITH HARING, or LICHTENSTEIN
+DO NOT choose WARHOL or MAGRITTE for group photos!
+
+⚠️ FINAL REMINDER: ONLY these 11 artists are valid choices:
 PICASSO, BRAQUE, MAN RAY, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN, KEITH HARING
 Any other artist name will cause an error!
 `;
@@ -1238,9 +1251,12 @@ SELECT: ALWAYS prefer PICASSO for dramatic groups! → dynamic energetic → KEI
 ARTIST SELECTION:
 1. CHAGALL (40%) ⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
    Reference: "Birthday" (1915), "Over the Town" (1918)
-   → Dreamy jewel-tone colors (deep blue, violet, red, green)
-   → Village/town with tilted houses in background
-   → Symbolic animals and flowers floating
+   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink, sage green)
+   → HAZY ATMOSPHERIC dreamlike quality like looking through gauze
+   → Village/town with tilted houses faintly visible in misty background
+   → Symbolic animals and flowers floating softly around
+   → Watercolor-like transparency and softness
    ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
 
 2. MAGRITTE (20%) ⭐ STRICT CONDITIONS!
@@ -1306,10 +1322,11 @@ ARTIST SELECTION:
 
 4. CHAGALL (15%) 🆕 DREAMY POETIC
    Reference: "Birthday" (1915), "The Lovers"
-   → Dreamy floating quality with soft edges
-   → Rich jewel-tone colors (deep blue, ruby red, emerald)
-   → Poetic romantic atmosphere
-   → Flowers and symbolic elements around figure
+   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
+   → HAZY ATMOSPHERIC dreamlike quality
+   → Flowers and symbolic elements faintly visible like memories
+   → Watercolor-like transparency and softness
 
 5. DALÍ (10%) 🆕 SURREAL TRANSFORMATION
    Reference: "Portrait of Mae West", "Galatea of the Spheres"
@@ -1355,10 +1372,11 @@ ARTIST SELECTION:
 
 4. CHAGALL (15%) 🆕 DREAMY POETIC
    Reference: "Self-Portrait with Seven Fingers" (1913)
-   → Dreamy floating quality with soft edges
-   → Rich jewel-tone colors (deep blue, ruby red, emerald)
-   → Poetic atmosphere with village/memory elements
-   → Gravity-defying surreal composition
+   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
+   → HAZY ATMOSPHERIC dreamlike quality
+   → Village/memory elements faintly visible like dreams
+   → Watercolor-like transparency and softness
 
 5. DALÍ (15%) 🆕 SURREAL MELTING
    Reference: "Soft Self-Portrait with Grilled Bacon" (1941)
@@ -1436,14 +1454,68 @@ SELECT: surreal dreamscape → DALÍ, playful abstract → MIRÓ
 `;
   }
   
-  // 🍎 정물/오브젝트
-  if (subject.includes('object') || subject.includes('still') || subject.includes('food') ||
-      subject.includes('product') || subject.includes('item')) {
+  // 🐕🌸🍽️ 동물/꽃/음식 (ANIMALS, FLOWERS, FOOD)
+  if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
+      subject.includes('cat') || subject.includes('bird') || subject.includes('flower') ||
+      subject.includes('plant') || subject.includes('food') || subject.includes('meal') ||
+      subject.includes('fruit') || subject.includes('vegetable')) {
     return `
-🎯 STILL LIFE / OBJECTS - CATEGORY: 정물
+🎯 ANIMALS / FLOWERS / FOOD - CATEGORY: 동물/꽃/음식
 
 ARTIST SELECTION:
-1. BRAQUE (40%) ⭐ STRONGEST FOR STILL LIFE
+1. CHAGALL (30%) ⭐⭐ BEST FOR ANIMALS & FLOWERS - DREAMY POETIC
+   Reference: "I and the Village" (1911), flower bouquet paintings
+   → CRITICAL DREAMY STYLE: SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose, sage green)
+   → Animals (goats, roosters, fish) floating in dreamlike space
+   → Flowers with soft translucent petals
+   → HAZY ATMOSPHERIC quality like memories or dreams
+   → Watercolor-like transparency and softness
+
+2. DALÍ (25%) ⭐ SURREAL TRANSFORMATION
+   Reference: "The Elephants" (1948), "Swans Reflecting Elephants"
+   → Surreal MELTING/MORPHING of animals into other forms
+   → Hyperrealistic rendering with impossible anatomy
+   → Desert landscape with long shadows
+   → Double images and visual illusions
+   → Animals on impossibly long spindly legs
+
+3. WARHOL (20%) ⭐ POP ART REPETITION - GRID REQUIRED!
+   Reference: "Flowers" (1964), animal portraits
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME subject repeated 4 times with DIFFERENT bold colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
+   → Commercial pop art aesthetic
+
+4. MIRÓ (15%) PLAYFUL SYMBOLIC
+   Reference: "Dog Barking at the Moon" (1926)
+   → Transform into simplified SYMBOLIC forms
+   → Biomorphic organic shapes
+   → Bright PRIMARY colors on light background
+   → Stars, moons, and abstract shapes around subject
+   → Childlike playful energy
+
+5. KEITH HARING (10%) GRAPHIC STREET ART
+   Reference: "Barking Dog" series, "Radiant Baby"
+   → BOLD BLACK OUTLINES around simplified forms
+   → Bright PRIMARY COLORS (red, yellow, blue, green)
+   → Animals as iconic simplified silhouettes
+   → RADIANT LINES emanating from figures
+   → Flat graphic graffiti style
+
+SELECT: dreamy soft → CHAGALL, surreal morphing → DALÍ, pop 4-grid → WARHOL, playful symbolic → MIRÓ, graphic bold → KEITH HARING
+`;
+  }
+  
+  // 🍎 정물/오브젝트 (인공물, 제품)
+  if (subject.includes('object') || subject.includes('still') ||
+      subject.includes('product') || subject.includes('item')) {
+    return `
+🎯 STILL LIFE / OBJECTS - CATEGORY: 정물 (인공물)
+
+ARTIST SELECTION:
+1. BRAQUE (35%) ⭐ STRONGEST FOR STILL LIFE
    Reference: "Violin and Candlestick" (1910)
    → Analytical Cubism: subtle geometric fragmentation
    → Muted earth tones (brown, tan, gray, olive)
@@ -1451,21 +1523,28 @@ ARTIST SELECTION:
    → Objects shown from multiple angles
    → More harmonious than Picasso
 
-2. PICASSO (35%)
+2. PICASSO (30%)
    Reference: "Guitar" (1913), "Still Life with Chair Caning"
    → Bold geometric fragmentation
    → Objects broken into sharp angular planes
    → Flattened overlapping forms
    → Limited palette
 
-3. WARHOL (25%)
-   Reference: "Campbell's Soup Cans" (1962)
-   → Commercial product aesthetic
-   → Repeated in grid pattern
-   → Bold flat colors
-   → Mass production style
+3. WARHOL (25%) ⭐ 4-PANEL GRID REQUIRED!
+   Reference: "Campbell's Soup Cans" (1962), "Brillo Boxes"
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME object repeated 4 times with DIFFERENT bold colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients
+   → Commercial mass production aesthetic
 
-SELECT: subtle → BRAQUE, bold → PICASSO, commercial → WARHOL
+4. DALÍ (10%)
+   Reference: "The Persistence of Memory" objects
+   → Objects MELTING and DRIPPING
+   → Hyperrealistic rendering of impossible forms
+   → Surreal transformation
+
+SELECT: subtle cubism → BRAQUE, bold cubism → PICASSO, pop 4-grid → WARHOL, surreal melting → DALÍ
 `;
   }
   
@@ -2760,9 +2839,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('MARC')) {
           console.log('🎯 Chagall detected');
           if (!finalPrompt.includes('floating')) {
-            finalPrompt = finalPrompt + ', Transform like Marc Chagall painting - CRITICAL: dreamy JEWEL-TONE COLORS (deep cobalt blue, rich violet, passionate ruby red, emerald green), figures with elongated dreamlike proportions, Vitebsk village with TILTED whimsical houses in background, symbolic animals floating around (goats, roosters, fish), STAINED GLASS luminous glowing quality, poetic Jewish mystical atmosphere, moon and stars scattered in sky, bouquet of flowers, everything bathed in romantic dreamlike color harmony';
-            controlStrength = 0.50;
-            console.log('✅ Enhanced Chagall with jewel-tone colors and dreamlike atmosphere (control_strength 0.50)');
+            finalPrompt = finalPrompt + ', Transform like Marc Chagall painting - CRITICAL DREAMY STYLE: SOFT BLURRED EDGES with gentle transitions NO harsh outlines, MUTED PASTEL jewel-tones (soft cobalt blue, dusty violet, faded rose pink, sage green) with TRANSLUCENT layered washes, figures with elongated dreamlike proportions appearing to FLOAT weightlessly, Vitebsk village with tilted whimsical houses in misty background, symbolic animals (goats, roosters, fish) FAINTLY visible like memories, HAZY ATMOSPHERIC quality like looking through gauze or fog, moon and stars softly glowing, bouquet of flowers with soft petals, EVERYTHING bathed in romantic nostalgic twilight glow, WATERCOLOR-LIKE transparency and softness, NOT sharp NOT bold but gentle dreamy ethereal';
+            controlStrength = 0.40;
+            console.log('✅ Enhanced Chagall with SOFT dreamy atmosphere (control_strength 0.40 for softer effect)');
           } else {
             console.log('ℹ️ Chagall floating already in prompt (AI included it)');
           }

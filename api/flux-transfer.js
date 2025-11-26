@@ -1130,12 +1130,12 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
    - CRITICAL: MULTIPLY/DUPLICATE the subject across composition, or place unexpected object over face
    - When: Philosophical, mysterious, multiplication effect desired
 
-6. MIRÓ (미로) ⭐⭐ (8%)
-   - Specialty: Playful organic forms, automatic drawing, childlike symbols
-   - Best for: Playful, organic, symbolic treatment
-   - Signature: "Constellations" - biomorphic playfulness
-   - CRITICAL: Add floating symbols (stars, eyes, crescents) around subject, bright primary colors
-   - When: Playful, colorful, symbolic desired
+6. MIRÓ (미로) ⭐⭐⭐ (15%) - GREAT FOR LANDSCAPES!
+   - Specialty: Playful organic forms, automatic drawing, childlike symbols, biomorphic abstraction
+   - Best for: LANDSCAPES, nature scenes, playful/organic treatment, abstract transformation
+   - Signature: "The Catalan Landscape", "Dog Barking at the Moon", "Constellations"
+   - CRITICAL: Transform into BIOMORPHIC ORGANIC shapes floating in space, bright PRIMARY colors (red, yellow, blue, black), stars/moons/eyes/amoeba-like forms, calligraphic black lines
+   - When: Landscape, nature, playful, colorful, abstract, symbolic desired
 
 7. CHAGALL (샤갈) ⭐⭐ (8%)
    - Specialty: SOFT DREAMY floating figures, MUTED PASTEL colors, nostalgic memories
@@ -1160,12 +1160,12 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
     - CRITICAL: MUST create 2x2 FOUR-PANEL GRID layout
     - When: Single person portrait, pop culture aesthetic
 
-10. LICHTENSTEIN (리히텐슈타인) ⭐⭐ (10%)
+10. LICHTENSTEIN (리히텐슈타인) ⭐⭐⭐ (15%)
     - Specialty: Ben-Day dots, comic book style, bold black outlines
-    - Best for: Dramatic expressions, comic/cartoon aesthetic
-    - Signature: "Whaam!", "Crying Girl" - comic strip style
+    - Best for: Dramatic expressions, comic/cartoon aesthetic, everyday scenes
+    - Signature: "Whaam!", "Crying Girl", "Drowning Girl" - comic strip style
     - CRITICAL: Cover entire image with visible BEN-DAY DOTS, thick black outlines, speech bubble optional
-    - When: Comic book, graphic novel aesthetic
+    - When: Comic book, graphic novel aesthetic, dramatic emotional scenes
 
 11. KEITH HARING (키스 해링) ⭐⭐ (10%)
     - Specialty: Bold black outlines, dancing figures, radiant lines
@@ -1180,12 +1180,26 @@ Available 20th Century Modernism Artists (10명 across 4 movements):
 - Multiplication/paradox → MAGRITTE (15%) - ONLY for 1-2 people!
 - Romantic/floating → CHAGALL (8%)
 - Female emotional → FRIDA (8%)
-- Playful/symbolic → MIRÓ (8%)
+- Playful/symbolic/abstract → MIRÓ (15%)
 - Experimental photo → MAN RAY (10%)
 - Pop repetition → WARHOL (15%) - ONLY for 1-2 people portraits!
-- Comic book style → LICHTENSTEIN (10%)
+- Comic book style → LICHTENSTEIN (15%)
 - Dynamic/movement/action → PICASSO (18%) - Cubist energy captures motion!
 - GROUP PHOTOS (3+ people) → PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
+- LANDSCAPES/NATURE/SCENERY → MIRÓ (35%), CHAGALL (35%), DALÍ (30%) - playful or surreal!
+- ⭐ EVERYDAY SNAPSHOTS/CASUAL SCENES → LICHTENSTEIN (strongly recommended!)
+- ⭐ DRAMATIC EMOTIONAL MOMENTS → LICHTENSTEIN (perfect for comic drama!)
+
+⚠️ IMPORTANT EVERYDAY/CASUAL PHOTO RULE:
+For casual everyday snapshots, candid moments, street scenes with people:
+→ STRONGLY prefer LICHTENSTEIN - transforms mundane into comic book drama!
+→ Works great for: friends hanging out, daily activities, emotional moments
+
+⚠️ IMPORTANT LANDSCAPE RULE:
+For landscapes, nature, scenery, architecture WITHOUT people:
+→ Prefer MIRÓ for playful abstract transformation
+→ Prefer CHAGALL for soft dreamy nostalgic  
+→ Prefer DALÍ for surreal melting dreamscape
 
 ⚠️ IMPORTANT GROUP PHOTO RULE:
 For photos with 3 or more people, ONLY choose from: PICASSO, KEITH HARING, or LICHTENSTEIN
@@ -1426,39 +1440,61 @@ SELECT: Full body with background → MAGRITTE "Golconda" (MULTIPLY!), dynamic p
 `;
   }
   
-  // 🏞️ 풍경
+  // 🏞️ 풍경 (인물/동물 없는 장면)
   if (subject === 'landscape' || subject.includes('nature') || subject.includes('sky') || 
-      subject.includes('beach') || subject.includes('mountain')) {
+      subject.includes('beach') || subject.includes('mountain') || subject.includes('tree') ||
+      subject.includes('forest') || subject.includes('building') || subject.includes('city') ||
+      subject.includes('architecture') || subject.includes('temple') || subject.includes('church') ||
+      subject.includes('garden') || subject.includes('park') || subject.includes('road') ||
+      subject.includes('path') || subject.includes('street') || subject.includes('bridge') ||
+      subject.includes('river') || subject.includes('lake') || subject.includes('ocean') ||
+      subject.includes('sunset') || subject.includes('sunrise') || subject.includes('field') ||
+      subject.includes('outdoor') || subject.includes('scenery') || subject.includes('view')) {
     return `
-🎯 LANDSCAPE - CATEGORY: 풍경
+🎯 LANDSCAPE - CATEGORY: 풍경/건축/자연
+
+⚠️ IMPORTANT: For landscapes WITHOUT people, choose from MIRÓ, CHAGALL, or DALÍ only!
+DO NOT choose PICASSO or other portrait artists for pure landscapes!
 
 ARTIST SELECTION:
-1. DALÍ (50%) ⭐ STRONGEST FOR LANDSCAPE
+1. MIRÓ (35%) ⭐⭐ PLAYFUL ABSTRACT LANDSCAPE
+   Reference: "The Catalan Landscape" (1923-24), "Dog Barking at the Moon"
+   → Transform into BIOMORPHIC ORGANIC shapes floating in space
+   → Bright PRIMARY colors (red, yellow, blue, black) on light background
+   → Stars, moons, eyes, amoeba-like forms scattered throughout
+   → Playful constellation of symbols
+   → Childlike joyful abstraction
+   → Calligraphic black lines connecting elements
+
+2. CHAGALL (35%) ⭐⭐ DREAMY POETIC - SOFT STYLE
+   Reference: "I and the Village" (1911)
+   → SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
+   → HAZY ATMOSPHERIC quality like looking through gauze
+   → Tilted whimsical houses and village scenes
+   → Nostalgic memory-like dreamscape
+   → Watercolor-like transparency
+
+3. DALÍ (30%) ⭐ SURREAL DREAMSCAPE
    Reference: "The Persistence of Memory" (1931)
    → Forms MELTING and DRIPPING like soft watches
-   → Barren surreal desert stretching to horizon
-   → Hyperrealistic precise technique
-   → Long dramatic shadows
+   → Barren surreal desert stretching to infinite horizon
+   → Hyperrealistic precise painting technique
+   → Long dramatic shadows in golden Mediterranean light
    → Bizarre objects in impossible landscape
-
-2. MIRÓ (50%)
-   Reference: "The Catalan Landscape" (1923-24)
-   → Biomorphic organic shapes floating
-   → Bright PRIMARY colors (red, yellow, blue, black)
-   → Stars, moons, eyes, amoeba-like forms
-   → Playful constellation of symbols
+   → Paranoid-critical method distortions
 
 NOTE: Magritte NOT recommended for landscapes (better for portraits)
 
-SELECT: surreal dreamscape → DALÍ, playful abstract → MIRÓ
+SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy soft nostalgic → CHAGALL
 `;
   }
   
-  // 🐕🌸🍽️ 동물/꽃/음식 (ANIMALS, FLOWERS, FOOD)
+  // 🐕🌸🍽️ 동물/꽃/음식 (ANIMALS, FLOWERS, FOOD) - 'plant' 제거 (풍경과 충돌)
   if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
       subject.includes('cat') || subject.includes('bird') || subject.includes('flower') ||
-      subject.includes('plant') || subject.includes('food') || subject.includes('meal') ||
-      subject.includes('fruit') || subject.includes('vegetable')) {
+      subject.includes('bouquet') || subject.includes('food') || subject.includes('meal') ||
+      subject.includes('fruit') || subject.includes('vegetable') || subject.includes('dish')) {
     return `
 🎯 ANIMALS / FLOWERS / FOOD - CATEGORY: 동물/꽃/음식
 

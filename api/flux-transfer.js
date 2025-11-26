@@ -1112,11 +1112,17 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 
 === SURREALISM 초현실주의 (4명) ===
 3. DALÍ (달리) ⭐⭐ (8%)
-   - Specialty: Paranoid-critical method, melting forms, hyperrealistic dreams
-   - Best for: Dreamlike transformation, bizarre juxtapositions, surreal landscapes
-   - Signature: "The Persistence of Memory" - melting clocks
-   - CRITICAL: Forms should MELT and DRIP, hyperrealistic rendering of impossible scenes
-   - When: Surreal dreamscape, melting distortions desired
+   - Specialty: Paranoid-critical method, HYPERREALISTIC OIL PAINTING of impossible dreams
+   - Best for: Dreamlike transformation, surreal landscapes, bizarre juxtapositions
+   - Signature: "The Elephants" (long-legged elephants), "Burning Giraffe", "Swans Reflecting Elephants"
+   - CRITICAL STYLE: 
+     → MUST look like FINE OIL PAINTING with visible brushstrokes and rich colors
+     → Hyperrealistic technique but IMPOSSIBLE/SURREAL content
+     → LONG DRAMATIC SHADOWS in desert/barren landscape
+     → Forms ELONGATED, DISTORTED, or MORPHING into other objects
+     → Golden Mediterranean light, infinite horizon
+   - ⛔ DO NOT just add melting clocks! Focus on SURREAL TRANSFORMATION of the subject itself
+   - When: Surreal dreamscape, melting distortions, impossible anatomy desired
 
 4. MAGRITTE (마그리트) ⭐⭐ (12%)
    - Specialty: Philosophical paradox, multiplication, impossible juxtaposition
@@ -1166,7 +1172,7 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
     - When: Group photos with dynamic movement, joyful energy
 
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
-- ⭐⭐⭐ ANIMALS (dog/cat/bird/pet) → LICHTENSTEIN (70%) or KEITH HARING (30%) ONLY! HIGHEST PRIORITY!
+- ANIMALS (dog/cat/bird/pet) → LICHTENSTEIN (35%), KEITH HARING (25%), others OK
 - Geometric/analytical/action → PICASSO (19%) - STRONGEST for figures!
 - Romantic/couples/emotional → CHAGALL (18%) - BEST for romance!
 - Multiplication/paradox → MAGRITTE (12%) - ONLY for 1-2 people!
@@ -1193,10 +1199,8 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 ⚠️ LANDSCAPES/NATURE:
 → MIRÓ (40%), CHAGALL (35%), DALÍ (25%)
 
-⚠️⚠️⚠️ ANIMALS (dogs, cats, birds, pets) - HIGHEST PRIORITY:
-→ LICHTENSTEIN (70%), KEITH HARING (30%) ONLY!
-→ DO NOT choose PICASSO, BRAQUE, MAGRITTE, MIRÓ, CHAGALL, WARHOL, DALÍ for animals!
-→ If photo contains ANY animal, MUST choose LICHTENSTEIN or KEITH HARING!
+⚠️ ANIMALS (dogs, cats, birds, pets):
+→ LICHTENSTEIN (35%), KEITH HARING (25%), MIRÓ (15%), CHAGALL (10%), WARHOL (10%), DALÍ (5%)
 
 ⚠️ FINAL REMINDER: ONLY these 8 artists are valid choices:
 PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, WARHOL, LICHTENSTEIN, KEITH HARING
@@ -1211,45 +1215,49 @@ function getModernismHints(photoAnalysis) {
   // 카테고리별 대표작 기반 AI 선택 가이드
   // ========================================
   
-  // 🐕 동물만 (ANIMALS ONLY, NO PEOPLE!) - 최우선! 리히텐슈타인 70% + 키스해링 30%!
+  // 🐕 동물 (ANIMALS) - 리히텐 35%, 키스해링 25%, 나머지 자유
   if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
       subject.includes('cat') || subject.includes('bird')) {
     return `
-🎯 ANIMALS - CATEGORY: 동물 (최우선 체크!)
+🎯 ANIMALS - CATEGORY: 동물
 
-⛔ FORBIDDEN ARTISTS FOR ANIMALS:
-- PICASSO ❌
-- BRAQUE ❌
-- MAGRITTE ❌
-- MIRÓ ❌
-- CHAGALL ❌
-- WARHOL ❌
-- DALÍ ❌
+ARTIST SELECTION:
 
-✅ ONLY CHOOSE FROM THESE 2 ARTISTS:
-
-1. LICHTENSTEIN (70%) ⭐⭐⭐ PRIMARY CHOICE FOR ANIMALS!
+1. LICHTENSTEIN (35%) ⭐⭐ COMIC BOOK ANIMALS
    Reference: Comic strip animal illustrations
    → BEN-DAY DOTS covering ENTIRE image
    → THICK BLACK OUTLINES around animal forms
    → PRIMARY COLORS (red, yellow, blue, black, white)
    → Cartoon/comic book aesthetic for cute animals
-   → PERFECT for cute pets like dogs, cats, birds!
 
-2. KEITH HARING (30%) ⭐⭐ DYNAMIC/PLAYFUL ANIMALS
+2. KEITH HARING (25%) ⭐⭐ DYNAMIC ANIMALS
    Reference: "Barking Dog" series, animal icons
    → BOLD BLACK OUTLINES around simplified forms
    → Bright PRIMARY COLORS (red, yellow, blue, green)
    → Animals as iconic simplified silhouettes
    → RADIANT LINES emanating from figures
-   → Energetic, playful street art style
 
-⚠️ FINAL REMINDER: 
-For ANY photo with animals (dog, cat, bird, pet, etc.),
-ONLY choose: LICHTENSTEIN (70%) or KEITH HARING (30%)
-NO OTHER ARTIST IS ACCEPTABLE!
+3. MIRÓ (15%) PLAYFUL SYMBOLIC
+   Reference: "Dog Barking at the Moon" (1926)
+   → Transform into BIOMORPHIC ORGANIC shapes
+   → Bright PRIMARY colors on light background
+   → Stars, moons, eyes around subject
 
-SELECT: cute/comic → LICHTENSTEIN, dynamic/playful → KEITH HARING
+4. CHAGALL (10%) DREAMY FLOATING
+   Reference: "I and the Village" (1911)
+   → SOFT BLURRED EDGES, floating dreamlike space
+   → MUTED PASTEL colors
+
+5. WARHOL (10%) POP ART GRID
+   Reference: "Endangered Species" series
+   → 2x2 FOUR-PANEL GRID layout
+   → Same animal repeated with different bold colors
+
+6. DALÍ (5%) SURREAL
+   Reference: "The Elephants" (1948)
+   → Elongated, morphing surreal forms
+
+SELECT: comic cute → LICHTENSTEIN, dynamic → KEITH HARING, playful → MIRÓ, dreamy → CHAGALL, pop grid → WARHOL, surreal → DALÍ
 `;
   }
   
@@ -1388,11 +1396,12 @@ ARTIST SELECTION:
    → PRIMARY COLORS (red, yellow, blue, black, white)
    → ⛔ NOT for regular portraits - ONLY if comic/pop style desired!
 
-6. DALÍ (10%) - SURREAL TRANSFORMATION
+6. DALÍ (10%) - SURREAL OIL PAINTING
    Reference: "Portrait of Mae West", "Galatea of the Spheres"
-   → Surreal distortion of features
-   → Melting or morphing elements
-   → Hyperrealistic rendering with impossible forms
+   → MUST look like FINE OIL PAINTING with rich colors
+   → Surreal distortion: elongated, morphing, or melting features
+   → Hyperrealistic PAINTING technique with impossible forms
+   → Dramatic shadows, golden Mediterranean light
 
 SELECT: geometric → PICASSO, dreamy romantic → CHAGALL, ONLY frontal gaze → MAGRITTE, glamorous 4-grid → WARHOL, comic style → LICHTENSTEIN, surreal → DALÍ
 `;
@@ -1439,10 +1448,11 @@ ARTIST SELECTION:
    → Primary colors only (red, yellow, blue, black, white)
    → ⛔ NOT for regular portraits - ONLY if comic/pop style desired!
 
-6. DALÍ (8%) - SURREAL MELTING
+6. DALÍ (8%) - SURREAL OIL PAINTING
    Reference: "Soft Self-Portrait with Grilled Bacon" (1941)
-   → Surreal distortion with MELTING/DRIPPING forms
-   → Hyperrealistic rendering with impossible anatomy
+   → MUST look like FINE OIL PAINTING with visible brushwork
+   → Surreal distortion with MELTING/MORPHING forms
+   → Hyperrealistic PAINTING with impossible anatomy
 
 SELECT: geometric → PICASSO, dreamy emotional → CHAGALL, glamorous 4-grid → WARHOL, mysterious → MAGRITTE, comic style → LICHTENSTEIN, surreal → DALÍ
 `;
@@ -1478,9 +1488,10 @@ ARTIST SELECTION:
    → Transform into BIOMORPHIC ORGANIC shapes
    → Bright PRIMARY colors
 
-4. DALÍ (5%) SURREAL DREAMSCAPE
-   Reference: "The Persistence of Memory" (1931)
-   → Forms MELTING and DRIPPING in landscape
+4. DALÍ (5%) SURREAL OIL PAINTING
+   Reference: "The Elephants" (1948), "Burning Giraffe"
+   → MUST look like FINE OIL PAINTING with rich colors
+   → Elongated forms, impossible anatomy in vast landscape
 
 ⚠️ CRITICAL: For FULL BODY + LANDSCAPE photos, ALWAYS choose MAGRITTE first (80%)!
 This composition is MADE for Golconda's multiplication effect!
@@ -1524,14 +1535,14 @@ ARTIST SELECTION:
    → Nostalgic memory-like dreamscape
    → Watercolor-like transparency
 
-3. DALÍ (30%) ⭐ SURREAL DREAMSCAPE
-   Reference: "The Persistence of Memory" (1931)
-   → Forms MELTING and DRIPPING like soft watches
+3. DALÍ (30%) ⭐ SURREAL OIL PAINTING
+   Reference: "The Elephants" (1948), "Burning Giraffe", "Swans Reflecting Elephants"
+   → MUST look like FINE OIL PAINTING with visible brushwork and rich oil colors
    → Barren surreal desert stretching to infinite horizon
-   → Hyperrealistic precise painting technique
    → Long dramatic shadows in golden Mediterranean light
-   → Bizarre objects in impossible landscape
-   → Paranoid-critical method distortions
+   → Elongated, morphing, or melting forms
+   → Hyperrealistic PAINTING technique of impossible landscapes
+   → ⛔ DO NOT just add melting clocks - focus on surreal transformation of landscape itself
 
 NOTE: Magritte NOT recommended for landscapes (better for portraits)
 
@@ -1554,11 +1565,13 @@ ARTIST SELECTION:
    → Flowers with soft translucent petals
    → HAZY ATMOSPHERIC quality
 
-2. DALÍ (25%) ⭐ SURREAL TRANSFORMATION
-   Reference: Various surreal still life works
-   → Surreal MELTING/MORPHING forms
-   → Hyperrealistic rendering with impossible elements
-   → Desert landscape with long shadows
+2. DALÍ (25%) ⭐ SURREAL OIL PAINTING
+   Reference: "Apparition of Face and Fruit Dish", surreal still life works
+   → MUST look like FINE OIL PAINTING with rich colors
+   → Surreal MORPHING/ELONGATING forms
+   → Hyperrealistic PAINTING with impossible elements
+   → Desert landscape with long dramatic shadows
+   → ⛔ DO NOT just add melting clocks
 
 3. MIRÓ (25%) ⭐ PLAYFUL SYMBOLIC
    Reference: Abstract floral works
@@ -1601,12 +1614,13 @@ ARTIST SELECTION:
    → FLAT colors NO gradients
    → Commercial mass production aesthetic
 
-3. DALÍ (25%) ⭐ SURREAL MELTING
-   Reference: "The Persistence of Memory" objects
-   → Objects MELTING and DRIPPING like soft wax
-   → Hyperrealistic rendering of impossible forms
-   → Surreal transformation of everyday objects
-   → Dramatic shadows in desert landscape
+3. DALÍ (25%) ⭐ SURREAL OIL PAINTING
+   Reference: "The Elephants", "Apparition of Face and Fruit Dish"
+   → MUST look like FINE OIL PAINTING with rich colors and visible brushwork
+   → Objects ELONGATED, MORPHING, or in impossible arrangements
+   → Hyperrealistic PAINTING technique of impossible forms
+   → Dramatic long shadows in desert landscape
+   → ⛔ DO NOT just add melting clocks
 
 4. PICASSO (20%)
    Reference: "Guitar" (1913), "Still Life with Chair Caning"

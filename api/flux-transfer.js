@@ -1105,10 +1105,10 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 
 2. BRAQUE (브라크) ⭐ (5%)
    - Specialty: Subtle tonal Cubism, collage technique, muted earth colors
-   - Best for: Still life, objects, subtle geometric treatment
+   - Best for: Subtle geometric treatment, muted tonal analysis
    - Signature: "Violin and Candlestick" - harmonious geometric forms
    - CRITICAL: More subtle fragmentation than Picasso, earth tones, papier collé texture
-   - When: Still life, muted/subtle geometric treatment desired
+   - When: Muted/subtle geometric treatment desired, NOT for colorful subjects
 
 === SURREALISM 초현실주의 (4명) ===
 3. DALÍ (달리) ⭐⭐ (8%)
@@ -1173,7 +1173,7 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 - Comic/action/exaggerated → LICHTENSTEIN (15%) - action & comic only!
 - Dreamlike/melting → DALÍ (8%)
 - Landscape/nature/playful → MIRÓ (8%)
-- Still life/subtle → BRAQUE (5%)
+- Muted/subtle → BRAQUE (5%)
 - Dynamic groups → KEITH HARING (5%) or PICASSO (19%)
 
 ⚠️ PORTRAIT PRIORITY (single person):
@@ -1495,54 +1495,87 @@ SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy s
 `;
   }
   
-  // 🐕🌸🍽️ 동물/꽃/음식 (ANIMALS, FLOWERS, FOOD) - 'plant' 제거 (풍경과 충돌)
+  // 🐕 동물만 (ANIMALS ONLY) - 리히텐슈타인 포함
   if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
-      subject.includes('cat') || subject.includes('bird') || subject.includes('flower') ||
-      subject.includes('bouquet') || subject.includes('food') || subject.includes('meal') ||
-      subject.includes('fruit') || subject.includes('vegetable') || subject.includes('dish')) {
+      subject.includes('cat') || subject.includes('bird')) {
     return `
-🎯 ANIMALS / FLOWERS / FOOD - CATEGORY: 동물/꽃/음식
+🎯 ANIMALS - CATEGORY: 동물
 
 ARTIST SELECTION:
-1. CHAGALL (30%) ⭐⭐ BEST FOR ANIMALS & FLOWERS - DREAMY POETIC
-   Reference: "I and the Village" (1911), flower bouquet paintings
-   → CRITICAL DREAMY STYLE: SOFT BLURRED EDGES, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose, sage green)
+1. CHAGALL (25%) ⭐⭐ DREAMY ANIMALS
+   Reference: "I and the Village" (1911)
+   → SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
    → Animals (goats, roosters, fish) floating in dreamlike space
-   → Flowers with soft translucent petals
-   → HAZY ATMOSPHERIC quality like memories or dreams
-   → Watercolor-like transparency and softness
+   → HAZY ATMOSPHERIC quality like memories
 
-2. DALÍ (25%) ⭐ SURREAL TRANSFORMATION
-   Reference: "The Elephants" (1948), "Swans Reflecting Elephants"
-   → Surreal MELTING/MORPHING of animals into other forms
-   → Hyperrealistic rendering with impossible anatomy
-   → Desert landscape with long shadows
-   → Double images and visual illusions
-   → Animals on impossibly long spindly legs
+2. LICHTENSTEIN (25%) ⭐⭐ COMIC BOOK ANIMALS
+   Reference: Comic strip animal illustrations
+   → BEN-DAY DOTS covering ENTIRE image
+   → THICK BLACK OUTLINES around animal forms
+   → PRIMARY COLORS (red, yellow, blue, black, white)
+   → Cartoon/comic book aesthetic for cute animals
 
-3. WARHOL (20%) ⭐ POP ART REPETITION - GRID REQUIRED!
-   Reference: "Flowers" (1964), animal portraits
-   → MUST create 2x2 FOUR-PANEL GRID layout
-   → SAME subject repeated 4 times with DIFFERENT bold colors
-   → EXTREME HIGH CONTRAST silkscreen effect
-   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
-   → Commercial pop art aesthetic
-
-4. MIRÓ (15%) PLAYFUL SYMBOLIC
+3. MIRÓ (25%) ⭐⭐ PLAYFUL SYMBOLIC ANIMALS
    Reference: "Dog Barking at the Moon" (1926)
    → Transform into simplified SYMBOLIC forms
    → Biomorphic organic shapes
    → Bright PRIMARY colors on light background
-   → Stars, moons, and abstract shapes around subject
-   → Childlike playful energy
+   → Stars, moons around subject
 
-5. KEITH HARING (10%) GRAPHIC STREET ART
-   Reference: "Barking Dog" series, "Radiant Baby"
-   → BOLD BLACK OUTLINES around simplified forms
-   → Bright PRIMARY COLORS (red, yellow, blue, green)
-   → Animals as iconic simplified silhouettes
-   → RADIANT LINES emanating from figures
+4. WARHOL (15%) POP ART ANIMALS
+   Reference: Animal portraits, "Endangered Species" series
+   → 2x2 FOUR-PANEL GRID layout
+   → SAME animal repeated with DIFFERENT bold colors
+   → HIGH CONTRAST silkscreen effect
+
+5. DALÍ (10%) SURREAL ANIMALS
+   Reference: "The Elephants" (1948), "Swans Reflecting Elephants"
+   → Surreal MELTING/MORPHING of animals
+   → Animals on impossibly long spindly legs
+   → Double images and visual illusions
+
+SELECT: dreamy → CHAGALL, comic cute → LICHTENSTEIN, playful → MIRÓ, pop grid → WARHOL, surreal → DALÍ
+`;
+  }
+
+  // 🌸🍽️ 꽃/음식 (FLOWERS, FOOD) - 리히텐슈타인 제외
+  if (subject.includes('flower') || subject.includes('bouquet') || 
+      subject.includes('food') || subject.includes('meal') ||
+      subject.includes('fruit') || subject.includes('vegetable') || subject.includes('dish')) {
+    return `
+🎯 FLOWERS / FOOD - CATEGORY: 꽃/음식
+
+ARTIST SELECTION:
+1. CHAGALL (25%) ⭐⭐ BEST FOR FLOWERS - DREAMY POETIC
+   Reference: Flower bouquet paintings
+   → SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
+   → Flowers with soft translucent petals
+   → HAZY ATMOSPHERIC quality
+
+2. DALÍ (25%) ⭐ SURREAL TRANSFORMATION
+   Reference: Various surreal still life works
+   → Surreal MELTING/MORPHING forms
+   → Hyperrealistic rendering with impossible elements
+   → Desert landscape with long shadows
+
+3. MIRÓ (25%) ⭐ PLAYFUL SYMBOLIC
+   Reference: Abstract floral works
+   → Transform into simplified SYMBOLIC forms
+   → Biomorphic organic shapes
+   → Bright PRIMARY colors on light background
+   → Stars and abstract shapes around subject
+
+4. WARHOL (25%) ⭐ POP ART - GRID REQUIRED!
+   Reference: "Flowers" (1964) series
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME subject repeated with DIFFERENT bold colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients
+
+SELECT: dreamy soft → CHAGALL, surreal → DALÍ, playful → MIRÓ, pop grid → WARHOL
+`;
    → Flat graphic graffiti style
 
 SELECT: dreamy soft → CHAGALL, surreal morphing → DALÍ, pop 4-grid → WARHOL, playful symbolic → MIRÓ, graphic bold → KEITH HARING

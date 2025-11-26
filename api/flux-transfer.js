@@ -1491,52 +1491,41 @@ SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy s
 `;
   }
   
-  // 🐕 동물만 (ANIMALS ONLY) - 리히텐슈타인 80% 최우선!
-  if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
-      subject.includes('cat') || subject.includes('bird')) {
+  // 🐕 동물만 (ANIMALS ONLY, NO PEOPLE!) - 리히텐슈타인 100% 단독!
+  if ((subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
+      subject.includes('cat') || subject.includes('bird')) && count === 0) {
     return `
-🎯 ANIMALS - CATEGORY: 동물
+🎯 ANIMALS ONLY (NO PEOPLE) - CATEGORY: 동물
 
-⛔ DO NOT CHOOSE: PICASSO, BRAQUE, MAGRITTE, KEITH HARING for animals!
-These artists are NOT suitable for animal photos!
+⛔⛔⛔ CRITICAL: FOR ANIMAL PHOTOS, YOU MUST CHOOSE LICHTENSTEIN!
+DO NOT CHOOSE ANY OTHER ARTIST! NO EXCEPTIONS!
 
-🎯 STRONGEST RECOMMENDATION: LICHTENSTEIN (80%)
-Animal photos are PERFECT for Lichtenstein's comic book style!
-Cute animals become adorable cartoon characters with Ben-Day dots!
+⛔ FORBIDDEN ARTISTS FOR ANIMALS:
+- PICASSO ❌
+- BRAQUE ❌
+- MAGRITTE ❌
+- KEITH HARING ❌
+- MIRÓ ❌
+- CHAGALL ❌
+- WARHOL ❌
+- DALÍ ❌
 
-✅ ARTIST SELECTION:
+✅ THE ONLY VALID CHOICE:
 
-1. LICHTENSTEIN (80%) ⭐⭐⭐ STRONGEST - COMIC BOOK ANIMALS
-   Reference: Comic strip animal illustrations
-   → BEN-DAY DOTS covering ENTIRE image
-   → THICK BLACK OUTLINES around animal forms
-   → PRIMARY COLORS (red, yellow, blue, black, white)
-   → Cartoon/comic book aesthetic for cute animals
-   → PERFECT for cute pets like dogs, cats, birds!
+LICHTENSTEIN (100%) ⭐⭐⭐ THE ONLY CHOICE FOR ANIMALS!
+Reference: Comic strip animal illustrations
+→ BEN-DAY DOTS covering ENTIRE image
+→ THICK BLACK OUTLINES around animal forms
+→ PRIMARY COLORS (red, yellow, blue, black, white)
+→ Cartoon/comic book aesthetic for cute animals
+→ PERFECT for cute pets like dogs, cats, birds!
 
-2. MIRÓ (8%) PLAYFUL SYMBOLIC ANIMALS
-   Reference: "Dog Barking at the Moon" (1926)
-   → Transform into simplified SYMBOLIC forms
-   → Biomorphic organic shapes
-   → Bright PRIMARY colors on light background
+⚠️⚠️⚠️ FINAL WARNING: 
+For ANY photo with ONLY animals (no people),
+YOU MUST SELECT: LICHTENSTEIN
+NO OTHER ARTIST IS ACCEPTABLE!
 
-3. CHAGALL (5%) DREAMY ANIMALS
-   Reference: "I and the Village" (1911)
-   → SOFT BLURRED EDGES, floating dreamlike space
-   → MUTED PASTEL colors
-
-4. WARHOL (4%) POP ART ANIMALS
-   Reference: "Endangered Species" series
-   → 2x2 FOUR-PANEL GRID layout
-
-5. DALÍ (3%) SURREAL ANIMALS
-   Reference: "The Elephants" (1948)
-   → Surreal MELTING/MORPHING of animals
-
-⚠️ CRITICAL: For ANIMAL photos, ALWAYS choose LICHTENSTEIN first (80%)!
-Only choose others if comic style absolutely doesn't fit.
-
-SELECT: LICHTENSTEIN (default 80%), playful → MIRÓ, dreamy → CHAGALL
+SELECTED ARTIST: LICHTENSTEIN
 `;
   }
 

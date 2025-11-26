@@ -1196,45 +1196,35 @@ function getModernismHints(photoAnalysis) {
     return `
 🎯 GROUP PHOTO (${count} people) - CATEGORY: 단체/군중
 
+⚠️ NOTE: WARHOL and MAGRITTE are NOT suitable for group photos!
+- Warhol 4-grid doesn't work well with multiple people
+- Magritte "Son of Man" is for individual portraits only
+
 ARTIST SELECTION:
 1. PICASSO (50%) ⭐⭐ BEST FOR GROUPS - STRONGLY RECOMMENDED
-   Reference: "Guernica" (1937)
+   Reference: "Guernica" (1937), "Les Demoiselles d'Avignon" (1907)
    → Dramatic fragmentation of multiple figures
-   → Black, white, gray monochromatic palette
-   → Angular distorted anguished forms
+   → Angular distorted forms seen from multiple viewpoints
+   → Black, white, gray monochromatic OR bold colors
    → Powerful emotional impact
 
-2. KEITH HARING (20%) ⭐ GREAT FOR DYNAMIC GROUPS
+2. KEITH HARING (30%) ⭐⭐ GREAT FOR DYNAMIC GROUPS
    Reference: "Untitled (Dancing Figures)" (1987)
    → BOLD BLACK OUTLINES around simplified figures
    → Bright PRIMARY COLORS (red, yellow, blue, green, orange)
    → Figures in DYNAMIC DANCING POSES with movement lines
    → RADIANT LINES emanating from bodies
    → Flat graphic subway art style
+   → Perfect for energetic group photos!
 
-3. WARHOL (15%)
-   Reference: Pop art silkscreen grid style
-   → Repeat the group in 4-grid with different colors
-   → CRITICAL: 4-grid layout is essential for Warhol identity
-
-4. LICHTENSTEIN (10%)
-   Reference: Comic book style
+3. LICHTENSTEIN (20%) ⭐ COMIC BOOK STYLE
+   Reference: Comic book panel style
    → Ben-Day dots covering entire image
-   → Bold black outlines, primary colors
+   → Bold black outlines around all figures
+   → Primary colors only (red, yellow, blue, black, white)
+   → Dramatic comic book scene
 
-5. MAGRITTE (5%) ⚠️ VERY STRICT CONDITIONS - SKIP IF NOT MET!
-   Reference: "The Son of Man" (1964), "The Man in the Bowler Hat"
-   → ⛔ CRITICAL REQUIREMENTS (ALL must be true):
-      1. CLOSE-UP or PORTRAIT shot (NOT wide/full body)
-      2. ALL subjects looking DIRECTLY AT CAMERA (frontal gaze)
-      3. Formal or semi-formal setting
-   → ❌ DO NOT SELECT MAGRITTE IF:
-      - People looking different directions
-      - Candid/casual event photo
-      - Wide shot or full body
-   → If conditions met: Place GREEN APPLE at NOSE LEVEL (eyes and mouth visible)
-
-SELECT: ALWAYS prefer PICASSO for groups! → dramatic → PICASSO, dynamic → KEITH HARING, pop → WARHOL, comic → LICHTENSTEIN, ONLY frontal close-up formal → MAGRITTE (rare!)
+SELECT: ALWAYS prefer PICASSO for dramatic groups! → dynamic energetic → KEITH HARING, comic style → LICHTENSTEIN
 `;
   }
   
@@ -1290,7 +1280,7 @@ SELECT: Romantic → CHAGALL, Full body → MAGRITTE Golconda, ONLY frontal gaze
 🎯 FEMALE PORTRAIT - CATEGORY: 여성 인물 (클로즈업/상반신)
 
 ARTIST SELECTION:
-1. LICHTENSTEIN (35%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
+1. LICHTENSTEIN (30%) ⭐⭐ BEST FOR WOMEN - COMIC STYLE
    Reference: "Drowning Girl" (1963), "Hopeful" (1963), "Crying Girl"
    → BEN-DAY DOTS covering ENTIRE face and background
    → Thick BLACK OUTLINES around all forms
@@ -1298,7 +1288,7 @@ ARTIST SELECTION:
    → PRIMARY COLORS (red, yellow, blue, black, white)
    → Classic comic book romantic heroine style
 
-2. MAGRITTE (25%) ⭐ "The Son of Man" / "Man in Bowler Hat"
+2. MAGRITTE (20%) ⭐ "The Son of Man" - FEMALE ONLY!
    Reference: "The Son of Man" (1964)
    → ⛔ CRITICAL REQUIREMENTS:
       1. Subject looking DIRECTLY AT CAMERA (frontal gaze)
@@ -1307,18 +1297,33 @@ ARTIST SELECTION:
    → If conditions met: GREEN APPLE at NOSE LEVEL (eyes & mouth VISIBLE)
    → Formal attire, bowler hat, cloudy sky
 
-3. WARHOL (25%)
-   Reference: Pop art silkscreen portrait
-   → Face in 2x2 or 3x3 GRID
-   → Each quadrant DIFFERENT bold color
-   → Silkscreen flat graphic style
+3. WARHOL (20%) ⭐ 4-PANEL GRID REQUIRED!
+   Reference: "Marilyn Monroe" (1962), "Mao" series
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME face repeated 4 times with DIFFERENT bold pop colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
 
-4. PICASSO (15%)
+4. CHAGALL (15%) 🆕 DREAMY POETIC
+   Reference: "Birthday" (1915), "The Lovers"
+   → Dreamy floating quality with soft edges
+   → Rich jewel-tone colors (deep blue, ruby red, emerald)
+   → Poetic romantic atmosphere
+   → Flowers and symbolic elements around figure
+
+5. DALÍ (10%) 🆕 SURREAL TRANSFORMATION
+   Reference: "Portrait of Mae West", "Galatea of the Spheres"
+   → Surreal distortion of features
+   → Melting or morphing elements
+   → Hyperrealistic rendering with impossible forms
+   → Dream-like landscape elements
+
+6. PICASSO (5%)
    Reference: "Weeping Woman" (1937)
    → Sharp angular fragmentation of face
    → Multiple viewpoints simultaneously
 
-SELECT: dramatic/emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamorous → WARHOL, geometric → PICASSO
+SELECT: comic emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, glamorous 4-grid → WARHOL, dreamy romantic → CHAGALL, surreal → DALÍ, geometric → PICASSO
 `;
   }
   
@@ -1327,33 +1332,42 @@ SELECT: dramatic/emotional → LICHTENSTEIN, ONLY frontal gaze → MAGRITTE, gla
     return `
 🎯 PORTRAIT - CATEGORY: 인물 (클로즈업/상반신)
 
-ARTIST SELECTION:
-1. MAGRITTE (25%) ⭐ "The Son of Man" / "Man in Bowler Hat"
-   Reference: "The Son of Man" (1964), "The Man in the Bowler Hat" (1964)
-   → ⛔ CRITICAL REQUIREMENTS:
-      1. Subject looking DIRECTLY AT CAMERA (frontal gaze)
-      2. Close-up or portrait shot
-   → ❌ SKIP MAGRITTE IF: side profile, looking away, candid shot
-   → If conditions met: GREEN APPLE at NOSE LEVEL (eyes & mouth VISIBLE, only nose covered)
-   → Bowler hat, dark suit, cloudy sky background
+⚠️ NOTE: MAGRITTE "Son of Man" is for FEMALE portraits only!
 
-2. LICHTENSTEIN (25%) ⭐ COMIC BOOK STYLE
+ARTIST SELECTION:
+1. LICHTENSTEIN (25%) ⭐ COMIC BOOK STYLE
    Reference: "Whaam!" (1963), "Crying Girl"
    → Cover ENTIRE image with visible BEN-DAY DOTS
    → THICK black outlines around all forms
    → Primary colors only (red, yellow, blue, black, white)
 
-3. PICASSO (25%)
+2. PICASSO (25%)
    Reference: "Les Demoiselles d'Avignon" (1907)
    → FRAGMENT face into angular geometric planes
    → Show PROFILE and FRONT view SIMULTANEOUSLY
 
-4. WARHOL (25%)
-   Reference: Pop art silkscreen portrait
-   → Face repeated in 2x2 GRID
-   → Each quadrant DIFFERENT bold color
+3. WARHOL (20%) ⭐ 4-PANEL GRID REQUIRED!
+   Reference: "Marilyn Monroe" (1962), "Mao" series
+   → MUST create 2x2 FOUR-PANEL GRID layout
+   → SAME face repeated 4 times with DIFFERENT bold pop colors
+   → EXTREME HIGH CONTRAST silkscreen effect
+   → FLAT colors NO gradients (hot pink, cyan, yellow, orange)
 
-SELECT: ONLY frontal gaze close-up → MAGRITTE, comic → LICHTENSTEIN, geometric → PICASSO, pop grid → WARHOL
+4. CHAGALL (15%) 🆕 DREAMY POETIC
+   Reference: "Self-Portrait with Seven Fingers" (1913)
+   → Dreamy floating quality with soft edges
+   → Rich jewel-tone colors (deep blue, ruby red, emerald)
+   → Poetic atmosphere with village/memory elements
+   → Gravity-defying surreal composition
+
+5. DALÍ (15%) 🆕 SURREAL MELTING
+   Reference: "Soft Self-Portrait with Grilled Bacon" (1941)
+   → Surreal distortion with MELTING/DRIPPING forms
+   → Hyperrealistic rendering with impossible anatomy
+   → Desert landscape or dream elements in background
+   → Supported by crutches or floating elements
+
+SELECT: comic → LICHTENSTEIN, geometric → PICASSO, glamorous 4-grid → WARHOL, dreamy → CHAGALL, surreal melting → DALÍ
 `;
   }
   
@@ -2785,9 +2799,9 @@ export default async function handler(req, res) {
             selectedArtist.toUpperCase().trim().includes('ANDY')) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('silkscreen')) {
-            finalPrompt = finalPrompt + ', Transform in Andy Warhol POP ART silkscreen style - CRITICAL GRID LAYOUT: SPLIT canvas into EXACTLY 4 EQUAL squares (2 rows x 2 columns) with CLEAR VISIBLE DIVIDING LINES between quadrants, place IDENTICAL face in EXACT SAME position in each quadrant, ONLY change BACKGROUND COLOR per quadrant: TOP-LEFT hot pink, TOP-RIGHT electric blue, BOTTOM-LEFT lime green, BOTTOM-RIGHT orange yellow, face should have HIGH CONTRAST flat silkscreen look with bold outlines, pop art screen print aesthetic, PRESERVE ORIGINAL FACE IDENTITY, NOT realistic';
+            finalPrompt = finalPrompt + ', Transform in Andy Warhol style like "Marilyn Monroe" (1962) or "Mao" series - ABSOLUTE MUST: create 2x2 FOUR-PANEL GRID layout, divide canvas into EXACTLY 4 EQUAL quadrants with VISIBLE dividing lines, SAME face repeated in ALL 4 panels but each with DIFFERENT bold pop color scheme, EXTREME HIGH CONTRAST with shadows as SOLID BLACK, FLAT colors with ZERO gradients NO shading, silkscreen printing effect, colors: hot pink/magenta + cyan/electric blue + yellow/orange + lime green, celebrity portrait pop art commercial aesthetic, CRITICAL: 4 separate panels required NOT a single image';
             controlStrength = 0.50;
-            console.log('✅ Enhanced Warhol with clear grid (control_strength 0.50 for stable structure)');
+            console.log('✅ Enhanced Warhol with 4-panel grid REQUIRED (control_strength 0.50)');
           } else {
             console.log('ℹ️ Warhol silkscreen already in prompt (AI included it)');
           }

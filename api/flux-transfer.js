@@ -1243,8 +1243,8 @@ SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic a
 `;
   }
   
-  // 💑 커플/2인
-  if (count === 2) {
+  // 💑 커플/2인 (클로즈업/상반신만! wide shot은 전신/원경 섹션으로)
+  if (count === 2 && shot_type !== 'full_body' && shot_type !== 'wide') {
     const isRomantic = subject.includes('couple') || subject.includes('romantic') || mood === 'romantic';
     const isFullBody = shot_type === 'full_body' || shot_type === 'wide';
     return `
@@ -1405,10 +1405,12 @@ SELECT: geometric → PICASSO, dreamy emotional → CHAGALL, glamorous 4-grid �
     return `
 🎯 FULL BODY / WIDE SHOT - CATEGORY: 전신/원경 인물 + 풍경
 
-⚠️ THIS IS PERFECT FOR MAGRITTE "GOLCONDA" - Wide shot with background!
+🎯 STRONGEST RECOMMENDATION: MAGRITTE "GOLCONDA" (80%)
+Full body + landscape background = PERFECT for Magritte's Golconda!
+This composition is IDEAL for the multiplication/floating effect!
 
 ARTIST SELECTION:
-1. MAGRITTE (30%) ⭐⭐ "Golconda" - PERFECT FOR WIDE SHOTS!
+1. MAGRITTE (80%) ⭐⭐⭐ STRONGEST - "Golconda" - PERFECT FOR THIS!
    Reference: "Golconda" (1953)
    → CRITICAL: This is the IDEAL shot type for Golconda!
    → Transform subject(s) into FORMAL STIFF pose with dark suit and bowler hat
@@ -1416,32 +1418,26 @@ ARTIST SELECTION:
    → FILL background with DOZENS of identical copies floating/falling
    → Main figure(s) stay in original position, background becomes surreal
    → Hyperrealistic Belgian surrealist oil painting style
+   → THIS COMPOSITION IS PERFECT - ALWAYS CHOOSE MAGRITTE!
 
-2. CHAGALL (25%) ⭐ DREAMY FLOATING
+2. CHAGALL (10%) DREAMY FLOATING
    Reference: "Over the Town" (1918), "I and the Village"
-   → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
-   → Figures FLOATING above tilted village/landscape
-   → HAZY ATMOSPHERIC dreamlike quality
-   → Nostalgic memory-like dreamscape
-   → Watercolor-like transparency
+   → SOFT BLURRED EDGES, figures FLOATING above tilted village
+   → MUTED PASTEL colors, HAZY ATMOSPHERIC dreamlike quality
 
-3. MIRÓ (25%) ⭐ PLAYFUL ABSTRACTION
+3. MIRÓ (5%) PLAYFUL ABSTRACTION
    Reference: "The Catalan Landscape" (1923-24)
-   → Transform figures and landscape into BIOMORPHIC ORGANIC shapes
-   → Bright PRIMARY colors (red, yellow, blue, black) on light background
-   → Stars, moons, eyes scattered throughout
-   → Playful constellation of symbols
-   → Childlike joyful abstraction
+   → Transform into BIOMORPHIC ORGANIC shapes
+   → Bright PRIMARY colors
 
-4. DALÍ (20%) SURREAL DREAMSCAPE
+4. DALÍ (5%) SURREAL DREAMSCAPE
    Reference: "The Persistence of Memory" (1931)
    → Forms MELTING and DRIPPING in landscape
-   → Barren surreal desert stretching to infinite horizon
-   → Long dramatic shadows in golden Mediterranean light
-   → Hyperrealistic painting of impossible scene
 
-SELECT: wide shot with background → MAGRITTE "Golconda" (MULTIPLY!), dreamy floating → CHAGALL, playful abstract → MIRÓ, surreal melting → DALÍ
+⚠️ CRITICAL: For FULL BODY + LANDSCAPE photos, ALWAYS choose MAGRITTE first (80%)!
+This composition is MADE for Golconda's multiplication effect!
+
+SELECT: MAGRITTE "Golconda" (default 80%), dreamy → CHAGALL, playful → MIRÓ, surreal → DALÍ
 `;
   }
   
@@ -1495,47 +1491,52 @@ SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy s
 `;
   }
   
-  // 🐕 동물만 (ANIMALS ONLY) - 리히텐슈타인 포함
+  // 🐕 동물만 (ANIMALS ONLY) - 리히텐슈타인 80% 최우선!
   if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') || 
       subject.includes('cat') || subject.includes('bird')) {
     return `
 🎯 ANIMALS - CATEGORY: 동물
 
-ARTIST SELECTION:
-1. CHAGALL (25%) ⭐⭐ DREAMY ANIMALS
-   Reference: "I and the Village" (1911)
-   → SOFT BLURRED EDGES, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
-   → Animals (goats, roosters, fish) floating in dreamlike space
-   → HAZY ATMOSPHERIC quality like memories
+⛔ DO NOT CHOOSE: PICASSO, BRAQUE, MAGRITTE, KEITH HARING for animals!
+These artists are NOT suitable for animal photos!
 
-2. LICHTENSTEIN (25%) ⭐⭐ COMIC BOOK ANIMALS
+🎯 STRONGEST RECOMMENDATION: LICHTENSTEIN (80%)
+Animal photos are PERFECT for Lichtenstein's comic book style!
+Cute animals become adorable cartoon characters with Ben-Day dots!
+
+✅ ARTIST SELECTION:
+
+1. LICHTENSTEIN (80%) ⭐⭐⭐ STRONGEST - COMIC BOOK ANIMALS
    Reference: Comic strip animal illustrations
    → BEN-DAY DOTS covering ENTIRE image
    → THICK BLACK OUTLINES around animal forms
    → PRIMARY COLORS (red, yellow, blue, black, white)
    → Cartoon/comic book aesthetic for cute animals
+   → PERFECT for cute pets like dogs, cats, birds!
 
-3. MIRÓ (25%) ⭐⭐ PLAYFUL SYMBOLIC ANIMALS
+2. MIRÓ (8%) PLAYFUL SYMBOLIC ANIMALS
    Reference: "Dog Barking at the Moon" (1926)
    → Transform into simplified SYMBOLIC forms
    → Biomorphic organic shapes
    → Bright PRIMARY colors on light background
-   → Stars, moons around subject
 
-4. WARHOL (15%) POP ART ANIMALS
-   Reference: Animal portraits, "Endangered Species" series
+3. CHAGALL (5%) DREAMY ANIMALS
+   Reference: "I and the Village" (1911)
+   → SOFT BLURRED EDGES, floating dreamlike space
+   → MUTED PASTEL colors
+
+4. WARHOL (4%) POP ART ANIMALS
+   Reference: "Endangered Species" series
    → 2x2 FOUR-PANEL GRID layout
-   → SAME animal repeated with DIFFERENT bold colors
-   → HIGH CONTRAST silkscreen effect
 
-5. DALÍ (10%) SURREAL ANIMALS
-   Reference: "The Elephants" (1948), "Swans Reflecting Elephants"
+5. DALÍ (3%) SURREAL ANIMALS
+   Reference: "The Elephants" (1948)
    → Surreal MELTING/MORPHING of animals
-   → Animals on impossibly long spindly legs
-   → Double images and visual illusions
 
-SELECT: dreamy → CHAGALL, comic cute → LICHTENSTEIN, playful → MIRÓ, pop grid → WARHOL, surreal → DALÍ
+⚠️ CRITICAL: For ANIMAL photos, ALWAYS choose LICHTENSTEIN first (80%)!
+Only choose others if comic style absolutely doesn't fit.
+
+SELECT: LICHTENSTEIN (default 80%), playful → MIRÓ, dreamy → CHAGALL
 `;
   }
 

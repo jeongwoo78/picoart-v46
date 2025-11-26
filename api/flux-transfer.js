@@ -1576,10 +1576,6 @@ ARTIST SELECTION:
 
 SELECT: dreamy soft → CHAGALL, surreal → DALÍ, playful → MIRÓ, pop grid → WARHOL
 `;
-   → Flat graphic graffiti style
-
-SELECT: dreamy soft → CHAGALL, surreal morphing → DALÍ, pop 4-grid → WARHOL, playful symbolic → MIRÓ, graphic bold → KEITH HARING
-`;
   }
   
   // 🍎 정물/오브젝트 (인공물, 제품)

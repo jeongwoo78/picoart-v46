@@ -62,13 +62,18 @@
 //      → 팝아트: 리히텐슈타인(15%), 워홀(10%), 키스해링(5%)
 //      ⛔ 제외: 만 레이(사진작가), 프리다(마스터 전용)
 //
-// 거장 6명 (시간순 + 생사연도):
-//   1. 반 고흐 (1853-1890, 후기인상주의)
-//   2. 클림트 (1862-1918, 아르누보)
-//   3. 뭉크 (1863-1944, 표현주의)
-//   4. 마티스 (1869-1954, 야수파)
-//   5. 피카소 (1881-1973, 입체주의)
-//   6. 달리 (1904-1989, 초현실주의)
+// 거장 11명 (시간순 + 생사연도):
+//   1. 모네 (1840-1926, 인상주의)
+//   2. 반 고흐 (1853-1890, 후기인상주의)
+//   3. 클림트 (1862-1918, 아르누보)
+//   4. 뭉크 (1863-1944, 표현주의)
+//   5. 마티스 (1869-1954, 야수파)
+//   6. 피카소 (1881-1973, 입체주의)
+//   7. 샤갈 (1887-1985, 초현실주의)
+//   8. 마그리트 (1898-1967, 초현실주의)
+//   9. 달리 (1904-1989, 초현실주의)
+//   10. 프리다 칼로 (1907-1954, 멕시코)
+//   11. 앤디 워홀 (1928-1987, 팝아트)
 
 
 // ========================================
@@ -1139,13 +1144,13 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
    - CRITICAL: Transform into BIOMORPHIC ORGANIC shapes floating in space, bright PRIMARY colors (red, yellow, blue, black), stars/moons/eyes/amoeba-like forms, calligraphic black lines
    - When: Landscape, nature, playful, colorful, abstract, symbolic desired
 
-6. CHAGALL (샤갈) ⭐⭐⭐ STRONG FOR ROMANCE (18%)
+6. CHAGALL (샤갈) ⭐⭐ FOR ROMANCE (18%)
    - Specialty: SOFT DREAMY floating figures, MUTED PASTEL colors, nostalgic memories
-   - Best for: ROMANTIC portraits, couples, lovers, emotional scenes, poetic atmosphere
+   - Best for: Couples embracing/kissing, wedding photos, lovers together
    - Signature: "I and the Village", "Birthday" - floating lovers in soft haze
    - CRITICAL: SOFT BLURRED EDGES, NO harsh outlines, MUTED PASTEL colors (soft blue, dusty violet, faded rose), HAZY ATMOSPHERIC quality, watercolor-like transparency
-   - When: Romantic, dreamy soft, nostalgic mood, couples, emotional portraits - NOT bold colors
-   - ⭐ PREFERRED for: Any photo with romantic/emotional mood, couples, warm atmosphere
+   - When: Couples embracing, wedding/engagement, nostalgic village scene - NOT general portraits
+   - ⚠️ DO NOT choose for: general portraits, single person, action shots, everyday scenes
 
 === POP ART 팝아트 (3명) ===
 7. WARHOL (워홀) ⭐⭐ (10%)
@@ -1174,7 +1179,7 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 🎯 CRITICAL DECISION LOGIC BY PHOTO TYPE:
 - ANIMALS (dog/cat/bird/pet) → LICHTENSTEIN (35%), KEITH HARING (25%), others OK
 - Geometric/analytical/action → PICASSO (19%) - STRONGEST for figures!
-- Romantic/couples/emotional → CHAGALL (18%) - BEST for romance!
+- Couples embracing/kissing/wedding → CHAGALL (18%) - couples ONLY!
 - Multiplication/paradox → MAGRITTE (12%) - ONLY for 1-2 people!
 - Pop portrait → WARHOL (10%) - ONLY for 1-2 people portraits!
 - Comic/action/exaggerated → LICHTENSTEIN (15%) - action & comic only!
@@ -1185,19 +1190,19 @@ Available 20th Century Modernism Artists (8명 across 3 movements):
 
 ⚠️ PORTRAIT PRIORITY (single person):
 1st: PICASSO (19%) - geometric fragmentation
-2nd: CHAGALL (18%) - romantic/emotional mood
+2nd: WARHOL (10%) - pop art grid
 3rd: LICHTENSTEIN (15%) - ONLY if comic style fits
 4th: MAGRITTE (12%) - mysterious/philosophical
 
-⚠️ ROMANTIC/EMOTIONAL SCENES:
-→ ALWAYS prefer CHAGALL for romantic mood, couples, emotional portraits!
+⚠️ COUPLES (embracing/kissing/wedding):
+→ CHAGALL (18%) for couples ONLY, NOT for single portraits!
 
 ⚠️ GROUP PHOTOS (3+ people):
 → PICASSO (50%), KEITH HARING (30%), LICHTENSTEIN (20%) ONLY!
 → DO NOT choose WARHOL or MAGRITTE for group photos!
 
 ⚠️ LANDSCAPES/NATURE:
-→ MIRÓ (40%), CHAGALL (35%), DALÍ (25%)
+→ MIRÓ (45%), DALÍ (30%), CHAGALL (25%)
 
 ⚠️ ANIMALS (dogs, cats, birds, pets):
 → LICHTENSTEIN (35%), KEITH HARING (25%), MIRÓ (15%), CHAGALL (10%), WARHOL (10%), DALÍ (5%)
@@ -1307,7 +1312,7 @@ SELECT: cubist dramatic → PICASSO, dynamic energetic → KEITH HARING, comic a
 🎯 COUPLE PHOTO (2 people) - CATEGORY: 커플/2인
 
 ARTIST SELECTION:
-1. CHAGALL (45%) ⭐⭐⭐ STRONGEST - ESPECIALLY FOR ROMANTIC
+1. CHAGALL (25%) ⭐⭐ BEST FOR COUPLES EMBRACING/KISSING
    Reference: "Birthday" (1915), "Over the Town" (1918)
    → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
    → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink, sage green)
@@ -1315,15 +1320,15 @@ ARTIST SELECTION:
    → Village/town with tilted houses faintly visible in misty background
    → Symbolic animals and flowers floating softly around
    → Watercolor-like transparency and softness
-   ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - STRONGLY RECOMMEND CHAGALL!' : ''}
+   ${isRomantic ? '→ THIS PHOTO LOOKS ROMANTIC - RECOMMEND CHAGALL!' : ''}
 
-2. PICASSO (20%) ⭐⭐ PASSIONATE/DYNAMIC
+2. PICASSO (30%) ⭐⭐⭐ STRONGEST - PASSIONATE/DYNAMIC
    Reference: "The Kiss" (1969)
    → Two faces merged/overlapping into one
    → Geometric fragmentation of intertwined figures
    → Bold colors with emotional intensity
 
-3. MAGRITTE (15%) ⭐ STRICT CONDITIONS!
+3. MAGRITTE (20%) ⭐ STRICT CONDITIONS!
    
    A) "Golconda" (1953) - ${isFullBody ? '⭐ RECOMMENDED!' : 'ONLY IF FULL BODY/WIDE'}
       → CONDITION: Full body or wide shot with visible background
@@ -1336,7 +1341,7 @@ ARTIST SELECTION:
       → ❌ SKIP IF: looking at each other, candid, side profile
       → GREEN APPLE at NOSE LEVEL (eyes & mouth visible)
 
-4. WARHOL (10%)
+4. WARHOL (15%)
    Reference: Pop art silkscreen style
    → Couple repeated in 4-grid with different colors
 
@@ -1346,7 +1351,7 @@ ARTIST SELECTION:
    → Romantic comic book aesthetic
    → ⛔ NOT default - only if comic romance style desired!
 
-SELECT: Romantic → CHAGALL (STRONGEST!), Passionate → PICASSO, Full body → MAGRITTE Golconda, pop → WARHOL, comic → LICHTENSTEIN
+SELECT: embracing/kissing → CHAGALL, Passionate → PICASSO, Full body → MAGRITTE Golconda, pop → WARHOL, comic → LICHTENSTEIN
 `;
   }
   
@@ -1415,22 +1420,21 @@ SELECT: geometric → PICASSO, dreamy romantic → CHAGALL, ONLY frontal gaze �
 ⚠️ NOTE: MAGRITTE "Son of Man" is for FEMALE portraits only!
 
 ARTIST SELECTION:
-1. PICASSO (30%) ⭐⭐ STRONGEST - CUBIST FRAGMENTATION
+1. PICASSO (35%) ⭐⭐⭐ STRONGEST - CUBIST FRAGMENTATION
    Reference: "Les Demoiselles d'Avignon" (1907), "Portrait of Ambroise Vollard"
    → FRAGMENT face into angular geometric planes
    → Show PROFILE and FRONT view SIMULTANEOUSLY
    → Bold colors with emotional intensity
    → Multiple viewpoints merged into one
 
-2. CHAGALL (25%) ⭐⭐ BEST FOR EMOTIONAL/DREAMY
+2. CHAGALL (15%) - FOR COUPLES/NOSTALGIC ONLY
    Reference: "Self-Portrait with Seven Fingers" (1913)
    → SOFT BLURRED EDGES with gentle transitions, NO harsh outlines
    → MUTED PASTEL colors (soft blue, dusty violet, faded rose pink)
    → HAZY ATMOSPHERIC dreamlike quality
-   → Village/memory elements faintly visible like dreams
-   → Watercolor-like transparency and softness
+   → ⚠️ ONLY if nostalgic/dreamy mood explicitly needed
 
-3. WARHOL (15%) ⭐ 4-PANEL GRID REQUIRED!
+3. WARHOL (20%) ⭐⭐ 4-PANEL GRID REQUIRED!
    Reference: "Marilyn Monroe" (1962), "Mao" series
    → MUST create 2x2 FOUR-PANEL GRID layout
    → SAME face repeated 4 times with DIFFERENT bold pop colors
@@ -1454,7 +1458,7 @@ ARTIST SELECTION:
    → Surreal distortion with MELTING/MORPHING forms
    → Hyperrealistic PAINTING with impossible anatomy
 
-SELECT: geometric → PICASSO, dreamy emotional → CHAGALL, glamorous 4-grid → WARHOL, mysterious → MAGRITTE, comic style → LICHTENSTEIN, surreal → DALÍ
+SELECT: geometric → PICASSO, pop 4-grid → WARHOL, mysterious → MAGRITTE, comic style → LICHTENSTEIN, surreal → DALÍ, nostalgic → CHAGALL
 `;
   }
   
@@ -1517,7 +1521,7 @@ SELECT: MAGRITTE "Golconda" (default 80%), dreamy → CHAGALL, playful → MIRÓ
 DO NOT choose PICASSO or other portrait artists for pure landscapes!
 
 ARTIST SELECTION:
-1. MIRÓ (35%) ⭐⭐ PLAYFUL ABSTRACT LANDSCAPE
+1. MIRÓ (45%) ⭐⭐⭐ STRONGEST - PLAYFUL ABSTRACT LANDSCAPE
    Reference: "The Catalan Landscape" (1923-24), "Dog Barking at the Moon"
    → Transform into BIOMORPHIC ORGANIC shapes floating in space
    → Bright PRIMARY colors (red, yellow, blue, black) on light background
@@ -1526,16 +1530,7 @@ ARTIST SELECTION:
    → Childlike joyful abstraction
    → Calligraphic black lines connecting elements
 
-2. CHAGALL (35%) ⭐⭐ DREAMY POETIC - SOFT STYLE
-   Reference: "I and the Village" (1911)
-   → SOFT BLURRED EDGES, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
-   → HAZY ATMOSPHERIC quality like looking through gauze
-   → Tilted whimsical houses and village scenes
-   → Nostalgic memory-like dreamscape
-   → Watercolor-like transparency
-
-3. DALÍ (30%) ⭐ SURREAL OIL PAINTING
+2. DALÍ (30%) ⭐⭐ SURREAL OIL PAINTING
    Reference: "The Elephants" (1948), "Burning Giraffe", "Swans Reflecting Elephants"
    → MUST look like FINE OIL PAINTING with visible brushwork and rich oil colors
    → Barren surreal desert stretching to infinite horizon
@@ -1544,9 +1539,17 @@ ARTIST SELECTION:
    → Hyperrealistic PAINTING technique of impossible landscapes
    → ⛔ DO NOT just add melting clocks - focus on surreal transformation of landscape itself
 
+3. CHAGALL (25%) - DREAMY VILLAGE SCENES ONLY
+   Reference: "I and the Village" (1911)
+   → SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
+   → HAZY ATMOSPHERIC quality like looking through gauze
+   → Tilted whimsical houses and village scenes
+   → ⚠️ ONLY if village/nostalgic scene - NOT for general landscapes
+
 NOTE: Magritte NOT recommended for landscapes (better for portraits)
 
-SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy soft nostalgic → CHAGALL
+SELECT: playful abstract colorful → MIRÓ, surreal → DALÍ, village/nostalgic → CHAGALL
 `;
   }
 
@@ -1558,14 +1561,14 @@ SELECT: playful abstract colorful → MIRÓ, surreal melting → DALÍ, dreamy s
 🎯 FLOWERS / FOOD - CATEGORY: 꽃/음식
 
 ARTIST SELECTION:
-1. CHAGALL (25%) ⭐⭐ BEST FOR FLOWERS - DREAMY POETIC
-   Reference: Flower bouquet paintings
-   → SOFT BLURRED EDGES, NO harsh outlines
-   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
-   → Flowers with soft translucent petals
-   → HAZY ATMOSPHERIC quality
+1. MIRÓ (30%) ⭐⭐ STRONGEST - PLAYFUL SYMBOLIC
+   Reference: Abstract floral works
+   → Transform into simplified SYMBOLIC forms
+   → Biomorphic organic shapes
+   → Bright PRIMARY colors on light background
+   → Stars and abstract shapes around subject
 
-2. DALÍ (25%) ⭐ SURREAL OIL PAINTING
+2. DALÍ (25%) ⭐⭐ SURREAL OIL PAINTING
    Reference: "Apparition of Face and Fruit Dish", surreal still life works
    → MUST look like FINE OIL PAINTING with rich colors
    → Surreal MORPHING/ELONGATING forms
@@ -1573,21 +1576,20 @@ ARTIST SELECTION:
    → Desert landscape with long dramatic shadows
    → ⛔ DO NOT just add melting clocks
 
-3. MIRÓ (25%) ⭐ PLAYFUL SYMBOLIC
-   Reference: Abstract floral works
-   → Transform into simplified SYMBOLIC forms
-   → Biomorphic organic shapes
-   → Bright PRIMARY colors on light background
-   → Stars and abstract shapes around subject
-
-4. WARHOL (25%) ⭐ POP ART - GRID REQUIRED!
+3. WARHOL (25%) ⭐⭐ POP ART - GRID REQUIRED!
    Reference: "Flowers" (1964) series
    → MUST create 2x2 FOUR-PANEL GRID layout
    → SAME subject repeated with DIFFERENT bold colors
    → EXTREME HIGH CONTRAST silkscreen effect
    → FLAT colors NO gradients
 
-SELECT: dreamy soft → CHAGALL, surreal → DALÍ, playful → MIRÓ, pop grid → WARHOL
+4. CHAGALL (20%) - BOUQUET/NOSTALGIC ONLY
+   Reference: Flower bouquet paintings
+   → SOFT BLURRED EDGES, NO harsh outlines
+   → MUTED PASTEL colors (soft blue, dusty violet, faded rose)
+   → ⚠️ ONLY for romantic bouquet - NOT for food or general flowers
+
+SELECT: playful → MIRÓ, surreal → DALÍ, pop grid → WARHOL, bouquet → CHAGALL
 `;
   }
   
@@ -1683,7 +1685,8 @@ POP ART (bold/commercial):
 - KEITH HARING (5%): dancing figures, bold outlines, dynamic energy
 
 ⚠️ PRIORITY FOR PORTRAITS:
-1st: PICASSO (geometric) or CHAGALL (romantic/emotional)
+1st: PICASSO (geometric) - DEFAULT for most portraits
+2nd: WARHOL (pop art) or CHAGALL (couples only)
 2nd: MAGRITTE (mysterious) or WARHOL (pop)
 3rd: LICHTENSTEIN only if comic style fits!
 
@@ -1751,49 +1754,86 @@ const fallbackPrompts = {
   },
   
   // ========================================
-  // 거장 6명 (시간순 정렬 + 생사연도 + 사조)
+  // 거장 11명 (시간순 정렬 + 생사연도 + 사조)
+  // ========================================
+  // 원칙: 사용자가 거장 선택 → 어떤 사진이든 그 거장의 화풍으로 변환
   // ========================================
   
-  van_gogh: {
+  monet: {
+    name: '모네',
+    artist: 'Claude Monet (1840-1926)',
+    movement: '인상주의 (Impressionism)',
+    prompt: 'painting by Claude Monet: VISIBLE BROKEN BRUSHSTROKES throughout, SOFT HAZY atmospheric light effects, colors DISSOLVED and BLENDED into each other, NO sharp edges anywhere, dreamy impressionistic blur, dappled sunlight filtering through atmosphere, Water Lilies and Impression Sunrise style, capture fleeting moment of light, NOT photographic preserve subject identity, Monet Impressionist masterpiece quality'
+  },
+  
+  vangogh: {
     name: '반 고흐',
     artist: 'Vincent van Gogh (1853-1890)',
     movement: '후기인상주의 (Post-Impressionism)',
-    prompt: 'painting by Vincent van Gogh, thick expressive swirling brushstrokes, vibrant intense emotional colors, dynamic energetic composition, passionate turbulent style'
+    prompt: 'painting by Vincent van Gogh: THICK SWIRLING IMPASTO brushstrokes visible throughout, VIBRANT INTENSE emotional colors (cobalt blue, chrome yellow, emerald green), dynamic energetic turbulent sky and background, Starry Night style spiraling movement, passionate expressive emotional power, NOT photographic preserve subject identity, Van Gogh masterpiece quality'
   },
   
   klimt: {
     name: '클림트',
     artist: 'Gustav Klimt (1862-1918)',
     movement: '아르누보 (Art Nouveau)',
-    prompt: 'painting by Gustav Klimt, golden ornamental patterns, Byzantine mosaic influence, decorative symbolic style, sensuous flowing forms, jewel-like colors, Art Nouveau elegance'
+    prompt: 'painting by Gustav Klimt Golden Phase: GOLD LEAF decorative patterns throughout background, Byzantine mosaic geometric ornaments, The Kiss style intimate sensuous atmosphere, jewel-like rich colors (gold, bronze, deep reds), flowing organic Art Nouveau lines, symbolic decorative elements, NOT photographic preserve subject identity, Klimt masterpiece quality'
   },
   
   munch: {
     name: '뭉크',
     artist: 'Edvard Munch (1863-1944)',
     movement: '표현주의 (Expressionism)',
-    prompt: 'painting by Edvard Munch, intense emotional psychological depth, symbolic expressive colors, haunting atmospheric mood, existential anxiety visualized'
+    prompt: 'painting by Edvard Munch: INTENSE PSYCHOLOGICAL emotional depth, The Scream style existential anxiety atmosphere, WAVY DISTORTED flowing lines in background, haunting symbolic colors (blood red sky, sickly yellows, deep blues), raw emotional vulnerability exposed, NOT photographic preserve subject identity, Munch Expressionist masterpiece quality'
   },
   
   matisse: {
     name: '마티스',
     artist: 'Henri Matisse (1869-1954)',
     movement: '야수파 (Fauvism)',
-    prompt: 'painting by Henri Matisse peak Fauvist period (1905-1910): PURE BOLD UNMIXED COLORS in flat decorative areas, complete liberation of color from reality, The Dance-like simplified harmonious forms with rhythmic flowing lines, joyful life-affirming energetic atmosphere, decorative patterns, saturated intense primary colors (red blue yellow green) in balanced composition, NOT photographic preserve facial identity, Matisse masterpiece quality'
+    prompt: 'painting by Henri Matisse Fauvist period: PURE BOLD UNMIXED COLORS in flat decorative areas, The Dance style simplified joyful forms, complete liberation of color from reality, saturated intense primary colors (red blue yellow green), rhythmic flowing harmonious lines, life-affirming energetic atmosphere, NOT photographic preserve subject identity, Matisse Fauvist masterpiece quality'
   },
   
   picasso: {
     name: '피카소',
     artist: 'Pablo Picasso (1881-1973)',
     movement: '입체주의 (Cubism)',
-    prompt: 'Cubist painting by Pablo Picasso, geometric fragmented forms, multiple simultaneous perspectives, abstract analytical composition, monochromatic or limited palette'
+    prompt: 'Cubist painting by Pablo Picasso: GEOMETRIC FRAGMENTED forms broken into angular planes, MULTIPLE SIMULTANEOUS PERSPECTIVES showing different angles at once, Les Demoiselles d Avignon style revolutionary deconstruction, monochromatic or limited earth palette, analytical cubist dissection of form, NOT photographic preserve subject identity, Picasso Cubist masterpiece quality'
+  },
+  
+  chagall: {
+    name: '샤갈',
+    artist: 'Marc Chagall (1887-1985)',
+    movement: '초현실주의 (Surrealism)',
+    prompt: 'painting by Marc Chagall: DREAMY FLOATING figures defying gravity, SOFT MUTED PASTEL colors (dusty violet, faded rose, soft blue), I and the Village style nostalgic poetic atmosphere, whimsical romantic dreamscape, village scenes with tilted houses in background, symbolic animals and flowers floating, HAZY WATERCOLOR-LIKE soft edges, NOT photographic preserve subject identity, Chagall masterpiece quality'
+  },
+  
+  magritte: {
+    name: '마그리트',
+    artist: 'René Magritte (1898-1967)',
+    movement: '초현실주의 (Surrealism)',
+    prompt: 'Surrealist painting by René Magritte: PHILOSOPHICAL PARADOX and mystery, Golconda style MULTIPLICATION of figures floating/falling in sky, OR Son of Man style with GREEN APPLE obscuring face, Belgian townscape with cloudy sky background, HYPERREALISTIC precise painting technique with impossible content, bowler hats and suits formal attire, thought-provoking visual puzzle, NOT photographic preserve subject identity, Magritte Surrealist masterpiece quality'
   },
   
   dali: {
     name: '달리',
     artist: 'Salvador Dalí (1904-1989)',
     movement: '초현실주의 (Surrealism)',
-    prompt: 'Surrealist painting by Salvador Dalí classic period (1929-1940s): DREAMLIKE HYPERREALISTIC precision, melting distorted forms like Persistence of Memory clocks, bizarre unexpected juxtapositions, barren desert-like surreal landscapes with infinite perspective, Freudian subconscious symbolism, ants and crutches symbolic elements, long shadows and golden Mediterranean light, NOT photographic preserve facial identity, Dalí signature technical mastery and hallucinatory precision'
+    prompt: 'Surrealist OIL PAINTING by Salvador Dalí: FINE OIL PAINTING texture with visible brushwork and rich colors, The Elephants and Burning Giraffe style ELONGATED DISTORTED impossible anatomy, barren desert landscape stretching to infinite horizon, LONG DRAMATIC SHADOWS in golden Mediterranean light, hyperrealistic painting technique of impossible dreamscape, bizarre surreal transformation of subject, NOT just melting clocks focus on surreal metamorphosis, NOT photographic preserve subject identity, Dalí masterpiece quality'
+  },
+  
+  frida: {
+    name: '프리다 칼로',
+    artist: 'Frida Kahlo (1907-1954)',
+    movement: '멕시코 초현실주의 (Mexican Surrealism)',
+    prompt: 'painting by Frida Kahlo: INTENSE DIRECT GAZE portrait style, vibrant Mexican folk art colors, symbolic personal imagery (flowers, animals, vines, hearts), unibrow and distinctive bold features, emotional raw vulnerability, Tehuana traditional Mexican dress and floral headpiece, lush tropical foliage background, autobiographical symbolic elements, rich saturated colors, NOT photographic, Frida Kahlo masterpiece quality'
+  },
+  
+  warhol: {
+    name: '앤디 워홀',
+    artist: 'Andy Warhol (1928-1987)',
+    movement: '팝아트 (Pop Art)',
+    prompt: 'Pop Art by Andy Warhol: MUST create 2x2 FOUR-PANEL GRID layout, SAME subject repeated 4 times with DIFFERENT BOLD COLOR schemes in each panel, Marilyn Monroe series style HIGH CONTRAST silkscreen effect, FLAT graphic colors (hot pink, cyan, yellow, orange, electric blue), commercial mass-production aesthetic, iconic pop art style, NOT photographic, Warhol Pop Art masterpiece quality'
   },
   
   // ========================================
@@ -1853,28 +1893,121 @@ async function selectArtistWithAI(imageBase64, selectedStyle, timeoutMs = 15000)
     let promptText;
     
     if (categoryType === 'masters') {
-      // 거장: 사진에 가장 잘 맞는 시기/스타일 선택
-      promptText = `Analyze this photo and select the BEST specific period or style from ${categoryName}'s works that matches this photo.
+      // 거장: 대표작 5개 중 사진에 가장 맞는 것 선택
+      const masterId = selectedStyle.id.replace('-master', '');
+      
+      // 거장별 대표작 목록
+      const masterWorksDB = {
+        'monet': `
+CLAUDE MONET - SELECT ONE:
+1. "Water Lilies" (수련) → flowers, water, garden, pond, nature close-up | Style: SOFT HAZY reflections, BROKEN BRUSHSTROKES, floating lily pads, blue-green-purple
+2. "Impression, Sunrise" (인상, 해돋이) → landscape, sea, harbor, sunrise/sunset | Style: MISTY haze, orange sun on water, loose sketchy strokes
+3. "Woman with a Parasol" (양산을 든 여인) → person outdoors, windy day, figure in nature | Style: BRIGHT DAYLIGHT, flowing dress, dynamic clouds
+4. "Rouen Cathedral" (루앙 대성당) → architecture, building, facade | Style: TEXTURED stone surface, light on architecture, warm golden tones
+5. "Haystacks" (건초더미) → rural landscape, fields, farm | Style: Warm golden light, pastoral atmosphere`,
 
-${categoryName} created works in various periods and styles. Analyze the photo and select which period/style would transform this photo most beautifully.
+        'vangogh': `
+VINCENT VAN GOGH - SELECT ONE:
+1. "The Starry Night" (별이 빛나는 밤) → night scene, sky, landscape, evening | Style: SWIRLING SPIRAL brushstrokes, COBALT BLUE and YELLOW, cypress trees
+2. "Sunflowers" (해바라기) → flowers, still life, bouquet | Style: THICK IMPASTO, CHROME YELLOW dominates, expressive petal strokes
+3. "Bedroom in Arles" (아를의 침실) → interior, room, indoor space | Style: BOLD FLAT colors, tilted perspective, blue walls with yellow furniture
+4. "The Potato Eaters" (감자 먹는 사람들) → group at table, meal scene, dark interior | Style: DARK EARTH TONES, dramatic lamplight, somber mood
+5. "Self-Portrait" (자화상) → single portrait, face, upper body | Style: SWIRLING BACKGROUND, intense gaze, blue-green palette`,
 
-Instructions:
-1. Analyze the photo: subject, mood, colors, composition, lighting, atmosphere
-2. Consider ${categoryName}'s different periods and styles (early works, peak period, different techniques)
-3. Match the photo's characteristics to the MOST SUITABLE period/style from ${categoryName}'s career
-4. Generate a detailed FLUX prompt using that specific period's distinctive characteristics
-5. IMPORTANT: Preserve the original subject - if it's a baby, keep it as a baby; if elderly, keep elderly
+        'klimt': `
+GUSTAV KLIMT - SELECT ONE:
+1. "The Kiss" (키스) → couple, romantic, embracing | Style: GOLD LEAF patterns, geometric robes, floral meadow, Byzantine mosaic
+2. "Portrait of Adele Bloch-Bauer I" (아델레 초상) → woman portrait, elegant female | Style: GOLD BACKGROUND with spirals, ornate dress patterns
+3. "The Tree of Life" (생명의 나무) → tree, nature, landscape | Style: SPIRAL BRANCHES, gold and bronze, decorative swirls
+4. "Danae" (다나에) → reclining figure, intimate portrait | Style: FLOWING RED HAIR, gold shower, curled pose
+5. "Judith I" (유디트) → woman portrait, powerful female | Style: GOLD CHOKER, bare shoulders, fierce expression`,
+
+        'munch': `
+EDVARD MUNCH - SELECT ONE:
+1. "The Scream" (절규) → single figure, emotional, anxious | Style: WAVY DISTORTED lines, BLOOD RED sky, agonized figure, existential terror
+2. "Madonna" (마돈나) → woman portrait, sensual, mysterious | Style: FLOWING DARK HAIR like halo, closed eyes, red lips
+3. "The Sick Child" (병든 아이) → intimate portrait, emotional, tender | Style: PALE sickly colors, scratched texture, melancholic
+4. "The Dance of Life" (생의 춤) → group, couples dancing, celebration | Style: Contrasting figures (white/black/red), moonlit beach
+5. "Puberty" (사춘기) → young person, vulnerable, seated | Style: ANXIOUS SHADOW looming, stark bedroom, psychological tension`,
+
+        'matisse': `
+HENRI MATISSE - SELECT ONE:
+1. "The Dance" (댄스) → group, people in motion, dancing | Style: FLAT BOLD colors (red figures, blue sky, green ground), rhythmic circular
+2. "The Red Room" (붉은 방) → interior, room, dining | Style: DOMINANT RED with blue patterns, flat decorative surface
+3. "Woman with a Hat" (모자를 쓴 여인) → woman portrait, colorful | Style: WILD FAUVE colors on face (green, purple, red), bold brushwork
+4. "Goldfish" (금붕어) → fish, pets, aquarium, still life | Style: ORANGE fish in round bowl, green plants, decorative
+5. "The Snail" (달팽이) → abstract, colorful, decorative | Style: CUT-OUT PAPER shapes, pure bright colors in spiral`,
+
+        'picasso': `
+PABLO PICASSO - SELECT ONE:
+1. "Les Demoiselles d'Avignon" (아비뇽의 처녀들) → group of figures, women | Style: ANGULAR FRAGMENTED faces, African mask influence, geometric planes
+2. "Guernica" (게르니카) → dramatic scene, chaos, large group | Style: BLACK WHITE GREY only, anguished figures, fragmented bodies
+3. "Weeping Woman" (우는 여인) → emotional portrait, woman | Style: SHARP ANGULAR tears, fractured face, yellow-green-purple
+4. "Guitar" (기타) → still life, object, instrument | Style: COLLAGE-LIKE planes, brown/beige cubist fragmentation
+5. "Bull's Head" (황소 머리) → animal, simple subject | Style: FOUND OBJECT aesthetic, simplified bold form`,
+
+        'chagall': `
+MARC CHAGALL - SELECT ONE:
+1. "I and the Village" (나와 마을) → landscape with animals, rural scene | Style: OVERLAPPING DREAMLIKE images, tilted houses, SOFT COLORS
+2. "Birthday" (생일) → couple, romantic, floating lovers | Style: FLOATING FIGURES defying gravity, kiss in mid-air, MUTED PASTELS
+3. "The Fiddler" (바이올린 연주자) → single person, musician | Style: Figure on rooftops, village below, purple-green palette
+4. "Over the Town" (마을 위에서) → couple, landscape, romantic | Style: TWO LOVERS FLYING over village, tilted houses, dreamy blue
+5. "Blue Circus" (푸른 서커스) → animals, circus, fantastical | Style: BLUE DOMINANT, floating acrobats and animals`,
+
+        'magritte': `
+RENE MAGRITTE - SELECT ONE:
+1. "Golconda" (골콩드) → full body outdoors, multiple people, sky | Style: IDENTICAL MEN IN BOWLER HATS floating like rain, Belgian townscape
+2. "The Son of Man" (사람의 아들) → portrait facing camera, formal | Style: GREEN APPLE obscuring face at nose level, bowler hat, suit
+3. "The Lovers" (연인들) → couple, kiss, romantic pair | Style: WHITE CLOTH covering both faces, kiss through fabric
+4. "The Treachery of Images" (이미지의 배반) → single object, still life | Style: HYPERREALISTIC object, plain background, philosophical
+5. "The Castle of the Pyrenees" (피레네의 성) → landscape, dramatic sky | Style: GIANT BOULDER floating over sea, castle on top`,
+
+        'dali': `
+SALVADOR DALI - SELECT ONE:
+1. "The Persistence of Memory" (기억의 지속) → landscape, still life, dreamscape | Style: MELTING CLOCKS, barren desert, dramatic shadows, hyperrealistic
+2. "The Elephants" (코끼리) → animals, surreal scene, landscape | Style: IMPOSSIBLY LONG SPINDLY LEGS, elephants carrying obelisks, elongated shadows
+3. "The Burning Giraffe" (불타는 기린) → figure with landscape, surreal | Style: DRAWERS in body, burning giraffe background, crutches
+4. "Swans Reflecting Elephants" (백조가 코끼리에 반영) → water, reflection, animals | Style: DOUBLE IMAGE optical illusion, lake landscape
+5. "Portrait of Gala" (갈라의 초상) → woman portrait | Style: HYPERREALISTIC face with surreal elements, Mediterranean light`,
+
+        'frida': `
+FRIDA KAHLO - SELECT ONE:
+1. "The Two Fridas" (두 명의 프리다) → dual/mirror image, doubled figure | Style: TWO IDENTICAL FIGURES, exposed hearts connected, stormy sky
+2. "The Broken Column" (부러진 기둥) → single figure, frontal pose | Style: Cracked torso with IONIC COLUMN spine, nails in skin, tears
+3. "Self-Portrait with Thorn Necklace" (가시 목걸이 자화상) → portrait with animal | Style: THORNS with hummingbird, monkey, jungle foliage
+4. "Self-Portrait with Monkeys" (원숭이와 자화상) → person with pets/animals | Style: MONKEYS EMBRACING, lush green leaves, direct gaze
+5. "Diego and I" (디에고와 나) → emotional portrait | Style: Third eye on forehead, flowing hair wrapping neck, tears`,
+
+        'warhol': `
+ANDY WARHOL - SELECT ONE:
+1. "Marilyn Monroe" (마릴린 먼로) → woman portrait, glamorous | Style: 2x2 FOUR-PANEL GRID, DIFFERENT BOLD COLORS each panel, silkscreen
+2. "Campbell's Soup Cans" (캠벨 수프 캔) → product, packaged food, object | Style: REPEATED IDENTICAL objects in grid, clean graphic
+3. "Banana" (바나나) → fruit, simple object, food | Style: SINGLE BOLD OBJECT, yellow with spots, graphic pop
+4. "Endangered Species" (멸종 위기 종) → animal portrait, pet face | Style: BOLD POP COLORS, high contrast, 4-panel variations
+5. "Elvis" (엘비스) → man portrait, action pose | Style: REPEATED FIGURE in silver/black, silkscreen multiplied`
+      };
+
+      const masterWorks = masterWorksDB[masterId] || '';
+      
+      promptText = `You are selecting the BEST masterwork from ${categoryName}'s collection for this photo.
+
+AVAILABLE MASTERWORKS:
+${masterWorks}
+
+INSTRUCTIONS:
+1. Analyze the photo: subject type (person/landscape/animal/object), mood, composition
+2. Match to the MOST SUITABLE masterwork from the list above
+3. Generate a FLUX prompt using that specific masterwork's style
+4. IMPORTANT: Preserve the original subject - if it's a baby, keep it as a baby; if elderly, keep elderly
 
 Return ONLY valid JSON (no markdown):
 {
-  "analysis": "brief photo analysis (mood, colors, subject)",
+  "analysis": "brief photo analysis",
   "selected_artist": "${categoryName}",
-  "selected_period": "specific period or style name (e.g. Blue Period, Arles Period, Golden Period)",
-  "reason": "why THIS specific period of ${categoryName} matches this photo perfectly",
-  "prompt": "painting by ${categoryName} in [specific period], [that period's distinctive techniques and colors], depicting the subject while preserving original features and age"
-}
-
-Keep it concise and accurate.`;
+  "selected_work": "exact title of the masterwork you selected",
+  "reason": "why this masterwork matches this photo",
+  "prompt": "painting by ${categoryName} in the style of [selected work title], [that work's distinctive techniques], depicting the subject while preserving original features"
+}`;
       
     } else if (categoryType === 'oriental') {
       // 동양화: 한국/중국/일본 스타일 선택 (기존 로직 유지)
@@ -2826,6 +2959,67 @@ export default async function handler(req, res) {
           }
         }
         
+        // 모네 선택시 인상주의 강화 (거장)
+        if (selectedArtist.toUpperCase().trim().includes('MONET') || 
+            selectedArtist.toUpperCase().trim().includes('CLAUDE')) {
+          console.log('🎯 Monet detected');
+          if (!finalPrompt.includes('Water Lilies') && !finalPrompt.includes('Impressionist')) {
+            finalPrompt = finalPrompt + ', painting by Claude Monet, IMPRESSIONIST style with VISIBLE BROKEN BRUSHSTROKES throughout entire composition, SOFT HAZY atmospheric effects like morning mist or fog, colors DISSOLVED and BLENDED into each other with NO sharp edges anywhere, capture fleeting moment of LIGHT and ATMOSPHERE, dappled sunlight filtering through air, Water Lilies and Impression Sunrise style dreamy blur, everything slightly out of focus and impressionistic, luminous color harmonies of blues purples pinks greens';
+            console.log('✅ Enhanced Monet Impressionist brushstrokes added');
+          } else {
+            console.log('ℹ️ Monet Impressionism already in prompt (AI included it)');
+          }
+        }
+        
+        // 샤갈 선택시 몽환적 부유 강화 (거장)
+        if (selectedArtist.toUpperCase().trim().includes('CHAGALL') || 
+            selectedArtist.toUpperCase().trim().includes('MARC')) {
+          console.log('🎯 Chagall detected');
+          if (!finalPrompt.includes('floating') && !finalPrompt.includes('FLOATING')) {
+            finalPrompt = finalPrompt + ', painting by Marc Chagall, DREAMY FLOATING figures defying gravity, SOFT BLURRED EDGES with gentle transitions NO harsh outlines, MUTED PASTEL colors (dusty violet, faded rose pink, soft blue, sage green), I and the Village style OVERLAPPING DREAMLIKE images, whimsical tilted houses of Vitebsk village in background, symbolic animals and flowers floating softly, HAZY ATMOSPHERIC quality like looking through gauze, nostalgic poetic dreamscape, WATERCOLOR-LIKE transparency and softness';
+            controlStrength = 0.40;
+            console.log('✅ Enhanced Chagall with SOFT dreamy atmosphere (control_strength 0.40 for softer effect)');
+          } else {
+            console.log('ℹ️ Chagall dreaminess already in prompt (AI included it)');
+          }
+        }
+        
+        // 마그리트 선택시 초현실 역설 강화 (거장)
+        if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
+            selectedArtist.toUpperCase().trim().includes('RENE')) {
+          console.log('🎯 Magritte detected');
+          if (!finalPrompt.includes('Golconda') && !finalPrompt.includes('bowler hat')) {
+            finalPrompt = finalPrompt + ', Surrealist painting by René Magritte, HYPERREALISTIC precise painting technique with IMPOSSIBLE surreal content, Belgian townscape with cloudy sky background, philosophical PARADOX and visual mystery, Golconda style if full body (identical figures floating like rain), Son of Man style if portrait (GREEN APPLE obscuring face at nose level), figures in formal suits and BOWLER HATS, thought-provoking visual puzzle, everyday objects in extraordinary contexts';
+            console.log('✅ Enhanced Magritte surrealist paradox added');
+          } else {
+            console.log('ℹ️ Magritte surrealism already in prompt (AI included it)');
+          }
+        }
+        
+        // 프리다 칼로 선택시 멕시코 상징 강화 (거장)
+        if (selectedArtist.toUpperCase().trim().includes('FRIDA') || 
+            selectedArtist.toUpperCase().trim().includes('KAHLO')) {
+          console.log('🎯 Frida Kahlo detected');
+          if (!finalPrompt.includes('Frida') && !finalPrompt.includes('unibrow')) {
+            finalPrompt = finalPrompt + ', painting by Frida Kahlo, INTENSE DIRECT GAZE portrait style, vibrant MEXICAN FOLK ART colors (bright red, yellow, green, blue), symbolic personal imagery with THORNS, FLOWERS, ANIMALS (monkeys, hummingbirds, black cats), distinctive UNIBROW and bold features, Tehuana traditional Mexican dress with floral headpiece, lush tropical JUNGLE FOLIAGE background, autobiographical symbolic elements, exposed HEARTS or VEINS if emotional, raw vulnerability and strength';
+            console.log('✅ Enhanced Frida Kahlo Mexican symbolism added');
+          } else {
+            console.log('ℹ️ Frida Kahlo style already in prompt (AI included it)');
+          }
+        }
+        
+        // 워홀 선택시 팝아트 그리드 강화 (거장)
+        if (selectedArtist.toUpperCase().trim().includes('WARHOL') || 
+            selectedArtist.toUpperCase().trim().includes('ANDY')) {
+          console.log('🎯 Warhol detected');
+          if (!finalPrompt.includes('GRID') && !finalPrompt.includes('grid') && !finalPrompt.includes('silkscreen')) {
+            finalPrompt = finalPrompt + ', Pop Art by Andy Warhol, MUST create 2x2 FOUR-PANEL GRID layout with SAME subject repeated 4 times, each panel with DIFFERENT BOLD COLOR schemes (hot pink, cyan, yellow, orange, electric blue, lime green), Marilyn Monroe series style HIGH CONTRAST silkscreen effect, FLAT graphic colors with NO gradients, commercial mass-production aesthetic, celebrity portrait iconic style';
+            console.log('✅ Enhanced Warhol 4-panel grid added');
+          } else {
+            console.log('ℹ️ Warhol grid already in prompt (AI included it)');
+          }
+        }
+        
         // 피카소 선택시 입체주의 강화 (거장 - 선택적)
         if (selectedArtist.toUpperCase().trim().includes('PICASSO') || 
             selectedArtist.toUpperCase().trim().includes('PABLO')) {
@@ -2995,9 +3189,6 @@ export default async function handler(req, res) {
         
         if (selectedStyle.category === 'masters') {
           fallbackKey = selectedStyle.id.replace('-master', '');
-          if (fallbackKey === 'vangogh') {
-            fallbackKey = 'van_gogh';
-          }
         } else if (selectedStyle.category === 'oriental') {
           fallbackKey = selectedStyle.id;
         }
@@ -3032,9 +3223,6 @@ export default async function handler(req, res) {
       
       if (selectedStyle.category === 'masters') {
         fallbackKey = selectedStyle.id.replace('-master', '');
-        if (fallbackKey === 'vangogh') {
-          fallbackKey = 'van_gogh';
-        }
       } else if (selectedStyle.category === 'oriental') {
         fallbackKey = selectedStyle.id;
       }

@@ -43,13 +43,18 @@ const StyleSelection = ({ onSelect }) => {
     { id: 'expressionism', name: '표현주의', category: 'expressionism', icon: '😱', description: '내면의 불안과 고독' },
     { id: 'modernism', name: '20세기 모더니즘', category: 'modernism', icon: '🔮', description: '입체·초현실·팝아트' },
     
-    // 거장 6명 (시간순: 출생연도)
+    // 거장 11명 (시간순: 출생연도)
+    { id: 'monet-master', name: '클로드 모네', nameEn: 'Claude Monet', category: 'masters', icon: '🌊', description: '1840-1926 | 인상주의' },
     { id: 'vangogh-master', name: '빈센트 반 고흐', nameEn: 'Vincent van Gogh', category: 'masters', icon: '🌻', description: '1853-1890 | 후기인상주의' },
     { id: 'klimt-master', name: '구스타프 클림트', nameEn: 'Gustav Klimt', category: 'masters', icon: '✨', description: '1862-1918 | 아르누보' },
     { id: 'munch-master', name: '에드바르 뭉크', nameEn: 'Edvard Munch', category: 'masters', icon: '😱', description: '1863-1944 | 표현주의' },
     { id: 'matisse-master', name: '앙리 마티스', nameEn: 'Henri Matisse', category: 'masters', icon: '🎭', description: '1869-1954 | 야수파' },
     { id: 'picasso-master', name: '파블로 피카소', nameEn: 'Pablo Picasso', category: 'masters', icon: '🎨', description: '1881-1973 | 입체주의' },
+    { id: 'chagall-master', name: '마르크 샤갈', nameEn: 'Marc Chagall', category: 'masters', icon: '💑', description: '1887-1985 | 초현실주의' },
+    { id: 'magritte-master', name: '르네 마그리트', nameEn: 'René Magritte', category: 'masters', icon: '🎩', description: '1898-1967 | 초현실주의' },
     { id: 'dali-master', name: '살바도르 달리', nameEn: 'Salvador Dalí', category: 'masters', icon: '⏰', description: '1904-1989 | 초현실주의' },
+    { id: 'frida-master', name: '프리다 칼로', nameEn: 'Frida Kahlo', category: 'masters', icon: '🌺', description: '1907-1954 | 멕시코' },
+    { id: 'warhol-master', name: '앤디 워홀', nameEn: 'Andy Warhol', category: 'masters', icon: '🥫', description: '1928-1987 | 팝아트' },
     
     // 동양화
     { id: 'korean', name: '한국 전통 회화', nameEn: 'Korean Art', category: 'oriental', icon: '🎎', description: '여백의 미와 절제미' },

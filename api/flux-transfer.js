@@ -865,36 +865,35 @@ Available Post-Impressionism Artists (4명):
    - Signature: Still Life with Apples, Mont Sainte-Victoire - geometric analysis
    - When to prioritize: Still life, structured scenes (20%)
 
-4. SIGNAC (시냐크) ⭐⭐⭐ (25%)
-   - Specialty: LARGE BOLD POINTILLISM - biggest dots of all pointillists!
-   - Best for: BEACHES, harbors, seascapes, bright portraits, Mediterranean scenes
-   - Signature: "The Lighthouse at Saint-Tropez" (생트로페의 등대), "Antibes, Pink Clouds", "The Beach at Saint-Briac" - HUGE VISIBLE COLOR DOTS (5-10mm)
-   - When to prioritize: Beach photos, seaside, bright colorful scenes (25%)
-   - CRITICAL: Use LARGEST dots for everything - Like colorful mosaic tiles!
+4. HENRI ROUSSEAU (앙리 루소) ⭐⭐⭐ (25%)
+   - Specialty: NAIVE ART - Jungle scenes, dreamlike primitive style, bold flat colors
+   - Best for: Animals, nature, portraits with lush background, fantasy scenes
+   - Signature: "The Dream" (꿈), "The Sleeping Gypsy" (잠자는 집시), "Surprised!" (호랑이) - EXOTIC JUNGLE FOLIAGE
+   - When to prioritize: Animals, nature scenes, portraits (25%)
+   - CRITICAL: Lush green jungle leaves, simplified childlike forms, vivid colors!
 
 🎯 CRITICAL DECISION LOGIC - BALANCED DISTRIBUTION:
 - Emotional/dramatic portraits → VAN GOGH (30%)
-- Beach/seaside scenes → SIGNAC (25%) with LARGE DOTS
+- Animals/nature/jungle → HENRI ROUSSEAU (25%) with LUSH FOLIAGE
 - Outdoor people/exotic → GAUGUIN (25%)
 - Still life/structured → CÉZANNE (20%)
-- Bright colorful portraits → SIGNAC (25%)
+- Dreamlike fantasy scenes → HENRI ROUSSEAU (25%)
 `;
 }
 
 function getPostImpressionismHints(photoAnalysis) {
   const { subject, mood, composition, shot_type, location } = photoAnalysis;
   
-  // 해변/바다/밝은 색감 → 시냐크 (25%)
-  if (subject.includes('beach') || subject.includes('sea') || subject.includes('ocean') ||
-      subject.includes('coast') || subject.includes('water') || subject.includes('harbor') ||
-      mood === 'bright' || mood === 'colorful' || subject.includes('sunset')) {
+  // 동물/자연/정글 → 앙리 루소 (25%)
+  if (subject.includes('animal') || subject.includes('pet') || subject.includes('dog') ||
+      subject.includes('cat') || subject.includes('jungle') || subject.includes('forest') ||
+      subject.includes('nature') || subject.includes('wildlife')) {
     return `
-🎯 STRONG RECOMMENDATION: SIGNAC (25%)
-Beach/seaside/bright scene - PERFECT for Signac's LARGE POINTILLISM!
-"Antibes, Pink Clouds", "The Beach at Saint-Briac" style.
-BIG COLORFUL DOTS (5-10mm) - like beach pebbles or mosaic tiles!
-Ideal for: beaches, harbors, seaside portraits, Mediterranean scenes.
-Works for both landscapes AND people at the beach!
+🎯 STRONG RECOMMENDATION: HENRI ROUSSEAU (25%)
+Animals/nature scene - PERFECT for Rousseau's NAIVE ART!
+"The Dream", "Surprised!", "The Sleeping Gypsy" style.
+LUSH JUNGLE FOLIAGE with simplified childlike forms!
+Ideal for: animals, nature, fantasy scenes, dreamlike portraits.
 `;
   }
   
@@ -933,7 +932,7 @@ Van Gogh also available in Masters collection.
   return `
 🎯 BALANCED DISTRIBUTION - Choose based on photo type:
 - Emotional/dramatic portraits → VAN GOGH (30%)
-- Beach/bright scenes → SIGNAC (25%) with LARGE DOTS
+- Animals/nature/jungle → HENRI ROUSSEAU (25%) with LUSH FOLIAGE
 - Outdoor exotic people → GAUGUIN (25%)
 - Still life/structured → CÉZANNE (20%)
 All four artists have distinct equal value!
@@ -1104,26 +1103,24 @@ Strong core of 4 Expressionist masters!
 // 제외: 뒤샹(개념미술), 폴록/로스코(완전추상), 만 레이(사진작가), 프리다 칼로(마스터 전용)
 function getModernismGuidelines() {
   return `
-⚠️ CRITICAL: You MUST select ONLY from the 10 artists listed below!
-DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, Man Ray, etc.)
+⚠️ CRITICAL: You MUST select ONLY from the 8 artists listed below!
+DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, Man Ray, Dalí, Frida Kahlo, etc.)
 
-Available 20th Century Modernism Artists (10명):
+Available 20th Century Modernism Artists (8명):
 
 === CUBISM 입체주의 ===
 1. PICASSO (피카소) - Geometric fragmented forms, multiple perspectives
 2. BRAQUE (브라크) - Subtle tonal Cubism, muted earth colors, collage
 
 === SURREALISM 초현실주의 ===
-3. DALÍ (달리) - Hyperrealistic oil painting of impossible dreams, melting forms
-4. MAGRITTE (마그리트) - Philosophical paradox, multiplication of figures
-5. MIRÓ (미로) - Playful biomorphic forms, childlike symbols, primary colors
-6. CHAGALL (샤갈) - Soft dreamy floating figures, muted pastel colors
-7. FRIDA KAHLO (프리다 칼로) - Intense self-portraits, Mexican folk art, symbolic imagery
+3. MAGRITTE (마그리트) - Philosophical paradox, multiplication of figures
+4. MIRÓ (미로) - Playful biomorphic forms, childlike symbols, primary colors
+5. CHAGALL (샤갈) - Soft dreamy floating figures, muted pastel colors
 
 === POP ART 팝아트 ===
-8. WARHOL (워홀) - Silkscreen 4-panel grid, bold flat colors
-9. LICHTENSTEIN (리히텐슈타인) - Ben-Day dots, comic book style
-10. KEITH HARING (키스 해링) - Bold black outlines, dancing figures
+6. WARHOL (워홀) - Silkscreen 4-panel grid, bold flat colors
+7. LICHTENSTEIN (리히텐슈타인) - Ben-Day dots, comic book style
+8. KEITH HARING (키스 해링) - Bold black outlines, dancing figures
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🚫 NEGATIVE RULES (금지 조건) - MUST FOLLOW!
@@ -1132,7 +1129,6 @@ Available 20th Century Modernism Artists (10명):
 ❌ WARHOL: DO NOT select for 3+ people group photos (4-grid doesn't work)
 ❌ MAGRITTE: DO NOT select for 3+ people group photos (multiplication confusing)
 ❌ CHAGALL: DO NOT select for animal-only photos (romantic/human style)
-❌ FRIDA: DO NOT select for landscape-only photos (portrait/figure style)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ FREE SELECTION - AI chooses best match!
@@ -1145,8 +1141,8 @@ For all other cases, freely choose the artist that BEST matches the photo's:
 
 Trust your artistic judgment! Each artist has unique strengths.
 
-⚠️ FINAL REMINDER: ONLY these 10 artists are valid:
-PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN, KEITH HARING
+⚠️ FINAL REMINDER: ONLY these 8 artists are valid:
+PICASSO, BRAQUE, MAGRITTE, MIRÓ, CHAGALL, WARHOL, LICHTENSTEIN, KEITH HARING
 `;
 }
 
@@ -1179,17 +1175,6 @@ function getModernismHints(photoAnalysis) {
 `;
   }
   
-  // 풍경만 있는 사진 (인물 없음)
-  const isLandscapeOnly = (subject && (subject.includes('landscape') || subject.includes('nature') || 
-                          subject.includes('mountain') || subject.includes('building') ||
-                          subject.includes('city') || subject.includes('architecture'))) && (!count || count === 0);
-  if (isLandscapeOnly) {
-    negativeWarnings += `
-⚠️ LANDSCAPE-ONLY PHOTO DETECTED:
-❌ DO NOT select FRIDA KAHLO (portrait/figure-focused style)
-`;
-  }
-  
   return `
 ${negativeWarnings}
 
@@ -1198,11 +1183,9 @@ ${negativeWarnings}
 Each artist has unique strengths:
 - PICASSO: Geometric fragmentation, multiple viewpoints, cubist deconstruction
 - BRAQUE: Subtle analytical cubism, muted earth tones, collage texture
-- DALÍ: Hyperrealistic surreal oil painting, melting/elongated forms, impossible dreamscapes
 - MAGRITTE: Philosophical paradox, multiplication, apple-over-face mystery
 - MIRÓ: Playful biomorphic shapes, stars/moons, primary colors, childlike joy
 - CHAGALL: Soft dreamy floating figures, muted pastels, romantic nostalgia
-- FRIDA KAHLO: Intense self-portraits, Mexican folk art, symbolic imagery, vibrant colors
 - WARHOL: 4-panel grid, bold flat pop colors, silkscreen repetition
 - LICHTENSTEIN: Ben-Day dots, comic book style, thick black outlines
 - KEITH HARING: Bold black outlines, dancing figures, radiant energy lines
@@ -1336,13 +1319,6 @@ const fallbackPrompts = {
     artist: 'René Magritte (1898-1967)',
     movement: '초현실주의 (Surrealism)',
     prompt: 'Surrealist painting by René Magritte: PHILOSOPHICAL PARADOX and mystery, Golconda style MULTIPLICATION of figures floating/falling in sky, OR Son of Man style with GREEN APPLE obscuring face, Belgian townscape with cloudy sky background, HYPERREALISTIC precise painting technique with impossible content, bowler hats and suits formal attire, thought-provoking visual puzzle, NOT photographic preserve subject identity, Magritte Surrealist masterpiece quality'
-  },
-  
-  dali: {
-    name: '달리',
-    artist: 'Salvador Dalí (1904-1989)',
-    movement: '초현실주의 (Surrealism)',
-    prompt: 'Surrealist OIL PAINTING by Salvador Dalí: FINE OIL PAINTING texture with visible brushwork and rich colors, The Elephants and Burning Giraffe style ELONGATED DISTORTED impossible anatomy, barren desert landscape stretching to infinite horizon, LONG DRAMATIC SHADOWS in golden Mediterranean light, hyperrealistic painting technique of impossible dreamscape, bizarre surreal transformation of subject, NOT just melting clocks focus on surreal metamorphosis, NOT photographic preserve subject identity, Dalí masterpiece quality'
   },
   
   frida: {
@@ -1484,14 +1460,6 @@ RENE MAGRITTE - SELECT ONE:
 3. "Man in a Bowler Hat" (중절모를 쓴 남자) → portrait facing camera, formal | Style: WHITE DOVE bird covering face, bowler hat, suit
 4. "The Human Condition" (인간의 조건) → landscape, window, nature scene | Style: EASEL with canvas showing EXACT same view as window behind it, painting within painting illusion
 5. "The Empire of Light" (빛의 제국) → outdoor scene, house, street | Style: PARADOX of bright DAYTIME sky above NIGHTTIME dark street with lamplight`,
-
-        'dali': `
-SALVADOR DALI - SELECT ONE:
-1. "The Persistence of Memory" (기억의 지속) → landscape, still life, dreamscape | Style: MELTING CLOCKS, barren desert, dramatic shadows, hyperrealistic
-2. "The Elephants" (코끼리) → animals, surreal scene, landscape | Style: IMPOSSIBLY LONG SPINDLY LEGS, elephants carrying obelisks, elongated shadows
-3. "The Burning Giraffe" (불타는 기린) → figure with landscape, surreal | Style: DRAWERS in body, burning giraffe background, crutches
-4. "Swans Reflecting Elephants" (백조가 코끼리에 반영) → water, reflection, animals | Style: DOUBLE IMAGE optical illusion, lake landscape
-5. "Portrait of Gala" (갈라의 초상) → woman portrait | Style: HYPERREALISTIC face with surreal elements, Mediterranean light`,
 
         'frida': `
 FRIDA KAHLO - SELECT ONE:
@@ -2200,14 +2168,18 @@ export default async function handler(req, res) {
           }
         }
         
-        // 시냐크 선택시 점묘법 강화 (쇠라보다 밝고 큰 점)
-        if (selectedArtist.toUpperCase().trim().includes('SIGNAC')) {
-          console.log('🎯 Signac detected');
-          if (!finalPrompt.includes('pointillist technique')) {
-            finalPrompt = finalPrompt + ', painting by Paul Signac, luminous pointillist technique with larger vibrant colored ROUND circular dots NOT mosaic tiles NOT square blocks, Mediterranean bright palette, pure unmixed colors placed side by side, optical color mixing with cheerful luminous effect, larger dot size than Seurat for more accessible style, complementary colors creating brilliant light, divisionist method with joyful brightness';
-            console.log('✅ Enhanced Signac pointillism added (with anti-mosaic)');
+        // 앙리 루소 선택시 나이브 아트/정글 강화
+        if (selectedArtist.toUpperCase().trim().includes('ROUSSEAU') ||
+            selectedArtist.toUpperCase().trim().includes('HENRI') ||
+            selectedArtist.includes('루소') ||
+            selectedArtist.includes('앙리')) {
+          console.log('🎯 Henri Rousseau detected');
+          if (!finalPrompt.includes('jungle') && !finalPrompt.includes('naive')) {
+            finalPrompt = finalPrompt + ', painting by Henri Rousseau, NAIVE ART style with LUSH EXOTIC JUNGLE FOLIAGE filling background, large detailed tropical leaves and plants, simplified childlike forms with bold flat colors, dreamlike primitive atmosphere, The Dream and Surprised! style, vivid greens and rich saturated colors, mysterious enchanted forest feeling, animals and figures in dense vegetation, NOT realistic NOT photographic, Rousseau jungle masterpiece quality';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Henri Rousseau jungle naive art added (control_strength 0.50)');
           } else {
-            console.log('ℹ️ Signac pointillism already in prompt (AI included it)');
+            console.log('ℹ️ Rousseau naive art already in prompt (AI included it)');
           }
         }
         
@@ -2601,24 +2573,6 @@ export default async function handler(req, res) {
             console.log('✅ Enhanced Man Ray solarization added (control_strength 0.60)');
           } else {
             console.log('ℹ️ Man Ray effects already in prompt (AI included it)');
-          }
-        }
-        
-        // 달리 선택시 초현실 녹아내림 강화 (거장 + 모더니즘)
-        if (selectedArtist.toUpperCase().trim().includes('DALÍ') || 
-            selectedArtist.toUpperCase().trim().includes('DALI') ||
-            selectedArtist.toUpperCase().trim().includes('SALVADOR') ||
-            selectedArtist.includes('달리') ||
-            selectedArtist.includes('살바도르')) {
-          console.log('🎯 Dalí detected');
-          if (!finalPrompt.includes('melting') && !finalPrompt.includes('MELTING')) {
-            // 강화 프롬프트를 앞으로 이동 (A 방안)
-            const daliEnhancement = 'CRITICAL SURREAL TRANSFORMATION: ALL solid forms must become SOFT MELTING DRIPPING like liquid wax, clocks and objects DROOPING and SAGGING, hyperrealistic oil painting of IMPOSSIBLE dreamscape, barren desert with dramatic long shadows, EVERYTHING MELTING in heat, ';
-            finalPrompt = daliEnhancement + finalPrompt;
-            controlStrength = 0.10;
-            console.log('✅ Enhanced Dalí with MELTING effect (FRONT position, control_strength 0.10 for maximum transformation)');
-          } else {
-            console.log('ℹ️ Dalí surrealism already in prompt (AI included it)');
           }
         }
         

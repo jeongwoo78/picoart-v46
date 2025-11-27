@@ -868,7 +868,7 @@ Available Post-Impressionism Artists (4명):
 4. SIGNAC (시냐크) ⭐⭐⭐ (25%)
    - Specialty: LARGE BOLD POINTILLISM - biggest dots of all pointillists!
    - Best for: BEACHES, harbors, seascapes, bright portraits, Mediterranean scenes
-   - Signature: "Antibes, Pink Clouds", "The Beach at Saint-Briac" - HUGE VISIBLE COLOR DOTS (5-10mm)
+   - Signature: "The Lighthouse at Saint-Tropez" (생트로페의 등대), "Antibes, Pink Clouds", "The Beach at Saint-Briac" - HUGE VISIBLE COLOR DOTS (5-10mm)
    - When to prioritize: Beach photos, seaside, bright colorful scenes (25%)
    - CRITICAL: Use LARGEST dots for everything - Like colorful mosaic tiles!
 
@@ -1104,10 +1104,10 @@ Strong core of 4 Expressionist masters!
 // 제외: 뒤샹(개념미술), 폴록/로스코(완전추상), 만 레이(사진작가), 프리다 칼로(마스터 전용)
 function getModernismGuidelines() {
   return `
-⚠️ CRITICAL: You MUST select ONLY from the 9 artists listed below!
-DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, Man Ray, Frida Kahlo, etc.)
+⚠️ CRITICAL: You MUST select ONLY from the 10 artists listed below!
+DO NOT select any other artist (like Boccioni, Kandinsky, Mondrian, Man Ray, etc.)
 
-Available 20th Century Modernism Artists (9명):
+Available 20th Century Modernism Artists (10명):
 
 === CUBISM 입체주의 ===
 1. PICASSO (피카소) - Geometric fragmented forms, multiple perspectives
@@ -1118,11 +1118,12 @@ Available 20th Century Modernism Artists (9명):
 4. MAGRITTE (마그리트) - Philosophical paradox, multiplication of figures
 5. MIRÓ (미로) - Playful biomorphic forms, childlike symbols, primary colors
 6. CHAGALL (샤갈) - Soft dreamy floating figures, muted pastel colors
+7. FRIDA KAHLO (프리다 칼로) - Intense self-portraits, Mexican folk art, symbolic imagery
 
 === POP ART 팝아트 ===
-7. WARHOL (워홀) - Silkscreen 4-panel grid, bold flat colors
-8. LICHTENSTEIN (리히텐슈타인) - Ben-Day dots, comic book style
-9. KEITH HARING (키스 해링) - Bold black outlines, dancing figures
+8. WARHOL (워홀) - Silkscreen 4-panel grid, bold flat colors
+9. LICHTENSTEIN (리히텐슈타인) - Ben-Day dots, comic book style
+10. KEITH HARING (키스 해링) - Bold black outlines, dancing figures
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🚫 NEGATIVE RULES (금지 조건) - MUST FOLLOW!
@@ -1131,6 +1132,7 @@ Available 20th Century Modernism Artists (9명):
 ❌ WARHOL: DO NOT select for 3+ people group photos (4-grid doesn't work)
 ❌ MAGRITTE: DO NOT select for 3+ people group photos (multiplication confusing)
 ❌ CHAGALL: DO NOT select for animal-only photos (romantic/human style)
+❌ FRIDA: DO NOT select for landscape-only photos (portrait/figure style)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ FREE SELECTION - AI chooses best match!
@@ -1143,8 +1145,8 @@ For all other cases, freely choose the artist that BEST matches the photo's:
 
 Trust your artistic judgment! Each artist has unique strengths.
 
-⚠️ FINAL REMINDER: ONLY these 9 artists are valid:
-PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, WARHOL, LICHTENSTEIN, KEITH HARING
+⚠️ FINAL REMINDER: ONLY these 10 artists are valid:
+PICASSO, BRAQUE, DALÍ, MAGRITTE, MIRÓ, CHAGALL, FRIDA KAHLO, WARHOL, LICHTENSTEIN, KEITH HARING
 `;
 }
 
@@ -1171,9 +1173,20 @@ function getModernismHints(photoAnalysis) {
                         subject.includes('dog') || subject.includes('cat') || 
                         subject.includes('bird'))) && (!count || count === 0);
   if (isAnimalOnly) {
-    negativeWarnings = `
+    negativeWarnings += `
 ⚠️ ANIMAL-ONLY PHOTO DETECTED:
 ❌ DO NOT select CHAGALL (romantic/human-focused style, not suitable for animals alone)
+`;
+  }
+  
+  // 풍경만 있는 사진 (인물 없음)
+  const isLandscapeOnly = (subject && (subject.includes('landscape') || subject.includes('nature') || 
+                          subject.includes('mountain') || subject.includes('building') ||
+                          subject.includes('city') || subject.includes('architecture'))) && (!count || count === 0);
+  if (isLandscapeOnly) {
+    negativeWarnings += `
+⚠️ LANDSCAPE-ONLY PHOTO DETECTED:
+❌ DO NOT select FRIDA KAHLO (portrait/figure-focused style)
 `;
   }
   
@@ -1189,6 +1202,7 @@ Each artist has unique strengths:
 - MAGRITTE: Philosophical paradox, multiplication, apple-over-face mystery
 - MIRÓ: Playful biomorphic shapes, stars/moons, primary colors, childlike joy
 - CHAGALL: Soft dreamy floating figures, muted pastels, romantic nostalgia
+- FRIDA KAHLO: Intense self-portraits, Mexican folk art, symbolic imagery, vibrant colors
 - WARHOL: 4-panel grid, bold flat pop colors, silkscreen repetition
 - LICHTENSTEIN: Ben-Day dots, comic book style, thick black outlines
 - KEITH HARING: Bold black outlines, dancing figures, radiant energy lines
@@ -1466,10 +1480,10 @@ MARC CHAGALL - SELECT ONE:
         'magritte': `
 RENE MAGRITTE - SELECT ONE:
 1. "Golconda" (골콩드) → full body outdoors, multiple people, sky | Style: IDENTICAL MEN IN BOWLER HATS floating like rain, Belgian townscape
-2. "The Son of Man" (사람의 아들) → portrait facing camera, formal | Style: GREEN APPLE obscuring face at nose level, bowler hat, suit
-3. "The Lovers" (연인들) → couple, kiss, romantic pair | Style: WHITE CLOTH covering both faces, kiss through fabric
-4. "The Treachery of Images" (이미지의 배반) → single object, still life | Style: HYPERREALISTIC object, plain background, philosophical
-5. "The Castle of the Pyrenees" (피레네의 성) → landscape, dramatic sky | Style: GIANT BOULDER floating over sea, castle on top`,
+2. "The Son of Man" (사람의 아들) → portrait facing camera, formal, single person | Style: GREEN APPLE obscuring face at nose level, bowler hat, suit
+3. "Man in a Bowler Hat" (중절모를 쓴 남자) → portrait facing camera, formal | Style: WHITE DOVE bird covering face, bowler hat, suit
+4. "The Human Condition" (인간의 조건) → landscape, window, nature scene | Style: EASEL with canvas showing EXACT same view as window behind it, painting within painting illusion
+5. "The Empire of Light" (빛의 제국) → outdoor scene, house, street | Style: PARADOX of bright DAYTIME sky above NIGHTTIME dark street with lamplight`,
 
         'dali': `
 SALVADOR DALI - SELECT ONE:
@@ -2190,8 +2204,8 @@ export default async function handler(req, res) {
         if (selectedArtist.toUpperCase().trim().includes('SIGNAC')) {
           console.log('🎯 Signac detected');
           if (!finalPrompt.includes('pointillist technique')) {
-            finalPrompt = finalPrompt + ', painting by Paul Signac, luminous pointillist technique with larger vibrant colored dots, Mediterranean bright palette, pure unmixed colors placed side by side, optical color mixing with cheerful luminous effect, larger dot size than Seurat for more accessible style, complementary colors creating brilliant light, divisionist method with joyful brightness';
-            console.log('✅ Enhanced Signac pointillism added');
+            finalPrompt = finalPrompt + ', painting by Paul Signac, luminous pointillist technique with larger vibrant colored ROUND circular dots NOT mosaic tiles NOT square blocks, Mediterranean bright palette, pure unmixed colors placed side by side, optical color mixing with cheerful luminous effect, larger dot size than Seurat for more accessible style, complementary colors creating brilliant light, divisionist method with joyful brightness';
+            console.log('✅ Enhanced Signac pointillism added (with anti-mosaic)');
           } else {
             console.log('ℹ️ Signac pointillism already in prompt (AI included it)');
           }
@@ -2427,9 +2441,9 @@ export default async function handler(req, res) {
             selectedArtist.includes('고흐') ||
             selectedArtist.includes('빈센트')) {
           console.log('🎯 Van Gogh detected');
-          if (!finalPrompt.includes('Starry Night')) {
-            finalPrompt = finalPrompt + ', painting by Vincent van Gogh, Starry Night-style with SWIRLING TURBULENT BRUSHSTROKES creating rhythmic cyclonic movement throughout entire composition, THICK IMPASTO with paint applied in bold visible ridges and sculptural texture, intense vibrant colors with emotional expressiveness and symbolic meaning, cypress trees and wheat fields rendered in passionate energetic strokes, stars and sky exploding with dynamic circular motion, every element alive with pulsating energy and inner spiritual turmoil';
-            console.log('✅ Enhanced Van Gogh swirls added');
+          if (!finalPrompt.includes('SWIRLING') && !finalPrompt.includes('IMPASTO')) {
+            finalPrompt = finalPrompt + ', painting by Vincent van Gogh, SWIRLING TURBULENT BRUSHSTROKES creating rhythmic cyclonic movement throughout entire composition, THICK IMPASTO with paint applied in bold visible ridges and sculptural texture, intense vibrant colors with emotional expressiveness and symbolic meaning, passionate energetic strokes, every element alive with pulsating energy and inner spiritual turmoil';
+            console.log('✅ Enhanced Van Gogh swirls added (no Starry Night reference)');
           } else {
             console.log('ℹ️ Van Gogh swirls already in prompt (AI included it)');
           }
@@ -2485,7 +2499,8 @@ export default async function handler(req, res) {
           console.log('🎯 Monet detected');
           if (!finalPrompt.includes('Water Lilies') && !finalPrompt.includes('Impressionist')) {
             finalPrompt = finalPrompt + ', painting by Claude Monet, IMPRESSIONIST style with VISIBLE BROKEN BRUSHSTROKES throughout entire composition, SOFT HAZY atmospheric effects like morning mist or fog, colors DISSOLVED and BLENDED into each other with NO sharp edges anywhere, capture fleeting moment of LIGHT and ATMOSPHERE, dappled sunlight filtering through air, Water Lilies and Impression Sunrise style dreamy blur, everything slightly out of focus and impressionistic, luminous color harmonies of blues purples pinks greens';
-            console.log('✅ Enhanced Monet Impressionist brushstrokes added');
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Monet Impressionist brushstrokes added (control_strength 0.50 for hazy effect)');
           } else {
             console.log('ℹ️ Monet Impressionism already in prompt (AI included it)');
           }
@@ -2527,8 +2542,11 @@ export default async function handler(req, res) {
             selectedArtist.includes('앤디')) {
           console.log('🎯 Warhol detected');
           if (!finalPrompt.includes('GRID') && !finalPrompt.includes('grid') && !finalPrompt.includes('silkscreen')) {
-            finalPrompt = finalPrompt + ', Pop Art by Andy Warhol, MUST create 2x2 FOUR-PANEL GRID layout with SAME subject repeated 4 times, each panel with DIFFERENT BOLD COLOR schemes (hot pink, cyan, yellow, orange, electric blue, lime green), Marilyn Monroe series style HIGH CONTRAST silkscreen effect, FLAT graphic colors with NO gradients, commercial mass-production aesthetic, celebrity portrait iconic style';
-            console.log('✅ Enhanced Warhol 4-panel grid added');
+            // 강화 프롬프트를 앞으로 이동 (A 방안)
+            const warholEnhancement = 'CRITICAL: DIVIDE canvas into EXACTLY 4 EQUAL QUADRANTS, 2x2 FOUR-PANEL GRID layout, SAME subject repeated 4 times in each quadrant, each panel with DIFFERENT BOLD COLOR scheme (hot pink, cyan, yellow, orange, electric blue, lime green), Marilyn Monroe series style HIGH CONTRAST silkscreen effect, FLAT graphic colors with NO gradients, commercial mass-production aesthetic, NOT single image MUST be 4 separate panels, ';
+            finalPrompt = warholEnhancement + finalPrompt;
+            controlStrength = 0.30;
+            console.log('✅ Enhanced Warhol 4-panel grid added (FRONT position, control_strength 0.30)');
           } else {
             console.log('ℹ️ Warhol grid already in prompt (AI included it)');
           }
@@ -2593,16 +2611,18 @@ export default async function handler(req, res) {
             selectedArtist.includes('달리') ||
             selectedArtist.includes('살바도르')) {
           console.log('🎯 Dalí detected');
-          if (!finalPrompt.includes('melting')) {
-            finalPrompt = finalPrompt + ', Transform like Salvador Dalí "The Persistence of Memory" - CRITICAL SURREAL TRANSFORMATION: ALL solid forms must become SOFT MELTING DRIPPING like liquid wax or soft cheese, clocks and objects DROOPING and SAGGING over edges, hyperrealistic precise oil painting technique but rendering IMPOSSIBLE dreamscape, barren desert landscape stretching to infinite horizon with dramatic long shadows, DISTORT reality completely while keeping photorealistic painting quality, Freudian subconscious symbolism, ants crawling on surfaces, crutches supporting melting forms, Mediterranean golden sunset light, EVERYTHING should look like it is MELTING in heat, NOT realistic photo but hyperreal surreal painting';
-            controlStrength = 0.40;
-            console.log('✅ Enhanced Dalí with MELTING effect (control_strength 0.40 for more transformation)');
+          if (!finalPrompt.includes('melting') && !finalPrompt.includes('MELTING')) {
+            // 강화 프롬프트를 앞으로 이동 (A 방안)
+            const daliEnhancement = 'CRITICAL SURREAL TRANSFORMATION: ALL solid forms must become SOFT MELTING DRIPPING like liquid wax, clocks and objects DROOPING and SAGGING, hyperrealistic oil painting of IMPOSSIBLE dreamscape, barren desert with dramatic long shadows, EVERYTHING MELTING in heat, ';
+            finalPrompt = daliEnhancement + finalPrompt;
+            controlStrength = 0.10;
+            console.log('✅ Enhanced Dalí with MELTING effect (FRONT position, control_strength 0.10 for maximum transformation)');
           } else {
             console.log('ℹ️ Dalí surrealism already in prompt (AI included it)');
           }
         }
         
-        // 마그리트 선택시 - 작품별 분기 (사람의 아들 vs 골콩드) (거장 + 모더니즘)
+        // 마그리트 선택시 - 작품별 분기 (거장 + 모더니즘)
         if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
             selectedArtist.toUpperCase().trim().includes('RENÉ') ||
             selectedArtist.toUpperCase().trim().includes('RENE') ||
@@ -2611,14 +2631,29 @@ export default async function handler(req, res) {
           console.log('🎯 Magritte detected');
           
           // AI가 골콩드를 선택했는지 확인
-          if (finalPrompt.toUpperCase().includes('GOLCONDA') || finalPrompt.toUpperCase().includes('MULTIPLY') || finalPrompt.toUpperCase().includes('REPEAT')) {
+          if (finalPrompt.toUpperCase().includes('GOLCONDA') || finalPrompt.toUpperCase().includes('MULTIPLY') || finalPrompt.toUpperCase().includes('FLOATING') || finalPrompt.toUpperCase().includes('FALLING')) {
             // 골콩드 스타일 - 메인 인물 포멀 변환 + 배경 그림화 + 무한 반복
             finalPrompt = finalPrompt + ', Transform like René Magritte "Golconda" (1953) - CRITICAL: Transform main subject into FORMAL STIFF RIGID pose wearing dark suit with bowler hat, CONVERT original photo background into PAINTED Belgian townscape with buildings and cloudy sky, then FILL this painted background with DOZENS of small identical copies of the same formally-dressed figure floating/falling in RIGID STIFF upright posture like mannequins, hyperrealistic Belgian surrealist oil painting, DO NOT add floating people if close-up portrait, NOT realistic photo';
             controlStrength = 0.60;
             console.log('✅ Enhanced Magritte GOLCONDA style (control_strength 0.60)');
+          } else if (finalPrompt.toUpperCase().includes('DOVE') || finalPrompt.toUpperCase().includes('BIRD') || finalPrompt.includes('비둘기') || finalPrompt.toUpperCase().includes('MAN IN A BOWLER')) {
+            // 중절모를 쓴 남자 스타일 - 비둘기가 얼굴 가림
+            finalPrompt = finalPrompt + ', Transform like René Magritte "Man in a Bowler Hat" (1964) - CRITICAL: place ONE WHITE DOVE bird flying in front of face, dove wings spread covering most of face, subject wearing dark formal suit with BLACK BOWLER HAT, background is overcast cloudy grey sky, hyperrealistic precise Belgian surrealist oil painting style, NOT realistic photo';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte MAN IN BOWLER HAT style - dove covering face (control_strength 0.50)');
+          } else if (finalPrompt.toUpperCase().includes('HUMAN CONDITION') || finalPrompt.toUpperCase().includes('EASEL') || finalPrompt.toUpperCase().includes('CANVAS') || finalPrompt.includes('인간의 조건')) {
+            // 인간의 조건 스타일 - 캔버스가 창문 풍경과 일치
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Human Condition" (1933) - CRITICAL: show EASEL with CANVAS in foreground, the painting on canvas shows EXACT SAME VIEW as the scene behind it creating seamless illusion, window frame or curtains on sides, landscape or scene continues perfectly from canvas to reality, philosophical painting-within-painting illusion, hyperrealistic Belgian surrealist oil painting, NOT realistic photo';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte HUMAN CONDITION style - canvas illusion (control_strength 0.50)');
+          } else if (finalPrompt.toUpperCase().includes('EMPIRE OF LIGHT') || finalPrompt.toUpperCase().includes('DAYTIME SKY') || finalPrompt.toUpperCase().includes('NIGHTTIME STREET') || finalPrompt.includes('빛의 제국')) {
+            // 빛의 제국 스타일 - 낮 하늘 + 밤 거리 역설
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Empire of Light" (1954) - CRITICAL PARADOX: bright BLUE DAYTIME SKY with white fluffy clouds ABOVE, but DARK NIGHTTIME street scene BELOW with glowing yellow lamplight and dark silhouetted trees and buildings, impossible coexistence of day and night in same image, mysterious twilight atmosphere, hyperrealistic Belgian surrealist oil painting, NOT realistic photo';
+            controlStrength = 0.50;
+            console.log('✅ Enhanced Magritte EMPIRE OF LIGHT style - day/night paradox (control_strength 0.50)');
           } else {
             // 사람의 아들 스타일 - 정면 응시 + 정장 + 사과 (코만 가림)
-            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) and "Man in the Bowler Hat" - CRITICAL APPLE PLACEMENT: place ONE small GREEN APPLE floating at NOSE LEVEL, apple size must be SMALL (covers ONLY the nose area about 25-30% of face height), EYES must be CLEARLY VISIBLE above apple, MOUTH and CHIN must be CLEARLY VISIBLE below apple, subject wearing dark formal suit with white collar and BLACK BOWLER HAT, background is overcast cloudy grey sky with stone wall, hyperrealistic precise Belgian surrealist oil painting style, IMPORTANT: apple must NOT cover eyes or mouth - only nose area, NOT realistic photo';
+            finalPrompt = finalPrompt + ', Transform like René Magritte "The Son of Man" (1964) - CRITICAL APPLE PLACEMENT: place ONE small GREEN APPLE floating at NOSE LEVEL, apple size must be SMALL (covers ONLY the nose area about 25-30% of face height), EYES must be CLEARLY VISIBLE above apple, MOUTH and CHIN must be CLEARLY VISIBLE below apple, subject wearing dark formal suit with white collar and BLACK BOWLER HAT, background is overcast cloudy grey sky with stone wall, hyperrealistic precise Belgian surrealist oil painting style, IMPORTANT: apple must NOT cover eyes or mouth - only nose area, NOT realistic photo';
             controlStrength = 0.50;
             console.log('✅ Enhanced Magritte SON OF MAN style - small apple at nose only, eyes and mouth visible (control_strength 0.50)');
           }

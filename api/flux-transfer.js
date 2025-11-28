@@ -2412,8 +2412,8 @@ export default async function handler(req, res) {
           console.log('🎯 Klimt detected');
           if (!finalPrompt.includes('The Kiss')) {
             finalPrompt = finalPrompt + ', painting by Gustav Klimt, The Kiss-style with ELABORATE GOLDEN PATTERNS and Byzantine mosaic decorative elements, flat ornamental backgrounds covered with geometric spirals circles and rectangular motifs in shimmering gold leaf, sensuous organic forms emerging from abstract decorative fields, Art Nouveau flowing curves combined with geometric precision, rich textures of gold silver and precious jewel-like colors, erotic intimate mood within sacred ornamental splendor';
-            controlStrength = 0.60;
-            console.log('✅ Enhanced Klimt golden patterns added (control_strength 0.60)');
+            controlStrength = 0.65;
+            console.log('✅ Enhanced Klimt golden patterns added (control_strength 0.65)');
           } else {
             console.log('ℹ️ Klimt patterns already in prompt (AI included it)');
           }
@@ -2457,8 +2457,7 @@ export default async function handler(req, res) {
           console.log('🎯 Frida Kahlo detected');
           if (!finalPrompt.includes('Frida') && !finalPrompt.includes('unibrow')) {
             finalPrompt = finalPrompt + ', painting by Frida Kahlo, INTENSE DIRECT GAZE portrait style, vibrant MEXICAN FOLK ART colors (bright red, yellow, green, blue), symbolic personal imagery with THORNS, FLOWERS, ANIMALS (monkeys, hummingbirds, black cats), distinctive UNIBROW and bold features, Tehuana traditional Mexican dress with floral headpiece, lush tropical JUNGLE FOLIAGE background, autobiographical symbolic elements, exposed HEARTS or VEINS if emotional, raw vulnerability and strength';
-            controlStrength = 0.55;
-            console.log('✅ Enhanced Frida Kahlo Mexican symbolism added (control_strength 0.55)');
+            console.log('✅ Enhanced Frida Kahlo Mexican symbolism added');
           } else {
             console.log('ℹ️ Frida Kahlo style already in prompt (AI included it)');
           }

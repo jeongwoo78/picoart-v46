@@ -1265,13 +1265,6 @@ const fallbackPrompts = {
   // 원칙: 사용자가 거장 선택 → 어떤 사진이든 그 거장의 화풍으로 변환
   // ========================================
   
-  monet: {
-    name: '모네',
-    artist: 'Claude Monet (1840-1926)',
-    movement: '인상주의 (Impressionism)',
-    prompt: 'painting by Claude Monet: VISIBLE BROKEN BRUSHSTROKES throughout, SOFT HAZY atmospheric light effects, colors DISSOLVED and BLENDED into each other, NO sharp edges anywhere, dreamy impressionistic blur, dappled sunlight filtering through atmosphere, Water Lilies and Impression Sunrise style, capture fleeting moment of light, NOT photographic preserve subject identity, Monet Impressionist masterpiece quality'
-  },
-  
   vangogh: {
     name: '반 고흐',
     artist: 'Vincent van Gogh (1853-1890)',
@@ -1305,20 +1298,6 @@ const fallbackPrompts = {
     artist: 'Pablo Picasso (1881-1973)',
     movement: '입체주의 (Cubism)',
     prompt: 'Cubist painting by Pablo Picasso: GEOMETRIC FRAGMENTED forms broken into angular planes, MULTIPLE SIMULTANEOUS PERSPECTIVES showing different angles at once, Les Demoiselles d Avignon style revolutionary deconstruction, monochromatic or limited earth palette, analytical cubist dissection of form, NOT photographic preserve subject identity, Picasso Cubist masterpiece quality'
-  },
-  
-  chagall: {
-    name: '샤갈',
-    artist: 'Marc Chagall (1887-1985)',
-    movement: '초현실주의 (Surrealism)',
-    prompt: 'painting by Marc Chagall: DREAMY FLOATING figures defying gravity, SOFT MUTED PASTEL colors (dusty violet, faded rose, soft blue), I and the Village style nostalgic poetic atmosphere, whimsical romantic dreamscape, village scenes with tilted houses in background, symbolic animals and flowers floating, HAZY WATERCOLOR-LIKE soft edges, NOT photographic preserve subject identity, Chagall masterpiece quality'
-  },
-  
-  magritte: {
-    name: '마그리트',
-    artist: 'René Magritte (1898-1967)',
-    movement: '초현실주의 (Surrealism)',
-    prompt: 'Surrealist painting by René Magritte: PHILOSOPHICAL PARADOX and mystery, Golconda style MULTIPLICATION of figures floating/falling in sky, OR Son of Man style with GREEN APPLE obscuring face, Belgian townscape with cloudy sky background, HYPERREALISTIC precise painting technique with impossible content, bowler hats and suits formal attire, thought-provoking visual puzzle, NOT photographic preserve subject identity, Magritte Surrealist masterpiece quality'
   },
   
   frida: {
@@ -1397,14 +1376,6 @@ async function selectArtistWithAI(imageBase64, selectedStyle, timeoutMs = 15000)
       
       // 거장별 대표작 목록
       const masterWorksDB = {
-        'monet': `
-CLAUDE MONET - SELECT ONE:
-1. "Water Lilies" (수련) → flowers, water, garden, pond, nature close-up | Style: SOFT HAZY reflections, BROKEN BRUSHSTROKES, floating lily pads, blue-green-purple
-2. "Impression, Sunrise" (인상, 해돋이) → landscape, sea, harbor, sunrise/sunset | Style: MISTY haze, orange sun on water, loose sketchy strokes
-3. "Woman with a Parasol" (양산을 든 여인) → person outdoors, windy day, figure in nature | Style: BRIGHT DAYLIGHT, flowing dress, dynamic clouds
-4. "Rouen Cathedral" (루앙 대성당) → architecture, building, facade | Style: TEXTURED stone surface, light on architecture, warm golden tones
-5. "Haystacks" (건초더미) → rural landscape, fields, farm | Style: Warm golden light, pastoral atmosphere`,
-
         'vangogh': `
 VINCENT VAN GOGH - SELECT ONE:
 1. "The Starry Night" (별이 빛나는 밤) → night scene, sky, landscape, evening | Style: SWIRLING SPIRAL brushstrokes, COBALT BLUE and YELLOW, cypress trees
@@ -1444,22 +1415,6 @@ PABLO PICASSO - SELECT ONE:
 3. "Weeping Woman" (우는 여인) → emotional portrait, woman | Style: SHARP ANGULAR tears, fractured face, yellow-green-purple
 4. "Guitar" (기타) → still life, object, instrument | Style: COLLAGE-LIKE planes, brown/beige cubist fragmentation
 5. "Bull's Head" (황소 머리) → animal, simple subject | Style: FOUND OBJECT aesthetic, simplified bold form`,
-
-        'chagall': `
-MARC CHAGALL - SELECT ONE:
-1. "I and the Village" (나와 마을) → landscape with animals, rural scene | Style: OVERLAPPING DREAMLIKE images, tilted houses, SOFT COLORS
-2. "Birthday" (생일) → couple, romantic, floating lovers | Style: FLOATING FIGURES defying gravity, kiss in mid-air, MUTED PASTELS
-3. "The Fiddler" (바이올린 연주자) → single person, musician | Style: Figure on rooftops, village below, purple-green palette
-4. "Over the Town" (마을 위에서) → couple, landscape, romantic | Style: TWO LOVERS FLYING over village, tilted houses, dreamy blue
-5. "Blue Circus" (푸른 서커스) → animals, circus, fantastical | Style: BLUE DOMINANT, floating acrobats and animals`,
-
-        'magritte': `
-RENE MAGRITTE - SELECT ONE:
-1. "Golconda" (골콩드) → full body outdoors, multiple people, sky | Style: IDENTICAL MEN IN BOWLER HATS floating like rain, Belgian townscape
-2. "The Son of Man" (사람의 아들) → portrait facing camera, formal, single person | Style: GREEN APPLE obscuring face at nose level, bowler hat, suit
-3. "Man in a Bowler Hat" (중절모를 쓴 남자) → portrait facing camera, formal | Style: WHITE DOVE bird covering face, bowler hat, suit
-4. "The Human Condition" (인간의 조건) → landscape, window, nature scene | Style: EASEL with canvas showing EXACT same view as window behind it, painting within painting illusion
-5. "The Empire of Light" (빛의 제국) → outdoor scene, house, street | Style: PARADOX of bright DAYTIME sky above NIGHTTIME dark street with lamplight`,
 
         'frida': `
 FRIDA KAHLO - SELECT ONE:
@@ -2457,7 +2412,8 @@ export default async function handler(req, res) {
           console.log('🎯 Klimt detected');
           if (!finalPrompt.includes('The Kiss')) {
             finalPrompt = finalPrompt + ', painting by Gustav Klimt, The Kiss-style with ELABORATE GOLDEN PATTERNS and Byzantine mosaic decorative elements, flat ornamental backgrounds covered with geometric spirals circles and rectangular motifs in shimmering gold leaf, sensuous organic forms emerging from abstract decorative fields, Art Nouveau flowing curves combined with geometric precision, rich textures of gold silver and precious jewel-like colors, erotic intimate mood within sacred ornamental splendor';
-            console.log('✅ Enhanced Klimt golden patterns added');
+            controlStrength = 0.60;
+            console.log('✅ Enhanced Klimt golden patterns added (control_strength 0.60)');
           } else {
             console.log('ℹ️ Klimt patterns already in prompt (AI included it)');
           }
@@ -2501,7 +2457,8 @@ export default async function handler(req, res) {
           console.log('🎯 Frida Kahlo detected');
           if (!finalPrompt.includes('Frida') && !finalPrompt.includes('unibrow')) {
             finalPrompt = finalPrompt + ', painting by Frida Kahlo, INTENSE DIRECT GAZE portrait style, vibrant MEXICAN FOLK ART colors (bright red, yellow, green, blue), symbolic personal imagery with THORNS, FLOWERS, ANIMALS (monkeys, hummingbirds, black cats), distinctive UNIBROW and bold features, Tehuana traditional Mexican dress with floral headpiece, lush tropical JUNGLE FOLIAGE background, autobiographical symbolic elements, exposed HEARTS or VEINS if emotional, raw vulnerability and strength';
-            console.log('✅ Enhanced Frida Kahlo Mexican symbolism added');
+            controlStrength = 0.55;
+            console.log('✅ Enhanced Frida Kahlo Mexican symbolism added (control_strength 0.55)');
           } else {
             console.log('ℹ️ Frida Kahlo style already in prompt (AI included it)');
           }
@@ -2576,7 +2533,7 @@ export default async function handler(req, res) {
           }
         }
         
-        // 마그리트 선택시 - 작품별 분기 (거장 + 모더니즘)
+        // 마그리트 선택시 - 작품별 분기 (모더니즘 전용)
         if (selectedArtist.toUpperCase().trim().includes('MAGRITTE') || 
             selectedArtist.toUpperCase().trim().includes('RENÉ') ||
             selectedArtist.toUpperCase().trim().includes('RENE') ||

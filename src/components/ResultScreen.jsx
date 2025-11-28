@@ -1,5 +1,5 @@
 // PicoArt v60 - ResultScreen
-// 거장 2차 교육자료 연결 완료
+// 거장 교육자료 통합본 사용 (1차+2차 = 42개)
 // 2025-11-28 업데이트
 
 import React, { useState, useEffect } from 'react';
@@ -7,7 +7,6 @@ import BeforeAfter from './BeforeAfter';
 import { orientalEducation } from '../data/educationContent';
 import { movementsEducation, movementsOverview } from '../data/movementsEducation';
 import { mastersEducation } from '../data/mastersEducation';
-import { mastersEducation2nd } from '../data/mastersEducation2nd';
 
 
 const ResultScreen = ({ 
@@ -174,14 +173,14 @@ const ResultScreen = ({
   };
 
 
-  // ========== 거장 교육 콘텐츠 (v60 - 2차 교육자료 지원) ==========
+  // ========== 거장 교육 콘텐츠 (v60 - 통합본 사용) ==========
   const getMastersEducation = () => {
     const artistRaw = aiSelectedArtist || selectedStyle.name || '';
     const artist = artistRaw.replace(/\s*\([^)]*\)/g, '').trim();
     
     console.log('');
     console.log('========================================');
-    console.log('🎨 MASTERS EDUCATION (v60):');
+    console.log('🎨 MASTERS EDUCATION (v60 통합본):');
     console.log('========================================');
     console.log('   - selectedStyle.name:', selectedStyle.name);
     console.log('   - aiSelectedArtist:', aiSelectedArtist);
@@ -191,11 +190,11 @@ const ResultScreen = ({
     console.log('');
     
     // ========== 2차 교육자료 (개별 작품) ==========
-    // aiSelectedWork가 있으면 2차 교육자료 사용
-    if (aiSelectedWork && mastersEducation2nd) {
+    // aiSelectedWork가 있으면 해당 작품 키로 검색
+    if (aiSelectedWork) {
       console.log('🎯 Trying 2nd education with selected_work:', aiSelectedWork);
       
-      // 작품명 → mastersEducation2nd 키 매핑
+      // 작품명 → mastersEducation 키 매핑
       const workKeyMap = {
         // 반 고흐
         'The Starry Night': 'vangogh-starrynight',
@@ -316,9 +315,9 @@ const ResultScreen = ({
       
       console.log('   - workKey:', workKey);
       
-      if (workKey && mastersEducation2nd[workKey]) {
-        const education = mastersEducation2nd[workKey];
-        console.log('✅ Found 2nd education!');
+      if (workKey && mastersEducation[workKey]) {
+        const education = mastersEducation[workKey];
+        console.log('✅ Found 2nd education (개별 작품)!');
         console.log('   - title:', education.title);
         console.log('   - desc length:', education.desc?.length);
         return education.desc;
@@ -375,11 +374,10 @@ const ResultScreen = ({
     }
     
     console.log('   - masterKey:', masterKey);
-    console.log('   - available keys:', Object.keys(mastersEducation));
     
     if (masterKey && mastersEducation[masterKey]) {
       const education = mastersEducation[masterKey];
-      console.log('✅ Found 1st (fallback) masters education!');
+      console.log('✅ Found 1st education (거장 개요)!');
       console.log('   - title:', education.title);
       console.log('   - desc length:', education.desc?.length);
       return education.desc;

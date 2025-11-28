@@ -1,11 +1,12 @@
-// PicoArt v30 - ResultScreen
-// 동양화 6개 장르 지원 + 디버깅 로그 강화
-// 2025-11-11 최종 버전
+// PicoArt v60 - ResultScreen
+// 거장 1차 교육자료 연결 완료
+// 2025-11-28 업데이트
 
 import React, { useState, useEffect } from 'react';
 import BeforeAfter from './BeforeAfter';
 import { orientalEducation } from '../data/educationContent';
 import { movementsEducation, movementsOverview } from '../data/movementsEducation';
+import { mastersEducation } from '../data/mastersEducation';
 
 
 const ResultScreen = ({ 
@@ -171,16 +172,14 @@ const ResultScreen = ({
   };
 
 
-  // ========== 거장 교육 콘텐츠 (v50 - 향후 별도 파일 연결) ==========
+  // ========== 거장 교육 콘텐츠 (v60 - 1차 교육자료 연결) ==========
   const getMastersEducation = () => {
-    const artist = (aiSelectedArtist || selectedStyle.name || '')
-      .replace(/\s*\([^)]*\)/g, '')
-      .trim()
-      .toLowerCase();
+    const artistRaw = aiSelectedArtist || selectedStyle.name || '';
+    const artist = artistRaw.replace(/\s*\([^)]*\)/g, '').trim();
     
     console.log('');
     console.log('========================================');
-    console.log('🎨 MASTERS EDUCATION (v50):');
+    console.log('🎨 MASTERS EDUCATION (v60):');
     console.log('========================================');
     console.log('   - selectedStyle.name:', selectedStyle.name);
     console.log('   - aiSelectedArtist:', aiSelectedArtist);
@@ -188,15 +187,67 @@ const ResultScreen = ({
     console.log('========================================');
     console.log('');
     
-    // TODO: mastersEducation.js 파일 만들고 여기서 import
-    // import { mastersEducation } from '../data/mastersEducation';
-    // return mastersEducation[artist]?.description;
+    // 한글 이름 → mastersEducation 키 매핑
+    const artistKeyMap = {
+      '빈센트 반 고흐': 'vangogh-master',
+      '반 고흐': 'vangogh-master',
+      'van gogh': 'vangogh-master',
+      'vincent van gogh': 'vangogh-master',
+      '구스타프 클림트': 'klimt-master',
+      '클림트': 'klimt-master',
+      'klimt': 'klimt-master',
+      'gustav klimt': 'klimt-master',
+      '에드바르 뭉크': 'munch-master',
+      '뭉크': 'munch-master',
+      'munch': 'munch-master',
+      'edvard munch': 'munch-master',
+      '앙리 마티스': 'matisse-master',
+      '마티스': 'matisse-master',
+      'matisse': 'matisse-master',
+      'henri matisse': 'matisse-master',
+      '파블로 피카소': 'picasso-master',
+      '피카소': 'picasso-master',
+      'picasso': 'picasso-master',
+      'pablo picasso': 'picasso-master',
+      '프리다 칼로': 'frida-master',
+      '프리다': 'frida-master',
+      'frida': 'frida-master',
+      'frida kahlo': 'frida-master',
+      '앤디 워홀': 'warhol-master',
+      '워홀': 'warhol-master',
+      'warhol': 'warhol-master',
+      'andy warhol': 'warhol-master'
+    };
     
-    console.log('⚠️ Masters education not yet implemented');
-    console.log('⚠️ Using fallback message');
+    // 키 매칭 시도
+    const normalizedArtist = artist.toLowerCase();
+    let masterKey = artistKeyMap[artist] || artistKeyMap[normalizedArtist];
+    
+    // 부분 매칭 시도
+    if (!masterKey) {
+      for (const [name, key] of Object.entries(artistKeyMap)) {
+        if (normalizedArtist.includes(name.toLowerCase()) || name.toLowerCase().includes(normalizedArtist)) {
+          masterKey = key;
+          break;
+        }
+      }
+    }
+    
+    console.log('   - masterKey:', masterKey);
+    console.log('   - available keys:', Object.keys(mastersEducation));
+    
+    if (masterKey && mastersEducation[masterKey]) {
+      const education = mastersEducation[masterKey];
+      console.log('✅ Found masters education!');
+      console.log('   - title:', education.title);
+      console.log('   - desc length:', education.desc?.length);
+      return education.desc;
+    }
+    
+    console.log('⚠️ Masters education not found for:', artist);
     console.log('');
     
-    return `이 작품은 ${selectedStyle.name} 스타일로 변환되었습니다.\n\n거장 교육 콘텐츠는 준비 중입니다.`;
+    return null;
   };
 
 

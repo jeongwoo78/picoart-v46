@@ -1,5 +1,5 @@
 // PicoArt v60 - ResultScreen
-// 거장 1차 교육자료 연결 완료
+// 거장 2차 교육자료 연결 완료
 // 2025-11-28 업데이트
 
 import React, { useState, useEffect } from 'react';
@@ -7,13 +7,15 @@ import BeforeAfter from './BeforeAfter';
 import { orientalEducation } from '../data/educationContent';
 import { movementsEducation, movementsOverview } from '../data/movementsEducation';
 import { mastersEducation } from '../data/mastersEducation';
+import { mastersEducation2nd } from '../data/mastersEducation2nd';
 
 
 const ResultScreen = ({ 
   originalPhoto, 
   resultImage, 
   selectedStyle, 
-  aiSelectedArtist, 
+  aiSelectedArtist,
+  aiSelectedWork,
   onReset 
 }) => {
   
@@ -172,7 +174,7 @@ const ResultScreen = ({
   };
 
 
-  // ========== 거장 교육 콘텐츠 (v60 - 1차 교육자료 연결) ==========
+  // ========== 거장 교육 콘텐츠 (v60 - 2차 교육자료 지원) ==========
   const getMastersEducation = () => {
     const artistRaw = aiSelectedArtist || selectedStyle.name || '';
     const artist = artistRaw.replace(/\s*\([^)]*\)/g, '').trim();
@@ -183,10 +185,149 @@ const ResultScreen = ({
     console.log('========================================');
     console.log('   - selectedStyle.name:', selectedStyle.name);
     console.log('   - aiSelectedArtist:', aiSelectedArtist);
+    console.log('   - aiSelectedWork:', aiSelectedWork);
     console.log('   - normalized artist:', artist);
     console.log('========================================');
     console.log('');
     
+    // ========== 2차 교육자료 (개별 작품) ==========
+    // aiSelectedWork가 있으면 2차 교육자료 사용
+    if (aiSelectedWork && mastersEducation2nd) {
+      console.log('🎯 Trying 2nd education with selected_work:', aiSelectedWork);
+      
+      // 작품명 → mastersEducation2nd 키 매핑
+      const workKeyMap = {
+        // 반 고흐
+        'The Starry Night': 'vangogh-starrynight',
+        '별이 빛나는 밤': 'vangogh-starrynight',
+        'Starry Night': 'vangogh-starrynight',
+        'Sunflowers': 'vangogh-sunflowers',
+        '해바라기': 'vangogh-sunflowers',
+        'Bedroom in Arles': 'vangogh-bedroom',
+        '아를의 침실': 'vangogh-bedroom',
+        'The Potato Eaters': 'vangogh-potatoeaters',
+        '감자 먹는 사람들': 'vangogh-potatoeaters',
+        'Self-Portrait': 'vangogh-selfportrait',
+        '자화상': 'vangogh-selfportrait',
+        
+        // 클림트
+        'The Kiss': 'klimt-kiss',
+        '키스': 'klimt-kiss',
+        'Portrait of Adele Bloch-Bauer I': 'klimt-adele',
+        '아델레 블로흐-바우어의 초상': 'klimt-adele',
+        'Adele Bloch-Bauer': 'klimt-adele',
+        'The Tree of Life': 'klimt-treeoflife',
+        '생명의 나무': 'klimt-treeoflife',
+        'Tree of Life': 'klimt-treeoflife',
+        'Danae': 'klimt-danae',
+        '다나에': 'klimt-danae',
+        'Judith I': 'klimt-judith',
+        'Judith': 'klimt-judith',
+        '유디트': 'klimt-judith',
+        
+        // 뭉크
+        'The Scream': 'munch-scream',
+        '절규': 'munch-scream',
+        'Scream': 'munch-scream',
+        'Madonna': 'munch-madonna',
+        '마돈나': 'munch-madonna',
+        'The Sick Child': 'munch-sickchild',
+        '병든 아이': 'munch-sickchild',
+        'Sick Child': 'munch-sickchild',
+        'The Dance of Life': 'munch-vampire',
+        'Puberty': 'munch-puberty',
+        '사춘기': 'munch-puberty',
+        'Vampire': 'munch-vampire',
+        '뱀파이어': 'munch-vampire',
+        
+        // 마티스
+        'The Dance': 'matisse-dance',
+        '춤': 'matisse-dance',
+        'Dance': 'matisse-dance',
+        'The Red Room': 'matisse-redroom',
+        '붉은 방': 'matisse-redroom',
+        'Red Room': 'matisse-redroom',
+        'Woman with a Hat': 'matisse-womanhat',
+        '모자를 쓴 여인': 'matisse-womanhat',
+        'Goldfish': 'matisse-goldfish',
+        '금붕어': 'matisse-goldfish',
+        'The Snail': 'matisse-snail',
+        '달팽이': 'matisse-snail',
+        'Snail': 'matisse-snail',
+        
+        // 피카소
+        'Les Demoiselles d\'Avignon': 'picasso-demoiselles',
+        '아비뇽의 처녀들': 'picasso-demoiselles',
+        'Demoiselles': 'picasso-demoiselles',
+        'Guernica': 'picasso-guernica',
+        '게르니카': 'picasso-guernica',
+        'Weeping Woman': 'picasso-weepingwoman',
+        '우는 여인': 'picasso-weepingwoman',
+        'Guitar': 'picasso-dream',
+        'The Dream': 'picasso-dream',
+        '꿈': 'picasso-dream',
+        'Dream': 'picasso-dream',
+        'Bull\'s Head': 'picasso-bullhead',
+        '황소 머리': 'picasso-bullhead',
+        
+        // 프리다 칼로
+        'The Two Fridas': 'frida-twofridas',
+        '두 명의 프리다': 'frida-twofridas',
+        'Two Fridas': 'frida-twofridas',
+        'The Broken Column': 'frida-brokencolumn',
+        '부러진 기둥': 'frida-brokencolumn',
+        'Broken Column': 'frida-brokencolumn',
+        'Self-Portrait with Thorn Necklace': 'frida-thornnecklace',
+        '가시 목걸이와 벌새': 'frida-thornnecklace',
+        'Thorn Necklace': 'frida-thornnecklace',
+        'Self-Portrait with Monkeys': 'frida-monkeys',
+        '원숭이와 자화상': 'frida-monkeys',
+        'Diego and I': 'frida-diegoandi',
+        '디에고와 나': 'frida-diegoandi',
+        
+        // 워홀
+        'Marilyn Monroe': 'warhol-marilyn',
+        '마릴린 먼로': 'warhol-marilyn',
+        'Marilyn': 'warhol-marilyn',
+        'Campbell\'s Soup Cans': 'warhol-soup',
+        '캠벨 수프 캔': 'warhol-soup',
+        'Soup Cans': 'warhol-soup',
+        'Banana': 'warhol-banana',
+        '바나나': 'warhol-banana',
+        'Endangered Species': 'warhol-endangered',
+        '멸종 위기 종': 'warhol-endangered',
+        'Elvis': 'warhol-elvis',
+        '엘비스': 'warhol-elvis'
+      };
+      
+      // 직접 매칭 시도
+      let workKey = workKeyMap[aiSelectedWork];
+      
+      // 부분 매칭 시도
+      if (!workKey) {
+        const workLower = aiSelectedWork.toLowerCase();
+        for (const [name, key] of Object.entries(workKeyMap)) {
+          if (workLower.includes(name.toLowerCase()) || name.toLowerCase().includes(workLower)) {
+            workKey = key;
+            break;
+          }
+        }
+      }
+      
+      console.log('   - workKey:', workKey);
+      
+      if (workKey && mastersEducation2nd[workKey]) {
+        const education = mastersEducation2nd[workKey];
+        console.log('✅ Found 2nd education!');
+        console.log('   - title:', education.title);
+        console.log('   - desc length:', education.desc?.length);
+        return education.desc;
+      }
+      
+      console.log('⚠️ 2nd education not found, falling back to 1st');
+    }
+    
+    // ========== 1차 교육자료 (거장 개요) ==========
     // 한글 이름 → mastersEducation 키 매핑
     const artistKeyMap = {
       '빈센트 반 고흐': 'vangogh-master',
@@ -238,7 +379,7 @@ const ResultScreen = ({
     
     if (masterKey && mastersEducation[masterKey]) {
       const education = mastersEducation[masterKey];
-      console.log('✅ Found masters education!');
+      console.log('✅ Found 1st (fallback) masters education!');
       console.log('   - title:', education.title);
       console.log('   - desc length:', education.desc?.length);
       return education.desc;

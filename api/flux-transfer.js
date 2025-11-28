@@ -1817,6 +1817,7 @@ Return JSON only:
     return {
       success: true,
       artist: result.selected_artist,
+      selectedWork: result.selected_work,  // 거장 선택 작품명 추가
       reason: result.reason,
       prompt: result.prompt,
       analysis: result.analysis
@@ -1964,7 +1965,8 @@ export default async function handler(req, res) {
         selectionMethod = 'ai_auto';
         selectionDetails = {
           analysis: aiResult.analysis,
-          reason: aiResult.reason
+          reason: aiResult.reason,
+          selected_work: aiResult.selectedWork  // 거장 선택 작품명 추가
         };
         console.log('✅✅✅ [V41-TEST-SUCCESS] AI selected:', selectedArtist);
         

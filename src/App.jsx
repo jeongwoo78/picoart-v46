@@ -1,4 +1,4 @@
-// PicoArt v30 - Main App (aiSelectedArtist 전달 수정)
+// PicoArt v60 - Main App (selected_work 전달 추가)
 import React, { useState } from 'react';
 import UploadScreen from './components/UploadScreen';
 import StyleSelection from './components/StyleSelection';
@@ -12,6 +12,7 @@ const App = () => {
   const [selectedStyle, setSelectedStyle] = useState(null);
   const [resultImage, setResultImage] = useState(null);
   const [aiSelectedArtist, setAiSelectedArtist] = useState(null);
+  const [aiSelectedWork, setAiSelectedWork] = useState(null);  // 거장 선택 작품
 
   const handlePhotoUpload = (photoFile) => {
     setUploadedPhoto(photoFile);
@@ -33,6 +34,15 @@ const App = () => {
       console.log('⚠️ No aiSelectedArtist in result:', result);
     }
     
+    // 거장 선택 작품 저장 (2차 교육자료용)
+    if (result && result.selectionDetails && result.selectionDetails.selected_work) {
+      setAiSelectedWork(result.selectionDetails.selected_work);
+      console.log('✅ App.jsx received selected_work:', result.selectionDetails.selected_work);
+    } else {
+      setAiSelectedWork(null);
+      console.log('ℹ️ No selected_work in result (not masters category)');
+    }
+    
     setCurrentScreen('result');
   };
 
@@ -42,6 +52,7 @@ const App = () => {
     setSelectedStyle(null);
     setResultImage(null);
     setAiSelectedArtist(null);
+    setAiSelectedWork(null);
   };
 
   return (
@@ -79,6 +90,7 @@ const App = () => {
             resultImage={resultImage}
             selectedStyle={selectedStyle}
             aiSelectedArtist={aiSelectedArtist}
+            aiSelectedWork={aiSelectedWork}
             onReset={handleReset}
           />
         )}

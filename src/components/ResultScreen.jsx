@@ -753,9 +753,9 @@ const ResultScreen = ({
   };
 
 
-  // ========== 다운로드 ==========
+  // ========== 저장 (다운로드 폴더) ==========
   const handleDownload = async () => {
-    console.log('=== 다운로드 시작 ===');
+    console.log('=== 저장 시작 ===');
     console.log('resultImage:', resultImage);
     
     try {
@@ -767,56 +767,64 @@ const ResultScreen = ({
       console.log('3. blob 생성 완료, size:', blob.size, 'type:', blob.type);
       
       const fileName = `picoart-${selectedStyle.id}-${Date.now()}.jpg`;
-      const file = new File([blob], fileName, { type: 'image/jpeg' });
-      console.log('4. File 생성 완료:', fileName);
+      console.log('4. 파일명:', fileName);
       
-      // 모바일: Share API로 저장 (갤러리 접근 가능)
-      console.log('5. canShare 체크:', navigator.canShare ? 'exists' : 'not exists');
+      // 다운로드 폴더에 저장
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      console.log('5. 다운로드 완료!');
       
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        console.log('6. Share API 사용 (모바일)');
-        await navigator.share({
-          files: [file],
-          title: 'PicoArt 작품',
-        });
-        console.log('7. Share 완료!');
-      } else {
-        console.log('6. 기존 다운로드 방식 (PC)');
-        // PC: 기존 방식
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-        console.log('7. 다운로드 링크 클릭 완료!');
-      }
+      alert('다운로드 폴더에 저장되었습니다!\n파일 앱 → 다운로드 폴더에서 확인하세요.');
     } catch (error) {
       console.error('Download failed:', error);
-      console.error('Error name:', error.name);
-      console.error('Error message:', error.message);
-      alert('다운로드에 실패했습니다: ' + error.message);
+      alert('저장에 실패했습니다: ' + error.message);
     }
   };
 
 
-  // ========== 공유 ==========
+  // ========== 공유 (이미지 파일 공유) ==========
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
+    console.log('=== 공유 시작 ===');
+    
+    try {
+      const response = await fetch(resultImage);
+      const blob = await response.blob();
+      const fileName = `picoart-${selectedStyle.id}-${Date.now()}.jpg`;
+      const file = new File([blob], fileName, { type: 'image/jpeg' });
+      
+      // Share API로 이미지 파일 공유
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        console.log('Share API 사용');
+        await navigator.share({
+          files: [file],
+          title: 'PicoArt 작품',
+          text: `${selectedStyle.name} 스타일로 변환한 작품`,
+        });
+        console.log('공유 완료!');
+      } else if (navigator.share) {
+        // 파일 공유 미지원 시 URL 공유
+        console.log('URL 공유 방식');
         await navigator.share({
           title: 'PicoArt - AI 예술 변환',
           text: `${selectedStyle.name}로 변환한 작품`,
           url: window.location.href
         });
-      } catch (error) {
-        console.log('Share cancelled or failed');
+      } else {
+        // Share API 미지원
+        navigator.clipboard.writeText(window.location.href);
+        alert('링크가 클립보드에 복사되었습니다!');
       }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('링크가 클립보드에 복사되었습니다!');
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        console.error('Share failed:', error);
+        alert('공유에 실패했습니다.');
+      }
     }
   };
 
@@ -931,16 +939,16 @@ const ResultScreen = ({
             className="btn btn-download" 
             onClick={handleDownload}
           >
-            <span className="btn-icon">📥</span>
-            다운로드
+            <span className="btn-icon">💾</span>
+            저장
           </button>
           
           <button 
             className="btn btn-share" 
             onClick={handleShare}
           >
-            <span className="btn-icon">🔗</span>
-            공유하기
+            <span className="btn-icon">📤</span>
+            공유
           </button>
           
           <button 

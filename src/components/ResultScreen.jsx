@@ -270,9 +270,9 @@ const ResultScreen = ({
         '황소 머리': 'picasso-bullhead',
         
         // 프리다 칼로
-        'The Two Fridas': 'frida-twofridas',
-        '두 명의 프리다': 'frida-twofridas',
-        'Two Fridas': 'frida-twofridas',
+        'Me and My Parrots': 'frida-parrots',
+        '나와 내 앵무새들': 'frida-parrots',
+        'My Parrots': 'frida-parrots',
         'The Broken Column': 'frida-brokencolumn',
         '부러진 기둥': 'frida-brokencolumn',
         'Broken Column': 'frida-brokencolumn',
@@ -758,15 +758,26 @@ const ResultScreen = ({
     try {
       const response = await fetch(resultImage);
       const blob = await response.blob();
+      const fileName = `picoart-${selectedStyle.id}-${Date.now()}.jpg`;
+      const file = new File([blob], fileName, { type: 'image/jpeg' });
       
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `picoart-${selectedStyle.id}-${Date.now()}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      // 모바일: Share API로 저장 (갤러리 접근 가능)
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'PicoArt 작품',
+        });
+      } else {
+        // PC: 기존 방식
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }
     } catch (error) {
       console.error('Download failed:', error);
       alert('다운로드에 실패했습니다.');

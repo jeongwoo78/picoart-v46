@@ -755,19 +755,33 @@ const ResultScreen = ({
 
   // ========== 다운로드 ==========
   const handleDownload = async () => {
+    console.log('=== 다운로드 시작 ===');
+    console.log('resultImage:', resultImage);
+    
     try {
+      console.log('1. fetch 시작...');
       const response = await fetch(resultImage);
+      console.log('2. fetch 완료, status:', response.status);
+      
       const blob = await response.blob();
+      console.log('3. blob 생성 완료, size:', blob.size, 'type:', blob.type);
+      
       const fileName = `picoart-${selectedStyle.id}-${Date.now()}.jpg`;
       const file = new File([blob], fileName, { type: 'image/jpeg' });
+      console.log('4. File 생성 완료:', fileName);
       
       // 모바일: Share API로 저장 (갤러리 접근 가능)
+      console.log('5. canShare 체크:', navigator.canShare ? 'exists' : 'not exists');
+      
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        console.log('6. Share API 사용 (모바일)');
         await navigator.share({
           files: [file],
           title: 'PicoArt 작품',
         });
+        console.log('7. Share 완료!');
       } else {
+        console.log('6. 기존 다운로드 방식 (PC)');
         // PC: 기존 방식
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -777,10 +791,13 @@ const ResultScreen = ({
         link.click();
         document.body.removeChild(link);
         window.URL.revokeObjectURL(url);
+        console.log('7. 다운로드 링크 클릭 완료!');
       }
     } catch (error) {
       console.error('Download failed:', error);
-      alert('다운로드에 실패했습니다.');
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      alert('다운로드에 실패했습니다: ' + error.message);
     }
   };
 
